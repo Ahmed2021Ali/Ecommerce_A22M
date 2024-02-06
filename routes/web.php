@@ -18,6 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
+Route::get('/welcome23', function () {
+    return view('welcome23');
+})->name('welcome23');
+
     //********************* Authentication routes ******************************//
 Route::controller(AuthController::class)->group(function(){
 
@@ -28,6 +32,6 @@ Route::controller(AuthController::class)->group(function(){
     Route::get('/submit-signin',  'viewSigninForm')->name('singin');
 
     Route::post('/login',  'login')->name('submit.login');
-    
+
     Route::post('/logout',  'logout')->name('logout');
 });
