@@ -18,7 +18,7 @@ class AuthController extends Controller
 
     public function viewSignupForm()
     {
-        return view('auth.signup'); 
+        return view('auth.signup');
     }
 
 
@@ -26,7 +26,7 @@ class AuthController extends Controller
     public function submitSignup(UserRegisterRequest $request)
     {
         $validatedData = $request->validated();
-        
+
         $user = User::create($validatedData);
 
         Auth::login($user);
@@ -34,11 +34,9 @@ class AuthController extends Controller
         return redirect('/home');
     }
 
-
-
     public function viewSigninForm()
     {
-        return view('auth.signin'); 
+        return view('auth.signin');
     }
 
 
@@ -49,7 +47,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             // Authentication passed
-            return redirect('home'); 
+            return redirect('home');
         } else {
             // Authentication failed
             return back()->withInput()->withErrors(['email' => 'Invalid credentials']);
@@ -60,6 +58,6 @@ class AuthController extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect('/login'); 
+        return redirect('/login');
     }
 }

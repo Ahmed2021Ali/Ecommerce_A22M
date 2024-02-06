@@ -1,8 +1,6 @@
 <!-- layouts/master.blade.php -->
-
 <!DOCTYPE html>
 <html class="no-js" lang="ar">
-
 <head>
     <meta charset="utf-8">
     <title>@yield('title')</title>
@@ -23,10 +21,8 @@
     <main class="main">
         @yield('content')
     </main>
-
     @include('userDashboard.layouts.footer')
     @include('userDashboard.layouts.footerScripts')
     @yield('js')
-
 </body>
 </html>

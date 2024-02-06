@@ -19,19 +19,14 @@ class CategoryController extends Controller
     {
         return $this->category->index();
     }
-
-
     public function create()
     {
         //
     }
-
-
     public function store(Request $request)
     {
         //
     }
-
 
     public function show(Category $category)
     {
