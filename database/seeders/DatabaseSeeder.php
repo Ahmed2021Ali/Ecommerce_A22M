@@ -1,22 +1,64 @@
 <?php
 
 namespace Database\Seeders;
-
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
+    private $permissions = [
+        'اضافة قسم',
+        'تعديل قسم',
+        'حذف قسم',
+        'اضافة منتج',
+        'تعديل منتج',
+        'حذف منتج',
+        'اضافة بانر',
+        'تعديل بانر',
+        'حذف بانر',
+        'اضافة اسلايدر',
+        'تعديل اسلايدر',
+        'حذف اسلايدر',
+        'اضافة كوبون',
+        'تعديل كوبون',
+        'حذف كوبون',
+        'اضافة نوع مستخدم',
+        'تعديل نوع مستخدم',
+        'حذف نوع مستخدم',
+        'اضافة إذن',
+        'تعديل إذن',
+        'حذف إذن',
+        'اضافة خدمة',
+        'تعديل خدمة',
+        'حذف خدمة',
+        'اضافة ماركة',
+        'تعديل ماركة',
+        'حذف ماركة',
+    ];
+
+
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        foreach ($this->permissions as $permission) {
+            Permission::create(['name' => $permission]);
+        }
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        // Create admin User and assign the role to him.
+        $user = User::create([
+            'name' => 'Owner',
+            'email' => 'owner@gmail.com',
+            'password' => Hash::make('123456789')
+        ]);
+
+        $role = Role::create(['name' => 'Owner']);
+
+        $permissions = Permission::pluck('id', 'id')->all();
+
+        $role->syncPermissions($permissions);
+
+        $user->assignRole([$role->id]);
     }
 }
