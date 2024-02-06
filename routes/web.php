@@ -1,28 +1,33 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\AdminDashboard\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+    Route::get('/', function () {
+        return view('home');
+    })->name('home');
 
-Route::get('/dashboard', function () {
-    return view('welcome23');
-})->name('welcome23');
+    Route::get('/dashboard', function () {
+        return view('welcome23');
+    })->name('welcome23');
 
-    //********************* Authentication routes ******************************//
-Route::controller(AuthController::class)->group(function(){
+        //********************* Authentication routes ******************************//
+    Route::controller(AuthController::class)->group(function(){
 
-    Route::get('/view-signup',  'viewSignupForm')->name('signup.view.form');
+        Route::get('/view-signup-form',  'viewSignupForm')->name('signup.view.form');
 
-    Route::post('/submit-signup', 'submitSignup')->name('signup.submit.form');
+        Route::post('/submit-signup', 'submitSignup')->name('signup.submit.form');
 
-    Route::get('/submit-signin',  'viewSigninForm')->name('singin');
+        Route::get('/view-signin-form',  'viewSigninForm')->name('signin.view.form');
 
-    Route::post('/login',  'login')->name('submit.login');
+        Route::post('/submit-signin',  'submitSignin')->name('signin.submit.form');
 
-    Route::post('/logout',  'logout')->name('logout');
-});
+        Route::post('/logout',  'logout')->name('logout');
+    });
+
+
+    Route::resource('categories', CategoryController::class);
+
