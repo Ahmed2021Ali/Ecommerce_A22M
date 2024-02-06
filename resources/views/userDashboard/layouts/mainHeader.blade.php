@@ -30,7 +30,7 @@
                 <div class="col-xl-3 col-lg-4">
                     <div class="header-info header-info-right">
                         <ul>                                
-                            <li><i class="fi-rs-key"></i><a href="login.html">Log In </a>  / <a href="register.html">Sign Up</a></li>
+                            <li><i class="fi-rs-key"></i><a href="{{route('signin.view.form')}}">Log In </a>  / <a href="{{route('signup.view.form')}}">Sign Up</a></li>
                         </ul>
                     </div>
                 </div>

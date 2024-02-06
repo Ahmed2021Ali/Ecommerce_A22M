@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
         return view('welcome23');
     })->name('welcome23');
 
-        //********************* Authentication routes ******************************//
+        //********************* Begin Authentication routes ******************************//
     Route::controller(AuthController::class)->group(function(){
 
         Route::get('/view-signup-form',  'viewSignupForm')->name('signup.view.form');
@@ -27,6 +27,7 @@ use Illuminate\Support\Facades\Route;
 
         Route::post('/logout',  'logout')->name('logout');
     });
+        //********************* End Authentication routes ******************************//
 
 
     Route::resource('categories', CategoryController::class);

@@ -1,6 +1,6 @@
 @extends('userDashboard.layouts.master')
     @section('title')
-        Signup
+        Signin
     @endsection
     @section('css')
         
@@ -11,7 +11,7 @@
         <div class="container">
             <div class="breadcrumb">
                 <a href="index.html" rel="nofollow">Home</a>                    
-                <span></span> Signup
+                <span></span> Signin
             </div>
         </div>
     </div>
@@ -24,7 +24,7 @@
                             <div class="login_wrap widget-taber-content p-30 background-white border-radius-10 mb-md-5 mb-lg-0 mb-sm-5">
                                 <div class="padding_eight_all bg-white">
                                     <div class="heading_s1">
-                                        <h3 class="mb-30">Signup</h3>
+                                        <h3 class="mb-30">Signin</h3>
                                     </div>
                                     <form method="post">
                                         <div class="form-group">
@@ -34,13 +34,7 @@
                                             <input required="" type="password" name="password" placeholder="Password">
                                         </div>
                                         <div class="form-group">
-                                            <input required type="password" name="password_confirmation" placeholder="Confirm Password">
-                                        </div>
-                                        <div class="form-group">
-                                            <input required="" type="email" name="email" placeholder="Email">
-                                        </div>
-                                        <div class="form-group">
-                                            <button type="submit" class="btn btn-fill-out btn-block hover-up" name="login">Signup</button>
+                                            <button type="submit" class="btn btn-fill-out btn-block hover-up" name="login">Signin</button>
                                         </div>
                                     </form>
                                 </div>
