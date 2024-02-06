@@ -5,12 +5,19 @@ namespace App\Http\Controllers\AdminDashboard;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Repositories\Interfaces\AdminDashboard\CategoryInterface;
+
 class CategoryController extends Controller
 {
 
+    protected $category;
+    public function __construct(CategoryInterface $category)
+    {
+        $this->category = $category;
+    }
     public function index()
     {
-        $categories = Category::select('id', 'name')->get();
+        return $this->category->index();
     }
 
 
