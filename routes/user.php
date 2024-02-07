@@ -11,5 +11,4 @@ Route::get('/', function () {
 Route::controller(HomepageController::class)->group(function(){
 
     //Route::get('/showAllCategory',  'showAllCategory')->name('showAllCategory');
-
 });

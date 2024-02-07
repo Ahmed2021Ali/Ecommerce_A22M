@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\AdminDashboard;
 
+use App\Http\Requests\category\StoreCategoryRequest;
+use App\Http\Requests\category\UpdateCategoryRequest;
 use App\Models\Category;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\Interfaces\AdminDashboard\CategoryInterface;
 
@@ -19,35 +20,22 @@ class CategoryController extends Controller
     {
         return $this->category->index();
     }
-    public function create()
+    public function store(StoreCategoryRequest $request)
     {
-        //
-    }
-    public function store(Request $request)
-    {
-        //
+        return $this->category->store($request->validated());
     }
 
     public function show(Category $category)
     {
-        //
+        return $this->category->show($category);
     }
 
-
-    public function edit(Category $category)
+    public function update(UpdateCategoryRequest $request, Category $category)
     {
-        //
+        return $this->category->update($request->validated(),$category);
     }
-
-
-    public function update(Request $request, Category $category)
-    {
-        //
-    }
-
-
     public function destroy(Category $category)
     {
-        //
+        return $this->category->destroy($category);
     }
 }

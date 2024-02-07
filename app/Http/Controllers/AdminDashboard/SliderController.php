@@ -1,65 +1,36 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\AdminDashboard;
 
+use App\Http\Controllers\Controller;
+use App\Http\Requests\slider\SliderStoreRequest;
+use App\Http\Requests\slider\SliderUpdateRequest;
 use App\Models\Slider;
+use App\Repositories\Interfaces\AdminDashboard\SliderInterface;
 use Illuminate\Http\Request;
 
 class SliderController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    protected $slider;
+    public function __construct(SliderInterface $slider)
+    {
+        $this->slider = $slider;
+    }
     public function index()
     {
-        //
+        return $this->slider->index();
     }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function store(SliderStoreRequest $request)
     {
-        //
+        return $this->slider->store($request->validated());
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function update(SliderUpdateRequest $request, Slider $slider)
     {
-        //
+        return $this->slider->update($request->validated(),$slider);
     }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Slider $slider)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Slider $slider)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Slider $slider)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Slider $slider)
     {
-        //
+        return $this->slider->destroy($slider);
     }
 }

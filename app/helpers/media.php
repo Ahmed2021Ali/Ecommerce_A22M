@@ -6,6 +6,7 @@
 function uploadFiles($files, $model, $folder)
 {
     if ($files) {
+       // dd($file);
         foreach ($files as $file) {
             $model->addMedia($file)->toMediaCollection($folder);
         }

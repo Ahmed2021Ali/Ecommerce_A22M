@@ -15,13 +15,10 @@ class AuthController extends Controller
         $this->middleware(['guest'])->except('logout');
     }
 
-
     public function viewSignupForm()
     {
         return view('auth.signup');
     }
-
-
 
     public function submitSignup(UserRegisterRequest $request)
     {
@@ -38,8 +35,6 @@ class AuthController extends Controller
     {
         return view('auth.signin');
     }
-
-
 
     public function submitSignin(Request $request)
     {

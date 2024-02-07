@@ -11,6 +11,11 @@ return new class extends Migration
     {
         Schema::create('sliders', function (Blueprint $table) {
             $table->id();
+            $table->string('title_h1');
+            $table->string('title_h2');
+            $table->string('title_h4');
+            $table->string('title_p');
+            $table->string('status');
             $table->timestamps();
         });
     }
