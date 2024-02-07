@@ -2,20 +2,6 @@
     <div class="header-top header-top-ptb-1 d-none d-lg-block">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-xl-3 col-lg-4">
-                    <div class="header-info">
-                    <ul>
-                            <li>
-                                <a class="language-dropdown-active" href="#"> <i class="fi-rs-world"></i> English <i class="fi-rs-angle-small-down"></i></a>
-                                <ul class="language-dropdown">
-                                    <li><a href="#"><img src="assets/imgs/theme/flag-fr.png" alt="">Français</a></li>
-                                    <li><a href="#"><img src="assets/imgs/theme/flag-dt.png" alt="">Deutsch</a></li>
-                                    <li><a href="#"><img src="assets/imgs/theme/flag-ru.png" alt="">Pусский</a></li>
-                                </ul>
-                            </li>                                
-                        </ul>
-                    </div>
-                </div>
                 <div class="col-xl-6 col-lg-4">
                     <div class="text-center">
                         <div id="news-flash" class="d-inline-block">
@@ -297,7 +283,7 @@
                     <div class="main-menu main-menu-padding-1 main-menu-lh-2 d-none d-lg-block">
                         <nav>
                             <ul>
-                                <li><a class="active" href="index.html">Home </a></li>
+                                <li><a class="active" href="{{route('home')}}">Home </a></li>
                                 <li><a href="about.html">About</a></li>
                                 <li><a href="shop.html">Shop</a></li>
                                 <li class="position-static"><a href="#">Our Collections <i class="fi-rs-angle-down"></i></a>

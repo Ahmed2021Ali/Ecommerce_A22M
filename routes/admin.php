@@ -8,7 +8,7 @@ use App\Http\Controllers\AdminDashboard\UserController;
 
 
 
-Route::get('/adminDashboard', function () {
+Route::get('/admin-dashboard', function () {
     return view('adminDashboard.dashboard');
 });
 Route::resource('category', CategoryController::class);
@@ -16,5 +16,5 @@ Route::resource('slider', SliderController::class);
 
 
 Route::resource('roles', RoleController::class);
-Route::resource('users', UserController::class);
+Route::resource('users', UserController::class)->except('show');
 

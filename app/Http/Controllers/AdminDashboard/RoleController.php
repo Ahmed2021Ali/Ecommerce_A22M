@@ -4,88 +4,66 @@ namespace App\Http\Controllers\AdminDashboard;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\DB;
-use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
+use App\Http\Requests\Role\RoleRequest;
+use App\Repositories\Interfaces\AdminDashboard\RoleInterface;
+
 class RoleController extends Controller
 {
 
-    // function __construct()
-    // {
-    //     $this->middleware(['permission:role-list|role-create|role-edit|role-delete'], ['only' => ['index', 'store']]);
-    //     $this->middleware(['permission:role-create'], ['only' => ['create', 'store']]);
-    //     $this->middleware(['permission:role-edit'], ['only' => ['edit', 'update']]);
-    //     $this->middleware(['permission:role-delete'], ['only' => ['destroy']]);
-    // }
+
+    private $roleRepository;
+
+    public function __construct(RoleInterface $roleRepository) {
+    // $this->middleware(['auth' , 'check.user.status'] );
+    // $this->middleware('permission:عرض صلاحية', ['only' => ['index']]);
+    // $this->middleware('permission:اضافة صلاحية', ['only' => ['create','store']]);
+    // $this->middleware('permission:تعديل صلاحية', ['only' => ['edit','update']]);
+    // $this->middleware('permission:حذف صلاحية', ['only' => ['destroy']]);
+
+    $this->roleRepository = $roleRepository;
+
+    }
+
 
     public function index(Request $request)
     {
-        $roles = Role::orderBy('id', 'DESC')->paginate(5);
-        return view('roles.index', compact('roles'));
+        return $this->roleRepository->index($request);
     }
+
 
     public function create()
     {
-        $permission = Permission::get();
-        return view('roles.create', compact('permission'));
+        return $this->roleRepository->create();
     }
 
-    public function store(Request $request)
+
+    public function store(RoleRequest $request)
     {
-        $this->validate($request, [
-            'name' => 'required|unique:roles,name',
-            'permission' => 'required',
-        ]);
+        return $this->roleRepository->store($request);
+    }    
 
-        $role = Role::create(['name' => $request->input('name')]);
-        $role->syncPermissions($request->input('permission'));
-
-        return redirect()->route('roles.index')
-            ->with('success', 'Role created successfully');
-    }
 
     public function show($id)
     {
-        $role = Role::find($id);
-        $rolePermissions = Permission::join("role_has_permissions", "role_has_permissions.permission_id", "=", "permissions.id")
-            ->where("role_has_permissions.role_id", $id)
-            ->get();
-
-        return view('roles.show', compact('role', 'rolePermissions'));
+        return $this->roleRepository->show($id);
     }
+
 
     public function edit($id)
     {
-        $role = Role::find($id);
-        $permission = Permission::get();
-        $rolePermissions = DB::table("role_has_permissions")->where("role_has_permissions.role_id", $id)
-            ->pluck('role_has_permissions.permission_id', 'role_has_permissions.permission_id')
-            ->all();
-
-        return view('roles.edit', compact('role', 'permission', 'rolePermissions'));
+        return $this->roleRepository->edit($id);
     }
 
-    public function update(Request $request, $id)
-    {
-        $this->validate($request, [
-            'name' => 'required',
-            'permission' => 'required',
-        ]);
 
-        $role = Role::find($id);
-        $role->name = $request->input('name');
-        $role->save();
-
-        $role->syncPermissions($request->input('permission'));
-
-        return redirect()->route('roles.index')
-            ->with('success', 'Role updated successfully');
+    public function update(RoleRequest $request, $id)
+    {        
+        return $this->roleRepository->update($request, $id);
     }
+
 
     public function destroy($id)
     {
-        DB::table("roles")->where('id', $id)->delete();
-        return redirect()->route('roles.index')
-            ->with('success', 'Role deleted successfully');
+        return $this->roleRepository->destroy($id);
     }
+
 }

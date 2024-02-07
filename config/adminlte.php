@@ -329,9 +329,15 @@ return [
             'route'        => 'slider.index',
         ],
         [
-            'text'       => 'information',
+            'text'       => 'نوع المستخدم',
             'icon_color' => 'cyan',
-            'url'        => '#',
+            'route'        => 'roles.index',
+        ],
+
+        [
+            'text'       => 'المستخدمين',
+            'icon_color' => 'yellow',
+            'route'        => 'users.index',
         ],
     ],
 

@@ -16,10 +16,12 @@ class CategoryController extends Controller
     {
         $this->category = $category;
     }
+
     public function index()
     {
         return $this->category->index();
     }
+
     public function store(StoreCategoryRequest $request)
     {
         return $this->category->store($request->validated());
@@ -34,6 +36,7 @@ class CategoryController extends Controller
     {
         return $this->category->update($request->validated(),$category);
     }
+    
     public function destroy(Category $category)
     {
         return $this->category->destroy($category);

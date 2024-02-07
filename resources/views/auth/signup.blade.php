@@ -28,7 +28,10 @@
                                     </div>
                                     <form method="post">
                                         <div class="form-group">
-                                            <input type="text" required="" name="email" placeholder="Your Email">
+                                            <input type="text" required="" name="name" placeholder="Your Name">
+                                        </div>
+                                        <div class="form-group">
+                                            <input required="" type="email" name="email" placeholder="Email">
                                         </div>
                                         <div class="form-group">
                                             <input required="" type="password" name="password" placeholder="Password">
@@ -37,10 +40,7 @@
                                             <input required type="password" name="password_confirmation" placeholder="Confirm Password">
                                         </div>
                                         <div class="form-group">
-                                            <input required="" type="email" name="email" placeholder="Email">
-                                        </div>
-                                        <div class="form-group">
-                                            <button type="submit" class="btn btn-fill-out btn-block hover-up" name="login">Signup</button>
+                                            <button type="submit" class="btn btn-fill-out btn-block hover-up" name="Signup">Signup</button>
                                         </div>
                                     </form>
                                 </div>
