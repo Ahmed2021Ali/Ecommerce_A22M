@@ -1,7 +1,14 @@
 <?php
 
 
-
+function priceAfterOffer($price, $offer)
+{
+    if (isset($offer)) {
+        return  $price - ($price * ($offer / 100));
+    } else {
+        return null;
+    }
+}
 
 function uploadFiles($files, $model, $folder)
 {

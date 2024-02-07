@@ -292,12 +292,12 @@ return [
     'menu' => [
         // Navbar items:
         [
-            'type'         => 'navbar-search',
-            'text'         => 'search',
+            'type' => 'navbar-search',
+            'text' => 'search',
             'topnav_right' => true,
         ],
         [
-            'type'         => 'fullscreen-widget',
+            'type' => 'fullscreen-widget',
             'topnav_right' => true,
         ],
 
@@ -308,52 +308,66 @@ return [
         ],
         [
             'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
+            'url' => 'admin/blog',
+            'can' => 'manage-blog',
         ],
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
-            'url'  => 'admin/settings',
+            'url' => 'admin/settings',
             'icon' => 'fas fa-fw fa-user',
         ],
         ['header' => 'labels'],
         [
-            'text'       => 'الاقسام',
+            'text' => 'الاقسام',
             'icon_color' => 'red',
-            'route'        => 'category.index',
+            'route' => 'category.index',
         ],
         [
-            'text'       => 'الاسليدر',
-            'icon_color' => 'yellow',
-            'route'        => 'slider.index',
-        ],
-        [
-            'text'       => 'نوع المستخدم',
+            'text' => 'المنتجات ',
             'icon_color' => 'cyan',
-            'route'        => 'roles.index',
+            'submenu' =>
+                [
+                    [
+                        'text' => 'عرض   ',
+                        'route' => 'product.index',
+                    ], [
+                    'text' => 'تحزين منتج جديد ',
+                    'route' => 'product.create',
+                ],
+                ],
+        ],
+        [
+            'text' => 'الاسليدر',
+            'icon_color' => 'yellow',
+            'route' => 'slider.index',
+        ],
+        [
+            'text' => 'نوع المستخدم',
+            'icon_color' => 'cyan',
+            'route' => 'roles.index',
         ],
 
         [
-            'text'       => 'المستخدمين',
+            'text' => 'المستخدمين',
             'icon_color' => 'yellow',
-            'route'        => 'users.index',
+            'route' => 'users.index',
         ],
 
         [
-            'text'       => 'بانر',
+            'text' => 'بانر',
             'icon_color' => 'cyan',
-            'route'        => 'banner.index',
+            'route' => 'banner.index',
         ],
         [
-            'text'       => 'الخدمات',
+            'text' => 'الخدمات',
             'icon_color' => 'cyan',
-            'route'        => 'service.index',
+            'route' => 'service.index',
         ],
         [
-            'text'       => 'البرندات',
+            'text' => 'البرندات',
             'icon_color' => 'yellow',
-            'route'        => 'brand.index',
+            'route' => 'brand.index',
         ],
     ],
 
