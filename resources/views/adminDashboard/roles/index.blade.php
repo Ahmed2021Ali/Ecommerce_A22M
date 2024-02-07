@@ -34,8 +34,8 @@
         <tr>
             <td>{{ $role->name }}</td>
             <td>
-                @if($role->name !== 'المدير')
                 <a class="btn btn-info" href="{{ route('roles.show', $role->id) }}">عرض</a>
+                @if($role->name !== 'المدير')
                 
                 <a class="btn btn-primary" href="{{ route('roles.edit', $role->id) }}">تعديل</a>
             
