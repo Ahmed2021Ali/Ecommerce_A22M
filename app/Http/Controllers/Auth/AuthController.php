@@ -77,6 +77,6 @@ class AuthController extends Controller
                 ]);
             }
             Auth::login($user, true);
-            return to_route('homepage');
+            return redirect('home');
         }
 }
