@@ -1,6 +1,6 @@
 @extends('userDashboard.layouts.master')
     @section('title')
-        Signup
+        إنشاء حساب
     @endsection
     @section('css')
         
@@ -11,7 +11,7 @@
         <div class="container">
             <div class="breadcrumb">
                 <a href="index.html" rel="nofollow">Home</a>                    
-                <span></span> Signup
+                <span></span> إنشاء حساب
             </div>
         </div>
     </div>
@@ -24,23 +24,24 @@
                             <div class="login_wrap widget-taber-content p-30 background-white border-radius-10 mb-md-5 mb-lg-0 mb-sm-5">
                                 <div class="padding_eight_all bg-white">
                                     <div class="heading_s1">
-                                        <h3 class="mb-30">Signup</h3>
+                                        <h3 class="mb-30">إنشاء حساب</h3>
                                     </div>
-                                    <form method="post">
+                                    <form method="POST" action="{{route('signup.submit.form')}}">
+                                        @csrf
                                         <div class="form-group">
-                                            <input type="text" required="" name="name" placeholder="Your Name">
+                                            <input type="text" required="" name="name" placeholder="الأسم">
                                         </div>
                                         <div class="form-group">
-                                            <input required="" type="email" name="email" placeholder="Email">
+                                            <input required="" type="email" name="email" placeholder="البريد الألكتروني">
                                         </div>
                                         <div class="form-group">
-                                            <input required="" type="password" name="password" placeholder="Password">
+                                            <input required="" type="password" name="password" placeholder="كلمة السر">
                                         </div>
                                         <div class="form-group">
-                                            <input required type="password" name="password_confirmation" placeholder="Confirm Password">
+                                            <input required type="password" name="password_confirmation" placeholder="تأكيد كلمة السر">
                                         </div>
                                         <div class="form-group">
-                                            <button type="submit" class="btn btn-fill-out btn-block hover-up" name="Signup">Signup</button>
+                                            <button type="submit" class="btn btn-fill-out btn-block hover-up" name="Signup">إنشاء حساب</button>
                                         </div>
                                     </form>
                                 </div>
