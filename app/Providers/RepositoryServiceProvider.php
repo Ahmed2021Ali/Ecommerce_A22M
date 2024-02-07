@@ -35,7 +35,6 @@ class RepositoryServiceProvider extends ServiceProvider
             SliderInterface::class,
             SliderRepository::class,
         );
-<<<<<<< Updated upstream
 
         $this->app->bind(
             RoleInterface::class,
@@ -45,11 +44,11 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(
             UserInterface::class,
             UserRepository::class,
-=======
+        );
+
         $this->app->bind(
             BannerInterface::class,
             BannerRepository::class,
->>>>>>> Stashed changes
         );
     }
 
