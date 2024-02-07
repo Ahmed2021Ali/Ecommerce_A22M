@@ -54,12 +54,14 @@ class AuthController extends Controller
         
             // Check if the user has either 'admin' or 'user' role
             if (Auth::user()->hasRole(['المدير', 'ادمن'])) {
+                toastr()->success('تم تسجيل الدخول');
                 return to_route('admin.dashboard');
             } else {
+                toastr()->success('تم تسجيل الدخول');
                 return to_route('home');
             }
         } else {
-            // Authentication failed
+            toastr()->error('البيانات غير صحيحة');
             return back()->withInput()->withErrors(['email' => 'Invalid credentials']);
         }
         
@@ -69,6 +71,7 @@ class AuthController extends Controller
     public function logout()
     {
         Auth::logout();
+        toastr()->success('تم تسجيل الخروج');
         return to_route('home');
     }
 
@@ -92,6 +95,8 @@ class AuthController extends Controller
             ]);
         }
         Auth::login($user, true);
+        toastr()->success('تم تسجيل الدخول');
+
         return redirect('home');
     }
 }
