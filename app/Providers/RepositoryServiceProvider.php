@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use App\Repositories\AdminDashboard\BannerRepository;
 use App\Repositories\AdminDashboard\CategoryRepository;
 use App\Repositories\AdminDashboard\SliderRepository;
+use App\Repositories\Interfaces\AdminDashboard\BannerInterface;
 use App\Repositories\Interfaces\AdminDashboard\CategoryInterface;
 use App\Repositories\Interfaces\AdminDashboard\ProductInterface;
 use App\Repositories\AdminDashboard\ProductRepository;
@@ -33,6 +35,7 @@ class RepositoryServiceProvider extends ServiceProvider
             SliderInterface::class,
             SliderRepository::class,
         );
+<<<<<<< Updated upstream
 
         $this->app->bind(
             RoleInterface::class,
@@ -42,6 +45,11 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(
             UserInterface::class,
             UserRepository::class,
+=======
+        $this->app->bind(
+            BannerInterface::class,
+            BannerRepository::class,
+>>>>>>> Stashed changes
         );
     }
 

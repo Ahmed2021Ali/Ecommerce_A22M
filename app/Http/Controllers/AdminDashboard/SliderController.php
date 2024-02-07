@@ -7,7 +7,6 @@ use App\Http\Requests\slider\SliderStoreRequest;
 use App\Http\Requests\slider\SliderUpdateRequest;
 use App\Models\Slider;
 use App\Repositories\Interfaces\AdminDashboard\SliderInterface;
-use Illuminate\Http\Request;
 
 class SliderController extends Controller
 {

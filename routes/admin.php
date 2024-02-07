@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminDashboard\BannerController;
 use App\Http\Controllers\AdminDashboard\CategoryController;
 use App\Http\Controllers\AdminDashboard\SliderController;
 use Illuminate\Support\Facades\Route;
@@ -13,6 +14,7 @@ Route::get('/admin-dashboard', function () {
 });
 Route::resource('category', CategoryController::class);
 Route::resource('slider', SliderController::class);
+Route::resource('banner', BannerController::class);
 
 
 Route::resource('roles', RoleController::class);

@@ -3,64 +3,33 @@
 namespace App\Http\Controllers\AdminDashboard;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\service\ServiceStoreRequest;
+use App\Http\Requests\service\ServiceUpdateRequest;
 use App\Models\Service;
-use Illuminate\Http\Request;
+use App\Repositories\Interfaces\AdminDashboard\ServiceInterface;
 
 class ServiceController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    protected $service;
+    public function __construct(ServiceInterface $service)
+    {
+        $this->service = $service;
+    }
     public function index()
     {
-        //
+        return $this->service->index();
     }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function store(ServiceStoreRequest $request)
     {
-        //
+        return $this->service->store($request->validated());
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function update(ServiceUpdateRequest $request, Service $service)
     {
-        //
+        return $this->service->update($request->validated(),$service);
     }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Service $service)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Service $service)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Service $service)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Service $service)
     {
-        //
+        return $this->service->destroy($service);
     }
 }

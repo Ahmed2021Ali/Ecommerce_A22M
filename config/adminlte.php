@@ -329,6 +329,7 @@ return [
             'route'        => 'slider.index',
         ],
         [
+<<<<<<< Updated upstream
             'text'       => 'نوع المستخدم',
             'icon_color' => 'cyan',
             'route'        => 'roles.index',
@@ -338,6 +339,16 @@ return [
             'text'       => 'المستخدمين',
             'icon_color' => 'yellow',
             'route'        => 'users.index',
+=======
+            'text'       => 'بانر',
+            'icon_color' => 'cyan',
+            'route'        => 'banner.index',
+        ],
+        [
+            'text'       => 'الخدمات',
+            'icon_color' => 'cyan',
+            'route'        => 'service.index',
+>>>>>>> Stashed changes
         ],
     ],
 

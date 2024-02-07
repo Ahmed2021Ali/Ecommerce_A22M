@@ -2,65 +2,34 @@
 
 namespace App\Http\Controllers\AdminDashboard;
 
+use App\Http\Requests\banner\bannerStoreRequest;
+use App\Http\Requests\banner\bannerUpdateRequest;
 use App\Models\Banner;
-use Illuminate\Http\Request;
+use App\Repositories\Interfaces\AdminDashboard\BannerInterface;
 use App\Http\Controllers\Controller;
 
 class BannerController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    protected $banner;
+    public function __construct(BannerInterface $banner)
+    {
+        $this->banner = $banner;
+    }
     public function index()
     {
-        //
+        return $this->banner->index();
     }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function store(BannerStoreRequest $request)
     {
-        //
+        return $this->banner->store($request->validated());
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function update(BannerUpdateRequest $request, Banner $banner)
     {
-        //
+        return $this->banner->update($request->validated(),$banner);
     }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Banner $banner)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Banner $banner)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Banner $banner)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Banner $banner)
     {
-        //
+        return $this->banner->destroy($banner);
     }
 }
