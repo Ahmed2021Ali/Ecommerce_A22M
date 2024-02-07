@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminDashboard\BannerController;
+use App\Http\Controllers\AdminDashboard\BrandController;
 use App\Http\Controllers\AdminDashboard\CategoryController;
 use App\Http\Controllers\AdminDashboard\ServiceController;
 use App\Http\Controllers\AdminDashboard\SliderController;
@@ -18,6 +19,7 @@ Route::resource('category', CategoryController::class);
 Route::resource('slider', SliderController::class);
 Route::resource('banner', BannerController::class);
 Route::resource('service', ServiceController::class);
+Route::resource('brand', BrandController::class);
 
 
 

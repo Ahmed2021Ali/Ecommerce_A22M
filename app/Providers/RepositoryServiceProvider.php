@@ -4,10 +4,12 @@ namespace App\Providers;
 
 use App\Models\Service;
 use App\Repositories\AdminDashboard\BannerRepository;
+use App\Repositories\AdminDashboard\BrandRepository;
 use App\Repositories\AdminDashboard\CategoryRepository;
 use App\Repositories\AdminDashboard\ServiceRepository;
 use App\Repositories\AdminDashboard\SliderRepository;
 use App\Repositories\Interfaces\AdminDashboard\BannerInterface;
+use App\Repositories\Interfaces\AdminDashboard\BrandInterface;
 use App\Repositories\Interfaces\AdminDashboard\CategoryInterface;
 use App\Repositories\Interfaces\AdminDashboard\ProductInterface;
 use App\Repositories\AdminDashboard\ProductRepository;
@@ -56,6 +58,10 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(
             ServiceInterface::class,
             ServiceRepository::class,
+        );
+        $this->app->bind(
+            BrandInterface::class,
+            BrandRepository::class,
         );
     }
 

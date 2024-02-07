@@ -19,7 +19,6 @@ class ServiceStoreRequest extends FormRequest
             'name'=>['nullable'],
             'status'=>['nullable','integer','between:0,1'],
             'files.*'=>['required','max:5000','mimes:png,jpg,jpeg'],
-
         ];
     }
 }
