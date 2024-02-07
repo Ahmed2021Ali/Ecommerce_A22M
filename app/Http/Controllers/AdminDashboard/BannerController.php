@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\AdminDashboard;
 
-use App\Http\Requests\banner\bannerStoreRequest;
-use App\Http\Requests\banner\bannerUpdateRequest;
+use App\Http\Requests\banner\BandStoreRequest;
+use App\Http\Requests\banner\BandUpdateRequest;
+use App\Http\Requests\banner\BannerStoreRequest;
+use App\Http\Requests\banner\BannerUpdateRequest;
 use App\Models\Banner;
 use App\Repositories\Interfaces\AdminDashboard\BannerInterface;
 use App\Http\Controllers\Controller;

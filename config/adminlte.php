@@ -350,6 +350,11 @@ return [
             'icon_color' => 'cyan',
             'route'        => 'service.index',
         ],
+        [
+            'text'       => 'البرندات',
+            'icon_color' => 'yellow',
+            'route'        => 'brand.index',
+        ],
     ],
 
     /*
