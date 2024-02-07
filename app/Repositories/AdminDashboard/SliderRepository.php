@@ -2,7 +2,6 @@
 
 namespace App\Repositories\AdminDashboard;
 
-use App\Models\Category;
 use App\Models\Slider;
 use App\Repositories\Interfaces\AdminDashboard\SliderInterface;
 use Illuminate\Support\Arr;

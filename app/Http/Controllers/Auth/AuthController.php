@@ -7,6 +7,7 @@ use App\Http\Requests\UserRegisterRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Laravel\Socialite\Facades\Socialite;
 class AuthController extends Controller
 {
 
@@ -55,4 +56,27 @@ class AuthController extends Controller
         Auth::logout();
         return redirect('/login');
     }
+
+        /* socialite with Facebook , Google , GitHub  */
+        public function loginWith($provider)
+        {
+            return Socialite::driver($provider)->redirect();
+        }
+
+        public function redirect($provider)
+        {
+            $socialite = Socialite::driver($provider)->stateless()->user();
+            $user = User::where('email', $socialite->getEmail())->first();
+            if (!$user) {
+                $user = User::updateOrCreate([
+                    'provider' => $provider,
+                    'provider_id' => $socialite->getId(),
+                ], [
+                    'name' => $socialite->getName(),
+                    'email' => $socialite->getEmail(),
+                ]);
+            }
+            Auth::login($user, true);
+            return to_route('homepage');
+        }
 }
