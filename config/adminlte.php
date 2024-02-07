@@ -369,6 +369,11 @@ return [
             'icon_color' => 'yellow',
             'route' => 'brand.index',
         ],
+        [
+            'text' => 'الكوبونات',
+            'icon_color' => 'yellow',
+            'route' => 'coupon.index',
+        ],
     ],
 
     /*
