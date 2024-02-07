@@ -27,9 +27,12 @@
                     @enderror
                 </div>
                 <div class="col-4">
-                    <label for="color">المقاسات المتاحة </label>
-                    <input type="text" name="size" id="size" class="form-control" placeholder=""
-                           aria-describedby="helpId" value="{{ $product->size }}" multiple>
+                    <label for="size">المقاسات المتاحة </label>
+                    <select name="size[]" id="size" class="form-control" MULTIPLE>
+                        <option {{ in_array('x',explode(',',$product->size)) ? 'selected' : '' }}  value="x">x</option>
+                        <option {{ in_array('l',explode(',',$product->size)) ? 'selected' : '' }} value="l"> l</option>
+                        <option {{ in_array('xl',explode(',',$product->size)) ? 'selected' : '' }}  value="xl"> xl</option>
+                    </select>
                     @error('size')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
@@ -53,9 +56,13 @@
                     @enderror
                 </div>
                 <div class="col-4">
+
                     <label for="color">الالوان المتوفرة </label>
-                    <input type="text" name="color" id="quantity" class="form-control" placeholder=""
-                           aria-describedby="helpId" value="{{ $product->color }}" multiple>
+                    <select name="color[]" id="color" class="form-control" MULTIPLE>
+                        <option {{ in_array('احمر',explode(',',$product->color)) ? 'selected' : '' }}  value="احمر">احمر</option>
+                        <option {{ in_array('اصفر',explode(',',$product->color)) ? 'selected' : '' }}  value="اصفر"> اصفر</option>
+                        <option {{ in_array('اخضر',explode(',',$product->color)) ? 'selected' : '' }}  value="اخضر"> اخضر</option>
+                    </select>
                     @error('color')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror

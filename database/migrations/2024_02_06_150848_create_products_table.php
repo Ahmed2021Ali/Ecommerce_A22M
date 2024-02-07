@@ -14,8 +14,8 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->string('quantity');
-            $table->string('color')->nullable();
-            $table->string('size')->nullable();
+            $table->json('color')->nullable();
+            $table->json('size')->nullable();
             $table->decimal('price',8,2);
             $table->integer('offer')->nullable();
             $table->decimal('price_after_offer',8,2)->nullable();

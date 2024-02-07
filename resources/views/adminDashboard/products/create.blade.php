@@ -28,8 +28,11 @@
                 </div>
                 <div class="col-4">
                     <label for="color">الالوان المتوفرة </label>
-                    <input type="text" name="color" id="quantity" class="form-control" placeholder=""
-                           aria-describedby="helpId" value="{{ old('color') }}" multiple>
+                    <select name="color[]" id="color" class="form-control" MULTIPLE>
+                        <option  value="احمر">احمر</option>
+                        <option  value="اصفر"> اصفر</option>
+                        <option  value="اخضر"> اخضر</option>
+                    </select>
                     @error('color')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
@@ -38,8 +41,11 @@
             <div class="form-row">
                 <div class="col-4">
                     <label for="color">المقاسات المتاحة </label>
-                    <input type="text" name="size" id="size" class="form-control" placeholder=""
-                           aria-describedby="helpId" value="{{ old('color') }}" multiple>
+                    <select name="size[]" id="size" class="form-control" MULTIPLE>
+                        <option  value="x">x</option>
+                        <option  value="l"> l</option>
+                        <option  value="xl"> xl</option>
+                    </select>
                     @error('size')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror

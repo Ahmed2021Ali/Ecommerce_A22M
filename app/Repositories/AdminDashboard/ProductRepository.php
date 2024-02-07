@@ -25,7 +25,10 @@ class ProductRepository implements ProductInterface
 
     public function store($request)
     {
-        $product = Product::create([...Arr::except($request, 'files'), 'price_after_offer' => priceAfterOffer($request['price'], $request['offer'])]);
+        $product = Product::create([...Arr::except($request, ['files', 'size', 'color']),
+            'price_after_offer' => priceAfterOffer($request['price'], $request['offer']),
+            'size' => implode(',', $request['size']), 'color' => implode(',', $request['color'])
+        ]);
         uploadFiles($request['files'], $product, 'productFiles');
         return redirect()->back()->with(['success' => 'تم بنجاح اضافة المنتج']);
     }
@@ -37,7 +40,10 @@ class ProductRepository implements ProductInterface
 
     public function update($request, $product)
     {
-        $product->update([...Arr::except($request, 'files'), 'price_after_offer' => priceAfterOffer($request['price'], $request['offer'])]);
+        $product->update([...Arr::except($request, ['files', 'size', 'color']),
+            'price_after_offer' => priceAfterOffer($request['price'], $request['offer']),
+            'size' => implode(',', $request['size']), 'color' => implode(',', $request['color'])
+        ]);
         updateFiles($request['files'], $product, 'productFiles');
         return redirect()->back()->with(['success' => 'تم بنجاح تحديث المنتج ']);
     }

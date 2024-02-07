@@ -17,7 +17,10 @@ class Product extends Model implements HasMedia
         'description','offer', 'status','quantity',
         'price_after_offer','stock', 'color','size'
     ];
-
+    protected $casts = [
+        'color' => 'array',
+        'size' => 'array',
+    ];
 
     public function category()
     {
