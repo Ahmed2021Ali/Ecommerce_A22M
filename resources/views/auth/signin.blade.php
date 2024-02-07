@@ -1,6 +1,6 @@
 @extends('userDashboard.layouts.master')
     @section('title')
-        Signin
+        تسجيل دخول
     @endsection
     @section('css')
         
@@ -11,7 +11,7 @@
         <div class="container">
             <div class="breadcrumb">
                 <a href="index.html" rel="nofollow">Home</a>                    
-                <span></span> Signin
+                <span></span> تسجيل دخول
             </div>
         </div>
     </div>
@@ -24,17 +24,18 @@
                             <div class="login_wrap widget-taber-content p-30 background-white border-radius-10 mb-md-5 mb-lg-0 mb-sm-5">
                                 <div class="padding_eight_all bg-white">
                                     <div class="heading_s1">
-                                        <h3 class="mb-30">Signin</h3>
+                                        <h3 class="mb-30">تسجيل دخول</h3>
                                     </div>
-                                    <form method="post">
+                                    <form method="POST" action="{{route('signin.submit.form')}}">
+                                        @csrf
                                         <div class="form-group">
-                                            <input type="text" required="" name="email" placeholder="Your Email">
+                                            <input type="text" required="" name="email" placeholder="البريد الألكتروني">
                                         </div>
                                         <div class="form-group">
-                                            <input required="" type="password" name="password" placeholder="Password">
+                                            <input required="" type="password" name="password" placeholder="كلمة السر">
                                         </div>
                                         <div class="form-group">
-                                            <button type="submit" class="btn btn-fill-out btn-block hover-up" name="login">Signin</button>
+                                            <button type="submit" class="btn btn-fill-out btn-block hover-up" name="login">تسجيل دخول</button>
                                         </div>
                                     </form>
                                 </div>

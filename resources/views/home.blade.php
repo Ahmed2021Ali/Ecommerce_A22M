@@ -1,6 +1,6 @@
 @extends('userDashboard.layouts.master')
 @section('title')
-    Ecommerce_A22M-Home
+    الصفحة الرئيسية   
 @endsection
 @section('css')
 
