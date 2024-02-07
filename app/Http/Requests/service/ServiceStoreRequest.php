@@ -16,8 +16,10 @@ class ServiceStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title'=>['nullable'],
+            'name'=>['nullable'],
             'status'=>['nullable','integer','between:0,1'],
+            'files.*'=>['required','max:5000','mimes:png,jpg,jpeg'],
+
         ];
     }
 }

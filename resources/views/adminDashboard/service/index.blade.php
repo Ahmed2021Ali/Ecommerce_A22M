@@ -9,7 +9,7 @@
 @section('content')
 
     <x-adminlte-modal id="create" title="اضافة  الخدمة " theme="purple" icon="fas fa-bolt" size='lg' disable-animations>
-        @include('adminDashboard.slider.create')
+        @include('adminDashboard.service.create')
     </x-adminlte-modal>
     <x-adminlte-button label="اضافة  الخدمة " data-toggle="modal" data-target="#create" class="bg-purple"/>
     <div class="row">
