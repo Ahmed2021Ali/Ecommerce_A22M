@@ -58,25 +58,25 @@ class AuthController extends Controller
     }
 
         /* socialite with Facebook , Google , GitHub  */
-        public function loginWith($provider)
-        {
-            return Socialite::driver($provider)->redirect();
-        }
+    public function loginWith($provider)
+    {
+         return Socialite::driver($provider)->redirect();
+    }
 
-        public function redirect($provider)
-        {
-            $socialite = Socialite::driver($provider)->stateless()->user();
-            $user = User::where('email', $socialite->getEmail())->first();
-            if (!$user) {
-                $user = User::updateOrCreate([
-                    'provider' => $provider,
-                    'provider_id' => $socialite->getId(),
-                ], [
-                    'name' => $socialite->getName(),
-                    'email' => $socialite->getEmail(),
-                ]);
-            }
-            Auth::login($user, true);
-            return redirect('home');
+    public function redirect($provider)
+    {
+        $socialite = Socialite::driver($provider)->stateless()->user();
+        $user = User::where('email', $socialite->getEmail())->first();
+        if (!$user) {
+             $user = User::updateOrCreate([
+                'provider' => $provider,
+                'provider_id' => $socialite->getId(),
+            ], [
+                'name' => $socialite->getName(),
+                'email' => $socialite->getEmail(),
+            ]);
         }
+        Auth::login($user, true);
+        return redirect('home');
+    }
 }
