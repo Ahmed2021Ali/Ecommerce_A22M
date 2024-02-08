@@ -22,8 +22,19 @@ class HomepageController extends Controller
         $services = Service::all();
         $brands = Brand::all();
         $newArrivalProducts = Product::latest()->take(10)->get();
-        return view('home', compact('categories', 'products',
-        'banners', 'sliders', 'services', 'newArrivalProducts', 'brands'));
+        $newAddedProducts = Product::latest()->take(8)->get();
+        return view('home', 
+        compact(
+            'categories',
+        'products',
+        'banners',
+        'sliders', 
+        'services', 
+        'newArrivalProducts',
+        'brands', 
+        'newAddedProducts',
+        'newAddedProducts',
+    ));
     }
 
 }

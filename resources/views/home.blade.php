@@ -12,14 +12,14 @@
         <div class="container">
             <div class="row">
                 <div class="row">
-                    <div class="row">
-                        <div class="col-12 text-center mb-4">
-                            <h3>خدماتنا</h3>
+                    <div class="row" style="direction: rtl; text-align: center;">
+                        <div class="col-12 text-right mb-4">
+                            <h4 style="font-weight: bold; color: #F15412">الخدمات</h4>
                         </div>
                         @foreach($services as $service)
                             <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0 text-center">
                                 @foreach($service->getMedia('serviceFiles') as $media)
-                                    <img src="{{ $media->getFullUrl() }}" width="300" height="150">
+                                    <img src="{{ $media->getFullUrl() }}" width="100" height="100">
                                 @endforeach
                                 <h4>{{ $service->name }}</h4>
                             </div>
@@ -125,20 +125,20 @@
             </div>
         </div>
     </section>
-    <section class="section-padding">
+    <section class="section-padding" style="direction: rtl; text-align: center;">
         <div class="container wow fadeIn animated">
-            <h3 class="section-title mb-20"><span>New</span> Arrivals</h3>
+            <h3 class="section-title mb-20"><span>المنتجات</span> الجديدة</h3>
             <div class="carausel-6-columns-cover position-relative">
                 <div class="slider-arrow slider-arrow-2 carausel-6-columns-arrow" id="carausel-6-columns-2-arrows"></div>
-                <div class="carausel-6-columns carausel-arrow-center" id="carausel-6-columns-2">
+                <div class="carausel-6-columns carausel-arrow-center" id="carausel-6-columns-2" >
                     @foreach($newArrivalProducts as $product)
                         <div class="product-cart-wrap small hover-up">
                             <div class="product-img-action-wrap">
-                                <div class="product-img product-img-zoom">
+                                <div class="product-img product-img-zoom" style="direction: rtl; text-align: right;">
                                     <a href="">
                                         @foreach($product->getMedia('productFiles') as $media)
-                                        <img  src="{{$media->getFullUrl()}}" width="400" height="250">
-                                    @endforeach
+                                            <img  src="{{$media->getFullUrl()}}" width="400" height="250" style="direction: rtl; text-align: right;">
+                                        @endforeach
                                     </a>
                                 </div>
                                 <div class="product-action-1">
@@ -148,7 +148,9 @@
                             </div>
                             <div class="product-content-wrap">
                                 <h2><a href="" >{{ $product->name }}</a></h2>
-                                <!-- Add rating display logic -->
+                                    <span>
+                                        <span>تخفيض %{{ $product->offer }}</span>
+                                    </span>
                                 <div class="product-price">
                                     <span>${{ $product->price_after_offer ?? $product->price }}</span>
                                     @if($product->offer)
@@ -165,9 +167,9 @@
         
     </section>
 
-    <section class="section-padding">
+    <section class="section-padding" >
         <div class="container">
-            <h3 class="section-title mb-20 wow fadeIn animated"><span>الماركات</span> </h3>
+            <h3 class="section-title mb-20 wow fadeIn animated" style="text-align: center;"><span>الماركات</span> </h3>
             <div class="carausel-6-columns-cover position-relative wow fadeIn animated">
                 <div class="slider-arrow slider-arrow-2 carausel-6-columns-arrow" id="carausel-6-columns-3-arrows"></div>
                 <div class="carausel-6-columns text-center" id="carausel-6-columns-3">

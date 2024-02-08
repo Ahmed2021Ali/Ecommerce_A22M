@@ -25,24 +25,24 @@
         </div>
     </section> --}}
     <section class="section-padding footer-mid">
-        <div class="container pt-15 pb-20">
+        <div class="container pt-15 pb-20" style="direction: rtl; text-align: right;">
             <div class="row">
                 <div class="col-lg-4 col-md-6">
                     <div class="widget-about font-md mb-md-5 mb-lg-0">
-                        <div class="logo logo-width-1 wow fadeIn animated">
+                        {{-- <div class="logo logo-width-1 wow fadeIn animated">
                             <a href="index.html"><img src="assets/imgs/logo/logo.png" alt="logo"></a>
-                        </div>
-                        <h5 class="mt-20 mb-10 fw-600 text-grey-4 wow fadeIn animated">Contact</h5>
+                        </div> --}}
+                        <h5 class="mt-20 mb-10 fw-600 text-grey-4 wow fadeIn animated">تواصل معنا</h5>
                         <p class="wow fadeIn animated">
-                            <strong>Address: </strong>562 Wellington Road
+                            <strong>العنوان: </strong>------
                         </p>
                         <p class="wow fadeIn animated">
-                            <strong>Phone: </strong>+1 0000-000-000
+                            <strong>رقم الهاتف : </strong>+1 0000-000-000
                         </p>
                         <p class="wow fadeIn animated">
-                            <strong>Email: </strong>contact@surfsidemedia.in
+                            <strong> البريد الألكتروني : </strong>--------
                         </p>
-                        <h5 class="mb-10 mt-30 fw-600 text-grey-4 wow fadeIn animated">Follow Us</h5>
+                        <h5 class="mb-10 mt-30 fw-600 text-grey-4 wow fadeIn animated">تابعنا علي</h5>
                         <div class="mobile-social-icon wow fadeIn animated mb-sm-5 mb-md-0">
                             <a href="#"><img src="assets/imgs/theme/icons/icon-facebook.svg" alt=""></a>
                             <a href="#"><img src="assets/imgs/theme/icons/icon-twitter.svg" alt=""></a>
@@ -53,24 +53,25 @@
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-3">
-                    <h5 class="widget-title wow fadeIn animated">About</h5>
+                    <h5 class="widget-title wow fadeIn animated">حول</h5>
                     <ul class="footer-list wow fadeIn animated mb-sm-5 mb-md-0">
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Delivery Information</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms &amp; Conditions</a></li>
-                        <li><a href="#">Contact Us</a></li>                            
+                        <li><a href="#">حولنا</a></li>
+                        <li><a href="#">معلومات التوصيل</a></li>
+                        <li><a href="#">سياسة الخصوصية</a></li>
+                        <li><a href="#">الشروط والأحكام</a></li>
+                        <li><a href="#">اتصل بنا</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2  col-md-3">
-                    <h5 class="widget-title wow fadeIn animated">My Account</h5>
+                    <h5 class="widget-title wow fadeIn animated">حسابي</h5>
                     <ul class="footer-list wow fadeIn animated">
-                        <li><a href="my-account.html">My Account</a></li>
-                        <li><a href="#">View Cart</a></li>
-                        <li><a href="#">My Wishlist</a></li>
-                        <li><a href="#">My Order</a></li>
+                        <li><a href="my-account.html">حسابي</a></li>
+                        <li><a href="#">عرض السلة</a></li>
+                        <li><a href="#">قائمة المفضلة</a></li>
+                        <li><a href="#">طلباتي</a></li>
                     </ul>
                 </div>
+                
                 {{-- <div class="col-lg-4 mob-center">
                     <h5 class="widget-title wow fadeIn animated">Install App</h5>
                     <div class="row">
@@ -102,7 +103,7 @@
             </div>
             <div class="col-lg-6">
                 <p class="text-lg-end text-start font-sm text-muted mb-0">
-                    &copy; <strong class="text-brand">Ahmed Maghraby & Ahmed Abd Ellatif</strong> All rights reserved
+                    &copy; <strong class="text-brand"> Ahmed Maghraby & Ahmed Abd Ellatif </strong> كل الحقوق محفوظة لدي  
                 </p>
             </div>
         </div>
