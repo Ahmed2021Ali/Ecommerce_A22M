@@ -137,13 +137,16 @@
                                 <div class="product-img product-img-zoom" style="direction: rtl; text-align: right;">
                                     <a href="">
                                         @foreach($product->getMedia('productFiles') as $media)
-                                            <img  src="{{$media->getFullUrl()}}" width="400" height="250" style="direction: rtl; text-align: right;">
+                                            <a href="{{ route('products.show', $product->id) }}">
+                                                <img src="{{ $media->getFullUrl() }}" width="400" height="250" style="direction: rtl; text-align: right;">
+                                            </a>                                       
                                         @endforeach
                                     </a>
                                 </div>
                                 <div class="product-action-1">
-                                    <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
-                                    <a aria-label="Add To Wishlist" class="action-btn hover-up" href="wishlist.php"><i class="fi-rs-heart"></i></a>
+                                    <a aria-label="عرض" class="action-btn hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
+                                    <a aria-label="إضافة إلي المفضلة" class="action-btn hover-up" href="wishlist.php"><i class="fi-rs-heart"></i></a>
+                                    <a aria-label="تسوق الآن" class="action-btn hover-up" href="{{ route('products.show', $product->id) }}"><i class="fi-rs-shopping-bag-add"></i></a>
                                 </div>
                             </div>
                             <div class="product-content-wrap">
@@ -156,8 +159,9 @@
                                     @if($product->offer)
                                         <span class="old-price">${{ $product->price }}</span>
                                     @endif
-                                </div>
+                                </div>                                
                             </div>
+                            
                         </div>
                         <!-- End product-cart-wrap-2 -->
                     @endforeach
