@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\UserDashboard;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\cart\CartStoreRequest;
 use App\Models\Cart;
 use App\Models\Product;
 use App\Repositories\Interfaces\UserDashboard\CartInterface;
@@ -21,14 +22,15 @@ class CartController extends Controller
     {
         $this->cat->index();
     }
-    public function store(Request $request ,Product $product)
+    
+    public function store(CartStoreRequest $request ,Product $product)
     {
-        $this->cat->store($request,$product);
+        $this->cat->store($request->validated(),$product);
     }
 
-    public function update(Request $request,Cart $cart)
+    public function update(CartStoreRequest $request,Cart $cart)
     {
-        $this->cat->update($request,$cart);
+        $this->cat->update($request->validated(),$cart);
     }
 
     public function destroy(Cart $cart)

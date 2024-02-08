@@ -3,12 +3,22 @@
 namespace App\Http\Controllers\UserDashboard;
 
 use App\Http\Controllers\Controller;
-use App\Models\ContactUs;
-use App\Repositories\Interfaces\AdminDashboard\ContactUsInterface;
-use Illuminate\Http\Request;
+use App\Http\Requests\contact\ContactStoreRequest;
+use App\Repositories\Interfaces\UserDashboard\ContactUsInterface;
 
 class ContactUsController extends Controller
 {
+
+    protected $contact;
+    public function __construct(ContactUsInterface $contact)
+    {
+        $this->contact = $contact;
+    }
+
+    public function store(ContactStoreRequest $request)
+    {
+        $this->contact->store($request->validated());
+    }
 
 
 }
