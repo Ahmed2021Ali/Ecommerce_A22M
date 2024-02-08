@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', ' Books')
+@section('title', 'عرض كل المنتجات')
 
 @section('content_header')
     <h1>عرض كل المنتجات</h1>
@@ -12,7 +12,7 @@
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
                     <tr>
-                        <th>Id</th>
+                        <th>#</th>
                         <th>الاسم</th>
                         <th>السعر</th>
                         <th>الحالة</th>
@@ -24,7 +24,7 @@
                 <tbody>
                     @foreach ($products as $product)
                         <tr>
-                            <td>{{ $product->id }}</td>
+                            <td>{{ $loop->iteration }}</td>
                             <td>{{ $product->name }}</td>
                             <td>{{ $product->color }}</td>
                             <td>{{ $product->size }}</td>
@@ -42,7 +42,7 @@
                                                   icon="fas fa-bolt" size='lg' disable-animations>
                                     @include('adminDashboard.products.delete',['product'=>$product])
                                 </x-adminlte-modal>
-                                <x-adminlte-button label="الحذف" data-toggle="modal"
+                                <x-adminlte-button label="حذف" data-toggle="modal"
                                                    data-target="#delete_{{ $product->id }}" class="bg-danger"/>
                                 {{-- End  delete  --}}
 
@@ -51,7 +51,7 @@
                                                   icon="fas fa-bolt" size='lg' disable-animations>
                                     @include('adminDashboard.products.images',['product'=>$product])
                                 </x-adminlte-modal>
-                                <x-adminlte-button label="عرض الصور المنتج" data-toggle="modal"
+                                <x-adminlte-button label="عرض صور المنتج" data-toggle="modal"
                                                    data-target="#images_{{ $product->id }}" class="bg-secondary"/>
                                 {{-- End  images  --}}
 

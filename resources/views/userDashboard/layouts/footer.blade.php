@@ -1,5 +1,5 @@
 <footer class="main">
-    <section class="newsletter p-30 text-white wow fadeIn animated">
+    {{-- <section class="newsletter p-30 text-white wow fadeIn animated">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-7 mb-md-3 mb-lg-0">
@@ -23,7 +23,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <section class="section-padding footer-mid">
         <div class="container pt-15 pb-20">
             <div class="row">
@@ -68,11 +68,10 @@
                         <li><a href="my-account.html">My Account</a></li>
                         <li><a href="#">View Cart</a></li>
                         <li><a href="#">My Wishlist</a></li>
-                        <li><a href="#">Track My Order</a></li>                            
-                        <li><a href="#">Order</a></li>
+                        <li><a href="#">My Order</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-4 mob-center">
+                {{-- <div class="col-lg-4 mob-center">
                     <h5 class="widget-title wow fadeIn animated">Install App</h5>
                     <div class="row">
                         <div class="col-md-8 col-lg-12">
@@ -87,7 +86,7 @@
                             <img class="wow fadeIn animated" src="assets/imgs/theme/payment-method.png" alt="">
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </section>
@@ -103,7 +102,7 @@
             </div>
             <div class="col-lg-6">
                 <p class="text-lg-end text-start font-sm text-muted mb-0">
-                    &copy; <strong class="text-brand">SurfsideMedia</strong> All rights reserved
+                    &copy; <strong class="text-brand">Ahmed Maghraby & Ahmed Abd Ellatif</strong> All rights reserved
                 </p>
             </div>
         </div>

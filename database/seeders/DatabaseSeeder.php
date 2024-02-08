@@ -62,7 +62,7 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('123456789')
         ]);
 
-        $role = Role::create(['name' => 'Owner']);
+        $role = Role::create(['name' => 'المدير']);
 
         $permissions = Permission::pluck('id', 'id')->all();
 

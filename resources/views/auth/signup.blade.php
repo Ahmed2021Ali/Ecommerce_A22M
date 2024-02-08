@@ -29,16 +29,16 @@
                                     <form method="POST" action="{{route('signup.submit.form')}}">
                                         @csrf
                                         <div class="form-group">
-                                            <input type="text" required="" name="name" placeholder="الأسم">
+                                            <input type="text" required="" name="name" placeholder="الأسم" required>
                                         </div>
                                         <div class="form-group">
-                                            <input required="" type="email" name="email" placeholder="البريد الألكتروني">
+                                            <input required="" type="email" name="email" placeholder="البريد الألكتروني" required>
                                         </div>
                                         <div class="form-group">
-                                            <input required="" type="password" name="password" placeholder="كلمة السر">
+                                            <input required="" type="password" name="password" placeholder="كلمة السر" required>
                                         </div>
                                         <div class="form-group">
-                                            <input required type="password" name="password_confirmation" placeholder="تأكيد كلمة السر">
+                                            <input required type="password" name="password_confirmation" placeholder="تأكيد كلمة السر" required>
                                         </div>
                                         <div class="form-group">
                                             <button type="submit" class="btn btn-fill-out btn-block hover-up" name="Signup">إنشاء حساب</button>

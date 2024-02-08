@@ -29,10 +29,10 @@
                                     <form method="POST" action="{{route('signin.submit.form')}}">
                                         @csrf
                                         <div class="form-group">
-                                            <input type="text" required="" name="email" placeholder="البريد الألكتروني">
+                                            <input type="text" required="" name="email" placeholder="البريد الألكتروني" required>
                                         </div>
                                         <div class="form-group">
-                                            <input required="" type="password" name="password" placeholder="كلمة السر">
+                                            <input required="" type="password" name="password" placeholder="كلمة السر" required>
                                         </div>
                                         <div class="form-group">
                                             <button type="submit" class="btn btn-fill-out btn-block hover-up" name="login">تسجيل دخول</button>

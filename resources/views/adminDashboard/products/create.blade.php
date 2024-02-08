@@ -32,6 +32,15 @@
                         <option  value="احمر">احمر</option>
                         <option  value="اصفر"> اصفر</option>
                         <option  value="اخضر"> اخضر</option>
+                        <option  value="ازرق"> ازرق</option>
+                        <option  value="بنفسجي"> بنفسجي </option>
+                        <option  value="نبيتي"> نبيتي </option>
+                        <option  value="لبني"> لبني </option>
+                        <option  value="اسود"> اسود </option>
+                        <option  value="ابيض"> ابيض </option>
+                        <option  value="ذهبي"> ذهبي </option>
+                        <option  value="فضي"> فضي </option>
+                        <option  value="بني"> بني </option>
                     </select>
                     @error('color')
                     <div class="alert alert-danger">{{ $message }}</div>
@@ -42,9 +51,12 @@
                 <div class="col-4">
                     <label for="color">المقاسات المتاحة </label>
                     <select name="size[]" id="size" class="form-control" MULTIPLE>
-                        <option  value="x">x</option>
-                        <option  value="l"> l</option>
-                        <option  value="xl"> xl</option>
+                        <option value="x">x</option>
+                        <option value="l">l</option>
+                        <option value="xl">xl</option>
+                        <option value="m">m</option>
+                        <option value="s">s</option>
+                        <option value="xxl">xxl</option>
                     </select>
                     @error('size')
                     <div class="alert alert-danger">{{ $message }}</div>
@@ -113,7 +125,7 @@
             <br>
             <div class="form-row my-3">
                 <div class="d-grid gap-2 col-2 mx-auto">
-                    <button class="btn btn-success btn-lg" value="back"> هل تريد حفظ المنتج</button>
+                    <button class="btn btn-success btn-lg" value="back">حفظ المنتج</button>
                 </div>
             </div>
         </form>

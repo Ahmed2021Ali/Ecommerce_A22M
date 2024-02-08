@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Auth\SigninRequest;
 use App\Http\Requests\Auth\UserRegisterRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -46,9 +47,9 @@ class AuthController extends Controller
         return view('auth.signin');
     }
 
-    public function submitSignin(Request $request)
+    public function submitSignin(SigninRequest $request)
     {
-        $credentials = $request->only('email', 'password');
+        $credentials = $request->validated();
 
         if (Auth::attempt($credentials)) {
         

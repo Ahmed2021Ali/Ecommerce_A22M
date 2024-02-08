@@ -111,7 +111,7 @@
                     <a href="index.html"><img src="assets/imgs/logo/logo.png" alt="logo"></a>
                 </div>
                 <div class="header-nav d-none d-lg-flex">
-                    <div class="main-categori-wrap d-none d-lg-block">
+                    {{-- <div class="main-categori-wrap d-none d-lg-block">
                         <a class="categori-button-active" href="#">
                             <span class="fi-rs-apps"></span> تصفح المنتجات 
                         </a>
@@ -291,7 +291,7 @@
                             </ul>
                             <div class="more_categories">Show more...</div>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="main-menu main-menu-padding-1 main-menu-lh-2 d-none d-lg-block">
                         <nav>
                             <ul>
@@ -355,13 +355,9 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li><a href="blog.html">مدونة </a></li>                                    
                                 <li><a href="contact.html">تواصل معنا</a></li>
                                 <li><a href="#">حسابي<i class="fi-rs-angle-down"></i></a>
                                     <ul class="sub-menu">
-                                        <li><a href="#">المنتجات</a></li>
-                                        <li><a href="#">الأقسام</a></li>
-                                        <li><a href="#">اكواد الخصم</a></li>
                                         <li><a href="#">الطلبات</a></li>
                                         <form action="{{ route('logout') }}" method="POST">
                                             @csrf
@@ -373,7 +369,7 @@
                     </div>
                 </div>
                 <div class="hotline d-none d-lg-block">
-                    <p><i class="fi-rs-smartphone"></i><span>Toll Free</span> (+1) 0000-000-000 </p>
+                    <p><i class="fi-rs-smartphone"></i><span>اتصل بنا</span> (+1) 0000-000-000 </p>
                 </div>
                 <p class="mobile-promotion">Happy <span class="text-brand">Mother's Day</span>. Big Sale Up to 40%</p>
                 <div class="header-action-right d-block d-lg-none">
