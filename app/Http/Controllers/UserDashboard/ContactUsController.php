@@ -10,19 +10,5 @@ use Illuminate\Http\Request;
 class ContactUsController extends Controller
 {
 
-    protected $contact;
-    public function __construct(ContactUsInterface $contact)
-    {
-        $this->contact = $contact;
-    }
 
-    public function index()
-    {
-        return $this->contact->index();
-    }
-
-    public function destroy(ContactUs $contact)
-    {
-        return $this->contact->destroy($contact);
-    }
 }

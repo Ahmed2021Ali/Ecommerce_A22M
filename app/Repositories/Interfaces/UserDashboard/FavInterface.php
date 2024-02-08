@@ -8,7 +8,7 @@ interface FavInterface {
 
     public function store($product);
 
-    public function destroy($product);
+    public function destroy($fav);
 
 
 }

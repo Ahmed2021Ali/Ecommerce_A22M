@@ -13,7 +13,7 @@ class FavRepository implements FavInterface
     public function index()
     {
         $favs = Fav::where('user_id', Auth::user()->id)->paginate(4);
-        return view('user.favourites.index', compact('favs'));
+      //  return view('user.favourites.index', compact('favs'));
     }
 
     public function store($product)
@@ -27,9 +27,9 @@ class FavRepository implements FavInterface
         }
     }
 
-    public function destroy($product)
+    public function destroy($fav)
     {
-        $product->delete();
+        $fav->delete();
         return redirect()->back()->with(['success' => ' تم بنجاح حذف المنتج من المفضلة']);
     }
 

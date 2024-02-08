@@ -25,6 +25,10 @@ use App\Repositories\Interfaces\AdminDashboard\RoleInterface;
 use App\Repositories\Interfaces\AdminDashboard\ServiceInterface;
 use App\Repositories\Interfaces\AdminDashboard\SliderInterface;
 use App\Repositories\Interfaces\AdminDashboard\UserInterface;
+use App\Repositories\Interfaces\UserDashboard\CartInterface;
+use App\Repositories\Interfaces\UserDashboard\FavInterface;
+use App\Repositories\UserDashboard\CartRepository;
+use App\Repositories\UserDashboard\FavRepository;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoryServiceProvider extends ServiceProvider
@@ -80,6 +84,14 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(
             ContactUsInterface::class,
             ContactUsRepository::class,
+        );
+        $this->app->bind(
+            FavInterface::class,
+            FavRepository::class,
+        );
+        $this->app->bind(
+            CartInterface::class,
+            CartRepository::class,
         );
     }
 

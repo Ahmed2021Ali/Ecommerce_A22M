@@ -5,7 +5,6 @@ namespace App\Http\Controllers\AdminDashboard;
 use App\Http\Controllers\Controller;
 use App\Models\ContactUs;
 use App\Repositories\Interfaces\AdminDashboard\ContactUsInterface;
-use Illuminate\Http\Request;
 
 class ContactUsController extends Controller
 {
