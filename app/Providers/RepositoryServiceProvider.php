@@ -99,6 +99,10 @@ class RepositoryServiceProvider extends ServiceProvider
             \App\Repositories\Interfaces\UserDashboard\OrderInterface::class,
             \App\Repositories\UserDashboard\OrderRepository::class,
         );
+        $this->app->bind(
+            \App\Repositories\Interfaces\UserDashboard\AddressInterface::class,
+            \App\Repositories\UserDashboard\AddressRepository::class,
+        );
     }
 
 
