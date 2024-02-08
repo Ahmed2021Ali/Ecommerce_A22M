@@ -3,7 +3,6 @@
 namespace App\Repositories\UserDashboard;
 
 use App\Models\Cart;
-use App\Models\Fav;
 use App\Repositories\Interfaces\UserDashboard\CartInterface;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,7 +13,7 @@ class CartRepository implements CartInterface
     public function index()
     {
         $carts = Cart::where('user_id', Auth::user()->id)->paginate(4);
-        //   return view('user.favourites.index', compact('favs'));
+        //   return view('user.favourites.index', compact('$carts'));
     }
 
     public function store($request ,$product)
@@ -41,7 +40,13 @@ class CartRepository implements CartInterface
     }
     public function update($request ,$cart)
     {
-
+        $cart->quantity += $request['quantity'];
+        if ($cart->quantity > $cart->product->quantity) {
+            return redirect()->back()->with('error', 'الكمية غير متوفره');
+        } else {
+            $cart->save();
+            return redirect()->back()->with('success', 'تم زيادة العدد المطلوب لهذا المنتج');
+        }
     }
 
     public function destroy($cart)
