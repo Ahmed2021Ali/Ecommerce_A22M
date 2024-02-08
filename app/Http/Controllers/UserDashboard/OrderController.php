@@ -3,64 +3,32 @@
 namespace App\Http\Controllers\UserDashboard;
 
 use App\Http\Controllers\Controller;
+use App\Models\Address;
 use App\Models\Order;
+use App\Models\Product;
+use App\Repositories\Interfaces\UserDashboard\OrderInterface;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    protected $order;
+    public function __construct(OrderInterface $order)
+    {
+        $this->order = $order;
+    }
+
     public function index()
     {
-        //
+        return $this->order->index();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function store(Request $request , Address $address)
     {
-        //
+        return $this->order->store($request,$address);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Order $order)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Order $order)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Order $order)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Order $order)
     {
-        //
+        return $this->order->destroy($order);
     }
 }

@@ -10,6 +10,7 @@ use App\Repositories\Interfaces\AdminDashboard\ProductInterface;
 
 class ProductController extends Controller
 {
+
     protected $product;
 
     public function __construct(ProductInterface $product)
