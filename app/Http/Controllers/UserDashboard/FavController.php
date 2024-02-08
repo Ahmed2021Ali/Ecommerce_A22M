@@ -4,63 +4,29 @@ namespace App\Http\Controllers\UserDashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\Fav;
-use Illuminate\Http\Request;
+use App\Models\Product;
+use App\Repositories\Interfaces\UserDashboard\FavInterface;
 
 class FavController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
+    protected $fav;
+    public function __construct(FavInterface $fav)
+    {
+        $this->fav = $fav;
+    }
     public function index()
     {
-        //
+        return $this->fav->index();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function store(Product $product)
     {
-        //
+        return $this->fav->store($product);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Fav $fav)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Fav $fav)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Fav $fav)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Fav $fav)
     {
-        //
+        return $this->fav->destroy($fav);
     }
 }
