@@ -4,45 +4,30 @@ namespace App\Http\Controllers\UserDashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\Order;
+use App\Models\Product;
+use App\Repositories\Interfaces\UserDashboard\OrderInterface;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
+    protected $order;
+    public function __construct(OrderInterface $order)
+    {
+        $this->order = $order;
+    }
 
     public function index()
     {
-        //
+        return $this->order->index();
     }
 
-
-    public function create()
+    public function store(Request $request , Product $product)
     {
-        //
-    }
-
-    public function store(Request $request)
-    {
-        //
-    }
-
-
-    public function show(Order $order)
-    {
-        //
-    }
-
-
-    public function edit(Order $order)
-    {
-        //
-    }
-    public function update(Request $request, Order $order)
-    {
-        //
+        return $this->order->store($request,$product);
     }
 
     public function destroy(Order $order)
     {
-        //
+        return $this->order->destroy($order);
     }
 }

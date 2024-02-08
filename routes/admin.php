@@ -26,14 +26,11 @@ Route::resource('service', ServiceController::class);
 Route::resource('brand', BrandController::class);
 Route::resource('product', ProductController::class);
 Route::resource('coupon', CouponController::class);
-Route::resource('contact', ContactUsController::class);
+Route::resource('contact', ContactUsController::class)->except(['store','edit','update']);
 
-Route::controller(OrderController::class)->group(function (){
-    Route::get('order/index','index')->name('order.index');
+Route::controller(OrderController::class)->prefix('order')->as('order.')->group(function (){
+    Route::get('index','index')->name('index');
 });
-
-
-
 
 
 Route::resource('roles', RoleController::class);

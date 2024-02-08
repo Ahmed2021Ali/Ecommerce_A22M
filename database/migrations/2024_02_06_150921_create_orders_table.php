@@ -21,6 +21,7 @@ return new class extends Migration
             $table->foreignId('address_id')->references('id')->on('addresses')->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreignId('product_id')->references('id')->on('products')->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreignId('user_id')->references('id')->on('users')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->SoftDeletes();
             $table->timestamps();
         });
     }

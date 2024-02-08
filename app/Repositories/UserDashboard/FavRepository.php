@@ -12,7 +12,7 @@ class FavRepository implements FavInterface
 
     public function index()
     {
-        $favs = Fav::where('user_id', Auth::user()->id)->paginate(4);
+        $favs = Fav::where('user_id', Auth::user()->id)->paginate(5);
       //  return view('user.favourites.index', compact('favs'));
     }
 
