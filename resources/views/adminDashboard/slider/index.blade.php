@@ -18,19 +18,19 @@
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                    <th>Id</th>
+                    <th>#</th>
                     <th>العنوان الاول</th>
                     <th>العنوان الثاني</th>
                     <th>العنوان الثالث</th>
                     <th>العنوان الرابع</th>
                     <th>الحالة</th>
-                    <th>الحدث</th>
+                    <th>العمليات</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach ($sliders as $slider)
                     <tr>
-                        <td>{{ $slider->id }}</td>
+                        <td>{{ $loop->iteration }}</td>
                         <td>{{ $slider->title_h1 }}</td>
                         <td>{{ $slider->title_h2 }}</td>
                         <td>{{ $slider->title_h4 }}</td>

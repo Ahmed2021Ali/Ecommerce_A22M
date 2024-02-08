@@ -18,7 +18,7 @@
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                    <th>Id</th>
+                    <th>#</th>
                     <th>الاسم </th>
                     <th>الحالة</th>
                     <th>الحدث</th>
@@ -27,7 +27,7 @@
                 <tbody>
                 @foreach ($services as $service)
                     <tr>
-                        <td>{{ $service->id }}</td>
+                        <td>{{ $loop->iteration }}</td>
                         <td>{{ $service->name }}</td>
                         <td>{{ $service->status === 1 ? "معروضة ":"غير معروضة" }}</td>
 

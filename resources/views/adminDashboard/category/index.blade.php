@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 
 @section('title', ' عرض كل الأقسام')
-    
+
 @section('content_header')
     <h1>عرض كل الأقسام</h1>
 @stop
@@ -21,7 +21,7 @@
                 <tr>
                     <th>#</th>
                     <th>الاسم</th>
-                    <th>الحدث</th>
+                    <th>العمليات</th>
                 </tr>
                 </thead>
                 <tbody>

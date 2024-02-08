@@ -8,7 +8,6 @@ interface OrderInterface {
 
     public function store($request,$address);
 
-
     public function destroy($order);
 
 

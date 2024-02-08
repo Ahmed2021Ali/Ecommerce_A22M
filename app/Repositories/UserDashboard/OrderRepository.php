@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Repositories\Interfaces\UserDashboard\OrderInterface;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
 class OrderRepository implements OrderInterface
@@ -38,8 +39,10 @@ class OrderRepository implements OrderInterface
             $cart->delete();
         }
         $orders = Order::where('order_number', $order_number)->get();
-        // Send mail for admin
-        // dispatch(new SendMails($orders));
+
+        // Send mail for admin -> dispatch
+     //   Mail::to('tomail@gmail.com')->send(new \App\Mail\OrderMail($orders));
+
 
         /*        return view('user.favourites.index', ['orders' =>$orders]);*/
     }

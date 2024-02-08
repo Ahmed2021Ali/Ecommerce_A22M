@@ -18,16 +18,16 @@
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                    <th>Id</th>
+                    <th>#</th>
                     <th> اسم الكوبون</th>
                     <th>قيمته</th>
-                    <th>الحدث</th>
+                    <th>العمليات</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach ($coupons as $coupon)
                     <tr>
-                        <td>{{ $coupon->id }}</td>
+                        <td>{{ $loop->iteration }}</td>
                         <td>{{ $coupon->name }}</td>
                         <td>{{ $coupon->value }} %</td>
                         <td>{{ $coupon->status === 1 ? "متاح ":"غير متاح" }}</td>

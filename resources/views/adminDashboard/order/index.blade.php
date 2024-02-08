@@ -12,7 +12,7 @@
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                    <th>Id</th>
+                    <th>#</th>
                     <th>المنتج</th>
                     <th>اسم المنتج</th>
                     <th>الكمية</th>
@@ -28,7 +28,7 @@
                 <tbody>
                 @foreach ($orders as $order)
                     <tr>
-                        <td>{{ $order->id }}</td>
+                        <td>{{ $loop->iteration }}</td>
                         <td>
                             <a href="{{ route('product', $order) }}" class="btn btn-primary">عرض</a>
                         </td>

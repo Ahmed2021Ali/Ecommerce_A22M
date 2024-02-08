@@ -18,15 +18,15 @@
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                    <th>Id</th>
+                    <th>#</th>
                     <th>الحالة</th>
-                    <th>الحدث</th>
+                    <th>العمليات</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach ($brands as $brand)
                     <tr>
-                        <td>{{ $brand->id }}</td>
+                        <td>{{ $loop->iteration }}</td>
                         <td>{{ $brand->status === 1 ? "معروضة ":"غير معروضة" }}</td>
 
                         <td>

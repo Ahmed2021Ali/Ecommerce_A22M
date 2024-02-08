@@ -14,7 +14,7 @@
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                    <th>Id</th>
+                    <th>#</th>
                     <th> الاسم </th>
                     <th> الاميل</th>
                     <th>رقم التليفون</th>
@@ -28,7 +28,7 @@
                 <tbody>
                 @foreach ($contacts as $contact)
                     <tr>
-                        <td>{{ $contact->id }}</td>
+                        <td>{{ $loop->iteration }}</td>
                         <td>{{ $contact->name }}</td>
                         <td>{{ $contact->email }}</td>
                         <td>{{ $contact->phone }}</td>

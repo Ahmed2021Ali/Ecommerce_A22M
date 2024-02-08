@@ -18,17 +18,17 @@
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                    <th>Id</th>
+                    <th>#</th>
                     <th>العنوان الرائيسي</th>
                     <th>العنوان الفرعي</th>
                     <th>الحالة</th>
-                    <th>الحدث</th>
+                    <th>العمليات</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach ($banners as $banner)
                     <tr>
-                        <td>{{ $banner->id }}</td>
+                        <td>{{ $loop->iteration }}</td>
                         <td>{{ $banner->main_title }}</td>
                         <td>{{ $banner->small_title }}</td>
                         <td>{{ $banner->status === 1 ? "معروضة ":"غير معروضة" }}</td>
