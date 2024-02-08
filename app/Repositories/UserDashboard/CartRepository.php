@@ -33,7 +33,8 @@ class CartRepository implements CartInterface
             if ($request['quantity'] > $product->quantity) {
                 return redirect()->back()->with('error', 'الكمية غير متوفره');
             } else {
-                Cart::create(['user_id' => Auth::user()->id,'product_id' => $product->id,'quantity' => $request['quantity'],]);
+                Cart::create(['user_id' => Auth::user()->id,'product_id' => $product->id,
+                    'quantity' => $request['quantity'],'color' => $request['color'], 'size' => $request['size']]);
                 return redirect()->back()->with('success', 'تم بنجاح اضافة المنتج الي عربة التسويق الخاص بك');
             }
         }
