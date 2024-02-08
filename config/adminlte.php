@@ -374,6 +374,25 @@ return [
             'icon_color' => 'yellow',
             'route' => 'coupon.index',
         ],
+        [
+            'text' => 'الاتصال ينا ',
+            'icon_color' => 'yellow',
+            'route' => 'contact.index',
+        ],
+        [
+            'text' => 'الاردرات ',
+            'icon_color' => 'yellow',
+            'submenu' =>
+                [
+                    [
+                        'text' => 'الاردرات لم يتم توصيلها',
+                        'route' => 'order.index',
+                    ], /*[
+                    'text' => 'الاردرات تم توصيلها ',
+                    'route' => 'order.done.delivery',
+                ],*/
+                ],
+            ],
     ],
 
     /*

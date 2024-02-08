@@ -14,7 +14,7 @@
         <div class="float-end">
             <a class="btn btn-success" href="{{ route('roles.create') }}"> إضافة نوع مستخدم </a>
         </div>
-            
+
         </div>
     </div>
 </div>
@@ -36,9 +36,9 @@
             <td>
                 <a class="btn btn-info" href="{{ route('roles.show', $role->id) }}">عرض</a>
                 @if($role->name !== 'المدير')
-                
+
                 <a class="btn btn-primary" href="{{ route('roles.edit', $role->id) }}">تعديل</a>
-            
+
                 <!-- Delete Button with Modal -->
                 <x-adminlte-modal id="deleteModal_{{ $role->id }}" title="تأكيد الحذف" theme="danger" icon="fas fa-trash" size='sm' disable-animations>
                     <x-slot name="header">
@@ -54,13 +54,13 @@
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger">حذف</button>
                         </form>
-                        
+
                     </div>
                 </x-adminlte-modal>
                     <x-adminlte-button label="حذف" data-toggle="modal" data-target="#deleteModal_{{ $role->id }}" class="bg-danger"/>
                 @endif
                 </td>
-            
+
         </tr>
     @endforeach
 </table>

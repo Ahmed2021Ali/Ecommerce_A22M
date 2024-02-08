@@ -3,7 +3,9 @@
 use App\Http\Controllers\AdminDashboard\BannerController;
 use App\Http\Controllers\AdminDashboard\BrandController;
 use App\Http\Controllers\AdminDashboard\CategoryController;
+use App\Http\Controllers\AdminDashboard\ContactUsController;
 use App\Http\Controllers\AdminDashboard\CouponController;
+use App\Http\Controllers\AdminDashboard\OrderController;
 use App\Http\Controllers\AdminDashboard\ProductController;
 use App\Http\Controllers\AdminDashboard\ServiceController;
 use App\Http\Controllers\AdminDashboard\SliderController;
@@ -24,6 +26,11 @@ Route::resource('service', ServiceController::class);
 Route::resource('brand', BrandController::class);
 Route::resource('product', ProductController::class);
 Route::resource('coupon', CouponController::class);
+Route::resource('contact', ContactUsController::class);
+
+Route::controller(OrderController::class)->group(function (){
+    Route::get('order/index','index')->name('order.index');
+});
 
 
 
