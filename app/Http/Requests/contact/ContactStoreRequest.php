@@ -16,7 +16,7 @@ class ContactStoreRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'email' => 'required|email,',
+            'email' => 'required|email',
             'phone' => 'required|numeric|digits:11|regex:/^([0-9\s\-\+\(\)]*)$/',
             'subject' => 'required|string',
             'message' => 'required|string',

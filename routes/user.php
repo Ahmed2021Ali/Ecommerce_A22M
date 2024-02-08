@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserDashboard\AddressController;
 use App\Http\Controllers\UserDashboard\CartController;
 use App\Http\Controllers\UserDashboard\ContactUsController;
 use App\Http\Controllers\UserDashboard\FavController;
@@ -14,7 +15,6 @@ Route::get('/', [HomepageController::class, 'index'])->name('home');
 
 
 Route::controller(HomepageController::class)->group(function(){
-
     //Route::get('/showAllCategory',  'showAllCategory')->name('showAllCategory');
 });
 
@@ -39,4 +39,5 @@ Route::controller(OrderController::class)->prefix('order')->as('order.')->group(
 Route::post('/contactUs', [ContactUsController::class, 'store'])->name('contact.store');
 
 
+Route::resource('address', AddressController::class);
 
