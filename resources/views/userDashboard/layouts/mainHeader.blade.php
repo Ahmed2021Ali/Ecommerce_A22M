@@ -38,26 +38,26 @@
     <div class="header-middle header-middle-ptb-1 d-none d-lg-block">
         <div class="container">
             <div class="header-wrap">
-                <div class="logo logo-width-1">
+                {{-- <div class="logo logo-width-1">
                     <a href="index.html"><img src="assets/imgs/logo/logo.png" alt="logo"></a>
-                </div>
+                </div> --}}
                 <div class="header-right">
-                    <div class="search-style-1">
+                    <div class="search-style-1" style="direction: rtl; text-align: right;">
                         <form action="#">                                
-                            <input type="text" placeholder="Search for items...">
+                            <input type="text" style="direction: rtl; text-align: right;" placeholder="بحث">
                         </form>
                     </div>
                     <div class="header-action-right">
                         <div class="header-action-2">
                             <div class="header-action-icon-2">
                                 <a href="shop-wishlist.php">
-                                    <img class="svgInject" alt="Surfside Media" src="assets/imgs/theme/icons/icon-heart.svg">
+                                    <img class="svgInject" alt="Surfside Media" src="{{URL::asset('assets/imgs/theme/icons/icon-heart.svg')}}">
                                     <span class="pro-count blue">4</span>
                                 </a>
                             </div>
                             <div class="header-action-icon-2">
                                 <a class="mini-cart-icon" href="cart.html">
-                                    <img alt="Surfside Media" src="assets/imgs/theme/icons/icon-cart.svg">
+                                    <img alt="Surfside Media" src="{{URL::asset('assets/imgs/theme/icons/icon-cart.svg')}}">
                                     <span class="pro-count blue">2</span>
                                 </a>
                                 <div class="cart-dropdown-wrap cart-dropdown-hm2">
@@ -104,12 +104,12 @@
             </div>
         </div>
     </div>
-    <div class="header-bottom header-bottom-bg-color sticky-bar">
+    <div class="header-bottom header-bottom-bg-color sticky-bar" style="direction: rtl; text-align: right;">
         <div class="container">
             <div class="header-wrap header-space-between position-relative">
-                <div class="logo logo-width-1 d-block d-lg-none">
+                {{-- <div class="logo logo-width-1 d-block d-lg-none">
                     <a href="index.html"><img src="assets/imgs/logo/logo.png" alt="logo"></a>
-                </div>
+                </div> --}}
                 <div class="header-nav d-none d-lg-flex">
                     {{-- <div class="main-categori-wrap d-none d-lg-block">
                         <a class="categori-button-active" href="#">
@@ -359,18 +359,26 @@
                                 <li><a href="#">حسابي<i class="fi-rs-angle-down"></i></a>
                                     <ul class="sub-menu">
                                         <li><a href="#">الطلبات</a></li>
-                                        <form action="{{ route('logout') }}" method="POST">
-                                            @csrf
-                                            <li><i class="fi-rs-key"></i><button type="submit">تسجيل خروج</button></li>
-                                        </form>                                      </ul>
-                                </li>
+                                        <li><a href="#">البروفايل</a></li>
+                                        <li><a href="#">المفضلة</a></li>
+                                        @auth
+                                            <form action="{{ route('logout') }}" method="POST">
+                                                @csrf
+                                                <li><i class="fi-rs-key"></i><button type="submit">تسجيل خروج</button></li>
+                                            </form>                                      </ul>
+                                        @endauth
+                                    </li>
                             </ul>
                         </nav>
                     </div>
                 </div>
                 <div class="hotline d-none d-lg-block">
-                    <p><i class="fi-rs-smartphone"></i><span>اتصل بنا</span> (+1) 0000-000-000 </p>
-                </div>
+                    <p style="font-size: 16px; color: #333; margin-bottom: 10px;">
+                        <i style="margin-right: 5px;" class="fi-rs-smartphone"></i>
+                        <span>اتصل بنا: </span>
+                        <span style="font-weight: bold; color: #F15412">(+1) 0000-000-000</span>
+                    </p>
+                                    </div>
                 <p class="mobile-promotion">Happy <span class="text-brand">Mother's Day</span>. Big Sale Up to 40%</p>
                 <div class="header-action-right d-block d-lg-none">
                     <div class="header-action-2">
@@ -440,9 +448,9 @@
 <div class="mobile-header-active mobile-header-wrapper-style">
     <div class="mobile-header-wrapper-inner">
         <div class="mobile-header-top">
-            <div class="mobile-header-logo">
+            {{-- <div class="mobile-header-logo">
                 <a href="index.html"><img src="assets/imgs/logo/logo.png" alt="logo"></a>
-            </div>
+            </div> --}}
             <div class="mobile-menu-close close-style-wrap close-style-position-inherit">
                 <button class="close-style search-close">
                     <i class="icon-top"></i>
@@ -451,9 +459,9 @@
             </div>
         </div>
         <div class="mobile-header-content-area">
-            <div class="mobile-search search-style-3 mobile-header-border">
+            <div class="mobile-search search-style-3 mobile-header-border" style="direction: rtl; text-align: right;">
                 <form action="#">
-                    <input type="text" placeholder="Search for items…">
+                    <input type="text" placeholder="بحث" style="direction: rtl; text-align: right;">
                     <button type="submit"><i class="fi-rs-search"></i></button>
                 </form>
             </div>

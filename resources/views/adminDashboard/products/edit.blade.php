@@ -59,10 +59,11 @@
 
                     <label for="color">الالوان المتوفرة </label>
                     <select name="color[]" id="color" class="form-control" MULTIPLE>
-                        <option {{ in_array('احمر',explode(',',$product->color)) ? 'selected' : '' }}  value="احمر">احمر</option>
-                        <option {{ in_array('اصفر',explode(',',$product->color)) ? 'selected' : '' }}  value="اصفر"> اصفر</option>
-                        <option {{ in_array('اخضر',explode(',',$product->color)) ? 'selected' : '' }}  value="اخضر"> اخضر</option>
+                        @foreach (explode(',', $product->color) as $color)
+                            <option {{ in_array($color, explode(',', $product->color)) ? 'selected' : '' }} value="{{ $color }}">{{ $color }}</option>
+                        @endforeach
                     </select>
+                    
                     @error('color')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
@@ -85,7 +86,7 @@
                     <select name="category_id" id="category_id" class="form-control">
                         @foreach ($categories as $category)
                             <option {{ $category->id == $product->category_id ? 'selected' : '' }}
-                                    value="{{ $category->id }}">{{ $category->title }}
+                                    value="{{ $category->id }}">{{ $category->name }}
                             </option>
                         @endforeach
                     </select>

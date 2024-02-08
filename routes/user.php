@@ -5,8 +5,12 @@ use App\Http\Controllers\UserDashboard\CartController;
 use App\Http\Controllers\UserDashboard\ContactUsController;
 use App\Http\Controllers\UserDashboard\FavController;
 use App\Http\Controllers\UserDashboard\HomepageController;
+<<<<<<< HEAD
+use App\Http\Controllers\UserDashboard\ProductControlle;
+=======
 use App\Http\Controllers\UserDashboard\OrderController;
 use Illuminate\Support\Facades\Mail;
+>>>>>>> 7e1558e7cb052b2cd5fb31f7bff87c1525d0ce63
 use Illuminate\Support\Facades\Route;
 
 
@@ -18,6 +22,10 @@ Route::controller(HomepageController::class)->group(function(){
     //Route::get('/showAllCategory',  'showAllCategory')->name('showAllCategory');
 });
 
+<<<<<<< HEAD
+
+Route::resource('products', ProductControlle::class);
+=======
 Route::controller(FavController::class)->prefix('fav')->as('fav.')->group(function(){
     Route::get('/index',  'index')->name('index');
     Route::get('/store/{product}',  'store')->name('store');
@@ -41,3 +49,4 @@ Route::post('/contactUs', [ContactUsController::class, 'store'])->name('contact.
 
 Route::resource('address', AddressController::class);
 
+>>>>>>> 7e1558e7cb052b2cd5fb31f7bff87c1525d0ce63
