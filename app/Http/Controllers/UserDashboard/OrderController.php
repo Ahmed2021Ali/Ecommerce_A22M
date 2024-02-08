@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\UserDashboard;
 
 use App\Http\Controllers\Controller;
+use App\Models\Address;
 use App\Models\Order;
 use App\Models\Product;
 use App\Repositories\Interfaces\UserDashboard\OrderInterface;
@@ -21,9 +22,9 @@ class OrderController extends Controller
         return $this->order->index();
     }
 
-    public function store(Request $request , Product $product)
+    public function store(Request $request , Address $address)
     {
-        return $this->order->store($request,$product);
+        return $this->order->store($request,$address);
     }
 
     public function destroy(Order $order)

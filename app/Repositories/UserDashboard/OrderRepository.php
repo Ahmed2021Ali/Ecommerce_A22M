@@ -19,29 +19,29 @@ class OrderRepository implements OrderInterface
         //  return view('user.favourites.index', compact('orders'));
     }
 
-    public function store($request ,$product)
+    public function store($request, $address)
     {
-/*        $order_number = Str::random(16);
+        $order_number = Str::random(16);
         $carts = Cart::where('user_id', Auth::user()->id)->get();
         foreach ($carts as $cart) {
             $order = Arr::except($cart->toArray());
             $order['order_number'] = $order_number;
-            //$order['address_id'] = $address->id;
+            $order['address_id'] = $address->id;
             $order['price'] = $cart->product->price;
             $order['offer'] = $cart->product->offer;
-            $order['price_after_offer'] = $cart->product->offer ? $cart->product->price_after_offer : $cart->product->price;
+            $order['price_after_offer'] = $cart->product->price_after_offer;
             $order['total_price'] = ($order['offer'] ? $order['price_after_offer'] : $order['price']) * $cart->quantity;
             Order::create($order);
             Product::where('id', $cart->product_id)->update([
-                'quantity' => ($cart->product->quantity) - ($cart->quantity),
-                'stock' => 1 + $cart->product->stock,
+                'quantity' => ($cart->product->quantity) - ($cart->quantity), 'stock' => 1 + $cart->product->stock,
             ]);
             $cart->delete();
-        }*/
+        }
+        $orders = Order::where('order_number', $order_number)->get();
         // Send mail for admin
+        // dispatch(new SendMails($orders));
 
-
-       // return $order_number;
+        /*        return view('user.favourites.index', ['orders' =>$orders]);*/
     }
 
     public function destroy($order)

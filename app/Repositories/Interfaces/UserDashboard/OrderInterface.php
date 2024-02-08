@@ -6,7 +6,7 @@ interface OrderInterface {
 
     public function index();
 
-    public function store($request,$product);
+    public function store($request,$address);
 
 
     public function destroy($order);
