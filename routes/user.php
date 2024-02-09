@@ -41,6 +41,7 @@ Route::controller(OrderController::class)->prefix('order')->as('order.')->group(
     Route::get('/destroy/{order}',  'destroy')->name('destroy');
 });
 Route::post('/contactUs', [ContactUsController::class, 'store'])->name('contact.store');
+Route::get('/contact-us', [ContactUsController::class, 'index'])->name('contact.index');
 
 
 Route::resource('address', AddressController::class);

@@ -22,3 +22,4 @@
 <!-- Template  JS -->
 <script src="{{ URL::asset('assets/js/main.js?v=3.3') }}"></script>
 <script src="{{ URL::asset('assets/js/shop.js?v=3.3') }}"></script>
+

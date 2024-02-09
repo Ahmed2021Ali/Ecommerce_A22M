@@ -1,12 +1,12 @@
 
 <button class="loginBtn loginBtn--facebook">
     <a href="{{route('socialite.login',['provider'=>'facebook'])}}" style="color: white">
-        Login with Facebook
+        تسجيل دخول بواسطة الفيسبوك
     </a>
 </button>
 <button class="loginBtn loginBtn--google">
     <a href="{{route('socialite.login',['provider'=>'google'])}}" style="color: white">
-        Login with Google
+        تسجيل دخول بواسطة البريد الألكتروني
     </a>
 </button>
 <style>

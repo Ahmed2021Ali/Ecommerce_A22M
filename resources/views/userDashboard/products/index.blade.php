@@ -21,12 +21,12 @@
                 <div class="row">
                     <div class="col-lg-9">
                         <div class="row product-grid-3">
-                                <div class="row product-grid-4">
+                                <div class="row product-grid-4" style="direction: rtl; text-align: center;">
                                     @foreach($products as $product)
                                         <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 col-10" >
-                                            <div class="product-cart-wrap mb-30">
+                                            <div class="product-cart-wrap mb-30" >
                                                 <div class="product-img-action-wrap">
-                                                    <div class="product-img product-img-zoom">
+                                                    <div class="product-img product-img-zoom" >
                                                         @foreach($product->getMedia('productFiles') as $media)
                                                             <a href="{{route('products.show', $product->id)}}"><img  src="{{$media->getFullUrl()}}" width="600" height="300"></a>
                                                             @break
@@ -64,7 +64,7 @@
 
                         </div>
                         <!--pagination-->
-                        <div class="pagination-area mt-15 mb-sm-5 mb-lg-0">
+                        <div class="pagination-area mt-15 mb-sm-5 mb-lg-0" style="direction: rtl;">
                             <nav aria-label="Page navigation example">
                                 {{ $products->links() }}
                             </nav>
