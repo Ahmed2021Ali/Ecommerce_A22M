@@ -20,16 +20,6 @@
                             <li><i class="fi-rs-key"></i><a href="{{ route('signin.view.form') }}">تسجيل دخول</a> / <a href="{{ route('signup.view.form') }}">إنشاء حساب</a></li>
                         </ul>
                     @endguest
-
-                    @auth
-                        <ul>
-                            <form action="{{ route('logout') }}" method="POST">
-                                @csrf
-                                <li><i class="fi-rs-key"></i><button type="submit">تسجيل خروج</button></li>
-                            </form>
-                        </ul>
-                    @endauth
-
                     </div>
                 </div>
             </div>
