@@ -3,14 +3,14 @@
         إنشاء حساب
     @endsection
     @section('css')
-        
+
     @endsection
 
     @section('content')
     <div class="page-header breadcrumb-wrap">
         <div class="container">
             <div class="breadcrumb">
-                <a href="index.html" rel="nofollow">Home</a>                    
+                <a href="index.html" rel="nofollow">Home</a>
                 <span></span> إنشاء حساب
             </div>
         </div>
@@ -43,6 +43,8 @@
                                         <div class="form-group">
                                             <button type="submit" class="btn btn-fill-out btn-block hover-up" name="Signup">إنشاء حساب</button>
                                         </div>
+                                        @include('auth.socialite')
+
                                     </form>
                                 </div>
                             </div>

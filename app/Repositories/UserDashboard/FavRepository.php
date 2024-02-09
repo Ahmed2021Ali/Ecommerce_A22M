@@ -18,8 +18,8 @@ class FavRepository implements FavInterface
 
     public function store($product)
     {
-        $favProduct = Fav::where('product_id', $product->id)->where('user_id', Auth::user()->id)->first();
-        if ($favProduct) {
+        $fav = Fav::where('product_id', $product->id)->where('user_id', Auth::user()->id)->first();
+        if ($fav) {
             return redirect()->back()->with('error', 'الكتاب مضاف فعليا في المفضلة');
         } else {
             Fav::create(['product_id' => $product->id, 'user_id' => Auth::user()->id]);

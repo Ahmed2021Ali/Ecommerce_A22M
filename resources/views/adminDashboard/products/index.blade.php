@@ -18,7 +18,6 @@
                         <th>المقاسات</th>
                         <th>السعر</th>
                         <th>حالة المنتج</th>
-
                         <th>الكمبة</th>
                         <th>القسم</th>
                         <th>العمليات</th>
@@ -31,7 +30,6 @@
                             <td>{{ $product->name }}</td>
                             <td>{{ $product->color }}</td>
                             <td>{{ $product->size }}</td>
-
                             <td>{{$product->price_after_offer ? $product->price_after_offer : $product->price  }}</td>
                             <td>{{ $product->status == '1'? 'معروض ' : 'غير معروض ' }}</td>
                             <td>{{ $product->quantity }}</td>
