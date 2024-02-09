@@ -45,9 +45,19 @@ class ProductControlle extends Controller
     }
 
 
-    public function edit(string $id)
+    public function productsOfCategory($categoryId)
     {
-        //
+        $products = Product::where('category_id', $categoryId)->paginate(9);
+
+        $categories = Category::all();
+            
+        $newProducts = Product::latest()->take(3)->get();
+    
+        $relatedProducts = Product::where('category_id', $categoryId)->get();
+
+        $categoryName = Category::where('id', $categoryId)->select('id', 'name')->first();
+
+        return view('userDashboard.products.productsOfCategory.index', compact('products', 'categories', 'newProducts', 'relatedProducts', 'categoryName'));
     }
 
     public function update(Request $request, string $id)

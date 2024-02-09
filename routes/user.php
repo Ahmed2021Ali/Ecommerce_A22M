@@ -46,3 +46,5 @@ Route::get('/contact-us', [ContactUsController::class, 'index'])->name('contact.
 
 Route::resource('address', AddressController::class);
 
+
+Route::get('/category/products/{category_id}', [ProductControlle::class, 'productsOfCategory'])->name('category.products');
