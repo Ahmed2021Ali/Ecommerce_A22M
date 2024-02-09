@@ -74,8 +74,6 @@
                                         </ul>
 
 
-
-
                                             {{-- <li><a href="#" data-color="Red"><span class="product-color-red"></span></a></li>
                                             <li><a href="#" data-color="Yellow"><span class="product-color-yellow"></span></a></li>
                                             <li class="active"><a href="#" data-color="White"><span class="product-color-white"></span></a></li>
@@ -111,7 +109,7 @@
                                 <!-- Detail Info -->
                             </div>
                         </div>
-                        
+
                         <div class="row mt-60" style="direction: rtl; text-align: right;">
     <div class="col-12">
         <h3>منتجات مشابهة</h3>

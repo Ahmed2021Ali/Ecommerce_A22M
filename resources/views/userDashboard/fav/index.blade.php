@@ -68,6 +68,7 @@
                                 </div>
                             @endforeach
                         </div>
+                        {{$favs->links()}}
                     </div>
                     <div class="col-lg-3 primary-sidebar sticky-sidebar">
                         <div class="row">
@@ -81,6 +82,7 @@
                                     <li><a href="shop.html">{{$category->name}}</a></li>
                                 @endforeach
                             </ul>
+                            {{$categories->links()}}
                         </div>
                     </div>
                 </div>

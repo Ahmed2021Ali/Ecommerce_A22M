@@ -13,8 +13,8 @@ class FavRepository implements FavInterface
 
     public function index()
     {
-        return view('userDashboard.fav.index', ['favs'=>Fav::where('user_id', Auth::user()->id)->get(),
-            'count'=>Fav::where('user_id', Auth::user()->id)->count(), 'categories'=>Category::all()
+        return view('userDashboard.fav.index', ['favs'=>Fav::where('user_id', Auth::user()->id)->paginate(6),
+            'count'=>Fav::where('user_id', Auth::user()->id)->count(), 'categories'=>Category::paginate(6)
             ]);
     }
 
