@@ -35,7 +35,7 @@
                                     </div>
                                 </div>
                                 <!-- End Gallery -->
-                                
+
                             </div>
                             <div class="col-md-6 col-sm-12 col-xs-12">
                                 <div class="detail-info" style="direction: rtl; text-align: right;">
@@ -87,7 +87,7 @@
     @endforeach
 </ul>
 
-                                        
+
 
 
                                             {{-- <li><a href="#" data-color="Red"><span class="product-color-red"></span></a></li>
@@ -108,7 +108,7 @@
                                                 </li>
                                             @endforeach
                                         </ul>
-                                        
+
                                     </div>
                                     <br>
                                     <label for="quantity" style="display: inline-block; margin-right: 10px;">الكمية :</label>
@@ -118,7 +118,7 @@
                                     <div class="detail-extralink">
                                         <div class="product-extra-link2">
                                             <button type="submit" class="button button-add-to-cart">أضف إلي السلة</button>
-                                            <a aria-label="Add To Wishlist" class="action-btn hover-up" href="wishlist.php"><i class="fi-rs-heart"></i></a>
+                                            <a aria-label="Add To Wishlist" class="action-btn hover-up" href="{{route('fav.store',$product)}}"><i class="fi-rs-heart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -434,13 +434,13 @@
                                                 </div>
                                             </div>
                                         @endforeach
-                                        
+
                                         </div>
                                     </div>
-                                    
+
                                 </div>
                             </div>
-                        </div>                            
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-3 primary-sidebar sticky-sidebar">
@@ -506,7 +506,7 @@
                             </div>
                         @endforeach
 
-                    </div>                        
+                    </div>
                 </div>
             </div>
         </div>

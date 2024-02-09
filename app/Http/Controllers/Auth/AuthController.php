@@ -30,12 +30,12 @@ class AuthController extends Controller
 
         $user = User::create($validatedData);
 
-        $defaultRoles = ['user', 'User']; 
+        $defaultRoles = ['user', 'User'];
         $defaultRole = Role::whereIn('name', $defaultRoles)->first();
-        
+
         if ($defaultRole) {
             $user->assignRole($defaultRole);
-        } 
+        }
 
         Auth::login($user);
 
@@ -52,7 +52,7 @@ class AuthController extends Controller
         $credentials = $request->validated();
 
         if (Auth::attempt($credentials)) {
-        
+
             // Check if the user has either 'admin' or 'user' role
             if (Auth::user()->hasRole(['المدير', 'ادمن'])) {
                 toastr()->success('تم تسجيل الدخول');
@@ -65,7 +65,7 @@ class AuthController extends Controller
             toastr()->error('البيانات غير صحيحة');
             return back()->withInput()->withErrors(['email' => 'Invalid credentials']);
         }
-        
+
     }
 
 
@@ -76,7 +76,7 @@ class AuthController extends Controller
         return to_route('home');
     }
 
-        /* socialite with Facebook , Google , GitHub  */
+    /* socialite with Facebook , Google , GitHub  */
     public function loginWith($provider)
     {
         return Socialite::driver($provider)->redirect();
@@ -87,17 +87,18 @@ class AuthController extends Controller
         $socialite = Socialite::driver($provider)->stateless()->user();
         $user = User::where('email', $socialite->getEmail())->first();
         if (!$user) {
-                $user = User::updateOrCreate([
-                'provider' => $provider,
-                'provider_id' => $socialite->getId(),
-            ], [
-                'name' => $socialite->getName(),
-                'email' => $socialite->getEmail(),
+            $user = User::create([
+                'provider' => $provider, 'provider_id' => $socialite->getId(),
+                'name' => $socialite->getName(), 'email' => $socialite->getEmail(),
             ]);
+            $defaultRoles = ['user', 'User'];
+            $defaultRole = Role::whereIn('name', $defaultRoles)->first();
+            if ($defaultRole) {
+                $user->assignRole($defaultRole);
+            }
         }
         Auth::login($user, true);
         toastr()->success('تم تسجيل الدخول');
-
         return redirect('home');
     }
 }

@@ -22,7 +22,6 @@
 >>>>>>> cd68e10b1e25aca7833fde02883ba6d5fc11a4e0
                         <th>السعر</th>
                         <th>حالة المنتج</th>
-
                         <th>الكمبة</th>
                         <th>القسم</th>
                         <th>العمليات</th>
@@ -35,7 +34,6 @@
                             <td>{{ $product->name }}</td>
                             <td>{{ $product->color }}</td>
                             <td>{{ $product->size }}</td>
-
                             <td>{{$product->price_after_offer ? $product->price_after_offer : $product->price  }}</td>
                             <td>{{ $product->status == '1'? 'معروض ' : 'غير معروض ' }}</td>
                             <td>{{ $product->quantity }}</td>

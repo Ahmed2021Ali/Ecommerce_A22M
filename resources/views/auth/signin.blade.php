@@ -1,16 +1,16 @@
 @extends('userDashboard.layouts.master')
-    @section('title')
-        تسجيل دخول
-    @endsection
-    @section('css')
-        
-    @endsection
+@section('title')
+    تسجيل دخول
+@endsection
+@section('css')
 
-    @section('content')
+@endsection
+
+@section('content')
     <div class="page-header breadcrumb-wrap">
         <div class="container">
             <div class="breadcrumb">
-                <a href="index.html" rel="nofollow">Home</a>                    
+                <a href="index.html" rel="nofollow">Home</a>
                 <span></span> تسجيل دخول
             </div>
         </div>
@@ -21,7 +21,8 @@
                 <div class="col-lg-10 m-auto">
                     <div class="row">
                         <div class="col-lg-5">
-                            <div class="login_wrap widget-taber-content p-30 background-white border-radius-10 mb-md-5 mb-lg-0 mb-sm-5">
+                            <div
+                                class="login_wrap widget-taber-content p-30 background-white border-radius-10 mb-md-5 mb-lg-0 mb-sm-5">
                                 <div class="padding_eight_all bg-white">
                                     <div class="heading_s1">
                                         <h3 class="mb-30">تسجيل دخول</h3>
@@ -29,14 +30,19 @@
                                     <form method="POST" action="{{route('signin.submit.form')}}">
                                         @csrf
                                         <div class="form-group">
-                                            <input type="text" required="" name="email" placeholder="البريد الألكتروني" required>
+                                            <input type="text" required="" name="email" placeholder="البريد الألكتروني"
+                                                   required>
                                         </div>
                                         <div class="form-group">
-                                            <input required="" type="password" name="password" placeholder="كلمة السر" required>
+                                            <input required="" type="password" name="password" placeholder="كلمة السر"
+                                                   required>
                                         </div>
                                         <div class="form-group">
-                                            <button type="submit" class="btn btn-fill-out btn-block hover-up" name="login">تسجيل دخول</button>
+                                            <button type="submit" class="btn btn-fill-out btn-block hover-up"
+                                                    name="login">تسجيل دخول
+                                            </button>
                                         </div>
+                                        @include('auth.socialite')
                                     </form>
                                 </div>
                             </div>
@@ -50,10 +56,10 @@
             </div>
         </div>
     </section>
-    @endsection
+@endsection
 
 
-    @section('js')
+@section('js')
 
-    @endsection
+@endsection
 
