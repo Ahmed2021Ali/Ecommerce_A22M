@@ -15,6 +15,12 @@ class ContactUsController extends Controller
         $this->contact = $contact;
     }
 
+    public function index()
+    {
+        return view('userDashboard.contactUs.index');
+    }
+
+
     public function store(ContactStoreRequest $request)
     {
         $this->contact->store($request->validated());
