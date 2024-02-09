@@ -102,7 +102,7 @@
                         <nav>
                             <ul>
                                 <li><a class="active" href="{{ route('home') }}"> الصفحة الرئيسية </a></li>
-                                <li><a href="about.html">تعرف علينا</a></li>
+                                <li><a href="#about-us">تعرف علينا</a></li>
                                 <li><a href="{{ route('products.index') }}">تصفح المنتجات</a></li>
                                 <li class="position-static"><a href="#">منتجاتنا <i
                                             class="fi-rs-angle-down"></i></a>

@@ -24,7 +24,7 @@
             </div>
         </div>
     </section> --}}
-    <section class="section-padding footer-mid">
+    <section class="section-padding footer-mid" id="about-us">
         <div class="container pt-15 pb-20" style="direction: rtl; text-align: right;">
             <div class="row">
                 <div class="col-lg-4 col-md-6">
