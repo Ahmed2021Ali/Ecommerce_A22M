@@ -23,6 +23,7 @@ class HomepageController extends Controller
         $brands = Brand::all();
         $newArrivalProducts = Product::latest()->take(10)->get();
         $newAddedProducts = Product::latest()->take(8)->get();
+        $featuredProducts = Product::paginate(10);
         return view('home', 
         compact(
             'categories',
@@ -33,7 +34,7 @@ class HomepageController extends Controller
         'newArrivalProducts',
         'brands', 
         'newAddedProducts',
-        'newAddedProducts',
+        'featuredProducts'
     ));
     }
 

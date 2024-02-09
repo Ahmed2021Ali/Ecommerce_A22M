@@ -32,29 +32,29 @@
     <section class="product-tabs section-padding position-relative wow fadeIn animated">
         <div class="bg-square"></div>
         <div class="container">
-            <div class="tab-header">
-                <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <div class="tab-header" style="direction: rtl; text-align: right;"> 
+                <ul class="nav nav-tabs" id="myTab" role="tablist" style="direction: rtl; text-align: right;">
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active" id="nav-tab-one" data-bs-toggle="tab" data-bs-target="#tab-one"
-                                type="button" role="tab" aria-controls="tab-one" aria-selected="true">Featured
+                                type="button" role="tab" aria-controls="tab-one" aria-selected="true"> العناصر المميزة
                         </button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="nav-tab-two" data-bs-toggle="tab" data-bs-target="#tab-two"
-                                type="button" role="tab" aria-controls="tab-two" aria-selected="false">Popular
+                                type="button" role="tab" aria-controls="tab-two" aria-selected="false">العناصر المشهورة
                         </button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="nav-tab-three" data-bs-toggle="tab" data-bs-target="#tab-three"
-                                type="button" role="tab" aria-controls="tab-three" aria-selected="false">New added
+                                type="button" role="tab" aria-controls="tab-three" aria-selected="false">العناصر الجديدة
                         </button>
                     </li>
                 </ul>
-                <a href="#" class="view-more d-none d-md-flex">View More<i
-                        class="fi-rs-angle-double-small-right"></i></a>
+                <a href="{{route('products.index')}}" class="view-more d-none d-md-flex">عرض الكل<i
+                        class="fi-rs-angle-double-small-left"></i></a>
             </div>
             <!--End nav-tabs-->
-            <div class="tab-content wow fadeIn animated" id="myTabContent">
+            <div class="tab-content wow fadeIn animated" id="myTabContent" >
                 @include('userDashboard.products.featured.index')
                 @include('userDashboard.products.popular.index')
                 @include('userDashboard.products.newAdded.index')
@@ -62,30 +62,7 @@
             </div>
         </div>
     </section>
-    {{-- <section class="banner-2 section-padding pb-0">
-        <div class="container">
-            <div class="banner-img banner-big wow fadeIn animated f-none">
-                <img src="assets/imgs/banner/banner-4.png" alt="">
-                <div class="banner-text d-md-block d-none">
-                    <h4 class="mb-15 mt-40 text-brand">Repair Services</h4>
-                    <h1 class="fw-600 mb-20">We're an Apple <br>Authorised Service Provider</h1>
-                    <a href="shop.html" class="btn">Learn More <i class="fi-rs-arrow-right"></i></a>
-                </div>
-            </div>
-        </div>
-    </section> --}}
-    {{-- <section class="popular-categories section-padding mt-15 mb-25">
-        <div class="container wow fadeIn animated">
-            <h3 class="section-title mb-20"><span>Popular</span> Categories</h3>
-            <div class="carausel-6-columns-cover position-relative">
-                <div class="slider-arrow slider-arrow-2 carausel-6-columns-arrow" id="carausel-6-columns-arrows"></div>
-                <div class="carausel-6-columns" id="carausel-6-columns">
-                    @include('userDashboard.products.popular.index')
 
-                </div>
-            </div>
-        </div>
-    </section> --}}
     <section class="banners mb-15">
         <div class="container">
             <div class="row">
@@ -137,10 +114,7 @@
                                             <a href="{{ route('products.show', $product->id) }}">
                                                 <img src="{{ $media->getFullUrl() }}" width="400" height="250" style="direction: rtl; text-align: right;">
                                             </a>
-<<<<<<< HEAD
                                             @break
-=======
->>>>>>> b6b12765d32979efbedf2afed303b596ce1e79c7
                                         @endforeach
 
                                     </a>

@@ -1,8 +1,8 @@
 <header class="header-area header-style-1 header-height-2">
     <div class="header-top header-top-ptb-1 d-none d-lg-block">
-        <div class="container">
+        <div class="container" style="direction: rtl; text-align: right;>
             <div class="row align-items-center">
-                <div class="col-xl-6 col-lg-4">
+                {{-- <div class="col-xl-6 col-lg-4">
                     <div class="text-center">
                         <div id="news-flash" class="d-inline-block">
                             <ul>
@@ -12,7 +12,7 @@
                             </ul>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <div class="col-xl-3 col-lg-4">
                     <div class="header-info header-info-right">
                         @guest
