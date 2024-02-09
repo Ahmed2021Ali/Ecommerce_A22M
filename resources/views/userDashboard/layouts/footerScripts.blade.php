@@ -23,3 +23,36 @@
 <script src="{{ URL::asset('assets/js/main.js?v=3.3') }}"></script>
 <script src="{{ URL::asset('assets/js/shop.js?v=3.3') }}"></script>
 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    toastr.options = {
+        "positionClass": "toast-top-right",
+        "timeOut": "5000",
+    };
+
+    function addToFavorites(productId) {
+        $.ajax({
+            url: '{{ route("fav.store", ["product" => ":productId"]) }}'.replace(':productId', productId),
+            type: 'POST',
+            data: {_token: '{{ csrf_token() }}'},
+            success: function (response) {
+                console.log(response.message);
+                toastrMessage(response);
+            },
+            error: function (error) {
+                console.log(error.responseText);
+                toastr.error('Error adding to favorites. Please try again.');
+            }
+        });
+    }
+
+    function toastrMessage(response) {
+        // Customize the toastr message based on the response
+        if (response.success) {
+            toastr.success(response.message);
+        } else {
+            toastr.error(response.message);
+        }
+    }
+</script>
