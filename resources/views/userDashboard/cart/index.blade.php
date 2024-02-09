@@ -35,11 +35,9 @@
                                 @foreach($carts as $cart)
                                     <tr>
                                         <td class="image product-thumbnail">
-                                        @foreach($fav->product->getMedia('productFiles') as $media)
-                                            <a href="{{route('products.show', $fav->product->id)}}"><img src="{{$media->getFullUrl()}}" width="400" height="250"
-                                                    style="direction: rtl; text-align: right;"></a>
-                                        @endforeach
+                                            <a href="{{route('products.show', $cart->product->id)}}"><img src="{{$cart->product->getFirstMediaUrl('productFiles')}}"></a>
                                         </td>
+
                                         <td class="product-des product-name">
                                             <h5 class="product-name"><a href="product-details.html">{{$cart->product->name}}</a></h5>
                                             <p class="font-xs">Maboriosam in a tonto nesciung eget<br> distingy magndapibus.</p>
@@ -55,54 +53,21 @@
                                         </td>
 
                                         <td class="text-right" data-title="Cart">
-                                            <span>$65.00 </span>
+                                            <span>{{($cart->product->offer ? $cart->product->price_after_offer : $cart->product->price) * $cart->quantity }} </span>
                                         </td>
-                                        <td class="action" data-title="Remove"><a href="{{route('cart.destroy')}}" class="text-muted"><i class="fi-rs-trash"></i></a></td>
+                                        <td class="action" data-title="Remove">
+                                            <form action="{{route('cart.destroy',$cart)}}" method="post">
+                                                @method('delete')
+                                                @csrf
+                                                <button class="text-muted"><i class="fi-rs-trash"></i></button>
+                                            </form>
+                                        </td>
                                     </tr>
 
                                 @endforeach
                                 <tr>
-                                    <td class="image"><img src="assets/imgs/shop/product-11-2.jpg" alt="#"></td>
-                                    <td class="product-des">
-                                        <h5 class="product-name"><a href="product-details.html">Amazon Essentials Women's Tank</a></h5>
-                                        <p class="font-xs">Sit at ipsum amet clita no est,<br> sed amet sadipscing et gubergren</p>
-                                    </td>
-                                    <td class="price" data-title="Price"><span>$75.00 </span></td>
-                                    <td class="text-center" data-title="Stock">
-                                        <div class="detail-qty border radius  m-auto">
-                                            <a href="#" class="qty-down"><i class="fi-rs-angle-small-down"></i></a>
-                                            <span class="qty-val">2</span>
-                                            <a href="#" class="qty-up"><i class="fi-rs-angle-small-up"></i></a>
-                                        </div>
-                                    </td>
-                                    <td class="text-right" data-title="Cart">
-                                        <span>$150.00 </span>
-                                    </td>
-                                    <td class="action" data-title="Remove"><a href="#" class="text-muted"><i class="fi-rs-trash"></i></a></td>
-                                </tr>
-                                <tr>
-                                    <td class="image"><img src="assets/imgs/shop/product-6-1.jpg" alt="#"></td>
-                                    <td class="product-des">
-                                        <h5 class="product-name"><a href="product-details.html">Amazon Brand - Daily Ritual Women's Jersey </a></h5>
-                                        <p class="font-xs">Erat amet et et amet diam et et.<br> Justo amet at dolore
-                                        </p>
-                                    </td>
-                                    <td class="price" data-title="Price"><span>$62.00 </span></td>
-                                    <td class="text-center" data-title="Stock">
-                                        <div class="detail-qty border radius  m-auto">
-                                            <a href="#" class="qty-down"><i class="fi-rs-angle-small-down"></i></a>
-                                            <span class="qty-val">1</span>
-                                            <a href="#" class="qty-up"><i class="fi-rs-angle-small-up"></i></a>
-                                        </div>
-                                    </td>
-                                    <td class="text-right" data-title="Cart">
-                                        <span>$62.00 </span>
-                                    </td>
-                                    <td class="action" data-title="Remove"><a href="#" class="text-muted"><i class="fi-rs-trash"></i></a></td>
-                                </tr>
-                                <tr>
                                     <td colspan="6" class="text-end">
-                                        <a href="#" class="text-muted"> <i class="fi-rs-cross-small"></i> Clear Cart</a>
+                                        <a href="{{route('cart.clear')}}" class="text-muted"> <i class="fi-rs-cross-small"></i> Clear Cart</a>
                                     </td>
                                 </tr>
                                 </tbody>

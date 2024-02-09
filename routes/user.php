@@ -32,7 +32,8 @@ Route::controller(CartController::class)->prefix('cart')->as('cart.')->group(fun
     Route::get('/index',  'index')->name('index');
     Route::post('/store/{product}',  'store')->name('store');
     Route::put('/update/{cart}',  'store')->name('update');
-    Route::get('/destroy/{cart}',  'destroy')->name('destroy');
+    Route::delete('/destroy/{cart}',  'destroy')->name('destroy');
+    Route::get('/clear',  'clear')->name('clear');
 });
 
 Route::controller(OrderController::class)->prefix('order')->as('order.')->group(function(){

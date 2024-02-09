@@ -8,6 +8,7 @@ use App\Models\Cart;
 use App\Models\Product;
 use App\Repositories\Interfaces\UserDashboard\CartInterface;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
@@ -22,21 +23,27 @@ class CartController extends Controller
 
     public function index()
     {
-        $this->cat->index();
+        //return view('userDashboard.cart.index', ['carts' => Cart::where('user_id', Auth::user()->id)->paginate(6)]);
+
+        return $this->cat->index();
     }
 
     public function store(CartStoreRequest $request ,Product $product)
     {
-        $this->cat->store($request->validated(),$product);
+       return $this->cat->store($request->validated(),$product);
     }
 
     public function update(CartStoreRequest $request,Cart $cart)
     {
-        $this->cat->update($request->validated(),$cart);
+        return $this->cat->update($request->validated(),$cart);
     }
 
     public function destroy(Cart $cart)
     {
-        $this->cat->destroy($cart);
+        return $this->cat->destroy($cart);
+    }
+    public function clear()
+    {
+        return  $this->cat->clear();
     }
 }

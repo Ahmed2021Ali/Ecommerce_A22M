@@ -65,12 +65,13 @@
                                                 <li><i class="fi-rs-credit-card mr-5"></i> الدفع عند الاستلام متاح </li>
                                             </ul>
                                         </div>
-                                        <form>
+                                        <form action="{{route('cart.store',$product) }}" method="post">
+                                            @csrf
                                             <div class="attr-detail attr-color mb-15">
                                                 <strong class="mr-10">اللون &nbsp;&nbsp;</strong>
                                                 <ul class="list-filter color-filter">
                                                     @foreach (explode(',', $product->color) as $color)
-                                                        <li><a href="#" data-color="{{$color}}"><span class="product-color-{{$color}}"></span></a></li>
+                                                        <li><a href="#" data-color="{{$color}}"><span class="product-color-{{$color}}"></span></a><input type="checkbox" name="color" value="{{$color}}"></li>
                                                     @endforeach
                                                 </ul>
                                             </div>
@@ -78,9 +79,7 @@
                                                 <strong class="mr-10"> المقاس &nbsp;&nbsp;</strong>
                                                 <ul class="list-filter size-filter font-small">
                                                     @foreach (explode(',', $product->size) as $size)
-                                                        <li{{ (in_array($size, explode(',', $product->size))) ? ' class="active"' : '' }}>
-                                                            <a href="#">{{ strtoupper($size) }}</a>
-                                                        </li>
+                                                        <li><a href="#">{{ strtoupper($size) }}</a><input type="checkbox" name="size" value="{{strtoupper($size)}}"></li>
                                                     @endforeach
                                                 </ul>
                                             </div>

@@ -18,6 +18,8 @@ class CartStoreRequest extends FormRequest
         return [
             'quantity'=>['nullable','numeric'],
             'color'=>['nullable','string'],
+            'size'=>['nullable','string'],
+
         ];
     }
 }

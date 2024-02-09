@@ -11,6 +11,7 @@ interface CartInterface {
     public function update($request,$cart);
 
     public function destroy($cart);
+    public function clear();
 
 
 }
