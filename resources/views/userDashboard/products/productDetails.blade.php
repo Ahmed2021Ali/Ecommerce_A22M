@@ -429,6 +429,8 @@
                                                 <div class="product-action-1">
                                                     <a aria-label="عرض" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-search"></i></a>
                                                     <a aria-label="أضف إالي المفضلة" class="action-btn small hover-up" href="wishlist.php" tabindex="0"><i class="fi-rs-heart"></i></a>
+                                                    <a aria-label="تسوق الآن" class="action-btn hover-up" href="{{route('products.show', $product->id)}}"><i class="fi-rs-shopping-bag-add"></i></a>
+
                                                 </div>
                                             </div>
                                         @endforeach

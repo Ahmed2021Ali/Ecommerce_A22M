@@ -30,7 +30,7 @@
                             @endif
                         </div>
                         <div class="product-action-1 show">
-                            <a aria-label="أضف إلي السلة" class="action-btn hover-up" href=""><i class="fi-rs-shopping-bag-add"></i></a>
+                            <a aria-label="تسوق الآن" class="action-btn hover-up" href="{{route('products.show', $product->id)}}"><i class="fi-rs-shopping-bag-add"></i></a>
                         </div>
                     </div>
                 </div>

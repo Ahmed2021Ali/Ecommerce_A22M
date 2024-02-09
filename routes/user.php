@@ -22,6 +22,7 @@ Route::controller(HomepageController::class)->group(function(){
 
 Route::resource('products', ProductControlle::class);
 
+
 Route::controller(FavController::class)->prefix('fav')->as('fav.')->group(function(){
     Route::get('/index',  'index')->name('index');
     Route::get('/store/{product}',  'store')->name('store');
