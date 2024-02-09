@@ -31,11 +31,9 @@
                                     <div class="product-cart-wrap mb-30">
                                         <div class="product-img-action-wrap">
                                             <div class="product-img product-img-zoom">
-                                                @foreach($fav->product->getMedia('productFiles') as $media)
                                                     <a href="{{route('products.show', $fav->product->id)}}"><img
-                                                            src="{{$media->getFullUrl()}}" width="400" height="250"
+                                                            src="{{$fav->product->getFirstMediaUrl('productFiles')}}" width="400" height="250"
                                                             style="direction: rtl; text-align: right;"></a>
-                                                @endforeach
                                             </div>
                                             <div class="product-action-1">
                                                 <a aria-label="عرض" class="action-btn hover-up" data-bs-toggle="modal"
