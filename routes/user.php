@@ -21,8 +21,7 @@ Route::controller(HomepageController::class)->group(function(){
 
 
 Route::resource('products', ProductControlle::class);
-<<<<<<< HEAD
-=======
+
 
 Route::controller(FavController::class)->prefix('fav')->as('fav.')->group(function(){
     Route::get('/index',  'index')->name('index');
@@ -47,4 +46,3 @@ Route::post('/contactUs', [ContactUsController::class, 'store'])->name('contact.
 
 Route::resource('address', AddressController::class);
 
->>>>>>> cd68e10b1e25aca7833fde02883ba6d5fc11a4e0
