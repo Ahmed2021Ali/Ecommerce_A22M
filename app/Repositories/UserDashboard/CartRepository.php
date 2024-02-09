@@ -12,8 +12,7 @@ class CartRepository implements CartInterface
 
     public function index()
     {
-        $carts = Cart::where('user_id', Auth::user()->id)->paginate(4);
-        //   return view('user.favourites.index', compact('$carts'));
+           return view('userDashboard.fav.index', ['carts'=>Cart::where('user_id', Auth::user()->id)->all()]);
     }
 
     public function store($request ,$product)

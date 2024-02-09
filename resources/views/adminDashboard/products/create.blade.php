@@ -29,18 +29,10 @@
                 <div class="col-4">
                     <label for="color">الالوان المتوفرة </label>
                     <select name="color[]" id="color" class="form-control" MULTIPLE>
-                        <option  value="احمر">احمر</option>
-                        <option  value="اصفر"> اصفر</option>
-                        <option  value="اخضر"> اخضر</option>
-                        <option  value="ازرق"> ازرق</option>
-                        <option  value="بنفسجي"> بنفسجي </option>
-                        <option  value="نبيتي"> نبيتي </option>
-                        <option  value="لبني"> لبني </option>
-                        <option  value="اسود"> اسود </option>
-                        <option  value="ابيض"> ابيض </option>
-                        <option  value="ذهبي"> ذهبي </option>
-                        <option  value="فضي"> فضي </option>
-                        <option  value="بني"> بني </option>
+                        <option  value="red">احمر</option>
+                        <option  value="yellow"> اصفر</option>
+                        <option  value="green"> اخضر</option>
+                        <option  value="blue"> ازرق</option>
                     </select>
                     @error('color')
                     <div class="alert alert-danger">{{ $message }}</div>

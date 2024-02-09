@@ -25,10 +25,7 @@
                             </div>
                         @endforeach
                     </div>
-
-
                 </div>
-
             </div>
         </div>
     </section>
@@ -188,6 +185,5 @@
             </div>
         </div>
     </section>
-
 @endsection
 
