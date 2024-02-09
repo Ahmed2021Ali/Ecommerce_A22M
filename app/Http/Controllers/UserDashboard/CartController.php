@@ -16,7 +16,7 @@ class CartController extends Controller
     public function __construct(CartInterface $cat)
     {
         $this->cat = $cat;
-        $this->middleware('auth');
+        //$this->middleware('auth');
 
     }
 
@@ -24,7 +24,7 @@ class CartController extends Controller
     {
         $this->cat->index();
     }
-    
+
     public function store(CartStoreRequest $request ,Product $product)
     {
         $this->cat->store($request->validated(),$product);

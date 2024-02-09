@@ -90,13 +90,12 @@
                                     <div class="detail-extralink">
                                         <div class="product-extra-link2">
                                             <button type="submit" class="button button-add-to-cart">أضف إلي السلة</button>
-                                            <a aria-label="Add To Wishlist" class="action-btn hover-up" onclick="addToFavorites({{ $product->id }})"><i class="fi-rs-heart"></i></a>
+                                            <a aria-label="Add To Wishlist" class="action-btn hover-up" href="{{route('fav.store',$product)}}"><i class="fi-rs-heart"></i></a>
                                         </div>
                                     </div>
+                                    <!-- Detail Info -->
                                 </div>
-                                <!-- Detail Info -->
                             </div>
-                        </div>
 
                         <div class="row mt-60" style="direction: rtl; text-align: right;">
                             <div class="col-12">
@@ -119,7 +118,7 @@
                                                     </div>
                                                     <div class="product-action-1">
                                                         <a aria-label="عرض" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-search"></i></a>
-                                                        <a aria-label="أضف إالي المفضلة" class="action-btn small hover-up" onclick="addToFavorites({{ $product->id }})" tabindex="0"><i class="fi-rs-heart"></i></a>
+                                                        <a aria-label="أضف إالي المفضلة" class="action-btn small hover-up" href="wishlist.php" tabindex="0"><i class="fi-rs-heart"></i></a>
                                                         <a aria-label="تسوق الآن" class="action-btn hover-up" href="{{route('products.show', $product->id)}}"><i class="fi-rs-shopping-bag-add"></i></a>
                                                     </div>
                                                 </div>
@@ -167,37 +166,37 @@
                                             <br>
                                         @endforeach
                                     </div>
-                            </div>
-                        </div>
-                        <a href="shop.html" class="btn btn-sm btn-default"><i class="fi-rs-filter mr-5"></i> ابحث</a>
-                    </div>
-                    <!-- Product sidebar Widget -->
-                    <div class="sidebar-widget product-sidebar  mb-30 p-30 bg-grey border-radius-10" style="direction: rtl; text-align: right;">
-                        <div class="widget-header position-relative mb-20 pb-10">
-                            <h5 class="widget-title mb-10">المنتجات الجديدة</h5>
-                            <div class="bt-1 border-color-1"></div>
-                        </div>
-                        @foreach($newProducts as $newProduct)
-                            <div class="single-post clearfix">
-                                <div class="image">
-                                    @foreach($newProduct->getMedia('productFiles') as $media)
-                                        <a href="{{route('products.show', $newProduct->id)}}"><img src="{{$media->getFullUrl()}}" alt="product image"></a>
-                                        @break
-                                    @endforeach
                                 </div>
-                                <div class="content pt-10">
-                                    <h5><a href="product-details.html">{{$newProduct->name}}</a></h5>
-                                    <p class="price mb-0 mt-5">{{$newProduct->price}} ج</p>
-                                    <div class="product-rate">
-                                        <div class="product-rating" style="width:90%"></div>
+                            </div>
+                            <a href="shop.html" class="btn btn-sm btn-default"><i class="fi-rs-filter mr-5"></i> ابحث</a>
+                        </div>
+                        <!-- Product sidebar Widget -->
+                        <div class="sidebar-widget product-sidebar  mb-30 p-30 bg-grey border-radius-10" style="direction: rtl; text-align: right;">
+                            <div class="widget-header position-relative mb-20 pb-10">
+                                <h5 class="widget-title mb-10">المنتجات الجديدة</h5>
+                                <div class="bt-1 border-color-1"></div>
+                            </div>
+                            @foreach($newProducts as $newProduct)
+                                <div class="single-post clearfix">
+                                    <div class="image">
+                                        @foreach($newProduct->getMedia('productFiles') as $media)
+                                            <a href="{{route('products.show', $newProduct->id)}}"><img src="{{$media->getFullUrl()}}" alt="product image"></a>
+                                            @break
+                                        @endforeach
+                                    </div>
+                                    <div class="content pt-10">
+                                        <h5><a href="product-details.html">{{$newProduct->name}}</a></h5>
+                                        <p class="price mb-0 mt-5">{{$newProduct->price}} ج</p>
+                                        <div class="product-rate">
+                                            <div class="product-rating" style="width:90%"></div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-</main>
+        </section>
+    </main>
 @endsection

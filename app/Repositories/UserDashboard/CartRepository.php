@@ -17,6 +17,7 @@ class CartRepository implements CartInterface
 
     public function store($request ,$product)
     {
+        dd($request,$product);
         $cart = Cart::where('user_id', Auth::user()->id)->where('product_id', $product->id)
             ->where('color', $request['color'])->where('size', $request['size'])->first();
         if ($cart) {
