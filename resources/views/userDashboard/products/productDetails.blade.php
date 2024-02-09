@@ -71,20 +71,7 @@
                                         <strong class="mr-10">اللون &nbsp;&nbsp;</strong>
 <ul class="list-filter color-filter">
     @foreach (explode(',', $product->color) as $color)
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" name="color[]" value="{{ $color }}">
-            <label class="form-check-label">
-                @if($color == 'احمر') <a href="#" data-color="Red"><span class="product-color-red"></span></a> @endif
-                @if($color == 'برتقالي') <a href="#" data-color="Orange"><span class="product-color-orange"></span></a> @endif
-                @if($color == 'اخضر') <a href="#" data-color="Green"><span class="product-color-green"></span></a> @endif
-                @if($color == 'اصفر') <a href="#" data-color="yellow"><span class="product-color-yellow"></span></a> @endif
-                @if($color == 'بنفسجي') <a href="#" data-color="Purple"><span class="product-color-purple"></span></a> @endif
-                @if($color == 'بني') <a href="#" data-color="Baby Blue"><span class="product-color-baby-blue"></span></a> @endif
-                @if($color == 'لبني') <a href="#" data-color="Light Brown"><span class="product-color-light-brown"></span></a> @endif
-                @if($color == 'اسود') <a href="#" data-color="Black"><span class="product-color-black"></span></a> @endif
-                @if($color == 'ابيض') <a href="#" data-color="White"><span class="product-color-white"></span></a> @endif
-            </label>
-        </div>
+        <li><a href="#" data-color="{{$color}}"><span class="product-color-{{$color}}"></span></a></li>
     @endforeach
 </ul>
 
