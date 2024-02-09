@@ -8,7 +8,6 @@ use App\Models\Product;
 use App\Repositories\Interfaces\UserDashboard\OrderInterface;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
 class OrderRepository implements OrderInterface

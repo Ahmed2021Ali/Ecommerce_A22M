@@ -137,7 +137,12 @@
                                             <a href="{{ route('products.show', $product->id) }}">
                                                 <img src="{{ $media->getFullUrl() }}" width="400" height="250" style="direction: rtl; text-align: right;">
                                             </a>
+<<<<<<< HEAD
+                                            @break
+=======
+>>>>>>> b6b12765d32979efbedf2afed303b596ce1e79c7
                                         @endforeach
+
                                     </a>
                                 </div>
                                 <div class="product-action-1">

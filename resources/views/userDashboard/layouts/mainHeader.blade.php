@@ -16,23 +16,10 @@
                 <div class="col-xl-3 col-lg-4">
                     <div class="header-info header-info-right">
                         @guest
-                            <ul>
-                                <li><i class="fi-rs-key"></i><a href="{{ route('signin.view.form') }}">تسجيل دخول</a> /
-                                    <a href="{{ route('signup.view.form') }}">إنشاء حساب</a></li>
-                            </ul>
-                        @endguest
-
-                        @auth
-                            <ul>
-                                <form action="{{ route('logout') }}" method="POST">
-                                    @csrf
-                                    <li><i class="fi-rs-key"></i>
-                                        <button type="submit">تسجيل خروج</button>
-                                    </li>
-                                </form>
-                            </ul>
-                        @endauth
-
+                        <ul>
+                            <li><i class="fi-rs-key"></i><a href="{{ route('signin.view.form') }}">تسجيل دخول</a> / <a href="{{ route('signup.view.form') }}">إنشاء حساب</a></li>
+                        </ul>
+                    @endguest
                     </div>
                 </div>
             </div>
@@ -308,7 +295,7 @@
                             <ul>
                                 <li><a class="active" href="{{route('home')}}"> الصفحة الرئيسية </a></li>
                                 <li><a href="about.html">تعرف علينا</a></li>
-                                <li><a href="shop.html">تسوق</a></li>
+                                <li><a href="{{route('products.index')}}">تسوق</a></li>
                                 <li class="position-static"><a href="#">منتجاتنا <i class="fi-rs-angle-down"></i></a>
                                     <ul class="mega-menu">
                                         <li class="sub-mega-menu sub-mega-menu-width-22">

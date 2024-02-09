@@ -22,16 +22,17 @@
                                         <figure class="border-radius-10">
                                             @foreach($product->getMedia('productFiles') as $media)
                                                 <img src="{{$media->getFullUrl()}}" alt="product image">
+                                            @break
                                             @endforeach
                                         </figure>
                                     </div>
                                     <!-- THUMBNAILS -->
                                     <div class="slider-nav-thumbnails pl-15 pr-15">
-                                        <div>
-                                            @foreach($product->getMedia('productFiles') as $media)
+                                        @foreach($product->getMedia('productFiles') as $media)
+                                            <div>
                                                 <img src="{{$media->getFullUrl()}}" alt="product image">
-                                            @endforeach
-                                        </div>
+                                            </div>
+                                        @endforeach
                                     </div>
                                 </div>
                                 <!-- End Gallery -->
@@ -412,7 +413,9 @@
                             <div class="col-12">
                                 <h3>منتجات مشابهة</h3>
                             </div>
+                            <br>
                             <hr>
+                            <br>
                             <div class="col-12">
                                 <div class="row related-products">
                                     <div class="col-lg-3 col-md-4 col-12 col-sm-6">
@@ -422,7 +425,8 @@
                                                 <div class="product-img product-img-zoom">
                                                     <a href="" tabindex="0">
                                                         @foreach($relatedProduct->getMedia('productFiles') as $media)
-                                                        <a href="{{route('products.show', $relatedProduct->id)}}"><img class="default-img" src="{{ $media->getFullUrl() }}" alt="{{ $relatedProduct->name }}"></a>
+                                                            <a href="{{route('products.show', $relatedProduct->id)}}"><img class="default-img" src="{{ $media->getFullUrl() }}" alt="{{ $relatedProduct->name }}"></a>
+                                                            @break
                                                         @endforeach
                                                     </a>
                                                 </div>
@@ -484,7 +488,7 @@
                         <a href="shop.html" class="btn btn-sm btn-default"><i class="fi-rs-filter mr-5"></i> ابحث</a>
                     </div>
                     <!-- Product sidebar Widget -->
-                    <div class="sidebar-widget product-sidebar  mb-30 p-30 bg-grey border-radius-10">
+                    <div class="sidebar-widget product-sidebar  mb-30 p-30 bg-grey border-radius-10" style="direction: rtl; text-align: right;">
                         <div class="widget-header position-relative mb-20 pb-10">
                             <h5 class="widget-title mb-10">المنتجات الجديدة</h5>
                             <div class="bt-1 border-color-1"></div>
@@ -494,6 +498,7 @@
                                 <div class="image">
                                     @foreach($newProduct->getMedia('productFiles') as $media)
                                         <a href="{{route('products.show', $newProduct->id)}}"><img src="{{$media->getFullUrl()}}" alt="product image"></a>
+                                        @break
                                     @endforeach
                                 </div>
                                 <div class="content pt-10">
