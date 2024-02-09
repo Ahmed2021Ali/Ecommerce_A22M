@@ -1,5 +1,5 @@
 <div class="tab-pane fade show active" id="tab-one" role="tabpanel" aria-labelledby="tab-one">
-    <div class="row product-grid-4">
+    <div class="row product-grid-4" style="direction: rtl; text-align: center;">
         @foreach($featuredProducts as $product)
             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 col-6">
                 <div class="product-cart-wrap mb-30">

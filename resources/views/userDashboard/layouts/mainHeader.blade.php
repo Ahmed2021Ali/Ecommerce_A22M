@@ -2,28 +2,18 @@
     <div class="header-top header-top-ptb-1 d-none d-lg-block">
         <div class="container" style="direction: rtl; text-align: right;>
             <div class="row align-items-center">
-                {{-- <div class="col-xl-6 col-lg-4">
-                    <div class="text-center">
-                        <div id="news-flash" class="d-inline-block">
-                            <ul>
-                                <li>Get great devices up to 50% off <a href="shop.html">View details</a></li>
-                                <li>Supper Value Deals - Save more with coupons</li>
-                                <li>Trendy 25silver jewelry, save up 35% off today <a href="shop.html">Shop now</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div> --}}
-                <div class="col-xl-3 col-lg-4">
-                    <div class="header-info header-info-right">
-                        @guest
+            <div class="col-xl-3 col-lg-4">
+                <div class="header-info header-info-right">
+                    @guest
                         <ul>
-                            <li><i class="fi-rs-key"></i><a href="{{ route('signin.view.form') }}">تسجيل دخول</a> / <a href="{{ route('signup.view.form') }}">إنشاء حساب</a></li>
+                            <li><i class="fi-rs-key"></i><a href="{{ route('signin.view.form') }}">تسجيل دخول</a> / <a
+                                    href="{{ route('signup.view.form') }}">إنشاء حساب</a></li>
                         </ul>
                     @endguest
-                    </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
     <div class="header-middle header-middle-ptb-1 d-none d-lg-block">
         <div class="container">
@@ -41,19 +31,18 @@
                         <div class="header-action-2">
                             <div class="header-action-icon-2">
 
-                                    @if (Auth::check())
-                                    <a href="{{route('fav.index')}}">
+                                @if (Auth::check())
+                                    <a href="{{ route('fav.index') }}">
                                         <img class="svgInject" alt="Surfside Media"
-                                             src="{{URL::asset('assets/imgs/theme/icons/icon-heart.svg')}}">
-                                        <x-count-fav/>
+                                            src="{{ URL::asset('assets/imgs/theme/icons/icon-heart.svg') }}">
+                                        <x-count-fav />
                                     </a>
-
                                 @endif
                             </div>
                             <div class="header-action-icon-2">
                                 <a class="mini-cart-icon" href="cart.html">
                                     <img alt="Surfside Media"
-                                         src="{{URL::asset('assets/imgs/theme/icons/icon-cart.svg')}}">
+                                        src="{{ URL::asset('assets/imgs/theme/icons/icon-cart.svg') }}">
                                     <span class="pro-count blue">2</span>
                                 </a>
                                 <div class="cart-dropdown-wrap cart-dropdown-hm2">
@@ -61,7 +50,7 @@
                                         <li>
                                             <div class="shopping-cart-img">
                                                 <a href="product-details.html"><img alt="Surfside Media"
-                                                                                    src="assets/imgs/shop/thumbnail-3.jpg"></a>
+                                                        src="assets/imgs/shop/thumbnail-3.jpg"></a>
                                             </div>
                                             <div class="shopping-cart-title">
                                                 <h4><a href="product-details.html">Daisy Casual Bag</a></h4>
@@ -74,7 +63,7 @@
                                         <li>
                                             <div class="shopping-cart-img">
                                                 <a href="product-details.html"><img alt="Surfside Media"
-                                                                                    src="assets/imgs/shop/thumbnail-2.jpg"></a>
+                                                        src="assets/imgs/shop/thumbnail-2.jpg"></a>
                                             </div>
                                             <div class="shopping-cart-title">
                                                 <h4><a href="product-details.html">Corduroy Shirts</a></h4>
@@ -293,66 +282,25 @@
                     <div class="main-menu main-menu-padding-1 main-menu-lh-2 d-none d-lg-block">
                         <nav>
                             <ul>
-                                <li><a class="active" href="{{route('home')}}"> الصفحة الرئيسية </a></li>
+                                <li><a class="active" href="{{ route('home') }}"> الصفحة الرئيسية </a></li>
                                 <li><a href="about.html">تعرف علينا</a></li>
-                                <li><a href="{{route('products.index')}}">تسوق</a></li>
-                                <li class="position-static"><a href="#">منتجاتنا <i class="fi-rs-angle-down"></i></a>
+                                <li><a href="{{ route('products.index') }}">تسوق</a></li>
+                                <li class="position-static"><a href="#">منتجاتنا <i
+                                            class="fi-rs-angle-down"></i></a>
                                     <ul class="mega-menu">
-                                        <li class="sub-mega-menu sub-mega-menu-width-22">
-                                            <a class="menu-title" href="#">Women's Fashion</a>
-                                            <ul>
-                                                <li><a href="product-details.html">Dresses</a></li>
-                                                <li><a href="product-details.html">Blouses & Shirts</a></li>
-                                                <li><a href="product-details.html">Hoodies & Sweatshirts</a></li>
-                                                <li><a href="product-details.html">Wedding Dresses</a></li>
-                                                <li><a href="product-details.html">Prom Dresses</a></li>
-                                                <li><a href="product-details.html">Cosplay Costumes</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="sub-mega-menu sub-mega-menu-width-22">
-                                            <a class="menu-title" href="#">Men's Fashion</a>
-                                            <ul>
-                                                <li><a href="product-details.html">Jackets</a></li>
-                                                <li><a href="product-details.html">Casual Faux Leather</a></li>
-                                                <li><a href="product-details.html">Genuine Leather</a></li>
-                                                <li><a href="product-details.html">Casual Pants</a></li>
-                                                <li><a href="product-details.html">Sweatpants</a></li>
-                                                <li><a href="product-details.html">Harem Pants</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="sub-mega-menu sub-mega-menu-width-22">
-                                            <a class="menu-title" href="#">Technology</a>
-                                            <ul>
-                                                <li><a href="product-details.html">Gaming Laptops</a></li>
-                                                <li><a href="product-details.html">Ultraslim Laptops</a></li>
-                                                <li><a href="product-details.html">Tablets</a></li>
-                                                <li><a href="product-details.html">Laptop Accessories</a></li>
-                                                <li><a href="product-details.html">Tablet Accessories</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="sub-mega-menu sub-mega-menu-width-34">
-                                            <div class="menu-banner-wrap">
-                                                <a href="product-details.html"><img
-                                                        src="assets/imgs/banner/menu-banner.jpg"
-                                                        alt="Surfside Media"></a>
-                                                <div class="menu-banner-content">
-                                                    <h4>Hot deals</h4>
-                                                    <h3>Don't miss<br> Trending</h3>
-                                                    <div class="menu-banner-price">
-                                                        <span class="new-price text-success">Save to 50%</span>
-                                                    </div>
-                                                    <div class="menu-banner-btn">
-                                                        <a href="product-details.html">Shop now</a>
-                                                    </div>
-                                                </div>
-                                                <div class="menu-banner-discount">
-                                                    <h3>
-                                                        <span>35%</span>
-                                                        off
-                                                    </h3>
-                                                </div>
-                                            </div>
-                                        </li>
+                                        @foreach ($categories as $category)
+                                            <li class="sub-mega-menu sub-mega-menu-width-22">
+                                                <a class="menu-title" href="#">{{ $category->name }}</a>
+                                                <ul>
+                                                    @foreach ($category->products as $product)
+                                                        <li><a
+                                                                href="{{ route('products.show', $product->id) }}">{{ $product->name }}</a>
+                                                        </li>
+                                                    @endforeach
+                                                </ul>
+                                            </li>
+                                        @endforeach
+
                                     </ul>
                                 </li>
                                 <li><a href="contact.html">تواصل معنا</a></li>
@@ -367,7 +315,8 @@
                                                 <li><i class="fi-rs-key"></i>
                                                     <button type="submit">تسجيل خروج</button>
                                                 </li>
-                                            </form></ul>
+                                            </form>
+                                        </ul>
                                     @endauth
                                 </li>
                             </ul>
@@ -400,7 +349,7 @@
                                     <li>
                                         <div class="shopping-cart-img">
                                             <a href="product-details.html"><img alt="Surfside Media"
-                                                                                src="assets/imgs/shop/thumbnail-3.jpg"></a>
+                                                    src="assets/imgs/shop/thumbnail-3.jpg"></a>
                                         </div>
                                         <div class="shopping-cart-title">
                                             <h4><a href="product-details.html">Plain Striola Shirts</a></h4>
@@ -413,7 +362,7 @@
                                     <li>
                                         <div class="shopping-cart-img">
                                             <a href="product-details.html"><img alt="Surfside Media"
-                                                                                src="assets/imgs/shop/thumbnail-4.jpg"></a>
+                                                    src="assets/imgs/shop/thumbnail-4.jpg"></a>
                                         </div>
                                         <div class="shopping-cart-title">
                                             <h4><a href="product-details.html">Macbook Pro 2022</a></h4>
@@ -452,9 +401,8 @@
 <div class="mobile-header-active mobile-header-wrapper-style">
     <div class="mobile-header-wrapper-inner">
         <div class="mobile-header-top">
-            {{-- <div class="mobile-header-logo">
-                <a href="index.html"><img src="assets/imgs/logo/logo.png" alt="logo"></a>
-            </div> --}}
+
+
             <div class="mobile-menu-close close-style-wrap close-style-position-inherit">
                 <button class="close-style search-close">
                     <i class="icon-top"></i>
@@ -479,11 +427,14 @@
                             <li><a href="shop.html"><i class="surfsidemedia-font-dress"></i>Women's Clothing</a></li>
                             <li><a href="shop.html"><i class="surfsidemedia-font-tshirt"></i>Men's Clothing</a></li>
                             <li><a href="shop.html"><i class="surfsidemedia-font-smartphone"></i> Cellphones</a></li>
-                            <li><a href="shop.html"><i class="surfsidemedia-font-desktop"></i>Computer & Office</a></li>
-                            <li><a href="shop.html"><i class="surfsidemedia-font-cpu"></i>Consumer Electronics</a></li>
+                            <li><a href="shop.html"><i class="surfsidemedia-font-desktop"></i>Computer & Office</a>
+                            </li>
+                            <li><a href="shop.html"><i class="surfsidemedia-font-cpu"></i>Consumer Electronics</a>
+                            </li>
                             <li><a href="shop.html"><i class="surfsidemedia-font-home"></i>Home & Garden</a></li>
                             <li><a href="shop.html"><i class="surfsidemedia-font-high-heels"></i>Shoes</a></li>
-                            <li><a href="shop.html"><i class="surfsidemedia-font-teddy-bear"></i>Mother & Kids</a></li>
+                            <li><a href="shop.html"><i class="surfsidemedia-font-teddy-bear"></i>Mother & Kids</a>
+                            </li>
                             <li><a href="shop.html"><i class="surfsidemedia-font-kite"></i>Outdoor fun</a></li>
                         </ul>
                     </div>
@@ -493,12 +444,14 @@
                     <ul class="mobile-menu">
                         <li class="menu-item-has-children"><span class="menu-expand"></span><a
                                 href="index.html">Home</a></li>
-                        <li class="menu-item-has-children"><span class="menu-expand"></span><a href="shop.html">shop</a>
+                        <li class="menu-item-has-children"><span class="menu-expand"></span><a
+                                href="shop.html">shop</a>
                         </li>
                         <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Our
                                 Collections</a>
                             <ul class="dropdown">
-                                <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Women's
+                                <li class="menu-item-has-children"><span class="menu-expand"></span><a
+                                        href="#">Women's
                                         Fashion</a>
                                     <ul class="dropdown">
                                         <li><a href="product-details.html">Dresses</a></li>
@@ -507,7 +460,8 @@
                                         <li><a href="product-details.html">Women's Sets</a></li>
                                     </ul>
                                 </li>
-                                <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Men's
+                                <li class="menu-item-has-children"><span class="menu-expand"></span><a
+                                        href="#">Men's
                                         Fashion</a>
                                     <ul class="dropdown">
                                         <li><a href="product-details.html">Jackets</a></li>
@@ -515,7 +469,8 @@
                                         <li><a href="product-details.html">Genuine Leather</a></li>
                                     </ul>
                                 </li>
-                                <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Technology</a>
+                                <li class="menu-item-has-children"><span class="menu-expand"></span><a
+                                        href="#">Technology</a>
                                     <ul class="dropdown">
                                         <li><a href="product-details.html">Gaming Laptops</a></li>
                                         <li><a href="product-details.html">Ultraslim Laptops</a></li>
@@ -526,9 +481,11 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="menu-item-has-children"><span class="menu-expand"></span><a href="blog.html">Blog</a>
+                        <li class="menu-item-has-children"><span class="menu-expand"></span><a
+                                href="blog.html">Blog</a>
                         </li>
-                        <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Language</a>
+                        <li class="menu-item-has-children"><span class="menu-expand"></span><a
+                                href="#">Language</a>
                             <ul class="dropdown">
                                 <li><a href="#">English</a></li>
                                 <li><a href="#">French</a></li>

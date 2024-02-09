@@ -3,11 +3,11 @@
 @section('title', 'عرض كل المنتجات')
 
 @section('content_header')
-    <h1>عرض كل المنتجات</h1>
+    <h1 style="direction: rtl; text-align: right;">عرض كل المنتجات</h1>
 @stop
 
 @section('content')
-    <div class="row">
+    <div class="row" style="direction: rtl; text-align: right;">
         <div class="col-12">
             <table id="example1" class="table table-bordered table-striped">
                 <thead>

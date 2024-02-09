@@ -8,27 +8,8 @@
 
 @section('content')
     @include('userDashboard.slider.index')
-    <section class="featured section-padding position-relative">
-        <div class="container">
-            <div class="row">
-                <div class="row">
-                    <div class="row" style="direction: rtl; text-align: center;">
-                        <div class="col-12 text-right mb-4">
-                            <h4 style="font-weight: bold; color: #F15412">الخدمات</h4>
-                        </div>
-                        @foreach($services as $service)
-                            <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0 text-center">
-                                @foreach($service->getMedia('serviceFiles') as $media)
-                                    <img src="{{ $media->getFullUrl() }}" width="100" height="100">
-                                @endforeach
-                                <h4>{{ $service->name }}</h4>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    @include('userDashboard.services.index')
+
     <section class="product-tabs section-padding position-relative wow fadeIn animated">
         <div class="bg-square"></div>
         <div class="container">
@@ -62,43 +43,9 @@
             </div>
         </div>
     </section>
+    
+    @include('userDashboard.banners.index')
 
-    <section class="banners mb-15">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="banner-img wow fadeIn animated">
-                        <img src="assets/imgs/banner/banner-1.png" alt="">
-                        <div class="banner-text">
-                            <span>Smart Offer</span>
-                            <h4>Save 20% on <br>Woman Bag</h4>
-                            <a href="shop.html">Shop Now <i class="fi-rs-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="banner-img wow fadeIn animated">
-                        <img src="assets/imgs/banner/banner-2.png" alt="">
-                        <div class="banner-text">
-                            <span>Sale off</span>
-                            <h4>Great Summer <br>Collection</h4>
-                            <a href="shop.html">Shop Now <i class="fi-rs-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 d-md-none d-lg-flex">
-                    <div class="banner-img wow fadeIn animated  mb-sm-0">
-                        <img src="assets/imgs/banner/banner-3.png" alt="">
-                        <div class="banner-text">
-                            <span>New Arrivals</span>
-                            <h4>Shop Today’s <br>Deals & Offers</h4>
-                            <a href="shop.html">Shop Now <i class="fi-rs-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
     <section class="section-padding" style="direction: rtl; text-align: center;">
         <div class="container wow fadeIn animated">
             <h3 class="section-title mb-20"><span>المنتجات</span> الجديدة</h3>

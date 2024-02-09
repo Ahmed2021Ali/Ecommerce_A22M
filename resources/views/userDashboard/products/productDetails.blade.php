@@ -72,16 +72,6 @@
                                                 <li><a href="#" data-color="{{$color}}"><span class="product-color-{{$color}}"></span></a></li>
                                             @endforeach
                                         </ul>
-
-
-                                            {{-- <li><a href="#" data-color="Red"><span class="product-color-red"></span></a></li>
-                                            <li><a href="#" data-color="Yellow"><span class="product-color-yellow"></span></a></li>
-                                            <li class="active"><a href="#" data-color="White"><span class="product-color-white"></span></a></li>
-                                            <li><a href="#" data-color="Orange"><span class="product-color-orange"></span></a></li>
-                                            <li><a href="#" data-color="Cyan"><span class="product-color-cyan"></span></a></li>
-                                            <li><a href="#" data-color="Green"><span class="product-color-green"></span></a></li>
-                                            <li><a href="#" data-color="Purple"><span class="product-color-purple"></span></a></li> --}}
-                                        </ul>
                                     </div>
                                     <div class="attr-detail attr-size">
                                         <strong class="mr-10"> المقاس &nbsp;&nbsp;</strong>
@@ -92,12 +82,10 @@
                                                 </li>
                                             @endforeach
                                         </ul>
-
                                     </div>
                                     <br>
                                     <label for="quantity" style="display: inline-block; margin-right: 10px;">الكمية :</label>
                                     <input type="number" name="quantity" id="quantity" value="1" min="1" style="display: inline-block; width: 50px; padding: 6px; text-align: center; border: 1px solid #ccc; border-radius: 3px;">
-
                                     <div class="bt-1 border-color-1 mt-30 mb-30"></div>
                                     <div class="detail-extralink">
                                         <div class="product-extra-link2">
@@ -111,37 +99,36 @@
                         </div>
 
                         <div class="row mt-60" style="direction: rtl; text-align: right;">
-    <div class="col-12">
-        <h3>منتجات مشابهة</h3>
-    </div>
-    <hr>
-    <div class="col-12">
-        <div class="row related-products">
-            @foreach($relatedProducts as $relatedProduct)
-                <div class="col-lg-3 col-md-4 col-12 col-sm-6">
-                    <div class="product-cart-wrap small hover-up">
-                        <div class="product-img-action-wrap">
-                            <div class="product-img product-img-zoom">
-                                <a href="{{route('products.show', $relatedProduct->id)}}" tabindex="0">
-                                    @foreach($relatedProduct->getMedia('productFiles') as $media)
-                                        <img class="default-img" src="{{ $media->getFullUrl() }}" alt="{{ $relatedProduct->name }}" width="400px" height="250px">
-                                        @break
-                                    @endforeach
-                                </a>
+                            <div class="col-12">
+                                <h3>منتجات مشابهة</h3>
                             </div>
-                            <div class="product-action-1">
-                                <a aria-label="عرض" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-search"></i></a>
-                                <a aria-label="أضف إالي المفضلة" class="action-btn small hover-up" href="wishlist.php" tabindex="0"><i class="fi-rs-heart"></i></a>
-                                <a aria-label="تسوق الآن" class="action-btn hover-up" href="{{route('products.show', $product->id)}}"><i class="fi-rs-shopping-bag-add"></i></a>
+                            <hr>
+                            <div class="col-12">
+                                <div class="row related-products">
+                                    @foreach($relatedProducts as $relatedProduct)
+                                        <div class="col-lg-3 col-md-4 col-12 col-sm-6">
+                                            <div class="product-cart-wrap small hover-up">
+                                                <div class="product-img-action-wrap">
+                                                    <div class="product-img product-img-zoom">
+                                                        <a href="{{route('products.show', $relatedProduct->id)}}" tabindex="0">
+                                                            @foreach($relatedProduct->getMedia('productFiles') as $media)
+                                                                <img class="default-img" src="{{ $media->getFullUrl() }}" alt="{{ $relatedProduct->name }}" width="400px" height="250px">
+                                                                @break
+                                                            @endforeach
+                                                        </a>
+                                                    </div>
+                                                    <div class="product-action-1">
+                                                        <a aria-label="عرض" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-search"></i></a>
+                                                        <a aria-label="أضف إالي المفضلة" class="action-btn small hover-up" href="wishlist.php" tabindex="0"><i class="fi-rs-heart"></i></a>
+                                                        <a aria-label="تسوق الآن" class="action-btn hover-up" href="{{route('products.show', $product->id)}}"><i class="fi-rs-shopping-bag-add"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            @endforeach
-        </div>
-    </div>
-</div>
-
                     </div>
                 </div>
                 <div class="col-lg-3 primary-sidebar sticky-sidebar">
@@ -207,7 +194,6 @@
                                 </div>
                             </div>
                         @endforeach
-
                     </div>
                 </div>
             </div>
@@ -215,4 +201,3 @@
     </section>
 </main>
 @endsection
-
