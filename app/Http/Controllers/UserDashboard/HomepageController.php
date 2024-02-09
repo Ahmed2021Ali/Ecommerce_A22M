@@ -15,7 +15,6 @@ class HomepageController extends Controller
 {
     public function index()
     {
-        $categories = Category::all();
         $products = Product::all();
         $banners = Banner::all();
         $sliders = Slider::all();
@@ -27,7 +26,6 @@ class HomepageController extends Controller
         $banners = Banner::latest()->take(3)->get();
         return view('home', 
         compact(
-            'categories',
         'products',
         'banners',
         'sliders', 

@@ -103,13 +103,13 @@
                             <ul>
                                 <li><a class="active" href="{{ route('home') }}"> الصفحة الرئيسية </a></li>
                                 <li><a href="about.html">تعرف علينا</a></li>
-                                <li><a href="{{ route('products.index') }}">تسوق</a></li>
+                                <li><a href="{{ route('products.index') }}">تصفح المنتجات</a></li>
                                 <li class="position-static"><a href="#">منتجاتنا <i
                                             class="fi-rs-angle-down"></i></a>
                                     <ul class="mega-menu">
                                         @foreach (App\Models\Category::all() as $category)
                                         <li class="sub-mega-menu sub-mega-menu-width-22">
-                                                <a class="menu-title" href="#">{{ $category->name }}</a>
+                                                <a class="menu-title" href="{{route('category.products', $category->id)}}">{{ $category->name }}</a>
                                                 <ul>
                                                     @foreach ($category->products as $product)
                                                         <li><a
