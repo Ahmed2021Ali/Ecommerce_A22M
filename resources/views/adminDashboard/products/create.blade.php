@@ -1,4 +1,6 @@
-@extends('adminlte::page', 'إضافة منتج جديد')
+@extends('adminlte::page')
+@section('title', 'إضافة منتج جديد')
+
 @section('content_header')
     <a href="{{ route('product.index') }}" class="btn btn-info">عرض كل المنتجات </a>
     <h3 class="text-center" style="color:red;">اضافة منتج جديد </h3>

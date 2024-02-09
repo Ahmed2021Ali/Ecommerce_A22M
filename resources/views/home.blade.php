@@ -139,8 +139,10 @@
                                         @foreach($product->getMedia('productFiles') as $media)
                                             <a href="{{ route('products.show', $product->id) }}">
                                                 <img src="{{ $media->getFullUrl() }}" width="400" height="250" style="direction: rtl; text-align: right;">
-                                            </a>                                       
+                                            </a>
+                                            @break
                                         @endforeach
+
                                     </a>
                                 </div>
                                 <div class="product-action-1">

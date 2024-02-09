@@ -7,14 +7,6 @@
     @endsection
 
     @section('content')
-    <div class="page-header breadcrumb-wrap">
-        <div class="container">
-            <div class="breadcrumb">
-                <a href="index.html" rel="nofollow">Home</a>
-                <span></span> إنشاء حساب
-            </div>
-        </div>
-    </div>
     <section class="pt-150 pb-150">
         <div class="container">
             <div class="row">
