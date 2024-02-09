@@ -19,12 +19,11 @@
                                     <span class="zoom-icon"><i class="fi-rs-search"></i></span>
                                     <!-- MAIN SLIDES -->
                                     <div class="product-image-slider">
+                                        @foreach($product->getMedia('productFiles') as $media)
                                         <figure class="border-radius-10">
-                                            @foreach($product->getMedia('productFiles') as $media)
-                                                <img src="{{$media->getFullUrl()}}" alt="product image">
-                                            @break
-                                            @endforeach
+                                                <img src="{{$product->getFirstMediaUrl('productFiles')}}" alt="product image">
                                         </figure>
+                                        @endforeach
                                     </div>
                                     <!-- THUMBNAILS -->
                                     <div class="slider-nav-thumbnails pl-15 pr-15">
@@ -36,7 +35,6 @@
                                     </div>
                                 </div>
                                 <!-- End Gallery -->
-
                             </div>
                             <div class="col-md-6 col-sm-12 col-xs-12">
                                 <div class="detail-info" style="direction: rtl; text-align: right;">

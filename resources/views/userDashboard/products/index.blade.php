@@ -3,7 +3,7 @@
         المنتجات
     @endsection
     @section('css')
-        
+
     @endsection
 
     @section('content')
@@ -40,7 +40,7 @@
                                                 <div class="product-content-wrap">
                                                     <div class="product-category">
                                                         <a href="">{{ $product->name }}</a>
-                            
+
                                                     </div>
                                                     <h2><a href="">{{ $product->description }}</a></h2>
                                                     <span>
@@ -61,7 +61,7 @@
                                     @endforeach
                                 <!--End product-grid-4-->
                             </div>
-                            
+
                         </div>
                         <!--pagination-->
                         <div class="pagination-area mt-15 mb-sm-5 mb-lg-0">
@@ -100,7 +100,7 @@
                                 <div class="list-group-item mb-10 mt-10">
                                     <label class="fw-900">اللون</label>
                                         <div class="custome-checkbox">
-                                            
+
                                         </div>
                                 </div>
                             </div>
@@ -129,7 +129,7 @@
                                     </div>
                                 </div>
                             @endforeach
-    
+
                         </div>
                     </div>
                 </div>
