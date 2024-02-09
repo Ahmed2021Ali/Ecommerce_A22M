@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-    <section class="mt-50 mb-50">
+    <section class="mt-50 mb-50"  style="direction: rtl; text-align: right;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-9">
@@ -18,7 +18,7 @@
                     </div>
                     <div class="row product-grid-4">
                         @foreach($favs as $fav)
-                            <div class="col-lg-5 col-md-4 col-sm-6 col-xs-6 col-6">
+                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 col-6">
                                 <div class="product-cart-wrap mb-30">
                                     <div class="product-img-action-wrap">
                                         <div class="product-img product-img-zoom">
