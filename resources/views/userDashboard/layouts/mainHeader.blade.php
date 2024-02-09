@@ -16,20 +16,20 @@
                 <div class="col-xl-3 col-lg-4">
                     <div class="header-info header-info-right">
                         @guest
-                        <ul>                                
+                        <ul>
                             <li><i class="fi-rs-key"></i><a href="{{ route('signin.view.form') }}">تسجيل دخول</a> / <a href="{{ route('signup.view.form') }}">إنشاء حساب</a></li>
                         </ul>
                     @endguest
-                    
+
                     @auth
                         <ul>
                             <form action="{{ route('logout') }}" method="POST">
                                 @csrf
                                 <li><i class="fi-rs-key"></i><button type="submit">تسجيل خروج</button></li>
-                            </form>  
+                            </form>
                         </ul>
                     @endauth
-                    
+
                     </div>
                 </div>
             </div>
@@ -43,14 +43,14 @@
                 </div> --}}
                 <div class="header-right">
                     <div class="search-style-1" style="direction: rtl; text-align: right;">
-                        <form action="#">                                
+                        <form action="#">
                             <input type="text" style="direction: rtl; text-align: right;" placeholder="بحث">
                         </form>
                     </div>
                     <div class="header-action-right">
                         <div class="header-action-2">
                             <div class="header-action-icon-2">
-                                <a href="shop-wishlist.php">
+                                <a href="{{route('fav.index')}}">
                                     <img class="svgInject" alt="Surfside Media" src="{{URL::asset('assets/imgs/theme/icons/icon-heart.svg')}}">
                                     <span class="pro-count blue">4</span>
                                 </a>
@@ -113,7 +113,7 @@
                 <div class="header-nav d-none d-lg-flex">
                     {{-- <div class="main-categori-wrap d-none d-lg-block">
                         <a class="categori-button-active" href="#">
-                            <span class="fi-rs-apps"></span> تصفح المنتجات 
+                            <span class="fi-rs-apps"></span> تصفح المنتجات
                         </a>
                         <div class="categori-dropdown-wrap categori-dropdown-active-large">
                             <ul>
@@ -535,9 +535,9 @@
                     <a href="contact.html"> Our location </a>
                 </div>
                 <div class="single-mobile-header-info">
-                    <a href="login.html">تسجيل دخول</a>                        
+                    <a href="login.html">تسجيل دخول</a>
                 </div>
-                <div class="single-mobile-header-info">                        
+                <div class="single-mobile-header-info">
                     <a href="register.html"> إنشاء حساب</a>
                 </div>
                 <div class="single-mobile-header-info">
@@ -554,4 +554,4 @@
             </div>
         </div>
     </div>
-</div> 
+</div>

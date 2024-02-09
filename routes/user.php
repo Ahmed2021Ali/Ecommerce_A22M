@@ -7,7 +7,6 @@ use App\Http\Controllers\UserDashboard\FavController;
 use App\Http\Controllers\UserDashboard\HomepageController;
 use App\Http\Controllers\UserDashboard\ProductControlle;
 use App\Http\Controllers\UserDashboard\OrderController;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 
