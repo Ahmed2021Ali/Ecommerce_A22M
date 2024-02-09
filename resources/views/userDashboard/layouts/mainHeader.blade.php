@@ -20,6 +20,16 @@
                             <li><i class="fi-rs-key"></i><a href="{{ route('signin.view.form') }}">تسجيل دخول</a> / <a href="{{ route('signup.view.form') }}">إنشاء حساب</a></li>
                         </ul>
                     @endguest
+
+                    @auth
+                        <ul>
+                            <form action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <li><i class="fi-rs-key"></i><button type="submit">تسجيل خروج</button></li>
+                            </form>
+                        </ul>
+                    @endauth
+
                     </div>
                 </div>
             </div>
@@ -40,21 +50,28 @@
                     <div class="header-action-right">
                         <div class="header-action-2">
                             <div class="header-action-icon-2">
-                                <a href="{{route('fav.index')}}">
-                                    <img class="svgInject" alt="Surfside Media" src="{{URL::asset('assets/imgs/theme/icons/icon-heart.svg')}}">
-                                    <span class="pro-count blue">4</span>
-                                </a>
+
+                                    @if (Auth::check())
+                                    <a href="{{route('fav.index')}}">
+                                        <img class="svgInject" alt="Surfside Media"
+                                             src="{{URL::asset('assets/imgs/theme/icons/icon-heart.svg')}}">
+                                        <x-count-fav/>
+                                    </a>
+
+                                @endif
                             </div>
                             <div class="header-action-icon-2">
                                 <a class="mini-cart-icon" href="cart.html">
-                                    <img alt="Surfside Media" src="{{URL::asset('assets/imgs/theme/icons/icon-cart.svg')}}">
+                                    <img alt="Surfside Media"
+                                         src="{{URL::asset('assets/imgs/theme/icons/icon-cart.svg')}}">
                                     <span class="pro-count blue">2</span>
                                 </a>
                                 <div class="cart-dropdown-wrap cart-dropdown-hm2">
                                     <ul>
                                         <li>
                                             <div class="shopping-cart-img">
-                                                <a href="product-details.html"><img alt="Surfside Media" src="assets/imgs/shop/thumbnail-3.jpg"></a>
+                                                <a href="product-details.html"><img alt="Surfside Media"
+                                                                                    src="assets/imgs/shop/thumbnail-3.jpg"></a>
                                             </div>
                                             <div class="shopping-cart-title">
                                                 <h4><a href="product-details.html">Daisy Casual Bag</a></h4>
@@ -66,7 +83,8 @@
                                         </li>
                                         <li>
                                             <div class="shopping-cart-img">
-                                                <a href="product-details.html"><img alt="Surfside Media" src="assets/imgs/shop/thumbnail-2.jpg"></a>
+                                                <a href="product-details.html"><img alt="Surfside Media"
+                                                                                    src="assets/imgs/shop/thumbnail-2.jpg"></a>
                                             </div>
                                             <div class="shopping-cart-title">
                                                 <h4><a href="product-details.html">Corduroy Shirts</a></h4>
@@ -324,7 +342,9 @@
                                         </li>
                                         <li class="sub-mega-menu sub-mega-menu-width-34">
                                             <div class="menu-banner-wrap">
-                                                <a href="product-details.html"><img src="assets/imgs/banner/menu-banner.jpg" alt="Surfside Media"></a>
+                                                <a href="product-details.html"><img
+                                                        src="assets/imgs/banner/menu-banner.jpg"
+                                                        alt="Surfside Media"></a>
                                                 <div class="menu-banner-content">
                                                     <h4>Hot deals</h4>
                                                     <h3>Don't miss<br> Trending</h3>
@@ -354,10 +374,12 @@
                                         @auth
                                             <form action="{{ route('logout') }}" method="POST">
                                                 @csrf
-                                                <li><i class="fi-rs-key"></i><button type="submit">تسجيل خروج</button></li>
-                                            </form>                                      </ul>
-                                        @endauth
-                                    </li>
+                                                <li><i class="fi-rs-key"></i>
+                                                    <button type="submit">تسجيل خروج</button>
+                                                </li>
+                                            </form></ul>
+                                    @endauth
+                                </li>
                             </ul>
                         </nav>
                     </div>
@@ -368,7 +390,7 @@
                         <span>اتصل بنا: </span>
                         <span style="font-weight: bold; color: #F15412">(+1) 0000-000-000</span>
                     </p>
-                                    </div>
+                </div>
                 <p class="mobile-promotion">Happy <span class="text-brand">Mother's Day</span>. Big Sale Up to 40%</p>
                 <div class="header-action-right d-block d-lg-none">
                     <div class="header-action-2">
@@ -387,7 +409,8 @@
                                 <ul>
                                     <li>
                                         <div class="shopping-cart-img">
-                                            <a href="product-details.html"><img alt="Surfside Media" src="assets/imgs/shop/thumbnail-3.jpg"></a>
+                                            <a href="product-details.html"><img alt="Surfside Media"
+                                                                                src="assets/imgs/shop/thumbnail-3.jpg"></a>
                                         </div>
                                         <div class="shopping-cart-title">
                                             <h4><a href="product-details.html">Plain Striola Shirts</a></h4>
@@ -399,7 +422,8 @@
                                     </li>
                                     <li>
                                         <div class="shopping-cart-img">
-                                            <a href="product-details.html"><img alt="Surfside Media" src="assets/imgs/shop/thumbnail-4.jpg"></a>
+                                            <a href="product-details.html"><img alt="Surfside Media"
+                                                                                src="assets/imgs/shop/thumbnail-4.jpg"></a>
                                         </div>
                                         <div class="shopping-cart-title">
                                             <h4><a href="product-details.html">Macbook Pro 2022</a></h4>
@@ -464,7 +488,7 @@
                         <ul>
                             <li><a href="shop.html"><i class="surfsidemedia-font-dress"></i>Women's Clothing</a></li>
                             <li><a href="shop.html"><i class="surfsidemedia-font-tshirt"></i>Men's Clothing</a></li>
-                            <li> <a href="shop.html"><i class="surfsidemedia-font-smartphone"></i> Cellphones</a></li>
+                            <li><a href="shop.html"><i class="surfsidemedia-font-smartphone"></i> Cellphones</a></li>
                             <li><a href="shop.html"><i class="surfsidemedia-font-desktop"></i>Computer & Office</a></li>
                             <li><a href="shop.html"><i class="surfsidemedia-font-cpu"></i>Consumer Electronics</a></li>
                             <li><a href="shop.html"><i class="surfsidemedia-font-home"></i>Home & Garden</a></li>
@@ -477,11 +501,15 @@
                 <!-- mobile menu start -->
                 <nav>
                     <ul class="mobile-menu">
-                        <li class="menu-item-has-children"><span class="menu-expand"></span><a href="index.html">Home</a></li>
-                        <li class="menu-item-has-children"><span class="menu-expand"></span><a href="shop.html">shop</a></li>
-                        <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Our Collections</a>
+                        <li class="menu-item-has-children"><span class="menu-expand"></span><a
+                                href="index.html">Home</a></li>
+                        <li class="menu-item-has-children"><span class="menu-expand"></span><a href="shop.html">shop</a>
+                        </li>
+                        <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Our
+                                Collections</a>
                             <ul class="dropdown">
-                                <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Women's Fashion</a>
+                                <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Women's
+                                        Fashion</a>
                                     <ul class="dropdown">
                                         <li><a href="product-details.html">Dresses</a></li>
                                         <li><a href="product-details.html">Blouses & Shirts</a></li>
@@ -489,7 +517,8 @@
                                         <li><a href="product-details.html">Women's Sets</a></li>
                                     </ul>
                                 </li>
-                                <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Men's Fashion</a>
+                                <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Men's
+                                        Fashion</a>
                                     <ul class="dropdown">
                                         <li><a href="product-details.html">Jackets</a></li>
                                         <li><a href="product-details.html">Casual Faux Leather</a></li>
@@ -507,7 +536,8 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="menu-item-has-children"><span class="menu-expand"></span><a href="blog.html">Blog</a></li>
+                        <li class="menu-item-has-children"><span class="menu-expand"></span><a href="blog.html">Blog</a>
+                        </li>
                         <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Language</a>
                             <ul class="dropdown">
                                 <li><a href="#">English</a></li>

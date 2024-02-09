@@ -2,6 +2,7 @@
 
 namespace App\Repositories\UserDashboard;
 
+use App\Models\Category;
 use App\Models\Fav;
 use App\Repositories\Interfaces\UserDashboard\FavInterface;
 use Illuminate\Support\Facades\Auth;
@@ -12,7 +13,9 @@ class FavRepository implements FavInterface
 
     public function index()
     {
-        return view('userDashboard.fav.index', ['favs'=>Fav::where('user_id', Auth::user()->id)->get()]);
+        return view('userDashboard.fav.index', ['favs'=>Fav::where('user_id', Auth::user()->id)->get(),
+            'count'=>Fav::where('user_id', Auth::user()->id)->count(), 'categories'=>Category::all()
+            ]);
     }
 
     public function store($product)

@@ -1,6 +1,6 @@
 @extends('userDashboard.layouts.master')
 @section('title')
-    الصفحة الرئيسية   
+    الصفحة الرئيسية
 @endsection
 @section('css')
 
@@ -25,10 +25,10 @@
                             </div>
                         @endforeach
                     </div>
-                    
-                    
+
+
                 </div>
-                
+
             </div>
         </div>
     </section>
@@ -140,7 +140,10 @@
                                             <a href="{{ route('products.show', $product->id) }}">
                                                 <img src="{{ $media->getFullUrl() }}" width="400" height="250" style="direction: rtl; text-align: right;">
                                             </a>
+<<<<<<< HEAD
                                             @break
+=======
+>>>>>>> b6b12765d32979efbedf2afed303b596ce1e79c7
                                         @endforeach
 
                                     </a>
@@ -161,16 +164,16 @@
                                     @if($product->offer)
                                         <span class="old-price">${{ $product->price }}</span>
                                     @endif
-                                </div>                                
+                                </div>
                             </div>
-                            
+
                         </div>
                         <!-- End product-cart-wrap-2 -->
                     @endforeach
                 </div>
             </div>
         </div>
-        
+
     </section>
 
     <section class="section-padding" >
@@ -190,6 +193,6 @@
             </div>
         </div>
     </section>
-    
+
 @endsection
 
