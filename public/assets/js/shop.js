@@ -52,14 +52,14 @@
                 zoomWindowFadeOut: 750
             });
         }
-        //Filter color/Size
+        //Filter moreColor/Size
         $('.list-filter').each(function () {
             $(this).find('a').on('click', function (event) {
                 event.preventDefault();
                 $(this).parent().siblings().removeClass('active');
                 $(this).parent().toggleClass('active');
                 $(this).parents('.attr-detail').find('.current-size').text($(this).text());
-                $(this).parents('.attr-detail').find('.current-color').text($(this).attr('data-color'));
+                $(this).parents('.attr-detail').find('.current-moreColor').text($(this).attr('data-moreColor'));
             });
         });
         //Qty Up-Down

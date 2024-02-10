@@ -17,8 +17,8 @@ class CartStoreRequest extends FormRequest
     {
         return [
             'quantity'=>['required'],
-            'color'=>['nullable','string'],
-            'size'=>['nullable','string'],
+            'color'=>['nullable'],
+            'size'=>['nullable'],
         ];
     }
 }

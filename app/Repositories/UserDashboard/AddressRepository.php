@@ -25,8 +25,8 @@ class AddressRepository implements AddressInterface
 
     public function store($request)
     {
-        Address::create([$request, 'user_id' => Auth::user()->id]);
-        return redirect()->back()->with(['success' => 'تم بنجاح اضافة العنوان']);
+        Address::create([...$request, 'user_id' => Auth::user()->id]);
+        return to_route('cart.index')->with(['success' => 'تم بنجاح اضافة العنوان']);
     }
 
     public function edit($address)

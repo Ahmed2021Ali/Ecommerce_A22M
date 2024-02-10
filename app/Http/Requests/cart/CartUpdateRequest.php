@@ -15,7 +15,7 @@ class CartUpdateRequest extends FormRequest
     {
         return [
             'quantity'=>['nullable','numeric'],
-            'color'=>['nullable','string'],
+            'moreColor'=>['nullable','string'],
         ];
     }
 }

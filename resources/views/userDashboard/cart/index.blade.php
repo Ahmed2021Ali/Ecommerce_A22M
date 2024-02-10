@@ -41,16 +41,16 @@
                                         </td>
 
                                         <td class="product-des product-name">
-                                            <h5 class="product-name"><a
+                                            <h3 class="product-name"><a
                                                     href="{{route('products.show', $cart->product->id)}}">{{$cart->product->name}}</a>
-                                            </h5>
+                                            </h3>
                                             <div class="attr-detail attr-color mb-15">
                                                 @if($cart->color)
                                                     <strong class="mr-10">اللون &nbsp;&nbsp;</strong>
                                                     <ul class="list-filter color-filter">
-                                                        <li><a href="#" data-color="{{$cart->color}}"><span
-                                                                    class="product-color-{{$cart->color}}"></span></a>
-                                                        </li>
+                                                        @foreach (explode(',', $cart->product->color) as $color)
+                                                            {{\App\Models\Color::where('value', $color)->first()->name}}
+                                                        @endforeach
                                                     </ul>
                                                 @endif
                                                 @if($cart->size)
@@ -86,11 +86,10 @@
                                             <form action="{{route('cart.destroy',$cart)}}" method="post">
                                                 @method('delete')
                                                 @csrf
-                                                <button class="text-muted"><i class="fi-rs-trash"></i></button>
+                                                <button class="btn btn-danger"><i class="fi-rs-trash"></i></button>
                                             </form>
                                         </td>
                                     </tr>
-
                                 @endforeach
                                 <tr>
                                     <td colspan="6" class="text-end">
@@ -103,6 +102,38 @@
                         </div>
                         <div class="divider center_icon mt-50 mb-50"><i class="fi-rs-fingerprint"></i></div>
                         <div class="row mb-50">
+                            <div class="col-lg-6 col-md-12">
+                                <div class="border p-md-4 p-30 border-radius cart-totals">
+                                    <div class="heading_s1 mb-3">
+                                        <h4>اجمالي سلة المشتريات</h4>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <tbody>
+                                            <tr>
+                                                <td class="cart_total_label">الاجمالي المنتجات</td>
+                                                <td class="cart_total_amount"><span
+                                                        class="font-lg fw-900 text-brand">{{$total_price}}</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="cart_total_label">سعر التوصيل</td>
+                                                <td class="cart_total_amount"><i class="ti-gift mr-5"></i> Free Shipping
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="cart_total_label">الاجمالي</td>
+                                                <td class="cart_total_amount"><strong><span
+                                                            class="font-xl fw-900 text-brand">$240.00</span></strong>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a href="checkout.html" class="btn "> <i class="fi-rs-box-alt mr-10"></i> Proceed To
+                                        CheckOut</a>
+                                </div>
+                            </div>
+
                             <div class="col-lg-6 col-md-12">
                                 <div class="heading_s1 mb-3">
                                     <h4>Calculate Shipping</h4>
@@ -156,37 +187,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-12">
-                                <div class="border p-md-4 p-30 border-radius cart-totals">
-                                    <div class="heading_s1 mb-3">
-                                        <h4>اجمالي سلة المشتريات</h4>
-                                    </div>
-                                    <div class="table-responsive">
-                                        <table class="table">
-                                            <tbody>
-                                            <tr>
-                                                <td class="cart_total_label">الاجمالي المنتجات</td>
-                                                <td class="cart_total_amount"><span
-                                                        class="font-lg fw-900 text-brand">{{$total_price}}</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="cart_total_label">سعر التوصيل</td>
-                                                <td class="cart_total_amount"><i class="ti-gift mr-5"></i> Free Shipping
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="cart_total_label">الاجمالي</td>
-                                                <td class="cart_total_amount"><strong><span
-                                                            class="font-xl fw-900 text-brand">$240.00</span></strong>
-                                                </td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <a href="checkout.html" class="btn "> <i class="fi-rs-box-alt mr-10"></i> Proceed To
-                                        CheckOut</a>
                                 </div>
                             </div>
                         </div>

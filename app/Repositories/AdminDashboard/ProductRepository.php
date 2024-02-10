@@ -15,12 +15,13 @@ class ProductRepository implements ProductInterface
 
     public function index()
     {
-        return view('adminDashboard.products.index', ['products' => Product::paginate(10)]);
+        return view('adminDashboard.products.index', [
+            'products' => Product::paginate(10)]);
     }
 
     public function create()
     {
-        return view('adminDashboard.products.create', ['categories' => Category::all()]);
+        return view('adminDashboard.products.create', ['categories' => Category::all(),'colors'=>Color::select('name','value')->get()]);
     }
 
     public function store($request)
@@ -35,7 +36,8 @@ class ProductRepository implements ProductInterface
 
     public function edit($product)
     {
-        return view('adminDashboard.products.edit', ['categories' => Category::all(), 'product' => $product]);
+        return view('adminDashboard.products.edit', ['categories' => Category::all(),
+            'product' => $product,'colors'=>Color::select('name','value')->get()]);
     }
 
     public function update($request, $product)

@@ -5,6 +5,27 @@
 @endsection
 
 @section('css')
+    <style>
+        .colors{
+            display:flex;
+            margin-top:2px;
+        }
+
+        .colors span{
+            width:30px;
+            height:30px;
+            border-radius:50%;
+            cursor:pointer;
+            display:flex;
+            margin-right:6px;
+        }
+        @foreach(explode(',', $product->color)  as $color)
+    .colors span:nth-child({{$loop->iteration}}) {
+
+            background-color:{{$color}}
+        }
+        @endforeach
+    </style>
 
 @endsection
 
@@ -79,10 +100,13 @@
                                                 <strong class="mr-10">اللون &nbsp;&nbsp;</strong>
                                                 <ul class="list-filter color-filter">
                                                     <li><a href="#" ><span class="product-color-teal" ></span></a></li>
-                                                @foreach (explode(',', $product->color) as $color)
-                                                        <li><a href="#" data-color="{{$color}}"><span class="product-color-{{$color}}"></span></a><input type="checkbox" name="color" value="{{$color}}"></li>
-                                                    @endforeach
+                                                    <div class="colors">
+                                                        @foreach (explode(',', $product->color) as $color)
+                                                            <span><li><input type="checkbox" name="color" value="{{$color}}"></li></span>
+                                                        @endforeach
+                                                    </div>
                                                 </ul>
+
                                             </div>
                                             <div class="attr-detail attr-size">
                                                 <strong class="mr-10"> المقاس &nbsp;&nbsp;</strong>
