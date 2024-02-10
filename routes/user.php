@@ -7,8 +7,9 @@ use App\Http\Controllers\UserDashboard\FavController;
 use App\Http\Controllers\UserDashboard\HomepageController;
 use App\Http\Controllers\UserDashboard\ProductControlle;
 use App\Http\Controllers\UserDashboard\OrderController;
+use App\Http\Controllers\UserDashboard\ProfileController;
 use Illuminate\Support\Facades\Route;
-
+use JeroenNoten\LaravelAdminLte\View\Components\Widget\ProfileColItem;
 
 Route::get('/', [HomepageController::class, 'index'])->name('home');
 
@@ -50,3 +51,9 @@ Route::resource('address', AddressController::class);
 
 
 Route::get('/category/products/{category_id}', [ProductControlle::class, 'productsOfCategory'])->name('category.products');
+
+
+Route::get('/pofile', [ProfileController::class, 'index'])->name('profile.index');
+
+
+Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
