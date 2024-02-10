@@ -70,9 +70,10 @@
                                             <form action="{{route('cart.update',$cart)}}" method="post">
                                                 @method('put')
                                                 @csrf
-                                                <input type="number" name="quantity" id="quantity" value="1" min="1"
+                                                <input type="number" name="quantity" id="quantity"
+                                                       value="{{$cart->quantity}}" min="1"
                                                        style="display: inline-block; width: 70px; padding: 6px; text-align: center; border: 1px solid #ccc; border-radius: 3px;">
-                                                <button class="btn btn-primary"> تحديث الكمية</button>
+                                                <button type="submit" class="btn btn-primary"> تحديث الكمية</button>
                                             </form>
                                         </td>
 
@@ -80,6 +81,7 @@
                                                 <?php $total_price += ($cart->product->offer ? $cart->product->price_after_offer : $cart->product->price) * $cart->quantity; ?>
                                             <span>{{($cart->product->offer ? $cart->product->price_after_offer : $cart->product->price) * $cart->quantity }} </span>
                                         </td>
+
                                         <td class="action" data-title="Remove">
                                             <form action="{{route('cart.destroy',$cart)}}" method="post">
                                                 @method('delete')

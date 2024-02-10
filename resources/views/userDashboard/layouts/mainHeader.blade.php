@@ -127,7 +127,7 @@
                                     <ul class="sub-menu">
                                         <li><a href="#">البروفايل</a></li>
                                         <li><a href="#">الطلبات</a></li>
-                                        <li><a href="#">المفضلة</a></li>
+                                        <li><a href="{{route('fav.index')}}">المفضلة</a></li>
                                         @auth
                                             <form action="{{ route('logout') }}" method="POST">
                                                 @csrf

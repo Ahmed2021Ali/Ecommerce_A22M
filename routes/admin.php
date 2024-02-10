@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminDashboard\BannerController;
 use App\Http\Controllers\AdminDashboard\BrandController;
 use App\Http\Controllers\AdminDashboard\CategoryController;
+use App\Http\Controllers\AdminDashboard\ColorController;
 use App\Http\Controllers\AdminDashboard\ContactUsController;
 use App\Http\Controllers\AdminDashboard\CouponController;
 use App\Http\Controllers\AdminDashboard\OrderController;
@@ -25,6 +26,8 @@ Route::resource('banner', BannerController::class);
 Route::resource('service', ServiceController::class);
 Route::resource('brand', BrandController::class);
 Route::resource('product', ProductController::class);
+Route::resource('color', ColorController::class);
+
 Route::resource('coupon', CouponController::class);
 Route::resource('contact', ContactUsController::class)->except(['store','edit','update']);
 

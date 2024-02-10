@@ -49,10 +49,10 @@ class CartRepository implements CartInterface
 
     public function update($request, $cart)
     {
-        $cart->quantity += $request['quantity'];
-        if ($cart->quantity > $cart->product->quantity) {
+        if ($request['quantity'] > $cart->product->quantity) {
             return redirect()->back()->with('error', 'الكمية غير متوفره');
         } else {
+            $cart->quantity = $request['quantity'];
             $cart->save();
             return redirect()->back()->with('success', 'تم زيادة العدد المطلوب لهذا المنتج');
         }

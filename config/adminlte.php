@@ -393,6 +393,11 @@ return [
                 ],*/
                 ],
             ],
+        [
+            'text' => ' الوان المنتجات المتاحة ',
+            'icon_color' => 'yellow',
+            'route' => 'color.index',
+        ],
     ],
 
     /*

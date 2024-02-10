@@ -30,19 +30,20 @@ class FavRepository implements FavInterface
     {
         $fav = Fav::where('product_id', $product->id)->where('user_id', Auth::user()->id)->first();
         if ($fav) {
-            toastr()->error('المنتج مضاف فعليا في المفضلة');
-            return redirect()->back();
+            return response()->json(['success' => false, 'message' => 'عفوا ! المنتج مضاف فعليا في المفضلة']);
         } else {
             Fav::create(['product_id' => $product->id, 'user_id' => Auth::user()->id]);
-            toastr()->error(' تم اضافة المنتج في المفضلة');
-            return redirect()->back();
+            return response()->json(['success' => true, 'message' => 'تم اضافة المنتج في المفضلة']);
         }
     }
+
 
     public function destroy($fav)
     {
         $fav->delete();
-        return redirect()->back()->with(['success' => ' تم بنجاح حذف المنتج من المفضلة']);
+        toastr()->success('تم بنجاح حذف المنتج من المفضلة');
+        return redirect()->back();
     }
+
 
 }

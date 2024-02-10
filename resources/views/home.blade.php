@@ -39,7 +39,6 @@
                 @include('userDashboard.products.featured.index')
                 @include('userDashboard.products.popular.index')
                 @include('userDashboard.products.newAdded.index')
-
             </div>
         </div>
     </section>
@@ -68,7 +67,9 @@
                                 </div>
                                 <div class="product-action-1">
                                     <a aria-label="عرض" class="action-btn hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
-                                    <a aria-label="إضافة إلي المفضلة" class="action-btn hover-up" href="wishlist.php"><i class="fi-rs-heart"></i></a>
+                                    <button aria-label="إضافة إلي المفضلة" class="action-btn hover-up" onclick="addToFavorites({{ $product->id }})">
+                                        <i class="fi-rs-heart"></i>
+                                    </button>
                                     <a aria-label="تسوق الآن" class="action-btn hover-up" href="{{ route('products.show', $product->id) }}"><i class="fi-rs-shopping-bag-add"></i></a>
                                 </div>
                             </div>
@@ -113,3 +114,6 @@
     </section>
 @endsection
 
+@section('js')
+
+@endsection
