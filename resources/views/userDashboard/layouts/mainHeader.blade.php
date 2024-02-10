@@ -125,14 +125,16 @@
                                         <li><a href="#"><i class="fas fa-shopping-bag"></i>&nbsp; الطلبات</a></li>
                                         <li><a href="{{route('fav.index')}}"><i class="fas fa-heart fa-lg"></i>&nbsp; المفضلة</a></li>
                                         @auth
-                                        <form action="{{ route('logout') }}" method="POST">
-                                            @csrf
-                                            <li><i class="fas fa-sign-out-alt fa-lg"></i>
-                                                <button type="submit">تسجيل خروج</button>
-                                            </li>
-                                        </form>
-                                        </ul>
-                                        @endauth
+                                        <li class="nav-item">
+                                            <form action="{{ route('logout') }}" method="POST">
+                                                @csrf
+                                                <button type="submit" style=" align-items: center;  border: none; background-color: white;
+                                                color: black; cursor: pointer; padding: 5px; font-size: 16px; margin-right: 10px;">
+                                                    <i class="fas fa-sign-out-alt fa-lg"></i> تسجيل خروج
+                                                </button>
+                                            </form>
+                                        </li>
+                                    @endauth
                                     </li>
                             </ul>
                             

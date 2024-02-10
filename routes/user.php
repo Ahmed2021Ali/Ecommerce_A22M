@@ -51,4 +51,7 @@ Route::resource('address', AddressController::class);
 Route::get('/category/products/{category_id}', [ProductControlle::class, 'productsOfCategory'])->name('category.products');
 
 
-Route::get('/users/pofile/', [ProfileController::class, 'index'])->name('profile.index');
+Route::get('/pofile', [ProfileController::class, 'index'])->name('profile.index');
+
+
+Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
