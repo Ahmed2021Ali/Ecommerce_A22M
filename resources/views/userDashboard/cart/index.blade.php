@@ -90,6 +90,7 @@
                                             </form>
                                         </td>
                                     </tr>
+
                                 @endforeach
                                 <tr>
                                     <td colspan="6" class="text-end">
@@ -129,8 +130,32 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                    <a href="checkout.html" class="btn "> <i class="fi-rs-box-alt mr-10"></i> Proceed To
-                                        CheckOut</a>
+                                    <div class="mb-30 mt-50">
+                                        <div class="heading_s1 mb-3">
+                                            <h4>لديك كوبون خصم </h4>
+                                        </div>
+                                        <div class="total-amount">
+                                            <div class="left">
+                                                <div class="coupon">
+                                                    <form action="#" target="_blank">
+                                                        <div class="form-row row justify-content-center">
+                                                            <div class="form-group col-lg-6">
+                                                                <input class="font-medium" name="Coupon"
+                                                                       placeholder="ادخل الكوبون">
+                                                            </div>
+                                                            <div class="form-group col-lg-6">
+                                                                <button class="btn  btn-sm"><i
+                                                                        class="fi-rs-label mr-10"></i>تأكيد
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
                                 </div>
                             </div>
 
@@ -163,31 +188,11 @@
                                             @enderror
                                         </select>
                                     </div>
+                                    <div style="text-align:center">
+                                        <a href="checkout.html" class="btn "> <i class="fi-rs-box-alt mr-10"></i> تاكيد الطلب </a>
+                                    </div>
                                 </form>
-                                <div class="mb-30 mt-50">
-                                    <div class="heading_s1 mb-3">
-                                        <h4>Apply Coupon</h4>
-                                    </div>
-                                    <div class="total-amount">
-                                        <div class="left">
-                                            <div class="coupon">
-                                                <form action="#" target="_blank">
-                                                    <div class="form-row row justify-content-center">
-                                                        <div class="form-group col-lg-6">
-                                                            <input class="font-medium" name="Coupon"
-                                                                   placeholder="Enter Your Coupon">
-                                                        </div>
-                                                        <div class="form-group col-lg-6">
-                                                            <button class="btn  btn-sm"><i
-                                                                    class="fi-rs-label mr-10"></i>Apply
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
                     </div>
