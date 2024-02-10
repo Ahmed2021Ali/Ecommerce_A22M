@@ -23,8 +23,6 @@ class CartController extends Controller
 
     public function index()
     {
-        //return view('userDashboard.cart.index', ['carts' => Cart::where('user_id', Auth::user()->id)->paginate(6)]);
-
         return $this->cat->index();
     }
 

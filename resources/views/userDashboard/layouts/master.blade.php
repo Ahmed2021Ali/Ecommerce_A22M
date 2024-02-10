@@ -19,7 +19,9 @@
     @include('userDashboard.layouts.mainHeader')
 
     <main class="main">
+        @livewireStyles
         @yield('content')
+        @livewireScripts
     </main>
     @include('userDashboard.layouts.footer')
     @include('userDashboard.layouts.footerScripts')

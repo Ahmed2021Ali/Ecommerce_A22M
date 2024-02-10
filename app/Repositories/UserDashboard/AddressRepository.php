@@ -3,6 +3,7 @@
 namespace App\Repositories\UserDashboard;
 
 use App\Models\Address;
+use App\Models\AvailableCity;
 use App\Models\Cart;
 use App\Repositories\Interfaces\UserDashboard\AddressInterface;
 use Illuminate\Support\Arr;
@@ -20,7 +21,7 @@ class AddressRepository implements AddressInterface
 
     public function create()
     {
-        return view('userDashboard.address.store');
+        return view('userDashboard.address.store',['cities' =>AvailableCity::select('id','name')->get()]);
     }
 
     public function store($request)

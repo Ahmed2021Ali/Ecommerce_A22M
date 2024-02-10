@@ -10,7 +10,7 @@ class Address extends Model
 {
     use HasFactory,SoftDeletes;
 
-    protected $fillable = ['fname', 'lname','city', 'address', 'phone', 'email', 'note', 'user_id'];
+    protected $fillable = ['fname', 'lname','city_id', 'address', 'phone', 'email', 'note', 'user_id'];
 
     public function user()
     {
@@ -20,5 +20,9 @@ class Address extends Model
     public function order()
     {
         return $this->hasMany(Order::class);
+    }
+    public function city()
+    {
+        return $this->belongsTo(AvailableCity::class,'city_id');
     }
 }

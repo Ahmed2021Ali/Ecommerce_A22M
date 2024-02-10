@@ -17,7 +17,7 @@ class UpdateAddressRequest extends FormRequest
         return [
             'fname'=>['nullable','string','max:256','min:2'],
             'lname'=>['nullable','string','max:256','min:2'],
-            'city'=>['nullable','string','max:256','min:2'],
+            'city_id'=>['nullable'],
             'phone' => ['required','numeric','digits:11','regex:/^([0-9\s\-\+\(\)]*)$/'],
             'address' => ['nullable','string', 'max:255'],
             'email' => ['nullable','email'],

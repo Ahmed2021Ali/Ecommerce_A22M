@@ -42,37 +42,13 @@
                                     </div>
                                 </div>
                                 <div class="mb-6">
-                                    <label for="city">المدينة / المحافظة<span class="required">*</span></label>
-                                    <select class="form-control" id="city" name="city">
-                                        <option>المنيا</option>
-                                        <option>المنوفية</option>
-                                        <option>الإسكندرية</option>
-                                        <option>الإسماعيلية</option>
-                                        <option>كفر الشيخ</option>
-                                        <option>أسوان</option>
-                                        <option>أسيوط</option>
-                                        <option>الأقصر</option>
-                                        <option>الوادي الجديد</option>
-                                        <option>شمال سيناء</option>
-                                        <option>البحيرة</option>
-                                        <option>بني سويف</option>
-                                        <option>بورسعيد</option>
-                                        <option>البحر الأحمر</option>
-                                        <option>الجيزة</option>
-                                        <option>الدقهلية</option>
-                                        <option>جنوب سيناء</option>
-                                        <option>دمياط</option>
-                                        <option>سوهاج</option>
-                                        <option>السويس</option>
-                                        <option>الشرقية</option>
-                                        <option>الغربية</option>
-                                        <option>الفيوم</option>
-                                        <option>القاهرة</option>
-                                        <option>القليوبية</option>
-                                        <option>قنا</option>
-                                        <option>مطروح</option>
+                                    <label for="city_id">المدينة / المحافظة<span class="required">*</span></label>
+                                    <select class="form-control" id="city_id" name="city_id" required>
+                                        @foreach($cities as $city)
+                                            <option value="{{$city->id}}">{{$city->name}}</option>
+                                        @endforeach
                                     </select>
-                                    @error('city')
+                                    @error('city_id')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
