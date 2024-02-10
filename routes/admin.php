@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminDashboard\AvailableCityController;
 use App\Http\Controllers\AdminDashboard\BannerController;
 use App\Http\Controllers\AdminDashboard\BrandController;
 use App\Http\Controllers\AdminDashboard\CategoryController;
@@ -38,4 +39,6 @@ Route::controller(OrderController::class)->prefix('order')->as('order.')->group(
 
 Route::resource('roles', RoleController::class);
 Route::resource('users', UserController::class)->except('show');
+
+Route::resource('city',AvailableCityController::class);
 
