@@ -118,11 +118,11 @@
                                         @endforeach
                                     </ul>
                                 </li>
-                                <li><a href="{{url('contact-us')}}"><i class="fas fa-envelope fa-lg"></i> تواصل معنا</a></li>
+                                <li><a href="{{url('contact-us')}}"><i class="fas fa-comments"></i> تواصل معنا</a></li>
                                 <li><a href="#"><i class="fas fa-user fa-lg"></i> حسابي <i class="fi-rs-angle-down"></i></a>
                                     <ul class="sub-menu">
                                         <li><a href="{{route('profile.index')}}"><i class="fas fa-cogs fa-lg"></i>&nbsp; اعدادات الحساب</a></li>
-                                        <li><a href="#"><i class="fas fa-shopping-cart fa-lg"></i>&nbsp; الطلبات</a></li>
+                                        <li><a href="#"><i class="fas fa-shopping-bag"></i>&nbsp; الطلبات</a></li>
                                         <li><a href="{{route('fav.index')}}"><i class="fas fa-heart fa-lg"></i>&nbsp; المفضلة</a></li>
                                         @auth
                                         <form action="{{ route('logout') }}" method="POST">
