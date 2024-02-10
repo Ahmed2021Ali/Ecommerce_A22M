@@ -100,45 +100,42 @@
                 <div class="header-nav d-none d-lg-flex">
                     <div class="main-menu main-menu-padding-1 main-menu-lh-2 d-none d-lg-block">
                         <nav>
-                            <ul>
-                                <li><a class="active" href="{{ route('home') }}"> الصفحة الرئيسية </a></li>
-                                <li><a href="#about-us">تعرف علينا</a></li>
-                                <li><a href="{{ route('products.index') }}">تصفح المنتجات</a></li>
-                                <li class="position-static"><a href="#">منتجاتنا <i
-                                            class="fi-rs-angle-down"></i></a>
+                            <ul class="menu-list">
+                                <li><a class="active" href="{{ route('home') }}"><i style="font-size: 25px" class="fas fa-home fa-lg"></i> الصفحة الرئيسية</a></li>
+                                <li><a href="#about-us"><i class="fas fa-info-circle fa-lg"></i> تعرف علينا</a></li>
+                                <li><a href="{{ route('products.index') }}"><i class="fas fa-shopping-cart fa-lg"></i> تصفح المنتجات</a></li>
+                                <li class="position-static"><a href="#"><i class="fas fa-cubes fa-lg"></i> منتجاتنا <i class="fi-rs-angle-down"></i></a>
                                     <ul class="mega-menu">
                                         @foreach (App\Models\Category::all() as $category)
                                         <li class="sub-mega-menu sub-mega-menu-width-22">
-                                                <a class="menu-title" href="{{route('category.products', $category->id)}}">{{ $category->name }}</a>
-                                                <ul>
-                                                    @foreach ($category->products as $product)
-                                                        <li><a
-                                                                href="{{ route('products.show', $product->id) }}">{{ $product->name }}</a>
-                                                        </li>
-                                                    @endforeach
-                                                </ul>
-                                            </li>
+                                            <a class="menu-title" href="{{route('category.products', $category->id)}}">{{ $category->name }}</a>
+                                            <ul>
+                                                @foreach ($category->products as $product)
+                                                <li><a href="{{ route('products.show', $product->id) }}">{{ $product->name }}</a></li>
+                                                @endforeach
+                                            </ul>
+                                        </li>
                                         @endforeach
-
                                     </ul>
                                 </li>
-                                <li><a href="{{url('contact-us')}}">تواصل معنا</a></li>
-                                <li><a href="#">حسابي<i class="fi-rs-angle-down"></i></a>
+                                <li><a href="{{url('contact-us')}}"><i class="fas fa-envelope fa-lg"></i> تواصل معنا</a></li>
+                                <li><a href="#"><i class="fas fa-user fa-lg"></i> حسابي <i class="fi-rs-angle-down"></i></a>
                                     <ul class="sub-menu">
-                                        <li><a href="#">البروفايل</a></li>
-                                        <li><a href="#">الطلبات</a></li>
-                                        <li><a href="{{route('fav.index')}}">المفضلة</a></li>
+                                        <li><a href="{{route('profile.index')}}"><i class="fas fa-cogs fa-lg"></i>&nbsp; اعدادات الحساب</a></li>
+                                        <li><a href="#"><i class="fas fa-shopping-cart fa-lg"></i>&nbsp; الطلبات</a></li>
+                                        <li><a href="{{route('fav.index')}}"><i class="fas fa-heart fa-lg"></i>&nbsp; المفضلة</a></li>
                                         @auth
-                                            <form action="{{ route('logout') }}" method="POST">
-                                                @csrf
-                                                <li><i class="fi-rs-key"></i>
-                                                    <button type="submit">تسجيل خروج</button>
-                                                </li>
-                                            </form>
+                                        <form action="{{ route('logout') }}" method="POST">
+                                            @csrf
+                                            <li><i class="fas fa-sign-out-alt fa-lg"></i>
+                                                <button type="submit">تسجيل خروج</button>
+                                            </li>
+                                        </form>
                                         </ul>
-                                    @endauth
-                                </li>
+                                        @endauth
+                                    </li>
                             </ul>
+                            
                         </nav>
                     </div>
                 </div>
