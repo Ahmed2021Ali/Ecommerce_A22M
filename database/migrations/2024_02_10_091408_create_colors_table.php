@@ -9,17 +9,16 @@ return new class extends Migration
 
     public function up(): void
     {
-        Schema::create('available_cities', function (Blueprint $table) {
+        Schema::create('colors', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('price');
+            $table->string('value');
             $table->timestamps();
         });
     }
 
-
     public function down(): void
     {
-        Schema::dropIfExists('available_cities');
+        Schema::dropIfExists('colors');
     }
 };

@@ -40,7 +40,7 @@
                                 @endif
                             </div>
                             <div class="header-action-icon-2">
-                                <a class="mini-cart-icon" href="cart.html">
+                                <a class="mini-cart-icon" href="{{route('cart.index')}}">
                                     <img alt="Surfside Media"
                                         src="{{ URL::asset('assets/imgs/theme/icons/icon-cart.svg') }}">
                                     <span class="pro-count blue">2</span>

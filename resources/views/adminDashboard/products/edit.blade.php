@@ -59,12 +59,12 @@
 
                     <label for="color">الالوان المتوفرة </label>
                     <select name="color[]" id="color" class="form-control" MULTIPLE>
-                        @foreach (explode(',', $product->color) as $color)
-                            <option {{ in_array($color, explode(',', $product->color)) ? 'selected' : '' }} value="{{ $color }}">{{ $color }}</option>
+                        @foreach ($colors as $color)
+                            <option {{ in_array($color->value, explode(',', $product->color)) ? 'selected' : '' }} value="{{ $color->value }}">{{ $color->name }}</option>
                         @endforeach
                     </select>
-                    
-                    @error('color')
+
+                    @error('moreColor')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>

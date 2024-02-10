@@ -393,6 +393,16 @@ return [
                 ],*/
                 ],
             ],
+        [
+            'text' => ' الوان المنتجات المتاحة ',
+            'icon_color' => 'yellow',
+            'route' => 'color.index',
+        ],
+        [
+            'text' => ' محافظات المتاحة توصيل ',
+            'icon_color' => 'yellow',
+            'route' => 'city.index',
+        ],
     ],
 
     /*

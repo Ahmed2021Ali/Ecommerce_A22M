@@ -40,6 +40,7 @@ class ProductController extends Controller
 
     public function update(UpdateProductRequest $request, product $product)
     {
+
         return $this->product->update($request->validated(),$product);
     }
 

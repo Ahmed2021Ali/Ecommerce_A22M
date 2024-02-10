@@ -34,6 +34,7 @@
                                                 <a aria-label=" حذف من  المفضلة" class="action-btn hover-up"
                                                     href="{{ route('fav.destroy', $fav->id) }}"><i
                                                         class="fi-rs-trash"></i></a>
+
                                             </div>
                                         </div>
                                         <div class="product-content-wrap">
@@ -56,7 +57,7 @@
                                                     <i class="fi-rs-shopping-bag-add"></i>
                                                 </a>
                                             </div>
-                                            
+
                                         </div>
                                     </div>
                                 </div>

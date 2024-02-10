@@ -31,12 +31,11 @@
                 <div class="col-4">
                     <label for="color">الالوان المتوفرة </label>
                     <select name="color[]" id="color" class="form-control" MULTIPLE>
-                        <option value="red">احمر</option>
-                        <option value="yellow"> اصفر</option>
-                        <option value="green"> اخضر</option>
-                        <option value="blue"> ازرق</option>
+                        @foreach($colors as $color)
+                            <option value="{{$color->value}}">{{$color->name}}</option>
+                        @endforeach
                     </select>
-                    @error('color')
+                    @error('moreColor')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>

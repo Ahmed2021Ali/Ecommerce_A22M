@@ -5,67 +5,74 @@
 @section('content_header')
     <h1 style="direction: rtl; text-align: right;">عرض كل المنتجات</h1>
 @stop
+@section('cs')
+@endsection
 
 @section('content')
     <div class="row" style="direction: rtl; text-align: right;">
         <div class="col-12">
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>الاسم</th>
-                        <th>اللون</th>
-                        <th>المقاس</th>
-                        <th>السعر</th>
-                        <th>حالة المنتج</th>
-                        <th>الكمبة</th>
-                        <th>القسم</th>
-                        <th>العمليات</th>
-                    </tr>
+                <tr>
+                    <th>#</th>
+                    <th>الاسم</th>
+                    <th>الالوان</th>
+                    <th>المقاس</th>
+                    <th>السعر</th>
+                    <th>حالة المنتج</th>
+                    <th>الكمبة</th>
+                    <th>القسم</th>
+                    <th>العمليات</th>
+                </tr>
                 </thead>
                 <tbody>
-                    @foreach ($products as $product)
-                        <tr>
-                            <td>{{ $loop->iteration }}</td>
-                            <td>{{ $product->name }}</td>
-                            <td>{{ $product->color }}</td>
-                            <td>{{ $product->size }}</td>
-                            <td>{{$product->price_after_offer ? $product->price_after_offer : $product->price  }}</td>
-                            <td>{{ $product->status == '1'? 'معروض ' : 'غير معروض ' }}</td>
-                            <td>{{ $product->quantity }}</td>
-                            <td>{{ $product->category->name }}</td>
-                            <td>
-                                <a href="{{ route('product.show', $product) }}" class="btn btn-info">اراء العملاء</a>
-                                <a href="{{ route('product.edit', $product) }}" class="btn btn-warning">تعديل</a>
+                @foreach ($products as $product)
+                    <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $product->name }}</td>
+                        <td>
+                            @foreach (explode(',', $product->color) as $color)
+                                {{\App\Models\Color::where('value', $color)->first()->name}}  ,
+                            @endforeach
+                        </td>
 
-                                {{--  delete  --}}
-                                <x-adminlte-modal id="delete_{{ $product->id }}" title="Delete" theme="purple"
-                                                  icon="fas fa-bolt" size='lg' disable-animations>
-                                    @include('adminDashboard.products.delete',['product'=>$product])
-                                </x-adminlte-modal>
-                                <x-adminlte-button label="حذف" data-toggle="modal"
-                                                   data-target="#delete_{{ $product->id }}" class="bg-danger"/>
-                                {{-- End  delete  --}}
+                        <td>{{ $product->size }}</td>
+                        <td>{{$product->price_after_offer ? $product->price_after_offer : $product->price  }}</td>
+                        <td>{{ $product->status == '1'? 'معروض ' : 'غير معروض ' }}</td>
+                        <td>{{ $product->quantity }}</td>
+                        <td>{{ $product->category->name }}</td>
+                        <td>
+                            <a href="{{ route('product.show', $product) }}" class="btn btn-info">اراء العملاء</a>
+                            <a href="{{ route('product.edit', $product) }}" class="btn btn-warning">تعديل</a>
 
-                                {{--  images  --}}
-                                <x-adminlte-modal id="images_{{ $product->id }}" title="الصور" theme="purple"
-                                                  icon="fas fa-bolt" size='lg' disable-animations>
-                                    @include('adminDashboard.products.images',['product'=>$product])
-                                </x-adminlte-modal>
-                                <x-adminlte-button label="عرض صور المنتج" data-toggle="modal"
-                                                   data-target="#images_{{ $product->id }}" class="bg-secondary"/>
-                                {{-- End  images  --}}
+                            {{--  delete  --}}
+                            <x-adminlte-modal id="delete_{{ $product->id }}" title="Delete" theme="purple"
+                                              icon="fas fa-bolt" size='lg' disable-animations>
+                                @include('adminDashboard.products.delete',['product'=>$product])
+                            </x-adminlte-modal>
+                            <x-adminlte-button label="حذف" data-toggle="modal"
+                                               data-target="#delete_{{ $product->id }}" class="bg-danger"/>
+                            {{-- End  delete  --}}
 
-                            </td>
-                        </tr>
-                    @endforeach
+                            {{--  images  --}}
+                            <x-adminlte-modal id="images_{{ $product->id }}" title="الصور" theme="purple"
+                                              icon="fas fa-bolt" size='lg' disable-animations>
+                                @include('adminDashboard.products.images',['product'=>$product])
+                            </x-adminlte-modal>
+                            <x-adminlte-button label="عرض صور المنتج" data-toggle="modal"
+                                               data-target="#images_{{ $product->id }}" class="bg-secondary"/>
+                            {{-- End  images  --}}
+
+                        </td>
+                    </tr>
+                @endforeach
 
                 </tbody>
             </table>
 
         </div>
-{{--        {{ $products->links() }}--}}
-   </div>
+        {{--        {{ $products->links() }}--}}
+    </div>
 
 @stop
 
@@ -84,7 +91,7 @@
     <script src="{{ url('plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
     <script src="{{ url('plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
     <script>
-        $(function() {
+        $(function () {
             $("#example1").DataTable({
                 "responsive": false,
                 "lengthChange": false,

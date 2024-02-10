@@ -11,9 +11,9 @@ return new class extends Migration
     {
         Schema::create('carts', function (Blueprint $table) {
             $table->id();
-            $table->integer('quantity')->default(1);
-            $table->integer('color')->nullable();
-            $table->integer('size')->nullable();
+            $table->string('quantity')->default(1);
+            $table->string('color')->nullable();
+            $table->string('size')->nullable();
             $table->foreignId('user_id')->references('id')->on('users')->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreignId('product_id')->references('id')->on('products')->cascadeOnUpdate()->cascadeOnDelete();
             $table->timestamps();

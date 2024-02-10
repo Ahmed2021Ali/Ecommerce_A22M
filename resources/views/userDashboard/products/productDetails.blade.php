@@ -5,6 +5,27 @@
 @endsection
 
 @section('css')
+    <style>
+        .colors{
+            display:flex;
+            margin-top:2px;
+        }
+
+        .colors span{
+            width:30px;
+            height:30px;
+            border-radius:50%;
+            cursor:pointer;
+            display:flex;
+            margin-right:6px;
+        }
+        @foreach(explode(',', $product->color)  as $color)
+    .colors span:nth-child({{$loop->iteration}}) {
+
+            background-color:{{$color}}
+        }
+        @endforeach
+    </style>
 
 @endsection
 
@@ -73,38 +94,38 @@
                                                 <li><i class="fi-rs-credit-card mr-5"></i> الدفع عند الاستلام متاح </li>
                                             </ul>
                                         </div>
-                                        <!-- Color Attribute -->
-                                        <div class="attr-detail attr-color mb-15">
-                                            <strong class="mr-10">اللون &nbsp;&nbsp;</strong>
-                                            <ul class="list-filter color-filter">
-                                                @foreach (explode(',', $product->color) as $color)
-                                                    <li><a href="#" data-color="{{$color}}"><span class="product-color-{{$color}}"></span></a></li>
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                        <!-- Size Attribute -->
-                                        <div class="attr-detail attr-size">
-                                            <strong class="mr-10"> المقاس &nbsp;&nbsp;</strong>
-                                            <ul class="list-filter size-filter font-small">
-                                                @foreach (explode(',', $product->size) as $size)
-                                                    <li{{ (in_array($size, explode(',', $product->size))) ? ' class="active"' : '' }}>
-                                                        <a href="#">{{ strtoupper($size) }}</a>
-                                                    </li>
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                        <!-- Quantity Input -->
-                                        <br>
-                                        <label for="quantity" style="display: inline-block; margin-right: 10px;">الكمية :</label>
-                                        <input type="number" name="quantity" id="quantity" value="1" min="1" style="display: inline-block; width: 50px; padding: 6px; text-align: center; border: 1px solid #ccc; border-radius: 3px;">
-                                        <div class="bt-1 border-color-1 mt-30 mb-30"></div>
-                                        <!-- Add to Cart and Wishlist Buttons -->
-                                        <div class="detail-extralink">
-                                            <div class="product-extra-link2">
-                                                <button type="submit" class="button button-add-to-cart">أضف إلى السلة</button>
-                                                <a aria-label="Add To Wishlist" class="action-btn hover-up" href="{{route('fav.store',$product)}}"><i class="fi-rs-heart"></i></a>
+                                        <form action="{{route('cart.store',$product) }}" method="post">
+                                            @csrf
+                                            <div class="attr-detail attr-color mb-15">
+                                                <strong class="mr-10">اللون &nbsp;&nbsp;</strong>
+                                                <ul class="list-filter color-filter">
+                                                    <li><a href="#" ><span class="product-color-teal" ></span></a></li>
+                                                    <div class="colors">
+                                                        @foreach (explode(',', $product->color) as $color)
+                                                            <span><li><input type="checkbox" name="color" value="{{$color}}"></li></span>
+                                                        @endforeach
+                                                    </div>
+                                                </ul>
+
                                             </div>
-                                        </div>
+                                            <div class="attr-detail attr-size">
+                                                <strong class="mr-10"> المقاس &nbsp;&nbsp;</strong>
+                                                <ul class="list-filter size-filter font-small">
+                                                    @foreach (explode(',', $product->size) as $size)
+                                                        <li><a href="#">{{ strtoupper($size) }}</a><input type="checkbox" name="size" value="{{strtoupper($size)}}"></li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                            <div class="bt-1 border-color-1 mt-30 mb-30"></div>
+                                            <div class="detail-extralink">
+                                                <div class="product-extra-link2">
+                                                    <a aria-label="Add To Wishlist" class="action-btn hover-up" href="{{route('fav.store',$product)}}"><i class="fi-rs-heart"></i></a>
+                                                    <button type="submit" class="button button-add-to-cart">أضف إلي السلة</button>
+                                                    <input type="number" name="quantity" id="quantity" value="1" min="1" style="display: inline-block; width: 70px; padding: 6px; text-align: center; border: 1px solid #ccc; border-radius: 3px;">
+                                                </div>
+                                            </div>
+                                        </form>
+
                                     </div>
                                     <!-- End Product Info -->
                                 </div>

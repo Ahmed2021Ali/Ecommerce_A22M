@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\cart;
+namespace App\Http\Requests\city;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CartStoreRequest extends FormRequest
+class CityStoreRequest extends FormRequest
 {
 
     public function authorize() : bool
@@ -16,9 +16,8 @@ class CartStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'quantity'=>['required'],
-            'color'=>['nullable'],
-            'size'=>['nullable'],
+            'name'=>['required'],
+            'price'=>['nullable'],
         ];
     }
 }
