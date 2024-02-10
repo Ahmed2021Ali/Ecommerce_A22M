@@ -15,12 +15,12 @@ class AddressRepository implements AddressInterface
     public function index()
     {
         $address = Address::where('user_id', Auth::user()->id)->paginate(5);
-        //   return view('user.favourites.index', compact('address'));
+          // return view('userDashboard.address.store', compact('address'));
     }
 
     public function create()
     {
-        //   return view('user.favourites.index');
+        return view('userDashboard.address.store');
     }
 
     public function store($request)

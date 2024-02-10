@@ -2,6 +2,7 @@
 
 namespace App\Repositories\UserDashboard;
 
+use App\Models\Address;
 use App\Models\Cart;
 use App\Repositories\Interfaces\UserDashboard\CartInterface;
 use Illuminate\Support\Facades\Auth;
@@ -12,13 +13,21 @@ class CartRepository implements CartInterface
 
     public function index()
     {
-        return view('userDashboard.cart.index', ['carts' => Cart::where('user_id', Auth::user()->id)->paginate(6)]);
+        return view('userDashboard.cart.index', ['carts' => Cart::where('user_id', Auth::user()->id)->paginate(6),
+            'addresses' => Address::where('user_id', Auth::user()->id)->get()]);
     }
 
     public function store($request, $product)
     {
+        if (!isset($request['size'])) {
+            $request['size'] = null;
+        }
+        if (!isset($request['color'])) {
+            $request['color'] = null;
+        }
         $cart = Cart::where('user_id', Auth::user()->id)->where('product_id', $product->id)
             ->where('color', $request['color'])->where('size', $request['size'])->first();
+
         if ($cart) {
             $cart->quantity += $request['quantity'];
             if ($cart->quantity > $product->quantity) {
