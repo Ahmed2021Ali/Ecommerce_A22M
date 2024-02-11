@@ -26,7 +26,7 @@
             </ul>
             <div class="shopping-cart-footer">
                 <div class="shopping-cart-total">
-                    <h4>{{$total_price}}  <span> الاجماعي   </span></h4>
+                    <h4>   {{$total_price}}  جينية <span> الاجماعي    =   </span></h4>
                 </div>
                 <div class="shopping-cart-button">
                     <a href="{{route('cart.index')}}" class="outline">View cart</a>
