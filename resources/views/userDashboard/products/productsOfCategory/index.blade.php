@@ -14,8 +14,6 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-9">
-                        <h2 style="background-color: #F15412; padding: 10px; color: #fff;  text-align:center">{{ $categoryName->name }}</h2>
-                        <br>
                         <div class="row product-grid-3">
                                 <div class="row product-grid-4" style="direction: rtl; text-align: center;">
                                     @foreach($products as $product)
@@ -77,31 +75,45 @@
                             </ul>
                         </div>
                         <!-- Fillter By Price -->
-                        <div class="sidebar-widget price_range range mb-30" style="direction: rtl; text-align: right;">
-                            <div class="widget-header position-relative mb-20 pb-10">
-                                <h5 class="widget-title mb-10">ملء حسب السعر</h5>
-                                <div class="bt-1 border-color-1"></div>
-                            </div>
-                            <div class="price-filter">
-                                <div class="price-filter-inner">
-                                    <div id="slider-range"></div>
-                                    <div class="price_slider_amount">
-                                        <div class="label-input">
-                                            <span>يتراوح</span><input type="text" id="amount" name="price" placeholder="Add Your Price">
+                        <form method="GET" action="{{ route('search.filter') }}" enctype="multipart/form-data">
+                            @csrf
+                            <div class="sidebar-widget price_range range mb-30" style="direction: rtl; text-align: right;">
+                                <!-- Price Range Header -->
+                                <div class="widget-header position-relative mb-20 pb-10">
+                                    <h5 class="widget-title mb-10">ملء حسب السعر</h5>
+                                    <div class="bt-1 border-color-1"></div>
+                                </div>
+                                <!-- Price Slider and Input -->
+                                <div class="price-filter">
+                                    <div class="price-filter-inner">
+                                        <div id="slider-range"></div>
+                                        <div class="price_slider_amount">
+                                            <div class="label-input">
+                                                <span>يتراوح</span><input type="text" id="amount" name="price" placeholder="Add Your Price">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="list-group">
-                                <div class="list-group-item mb-10 mt-10">
-                                    <label class="fw-900">اللون</label>
-                                        <div class="custome-checkbox">
-
+                                <!-- Color Filter -->
+                                <br>
+                                <strong class="mr-10">اللون &nbsp;&nbsp;</strong>
+                                <br>
+                                <br>
+                                <div class="attr-detail attr-color mb-15" style="display: flex; margin-top: 2px; direction: rtl; text-align: right;">
+                                    <ul class="list-filter color-filter">
+                                        <div class="colors">
+                                            @foreach (\App\Models\Color::all() as $color)
+                                                <span style="width: 30px; height: 30px; border-radius: 50%; cursor: pointer; display: flex; margin-right: 6px; background-color:{{ $color->value }}"><li><input type="checkbox" name="color[]" value="{{ $color->value }}"></li></span>
+                                            @endforeach
                                         </div>
+                                    </ul>
                                 </div>
+                                <!-- Filter Button -->
+                                <button type="submit" class="btn btn-sm btn-default">
+                                    <i class="fi-rs-filter mr-5"></i> ابحث
+                                </button>
                             </div>
-                            <a href="shop.html" class="btn btn-sm btn-default"><i class="fi-rs-filter mr-5"></i> ابحث</a>
-                        </div>
+                        </form>
                         <!-- Product sidebar Widget -->
                         <div class="sidebar-widget product-sidebar  mb-30 p-30 bg-grey border-radius-10" style="direction: rtl; text-align: right;">
                             <div class="widget-header position-relative mb-20 pb-10" style="direction: rtl; text-align: right;">

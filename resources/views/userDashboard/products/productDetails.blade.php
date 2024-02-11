@@ -90,7 +90,6 @@
                                                 </ul>
                                             </div>
                                             
-
                                             <div class="attr-detail attr-size">
                                                 <strong class="mr-10"> المقاس &nbsp;&nbsp;</strong>
                                                 <ul class="list-filter size-filter font-small">
@@ -164,7 +163,7 @@
                             </ul>
                         </div>
                         <!-- Price Range Filter -->
-                        <form method="POST" action="{{ route('search.filter') }}" enctype="multipart/form-data">
+                        <form method="GET" action="{{ route('search.filter') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="sidebar-widget price_range range mb-30" style="direction: rtl; text-align: right;">
                                 <!-- Price Range Header -->

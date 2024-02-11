@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\UserDashboard\Serach\SearchController;
+use App\Http\Controllers\UserDashboard\SearchController;
 use App\Http\Controllers\UserDashboard\AddressController;
 use App\Http\Controllers\UserDashboard\CartController;
 use App\Http\Controllers\UserDashboard\ContactUsController;
@@ -59,4 +59,4 @@ Route::get('/pofile', [ProfileController::class, 'index'])->name('profile.index'
 
 Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
 
-Route::post('/filter', [SearchController::class, 'filter'])->name('search.filter');
+Route::get('/filter', [SearchController::class, 'filter'])->name('search.filter');
