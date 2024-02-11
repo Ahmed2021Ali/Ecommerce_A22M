@@ -1,8 +1,8 @@
-    @foreach($banner->getMedia('bannerFiles') as $media)
+    @foreach($banner->product->getMedia('productFiles') as $media)
         <img class="mySlides" src="{{$media->getFullUrl()}}" width="760" height="500">
     @endforeach
     <br>
-    @foreach($banner->getMedia('bannerFiles') as $media)
+    @foreach($banner->product->getMedia('productFiles') as $media)
         <img  src="{{$media->getFullUrl()}}" width="75" height="50">
     @endforeach
     <div class="text-center">

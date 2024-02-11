@@ -23,7 +23,7 @@ class HomepageController extends Controller
         $newArrivalProducts = Product::latest()->take(10)->get();
         $newAddedProducts = Product::latest()->take(8)->get();
         $featuredProducts = Product::paginate(10);
-        $banners = Banner::latest()->take(3)->get();
+        $banners = Banner::get();
         return view('home', 
         compact(
         'products',
