@@ -257,7 +257,7 @@
                                     <ul class="list-filter color-filter">
                                         <div class="colors">
                                             @foreach (\App\Models\Color::all() as $color)
-                                                <span style="width: 30px; height: 30px; border-radius: 50%; cursor: pointer; display: flex; margin-right: 6px; background-color:{{ $color->value }}"><li><input type="checkbox" name="color[]" value="{{ $color->value }}"></li></span>
+                                                <span style="width: 30px; height: 30px;margin-bottom: 10px; border-radius: 50%; cursor: pointer; display: flex; margin-right: 6px; background-color:{{ $color->value }}"><li><input type="checkbox" name="color[]" value="{{ $color->value }}"></li></span>
                                             @endforeach
                                         </div>
                                     </ul>

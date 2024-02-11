@@ -14,6 +14,7 @@ return new class extends Migration
             $table->string('main_title')->nullable();
             $table->string('small_title')->nullable();
             $table->boolean('status')->default(1);
+            $table->foreignId('product_id')->references('id')->on('products')->cascadeOnUpdate()->cascadeOnDelete();
             $table->timestamps();
         });
     }
