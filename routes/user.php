@@ -11,7 +11,6 @@ use App\Http\Controllers\UserDashboard\ProductControlle;
 use App\Http\Controllers\UserDashboard\OrderController;
 use App\Http\Controllers\UserDashboard\ProfileController;
 use Illuminate\Support\Facades\Route;
-use JeroenNoten\LaravelAdminLte\View\Components\Widget\ProfileColItem;
 
 Route::get('/', [HomepageController::class, 'index'])->name('home');
 

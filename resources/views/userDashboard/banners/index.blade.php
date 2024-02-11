@@ -4,7 +4,7 @@
             @foreach ($banners as $banner)
                 <div class="col-lg-4 col-md-6">
                     <div class="banner-img wow fadeIn animated" style="direction: rtl; text-align: center;">
-                       @foreach($banner->getMedia('bannerFiles') as $media)
+                       @foreach($banner->product->getMedia('productFiles') as $media)
                         <img src="{{ $media->getFullUrl() }}" width="400" height="250" alt="{{ $banner['main_title'] }}">
                         @endforeach
 
@@ -13,7 +13,7 @@
                                 <span class="main-title" style="font-size: 16px; color: #fff; font-weight: bold;">{{ $banner['main_title'] }}</span>
                                 <h4 class="small-title" style="font-size: 14px; color: #fff;">{{ $banner['small_title'] }}</h4>
                             </div>
-                            <a href="{{ $banner['link'] }}" class="btn-shop-now" style="display: block; margin-top: 8px; padding: 8px 16px; background-color: #fff; color: #F15412; text-decoration: none; border-radius: 5px; transition: background-color 0.3s;">
+                            <a href="{{route('products.show', $banner->product->id)}}" class="btn-shop-now" style="display: block; margin-top: 8px; padding: 8px 16px; background-color: #fff; color: #F15412; text-decoration: none; border-radius: 5px; transition: background-color 0.3s;">
                                 تسوق الآن<i class="fi-rs-arrow-right"></i>
                             </a>
                         </div>

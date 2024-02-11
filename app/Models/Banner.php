@@ -12,10 +12,15 @@ class Banner extends Model implements HasMedia
 {
     use HasFactory, InteractsWithMedia;
 
-    protected $fillable = ['status', 'small_title', 'main_title'];
+    protected $fillable = ['status', 'small_title', 'main_title', 'product_id'];
 
     public function registerMediaConversions(Media $media = null): void
     {
         $this->addMediaCollection('bannerFiles');
+    }
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class, 'product_id');
     }
 }

@@ -6,19 +6,19 @@ use App\Models\Banner;
 use App\Repositories\Interfaces\AdminDashboard\BannerInterface;
 use App\Repositories\Interfaces\AdminDashboard\SliderInterface;
 use Illuminate\Support\Arr;
-
+use App\Models\Product;
 class BannerRepository implements BannerInterface
 {
 
     public function index()
     {
-        return view('adminDashboard.banner.index', ['banners' => Banner::paginate(10)]);
+        $products = Product::select('id', 'name')->get();
+        return view('adminDashboard.banner.index', ['banners' => Banner::paginate(10), 'products' => $products]);
     }
 
     public function store($request)
     {
         $banner = Banner::create([...Arr::except($request, 'files')]);
-        uploadFiles($request['files'], $banner, 'bannerFiles');
         return redirect()->back()->with(['success' => 'تم بنجاح اضافة بانر']);
     }
 

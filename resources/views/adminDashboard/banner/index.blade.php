@@ -21,6 +21,7 @@
                     <th>#</th>
                     <th>العنوان الرائيسي</th>
                     <th>العنوان الفرعي</th>
+                    <th>أسم المنتج</th>
                     <th>الحالة</th>
                     <th>العمليات</th>
                 </tr>
@@ -31,6 +32,7 @@
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $banner->main_title }}</td>
                         <td>{{ $banner->small_title }}</td>
+                        <td>{{ $banner->product->name }}</td>
                         <td>{{ $banner->status === 1 ? "معروضة ":"غير معروضة" }}</td>
 
                         <td>
