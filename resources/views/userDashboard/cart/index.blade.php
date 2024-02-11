@@ -5,16 +5,11 @@
 @section('css')
 
 @endsection
+@section('pageHeader')
+    سلة مشترياتك
+@endsection
 @section('content')
     <main class="main" style="direction: rtl; text-align: right;">
-        <div class="page-header breadcrumb-wrap">
-            <div class="container">
-                <div class="breadcrumb">
-                    <a href="{{route('home')}}" rel="nofollow">االصفحة الرائيسة </a>
-                    <span></span> سلة مشترياتك
-                </div>
-            </div>
-        </div>
         <section class="mt-50 mb-50">
             <div class="container">
                 <div class="row">

@@ -4,18 +4,12 @@
 @endsection
 @section('css')
 @endsection
+@section('pageHeader')
+    تعديل عنوان
+@endsection
 
 @section('content')
     <main class="main" style="direction: rtl; text-align: right;">
-        <div class="page-header breadcrumb-wrap">
-            <div class="container">
-                <div class="breadcrumb">
-                    <a href="{{route('home')}}" rel="nofollow">الصفحة الرائيسية</a>
-                    <span></span> سلة المشتريات
-                    <span></span> اضافة عنوان
-                </div>
-            </div>
-        </div>
         <section class="pt-50 pb-50">
             <div class="container">
                 <div class="row">
@@ -46,7 +40,7 @@
                                     <label for="city_id">المدينة / المحافظة<span class="required">*</span></label>
                                     <select class="form-control" id="city_id" name="city_id" required>
                                         @foreach($cities as $city)
-                                            <option value="{{$city->id}}">{{$city->name}}</option>
+                                            <option {{ $city->id === $address->city_id ? 'selected' : '' }} value="{{$city->id}}">{{$city->name}}</option>
                                         @endforeach
                                     </select>
                                     @error('city_id')

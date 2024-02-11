@@ -63,7 +63,7 @@ class Order extends Component
 
     public function coupon()
     {
-        $this->discount = Coupon::select('id', 'value')->where('name', $this->form->coupon)->first();
+        $this->discount = Coupon::select('id', 'value')->where('name', $this->form->coupon)->where('status', 1)->first();
     }
 
     public function render()

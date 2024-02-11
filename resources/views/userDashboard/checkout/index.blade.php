@@ -5,18 +5,11 @@
 @section('css')
 
 @endsection
+@section('pageHeader')
+    عرض الاردر
+@endsection
 @section('content')
     <main class="main" style="direction: rtl; text-align: right;">
-
-        <div class="page-header breadcrumb-wrap">
-            <div class="container">
-                <div class="breadcrumb">
-                    <a href="{{route('home')}}" rel="nofollow">الصفحة الرائيسية </a>
-                    <span></span> سلة المشتريات
-                    <span></span> عرض الاردر
-                </div>
-            </div>
-        </div>
 
         <section class="section-container profile my-5 py-5">
             <div class="text-center mb-5">
@@ -77,7 +70,7 @@
                                     <td class="product-subtotal" colspan="2">{{$detailsOrder->address->note}}</td>
                                 </tr>
                             </table>
-                            <a href="#" class="btn btn-fill-out btn-block mt-30">تعديل العنوان</a>
+                            <a href="{{route('address.edit',$detailsOrder->address)}}" class="btn btn-fill-out btn-block mt-30">تعديل العنوان</a>
                         </section>
                     </div>
                     <div class="col-md-6">
@@ -103,13 +96,14 @@
                                                 <h5>
                                                     <a href="{{route('products.show', $order->product->id)}}">{{$order->product->name}}</a>
                                                 </h5>
+                                                <span class="product-qty">{{$order->quantity}}</span>
                                                 @if($order->size)
                                                     <h5>{{$order->size}}</h5>
                                                 @endif
                                                 @if($order->size)
                                                     <h5>{{$order->color}}</h5>
                                                 @endif
-                                                <span class="product-qty">{{$order->quantity}}</span>
+
                                             </td>
                                             <td>{{$order->total_price}}</td>
                                     </tr>
