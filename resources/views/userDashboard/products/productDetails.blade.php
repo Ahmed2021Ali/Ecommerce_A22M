@@ -5,27 +5,7 @@
 @endsection
 
 @section('css')
-    <style>
-        .colors{
-            display:flex;
-            margin-top:2px;
-        }
 
-        .colors span{
-            width:30px;
-            height:30px;
-            border-radius:50%;
-            cursor:pointer;
-            display:flex;
-            margin-right:6px;
-        }
-        @foreach(explode(',', $product->color)  as $color)
-    .colors span:nth-child({{$loop->iteration}}) {
-
-            background-color:{{$color}}
-        }
-        @endforeach
-    </style>
 
 @endsection
 @section('pageHeader')
@@ -98,18 +78,19 @@
                                         </div>
                                         <form action="{{route('cart.store',$product) }}" method="post">
                                             @csrf
-                                            <div class="attr-detail attr-color mb-15">
+                                            <div class="attr-detail attr-color mb-15" style="display: flex; margin-top: 2px; direction: rtl; text-align: right;">
                                                 <strong class="mr-10">اللون &nbsp;&nbsp;</strong>
                                                 <ul class="list-filter color-filter">
-                                                    <li><a href="#" ><span class="product-color-teal" ></span></a></li>
+                                                    <li><a href="#"><span class="product-color-teal" style="width: 30px; height: 30px; border-radius: 50%; cursor: pointer; display: flex; margin-right: 6px;"></span></a></li>
                                                     <div class="colors">
                                                         @foreach (explode(',', $product->color) as $color)
-                                                            <span><li><input type="checkbox" name="color" value="{{$color}}"></li></span>
+                                                            <span style="width: 30px; height: 30px; border-radius: 50%; cursor: pointer; display: inline-block; margin-right: 6px; background-color:{{ $color }}"><li style="display: inline-block;"><input type="checkbox" name="color" value="{{ $color }}"></li></span>
                                                         @endforeach
                                                     </div>
                                                 </ul>
-
                                             </div>
+                                            
+
                                             <div class="attr-detail attr-size">
                                                 <strong class="mr-10"> المقاس &nbsp;&nbsp;</strong>
                                                 <ul class="list-filter size-filter font-small">
@@ -203,12 +184,15 @@
                                     </div>
                                 </div>
                                 <!-- Color Filter -->
-                                <div class="attr-detail attr-color mb-15">
-                                        <ul class="list-filter color-filter">
-                                        <li><a href="#"><span class="product-color-teal">اللون</span></a></li>
-                                        <div class="colors" style="display: block; margin-top: 10px;">
+                                <br>
+                                <strong class="mr-10">اللون &nbsp;&nbsp;</strong>
+                                <br>
+                                <br>
+                                <div class="attr-detail attr-color mb-15" style="display: flex; margin-top: 2px; direction: rtl; text-align: right;">
+                                    <ul class="list-filter color-filter">
+                                        <div class="colors">
                                             @foreach (\App\Models\Color::all() as $color)
-                                                <span><li><input type="checkbox" name="color[]" value="{{$color->value}}"></li></span>
+                                                <span style="width: 30px; height: 30px; border-radius: 50%; cursor: pointer; display: flex; margin-right: 6px; background-color:{{ $color->value }}"><li><input type="checkbox" name="color[]" value="{{ $color->value }}"></li></span>
                                             @endforeach
                                         </div>
                                     </ul>

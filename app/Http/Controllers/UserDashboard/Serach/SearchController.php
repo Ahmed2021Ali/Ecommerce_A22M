@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Serach;
+namespace App\Http\Controllers\UserDashboard\Serach;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;

@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Serach\SearchController;
+use App\Http\Controllers\UserDashboard\Serach\SearchController;
 use App\Http\Controllers\UserDashboard\AddressController;
 use App\Http\Controllers\UserDashboard\CartController;
 use App\Http\Controllers\UserDashboard\ContactUsController;
