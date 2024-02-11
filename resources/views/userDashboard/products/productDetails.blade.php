@@ -148,14 +148,18 @@
                             <!-- Review Product Info -->
                             <div class="tab-style3" >
                                 <ul class="nav nav-tabs text-uppercase">
+
                                     <li class="nav-item">
                                         <a class="nav-link active" id="Description-tab" data-bs-toggle="tab" href="#Description">Description</a>
                                     </li>
+
                                     <li class="nav-item">
                                         <a class="nav-link" id="Reviews-tab" data-bs-toggle="tab" href="#Reviews">Reviews (3)</a>
                                     </li>
+
                                 </ul>
                                 <div class="tab-content shop_info_tab entry-main-content">
+
                                     <div class="tab-pane fade show active" id="Description">
                                         <div class="">
                                             <p>Uninhibited carnally hired played in whimpered dear gorilla koala depending and much yikes off far quetzal goodness and from for grimaced goodness unaccountably and meadowlark near unblushingly crucial scallop
@@ -184,6 +188,7 @@
                                             </p>
                                         </div>
                                     </div>
+
                                     <div class="tab-pane fade" id="Reviews">
                                         <!--Comments-->
                                         <div class="comments-area">
@@ -334,6 +339,7 @@
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
                             <!-- End Review Product Info -->

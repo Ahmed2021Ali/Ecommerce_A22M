@@ -10,12 +10,12 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class Product extends Model implements HasMedia
 {
-    use HasFactory,InteractsWithMedia;
+    use HasFactory, InteractsWithMedia;
 
     protected $fillable = [
-        'category_id','id', 'price', 'name',
-        'description','offer', 'status','quantity',
-        'price_after_offer','stock', 'color','size'
+        'category_id', 'id', 'price', 'name',
+        'description', 'offer', 'status', 'quantity',
+        'price_after_offer', 'stock', 'color', 'size'
     ];
     protected $casts = [
         'color' => 'array',
@@ -27,10 +27,10 @@ class Product extends Model implements HasMedia
         return $this->belongsTo(Category::class);
     }
 
-/*    public function opinions()
+    public function review()
     {
-        return $this->hasMany(Opinion::class);
-    }*/
+        return $this->hasMany(Review::class);
+    }
 
     public function registerMediaConversions(Media $media = null): void
     {
