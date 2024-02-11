@@ -19,11 +19,6 @@ class OrderController extends Controller
 
     }
 
-    public function index()
-    {
-        return $this->order->index();
-    }
-
     public function show($order_number)
     {
         return $this->order->show($order_number);

@@ -13,17 +13,14 @@ class FavRepository implements FavInterface
 {
 
     public function index()
-{
-    $user = Auth::user();
-    $categories = Category::all();
-
-    $favs = Fav::where('user_id', $user->id)->paginate(9);
-    $count = Fav::where('user_id', $user->id)->count();
-
-    $newProducts = Product::latest()->take(3)->get();
-
-    return view('userDashboard.fav.index', compact('favs', 'count', 'categories', 'newProducts'));
-}
+    {
+        return view('userDashboard.fav.index', [
+            'favs' => Auth::user()->favs(),
+            'count' => Fav::where('user_id', Auth::user()->id)->count(),
+            'categories' => Category::paginate(10),
+            'newProducts' => Product::latest()->take(3)->get()
+        ]);
+    }
 
 
     public function store($product)

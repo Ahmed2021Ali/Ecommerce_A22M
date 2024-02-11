@@ -13,15 +13,17 @@
                 <thead>
                 <tr>
                     <th>#</th>
-                    <th>المنتج</th>
-                    <th>اسم المنتج</th>
-                    <th>الكمية</th>
-                    <th>اجمالي السعر</th>
-                    <th>اسم العميل</th>
+                    <th>كود الطلب </th>
+                    <th>عدد المنتجات الاردر</th>
+                    <th>سعر المنتجات</th>
+                    <th>سعر التوصيل</th>
+                    <th>كوبون خصم </th>
+                    <th>الاجمالي الكلي</th>
+                    <th> اسم صاحب الاردر</th>
+                    <th>المحافظة</th>
                     <th>العنوان</th>
-                    <th>رقم التليفون</th>
-                    <th>حالة الدفع</th>
-                    <th>حذف</th>
+                    <th>رقم الهاتف</th>
+                    <th>المستخدم </th>
                     <th>هل تم توصيل ؟</th>
                 </tr>
                 </thead>
@@ -30,27 +32,20 @@
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>
-                            <a href="{{ route('product', $order) }}" class="btn btn-primary">عرض</a>
+                            <a href="{{ route('order.show', $order->order_number) }}" class="btn btn-primary"> عرض الاردر</a>
                         </td>
-                        <td>{{ $order->product->title }}</td>
-                        <td>{{ $order->quantity }}</td>
-                        <td>{{ $order->total_price }}</td>
+                        <td>{{ $order->number_of_product }}</td>
+                        <td>{{ $order->subtotal }}</td>
+                        <td>{{ $order->delivery_price }}</td>
+                        <td>{{ $order->coupon_value }}</td>
+                        <td>{{ $order->total }}</td>
                         <td>{{ $order->address->fname." ".$order->address->lname }}</td>
+                        <td>{{ $order->address->city->name }}</td>
                         <td>{{ $order->address->address }}</td>
                         <td>{{ $order->address->phone }}</td>
-{{--                        <td>
-                            @if($order->delivery_status_of_orders === null)
-                                <form action="{{ route('order.force.delete', $order) }}" method="post" class="d-inline">
-                                    @method('delete')
-                                    @csrf
-                                    <button class=" btn btn-danger"> حذف</button>
-                                </form>
-                            @endif
-                        </td>
+                        <td>{{ $order->user->name }}</td>
                         <td>
-                            <a href="{{ route('order.status.delivery', $order) }}" class="btn btn-warning">تم
-                                التوصيل</a>
-                        </td>--}}
+                        <a href="{{route('order.deliveryStatus',$order)}}" class="btn btn-success">نعم تم التوصيل </td>
                     </tr>
                 @endforeach
 

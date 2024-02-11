@@ -20,10 +20,6 @@ class AddressController extends Controller
     {
         return $this->address->create();
     }
-    public function index()
-    {
-        return $this->address->index();
-    }
     public function store(StoreAddressRequest $request)
     {
         return $this->address->store($request->validated());

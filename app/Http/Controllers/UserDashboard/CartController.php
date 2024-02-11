@@ -13,35 +13,35 @@ use Illuminate\Support\Facades\Auth;
 class CartController extends Controller
 {
 
-    protected $cat;
-    public function __construct(CartInterface $cat)
+    protected $cart;
+    public function __construct(CartInterface $cart)
     {
-        $this->cat = $cat;
+        $this->cart = $cart;
         $this->middleware('auth');
 
     }
 
     public function index()
     {
-        return $this->cat->index();
+        return $this->cart->index();
     }
 
     public function store(CartStoreRequest $request ,Product $product)
     {
-       return $this->cat->store($request->validated(),$product);
+       return $this->cart->store($request->validated(),$product);
     }
 
     public function update(CartStoreRequest $request,Cart $cart)
     {
-        return $this->cat->update($request->validated(),$cart);
+        return $this->cart->update($request->validated(),$cart);
     }
 
     public function destroy(Cart $cart)
     {
-        return $this->cat->destroy($cart);
+        return $this->cart->destroy($cart);
     }
     public function clear()
     {
-        return  $this->cat->clear();
+        return  $this->cart->clear();
     }
 }

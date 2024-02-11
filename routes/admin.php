@@ -34,6 +34,9 @@ Route::resource('contact', ContactUsController::class)->except(['store','edit','
 
 Route::controller(OrderController::class)->prefix('order')->as('order.')->group(function (){
     Route::get('index','index')->name('index');
+    Route::get('delivery/status/{order}','deliveryStatus')->name('deliveryStatus');
+    Route::get('/done','ordersDone')->name('done');
+
 });
 
 

@@ -14,11 +14,6 @@ use Illuminate\Support\Str;
 class OrderRepository implements OrderInterface
 {
 
-    public function index()
-    {
-        $orders = Order::where('user_id', Auth::user()->id)->paginate(5);
-        //  return view('user.favourites.index', compact('orders'));
-    }
 
     public function show($order_number)
     {

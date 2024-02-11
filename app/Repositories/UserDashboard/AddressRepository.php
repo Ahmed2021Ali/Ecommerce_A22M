@@ -13,12 +13,6 @@ use Illuminate\Support\Facades\Auth;
 class AddressRepository implements AddressInterface
 {
 
-    public function index()
-    {
-        $address = Address::where('user_id', Auth::user()->id)->paginate(5);
-          // return view('userDashboard.address.store', compact('address'));
-    }
-
     public function create()
     {
         return view('userDashboard.address.store',['cities' =>AvailableCity::select('id','name')->get()]);
