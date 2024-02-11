@@ -77,7 +77,7 @@
                                     <div class="heading_s1">
                                         <h3 class="mb-30">إنشاء حساب</h3>
                                     </div>
-                                    <form method="POST" action="{{route('signup.submit.form')}}">
+                                    <form method="POST" action="{{route('signup.submit.form')}}" enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-group">
                                             <input type="text" required="" name="name" placeholder="الأسم" required>

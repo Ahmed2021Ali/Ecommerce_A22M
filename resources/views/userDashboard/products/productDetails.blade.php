@@ -79,8 +79,8 @@
                                         <!-- Product Price -->
                                         <div class="clearfix product-price-cover">
                                             <div class="product-price primary-color float-left">
-                                                <ins><span class="text-brand">{{$product->price}}</span></ins>
-                                                <ins><span class="old-price font-md ml-15">{{$product->price_after_offer}}</span></ins>
+                                                <ins><span class="text-brand">{{$product->price_after_offer}}</span></ins>
+                                                <ins><span class="old-price font-md ml-15">{{$product->price}}</span></ins>
                                                 <span class="save-price  font-md color3 ml-15">تخفيض %{{ $product->offer }}</span>
                                             </div>
                                         </div>
@@ -183,33 +183,42 @@
                             </ul>
                         </div>
                         <!-- Price Range Filter -->
-                        <div class="sidebar-widget price_range range mb-30" style="direction: rtl; text-align: right;">
-                            <!-- Price Range Header -->
-                            <div class="widget-header position-relative mb-20 pb-10">
-                                <h5 class="widget-title mb-10">ملء حسب السعر</h5>
-                                <div class="bt-1 border-color-1"></div>
-                            </div>
-                            <!-- Price Slider and Input -->
-                            <div class="price-filter">
-                                <div class="price-filter-inner">
-                                    <div id="slider-range"></div>
-                                    <div class="price_slider_amount">
-                                        <div class="label-input">
-                                            <span>يتراوح</span><input type="text" id="amount" name="price" placeholder="Add Your Price">
+                        <form method="POST" action="{{ route('search.filter') }}" enctype="multipart/form-data">
+                            @csrf
+                            <div class="sidebar-widget price_range range mb-30" style="direction: rtl; text-align: right;">
+                                <!-- Price Range Header -->
+                                <div class="widget-header position-relative mb-20 pb-10">
+                                    <h5 class="widget-title mb-10">ملء حسب السعر</h5>
+                                    <div class="bt-1 border-color-1"></div>
+                                </div>
+                                <!-- Price Slider and Input -->
+                                <div class="price-filter">
+                                    <div class="price-filter-inner">
+                                        <div id="slider-range"></div>
+                                        <div class="price_slider_amount">
+                                            <div class="label-input">
+                                                <span>يتراوح</span><input type="text" id="amount" name="price" placeholder="Add Your Price">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <!-- Color Filter -->
-                            <div class="list-group">
-                                <div class="list-group-item mb-10 mt-10">
-                                    <label class="fw-900">اللون</label>
-                                    <div class="custome-checkbox"></div>
+                                <!-- Color Filter -->
+                                <div class="attr-detail attr-color mb-15">
+                                        <ul class="list-filter color-filter">
+                                        <li><a href="#"><span class="product-color-teal">اللون</span></a></li>
+                                        <div class="colors" style="display: block; margin-top: 10px;">
+                                            @foreach (\App\Models\Color::all() as $color)
+                                                <span><li><input type="checkbox" name="color[]" value="{{$color->value}}"></li></span>
+                                            @endforeach
+                                        </div>
+                                    </ul>
                                 </div>
+                                <!-- Filter Button -->
+                                <button type="submit" class="btn btn-sm btn-default">
+                                    <i class="fi-rs-filter mr-5"></i> ابحث
+                                </button>
                             </div>
-                            <!-- Filter Button -->
-                            <a href="shop.html" class="btn btn-sm btn-default"><i class="fi-rs-filter mr-5"></i> ابحث</a>
-                        </div>
+                        </form>
                         <!-- New Products Widget -->
                         <div class="sidebar-widget product-sidebar  mb-30 p-30 bg-grey border-radius-10" style="direction: rtl; text-align: right;">
                             <!-- New Products Header -->
@@ -228,7 +237,7 @@
                                     </div>
                                     <div class="content pt-10">
                                         <h5><a href="product-details.html">{{$newProduct->name}}</a></h5>
-                                        <p class="price mb-0 mt-5">{{$newProduct->price}} ج</p>
+                                        <p class="price mb-0 mt-5">{{$newProduct->price_after_offer}} ج</p>
                                         <div class="product-rate">
                                             <div class="product-rating" style="width:90%"></div>
                                         </div>

@@ -31,6 +31,9 @@ class ProfileController extends Controller
                 unset($validatedData['password']);
             }
 
+            if (isset($request['profile_image'])) {
+                updateFiles($request['profile_image'], $user, 'prfileImageFiles');
+            }
             $updateResult = $user->update($validatedData);
 
             if ($updateResult) {
@@ -48,6 +51,5 @@ class ProfileController extends Controller
             return back()->withErrors(['error' => 'حدث خطأ أثناء تحديث البيانات']);
         }
     }
-
     
 }

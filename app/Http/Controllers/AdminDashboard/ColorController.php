@@ -12,7 +12,7 @@ class ColorController extends Controller
 
     public function index()
     {
-        return view('adminDashboard.color.index',['colors'=>Color::paginate(10)]);
+        return view('adminDashboard.color.index',['colors' => Color::paginate(10)]);
     }
     public function store(ColorStoreRequest $request)
     {

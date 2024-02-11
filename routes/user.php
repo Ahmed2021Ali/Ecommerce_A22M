@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Serach\SearchController;
 use App\Http\Controllers\UserDashboard\AddressController;
 use App\Http\Controllers\UserDashboard\CartController;
 use App\Http\Controllers\UserDashboard\ContactUsController;
@@ -43,7 +44,7 @@ Route::controller(OrderController::class)->prefix('order')->as('order.')->group(
     Route::get('/destroy/{order}',  'destroy')->name('destroy');
 });
 
-Route::post('/contactUs/store', [ContactUsController::class, 'store'])->name('contact.store');
+Route::post('/contact-us/store', [ContactUsController::class, 'store'])->name('contact.store');
 Route::get('/contact-us', [ContactUsController::class, 'index'])->name('contact.index');
 
 
@@ -57,3 +58,5 @@ Route::get('/pofile', [ProfileController::class, 'index'])->name('profile.index'
 
 
 Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
+
+Route::post('/filter', [SearchController::class, 'filter'])->name('search.filter');
