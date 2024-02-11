@@ -6,11 +6,11 @@
                 @foreach($carts as $cart)
                     <li>
                         <div class="shopping-cart-img" >
-                            <a href="{{route('products.show', $product->id)}}"><img alt="Surfside Media"
+                            <a href="{{route('products.show', $cart->product->id)}}"><img alt="Surfside Media"
                                                                 src="{{$cart->product->getFirstMediaUrl('productFiles')}}"></a>
                         </div>
                         <div class="shopping-cart-title">
-                            <h4><a href="{{route('products.show', $product->id)}}">{{$cart->product->name}}</a></h4>
+                            <h4><a href="{{route('products.show', $cart->product->id)}}">{{$cart->product->name}}</a></h4>
                                 <?php $total_price += ($cart->product->offer ? $cart->product->price_after_offer : $cart->product->price) * $cart->quantity; ?>
                             <h4>
                                 <span>{{$cart->quantity}} × </span>{{($cart->product->offer ? $cart->product->price_after_offer : $cart->product->price)}}
