@@ -33,8 +33,8 @@
         text-decoration: none;
         display: flex;
         align-items: center;
-        font-size: bolder;
-        font-size: large;
+        font-size: bold;
+        font-size: medium;
         font-weight: bold;
         }
     
