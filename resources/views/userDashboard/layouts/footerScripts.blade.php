@@ -42,7 +42,7 @@
             },
             error: function (error) {
                 console.log(error.responseText);
-                toastr.error('Error adding to favorites. Please try again.');
+                toastr.error('عفوا! يجب أن تسجل دخول أولا');
             }
         });
     }

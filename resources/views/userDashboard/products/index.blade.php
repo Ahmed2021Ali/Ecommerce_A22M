@@ -5,7 +5,9 @@
     @section('css')
 
     @endsection
-
+    @section('pageHeader')
+        المنتجات    
+    @endsection
     @section('content')
     <main class="main">
         <!-- <div class="page-header breadcrumb-wrap">

@@ -18,7 +18,7 @@
     <div class="header-middle header-middle-ptb-1 d-none d-lg-block">
         <div class="container">
             <div class="header-wrap">
-                {{-- <div class="logo logo-width-1">
+                {{-- <div class="logo logo-width-1" >
                     <a href="index.html"><img src="assets/imgs/logo/logo.png" alt="logo"></a>
                 </div> --}}
                 <div class="header-right">
@@ -119,12 +119,13 @@
                                     </ul>
                                 </li>
                                 <li><a href="{{url('contact-us')}}"><i class="fas fa-comments"></i> تواصل معنا</a></li>
+                                @auth
+
                                 <li><a href="#"><i class="fas fa-user fa-lg"></i> حسابي <i class="fi-rs-angle-down"></i></a>
                                     <ul class="sub-menu">
                                         <li><a href="{{route('profile.index')}}"><i class="fas fa-cogs fa-lg"></i>&nbsp; اعدادات الحساب</a></li>
                                         <li><a href="#"><i class="fas fa-shopping-bag"></i>&nbsp; الطلبات</a></li>
                                         <li><a href="{{route('fav.index')}}"><i class="fas fa-heart fa-lg"></i>&nbsp; المفضلة</a></li>
-                                        @auth
                                         <li class="nav-item">
                                             <form action="{{ route('logout') }}" method="POST">
                                                 @csrf
