@@ -82,6 +82,7 @@
                                     <li><a href="{{route('category.products', $category->id)}}">{{ $category->name }}</a></li>
                                 @endforeach
                             </ul>
+                            {{ $categories->links() }}
                         </div>
                          <!-- Fillter By Price -->
                          <div class="sidebar-widget price_range range mb-30" style="direction: rtl; text-align: right;">

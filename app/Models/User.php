@@ -31,9 +31,27 @@ class User extends Authenticatable implements HasMedia
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
     public function registerMediaConversions(Media $media = null): void
     {
         $this->addMediaCollection('userImages');
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(OrderDetails::class);
+    }
+    public function favs()
+    {
+        return $this->hasMany(Fav::class)->paginate(6);
+    }
+    public function addresses()
+    {
+        return $this->hasMany(Address::class);
+    }
+    public function carts()
+    {
+        return $this->hasMany(Cart::class)->paginate(6);
     }
 
 }

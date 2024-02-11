@@ -6,7 +6,7 @@
 
     @endsection
     @section('pageHeader')
-        المنتجات    
+        المنتجات
     @endsection
     @section('content')
     <main class="main">
@@ -117,10 +117,7 @@
                             @foreach($newProducts as $newProduct)
                                 <div class="single-post clearfix" style="direction: rtl; text-align: right;">
                                     <div class="image">
-                                        @foreach($newProduct->getMedia('productFiles') as $media)
-                                            <a href="{{route('products.show', $newProduct->id)}}"><img src="{{$media->getFullUrl()}}" alt="product image"></a>
-                                            @break
-                                        @endforeach
+                                            <a href="{{route('products.show', $newProduct->id)}}"><img src="{{$newProduct->getFirstMediaUrl('productFiles')}}" alt="product image"></a>
                                     </div>
                                     <div class="content pt-10">
                                         <h5><a href="product-details.html">{{$newProduct->name}}</a></h5>

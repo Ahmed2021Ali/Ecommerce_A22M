@@ -4,7 +4,6 @@ namespace App\Repositories\Interfaces\UserDashboard;
 
 interface AddressInterface {
 
-    public function index();
     public function create();
 
     public function store($request);

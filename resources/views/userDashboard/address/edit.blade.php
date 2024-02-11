@@ -79,12 +79,13 @@
                                     <input class="form__input"
                                            placeholder="ملاحظات حول الطلب, مثال: ملحوظة خاصة بتسليم الطلب."
                                            type="text"
-                                           id="note" name="note">value="{{$address->note}}"</input>
+                                           id="note" name="note" value="{{$address->note}}">
                                     @error('note')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
                                 <button class="btn btn-danger w-100 py-2">تحديث الطلب</button>
+
                             </form>
                         </div>
                     </div>

@@ -311,12 +311,6 @@ return [
             'url' => 'admin/blog',
             'can' => 'manage-blog',
         ],
-        ['header' => 'account_settings'],
-        [
-            'text' => 'profile',
-            'url' => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
-        ],
         ['header' => 'labels'],
         [
             'text' => 'الاقسام',
@@ -334,6 +328,10 @@ return [
                     ], [
                     'text' => 'تحزين منتج جديد ',
                     'route' => 'product.create',
+                ], [
+                    'text' => ' الوان المنتجات المتاحة ',
+                    'icon_color' => 'yellow',
+                    'route' => 'color.index',
                 ],
                 ],
         ],
@@ -341,6 +339,11 @@ return [
             'text' => 'الاسليدر',
             'icon_color' => 'yellow',
             'route' => 'slider.index',
+        ],
+        [
+            'text' => 'بانر',
+            'icon_color' => 'cyan',
+            'route' => 'banner.index',
         ],
         [
             'text' => 'نوع المستخدم',
@@ -354,11 +357,7 @@ return [
             'route' => 'users.index',
         ],
 
-        [
-            'text' => 'بانر',
-            'icon_color' => 'cyan',
-            'route' => 'banner.index',
-        ],
+
         [
             'text' => 'الخدمات',
             'icon_color' => 'cyan',
@@ -380,24 +379,20 @@ return [
             'route' => 'contact.index',
         ],
         [
-/*            'text' => 'الاردرات ',
+            'text' => 'الاردرات ',
             'icon_color' => 'yellow',
             'submenu' =>
                 [
                     [
                         'text' => 'الاردرات لم يتم توصيلها',
                         'route' => 'order.index',
-                    ], /*[
+                    ], [
                     'text' => 'الاردرات تم توصيلها ',
-                    'route' => 'order.done.delivery',
+                    'route' => 'order.done',
                 ],
-                ],*/
-            ],
-        [
-            'text' => ' الوان المنتجات المتاحة ',
-            'icon_color' => 'yellow',
-            'route' => 'color.index',
+                ],
         ],
+
         [
             'text' => ' محافظات المتاحة توصيل ',
             'icon_color' => 'yellow',
