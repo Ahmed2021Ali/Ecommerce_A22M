@@ -1,18 +1,19 @@
 <header class="header-area header-style-1 header-height-2">
     <div class="header-top header-top-ptb-1 d-none d-lg-block">
         <div class="container" style="direction: rtl; text-align: right;>
-            <div class="row align-items-center">
-            <div class="col-xl-3 col-lg-4">
-                <div class="header-info header-info-right">
-                    @guest
-                        <ul>
-                            <li><i class="fi-rs-key"></i><a href="{{ route('signin.view.form') }}">تسجيل دخول</a> / <a
-                                    href="{{ route('signup.view.form') }}">إنشاء حساب</a></li>
-                        </ul>
-                    @endguest
-                </div>
+            <div class=" row align-items-center
+        ">
+        <div class="col-xl-3 col-lg-4">
+            <div class="header-info header-info-right">
+                @guest
+                    <ul>
+                        <li><i class="fi-rs-key"></i><a href="{{ route('signin.view.form') }}">تسجيل دخول</a> / <a
+                                href="{{ route('signup.view.form') }}">إنشاء حساب</a></li>
+                    </ul>
+                @endguest
             </div>
         </div>
+    </div>
     </div>
     </div>
     <div class="header-middle header-middle-ptb-1 d-none d-lg-block">
@@ -29,59 +30,62 @@
                     </div>
                     <div class="header-action-right">
                         <div class="header-action-2">
-                            <div class="header-action-icon-2">
 
-                                @if (Auth::check())
+
+                            @if (Auth::check())
+                                <div class="header-action-icon-2">
                                     <a href="{{ route('fav.index') }}">
                                         <img class="svgInject" alt="Surfside Media"
-                                            src="{{ URL::asset('assets/imgs/theme/icons/icon-heart.svg') }}">
-                                        <x-count-fav />
+                                             src="{{ URL::asset('assets/imgs/theme/icons/icon-heart.svg') }}">
+                                        <x-count-fav/>
                                     </a>
-                                @endif
-                            </div>
-                            <div class="header-action-icon-2">
-                                <a class="mini-cart-icon" href="{{route('cart.index')}}">
-                                    <img alt="Surfside Media"
-                                        src="{{ URL::asset('assets/imgs/theme/icons/icon-cart.svg') }}">
-                                    <span class="pro-count blue">2</span>
-                                </a>
-                                <div class="cart-dropdown-wrap cart-dropdown-hm2">
-                                    <ul>
-                                        <li>
-                                            <div class="shopping-cart-img">
-                                                <a href="product-details.html"><img alt="Surfside Media"
-                                                        src="assets/imgs/shop/thumbnail-3.jpg"></a>
-                                            </div>
-                                            <div class="shopping-cart-title">
-                                                <h4><a href="product-details.html">Daisy Casual Bag</a></h4>
-                                                <h4><span>1 × </span>$800.00</h4>
-                                            </div>
-                                            <div class="shopping-cart-delete">
-                                                <a href="#"><i class="fi-rs-cross-small"></i></a>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="shopping-cart-img">
-                                                <a href="product-details.html"><img alt="Surfside Media"
-                                                        src="assets/imgs/shop/thumbnail-2.jpg"></a>
-                                            </div>
-                                            <div class="shopping-cart-title">
-                                                <h4><a href="product-details.html">Corduroy Shirts</a></h4>
-                                                <h4><span>1 × </span>$3200.00</h4>
-                                            </div>
-                                            <div class="shopping-cart-delete">
-                                                <a href="#"><i class="fi-rs-cross-small"></i></a>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <div class="shopping-cart-footer">
-                                        <div class="shopping-cart-total">
-                                            <h4>Total <span>$4000.00</span></h4>
+                                </div>
+                                <div class="header-action-icon-2">
+                                    <a class="mini-cart-icon" href="{{route('cart.index')}}">
+                                        <img alt="Surfside Media"
+                                             src="{{ URL::asset('assets/imgs/theme/icons/icon-cart.svg') }}">
+                                        <x-count-cart/>
+                                    </a>
+                                </div>
+                            @endif
+
+
+                            <div class="cart-dropdown-wrap cart-dropdown-hm2">
+                                <ul>
+                                    <li>
+                                        <div class="shopping-cart-img">
+                                            <a href="product-details.html"><img alt="Surfside Media"
+                                                                                src="assets/imgs/shop/thumbnail-3.jpg"></a>
                                         </div>
-                                        <div class="shopping-cart-button">
-                                            <a href="cart.html" class="outline">View cart</a>
-                                            <a href="checkout.html">Checkout</a>
+                                        <div class="shopping-cart-title">
+                                            <h4><a href="product-details.html">Daisy Casual Bag</a></h4>
+                                            <h4><span>1 × </span>$800.00</h4>
                                         </div>
+                                        <div class="shopping-cart-delete">
+                                            <a href="#"><i class="fi-rs-cross-small"></i></a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="shopping-cart-img">
+                                            <a href="product-details.html"><img alt="Surfside Media"
+                                                                                src="assets/imgs/shop/thumbnail-2.jpg"></a>
+                                        </div>
+                                        <div class="shopping-cart-title">
+                                            <h4><a href="product-details.html">Corduroy Shirts</a></h4>
+                                            <h4><span>1 × </span>$3200.00</h4>
+                                        </div>
+                                        <div class="shopping-cart-delete">
+                                            <a href="#"><i class="fi-rs-cross-small"></i></a>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="shopping-cart-footer">
+                                    <div class="shopping-cart-total">
+                                        <h4>Total <span>$4000.00</span></h4>
+                                    </div>
+                                    <div class="shopping-cart-button">
+                                        <a href="cart.html" class="outline">View cart</a>
+                                        <a href="checkout.html">Checkout</a>
                                     </div>
                                 </div>
                             </div>
@@ -90,6 +94,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
     <div class="header-bottom header-bottom-bg-color sticky-bar" style="direction: rtl; text-align: right;">
         <div class="container">
@@ -101,44 +106,54 @@
                     <div class="main-menu main-menu-padding-1 main-menu-lh-2 d-none d-lg-block">
                         <nav>
                             <ul class="menu-list">
-                                <li><a class="active" href="{{ route('home') }}"><i style="font-size: 25px" class="fas fa-home fa-lg"></i> الصفحة الرئيسية</a></li>
+                                <li><a class="active" href="{{ route('home') }}"><i style="font-size: 25px"
+                                                                                    class="fas fa-home fa-lg"></i>
+                                        الصفحة الرئيسية</a></li>
                                 <li><a href="#about-us"><i class="fas fa-info-circle fa-lg"></i> تعرف علينا</a></li>
-                                <li><a href="{{ route('products.index') }}"><i class="fas fa-shopping-cart fa-lg"></i> تصفح المنتجات</a></li>
-                                <li class="position-static"><a href="#"><i class="fas fa-cubes fa-lg"></i> منتجاتنا <i class="fi-rs-angle-down"></i></a>
+                                <li><a href="{{ route('products.index') }}"><i class="fas fa-shopping-cart fa-lg"></i>
+                                        تصفح المنتجات</a></li>
+                                <li class="position-static"><a href="#"><i class="fas fa-cubes fa-lg"></i> منتجاتنا <i
+                                            class="fi-rs-angle-down"></i></a>
                                     <ul class="mega-menu">
                                         @foreach (App\Models\Category::all() as $category)
-                                        <li class="sub-mega-menu sub-mega-menu-width-22">
-                                            <a class="menu-title" href="{{route('category.products', $category->id)}}">{{ $category->name }}</a>
-                                            <ul>
-                                                @foreach ($category->products as $product)
-                                                <li><a href="{{ route('products.show', $product->id) }}">{{ $product->name }}</a></li>
-                                                @endforeach
-                                            </ul>
-                                        </li>
+                                            <li class="sub-mega-menu sub-mega-menu-width-22">
+                                                <a class="menu-title"
+                                                   href="{{route('category.products', $category->id)}}">{{ $category->name }}</a>
+                                                <ul>
+                                                    @foreach ($category->products as $product)
+                                                        <li>
+                                                            <a href="{{ route('products.show', $product->id) }}">{{ $product->name }}</a>
+                                                        </li>
+                                                    @endforeach
+                                                </ul>
+                                            </li>
                                         @endforeach
                                     </ul>
                                 </li>
                                 <li><a href="{{url('contact-us')}}"><i class="fas fa-comments"></i> تواصل معنا</a></li>
                                 @auth
 
-                                <li><a href="#"><i class="fas fa-user fa-lg"></i> حسابي <i class="fi-rs-angle-down"></i></a>
-                                    <ul class="sub-menu">
-                                        <li><a href="{{route('profile.index')}}"><i class="fas fa-cogs fa-lg"></i>&nbsp; اعدادات الحساب</a></li>
-                                        <li><a href="#"><i class="fas fa-shopping-bag"></i>&nbsp; الطلبات</a></li>
-                                        <li><a href="{{route('fav.index')}}"><i class="fas fa-heart fa-lg"></i>&nbsp; المفضلة</a></li>
-                                        <li class="nav-item">
-                                            <form action="{{ route('logout') }}" method="POST">
-                                                @csrf
-                                                <button type="submit" style=" align-items: center;  border: none; background-color: white;
+                                    <li><a href="#"><i class="fas fa-user fa-lg"></i> حسابي <i
+                                                class="fi-rs-angle-down"></i></a>
+                                        <ul class="sub-menu">
+                                            <li><a href="{{route('profile.index')}}"><i class="fas fa-cogs fa-lg"></i>&nbsp;
+                                                    اعدادات الحساب</a></li>
+                                            <li><a href="#"><i class="fas fa-shopping-bag"></i>&nbsp; الطلبات</a></li>
+                                            <li><a href="{{route('fav.index')}}"><i class="fas fa-heart fa-lg"></i>&nbsp;
+                                                    المفضلة</a></li>
+                                            <li class="nav-item">
+                                                <form action="{{ route('logout') }}" method="POST">
+                                                    @csrf
+                                                    <button type="submit" style=" align-items: center;  border: none; background-color: white;
                                                 color: black; cursor: pointer; padding: 5px; font-size: 16px; margin-right: 10px;">
-                                                    <i class="fas fa-sign-out-alt fa-lg"></i> تسجيل خروج
-                                                </button>
-                                            </form>
-                                        </li>
-                                    @endauth
+                                                        <i class="fas fa-sign-out-alt fa-lg"></i> تسجيل خروج
+                                                    </button>
+                                                </form>
+                                            </li>
+                                        @endauth
                                     </li>
                             </ul>
-                            
+
                         </nav>
                     </div>
                 </div>
@@ -168,7 +183,7 @@
                                     <li>
                                         <div class="shopping-cart-img">
                                             <a href="product-details.html"><img alt="Surfside Media"
-                                                    src="assets/imgs/shop/thumbnail-3.jpg"></a>
+                                                                                src="assets/imgs/shop/thumbnail-3.jpg"></a>
                                         </div>
                                         <div class="shopping-cart-title">
                                             <h4><a href="product-details.html">Plain Striola Shirts</a></h4>
@@ -181,7 +196,7 @@
                                     <li>
                                         <div class="shopping-cart-img">
                                             <a href="product-details.html"><img alt="Surfside Media"
-                                                    src="assets/imgs/shop/thumbnail-4.jpg"></a>
+                                                                                src="assets/imgs/shop/thumbnail-4.jpg"></a>
                                         </div>
                                         <div class="shopping-cart-title">
                                             <h4><a href="product-details.html">Macbook Pro 2022</a></h4>
