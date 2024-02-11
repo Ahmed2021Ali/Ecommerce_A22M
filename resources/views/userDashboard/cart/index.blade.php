@@ -87,6 +87,8 @@
                                     </tr>
 
                                 @endforeach
+                                {{ $carts->links() }}
+
                                 <tr>
                                     <td colspan="6" class="text-end">
                                         <a href="{{route('cart.clear')}}" class="text-muted"> <i
