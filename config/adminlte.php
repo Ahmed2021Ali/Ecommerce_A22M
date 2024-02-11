@@ -380,7 +380,7 @@ return [
             'route' => 'contact.index',
         ],
         [
-            'text' => 'الاردرات ',
+/*            'text' => 'الاردرات ',
             'icon_color' => 'yellow',
             'submenu' =>
                 [
@@ -390,8 +390,8 @@ return [
                     ], /*[
                     'text' => 'الاردرات تم توصيلها ',
                     'route' => 'order.done.delivery',
-                ],*/
                 ],
+                ],*/
             ],
         [
             'text' => ' الوان المنتجات المتاحة ',

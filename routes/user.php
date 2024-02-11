@@ -38,8 +38,8 @@ Route::controller(CartController::class)->prefix('cart')->as('cart.')->group(fun
 });
 
 Route::controller(OrderController::class)->prefix('order')->as('order.')->group(function(){
+    Route::get('/show/{order_number}',  'show')->name('show');
     Route::get('/index',  'index')->name('index');
-    Route::post('/store/{address}',  'store')->name('store');
     Route::get('/destroy/{order}',  'destroy')->name('destroy');
 });
 
