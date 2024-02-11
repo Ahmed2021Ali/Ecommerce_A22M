@@ -87,8 +87,15 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="password">كلمة المرور:</label>
-                                                    <input type="password" id="password" name="password" required placeholder="كلمة المرور">
+                                                    <div class="password-input-container">
+                                                        <input type="password" id="password" name="password" required placeholder="كلمة المرور">
+                                                        
+                                                    </div>
                                                 </div>
+                                                <div class="show-password-container" onclick="togglePasswordVisibility()">
+                                                    <label for="showPassword" class="show-password-label"><i class="fas fa-eye"></i> إظهار كلمة المرور</label>
+                                                </div>
+                                                <br>
                                                 <div class="form-group">
                                                     <button type="submit" class="btn btn-fill-out btn-block hover-up" name="login">تسجيل دخول</button>
                                                 </div>
@@ -112,6 +119,17 @@
 
 
     @section('js')
-
+    <script>
+        function togglePasswordVisibility() {
+            var passwordField = document.getElementById('password');
+            var passwordFieldType = passwordField.type;
+    
+            if (passwordFieldType === 'password') {
+                passwordField.type = 'text';
+            } else {
+                passwordField.type = 'password';
+            }
+        }
+    </script>
     @endsection
 

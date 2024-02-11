@@ -85,11 +85,18 @@
                                         <div class="form-group">
                                             <input required="" type="email" name="email" placeholder="البريد الألكتروني" required>
                                         </div>
-                                        <div class="form-group">
-                                            <input required="" type="password" name="password" placeholder="كلمة السر" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input required type="password" name="password_confirmation" placeholder="تأكيد كلمة السر" required>
+                                        <div class="form-container">
+                                            <div class="form-group">
+                                                <input required="" id="password" type="password" name="password" placeholder="كلمة السر" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <input required id="password_confirmation" type="password" name="password_confirmation" placeholder="تأكيد كلمة السر" required>
+                                            </div>
+                                            <div class="show-password-container" onclick="togglePasswordVisibility()">
+                                                <label for="showPassword" class="show-password-label"><i class="fas fa-eye"></i> إظهار كلمة المرور</label>
+                                            </div>
+                                            <br>
+                                            
                                         </div>
                                         <div class="form-group">
                                             <button type="submit" class="btn btn-fill-out btn-block hover-up" name="Signup">إنشاء حساب</button>
@@ -113,6 +120,23 @@
 
 
     @section('js')
-
+    <script>
+        function togglePasswordVisibility() {
+            var passwordField = document.getElementById('password');
+            var passwordConfirmationField = document.getElementById('password_confirmation');
+    
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+            } else {
+                passwordField.type = 'password';
+            }
+    
+            if (passwordConfirmationField.type === 'password') {
+                passwordConfirmationField.type = 'text';
+            } else {
+                passwordConfirmationField.type = 'password';
+            }
+        }
+    </script>
     @endsection
 
