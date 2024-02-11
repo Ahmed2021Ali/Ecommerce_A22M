@@ -32,6 +32,7 @@ class ProfileController extends Controller
             }
 
             $updateResult = $user->update($validatedData);
+            uploadFiles($request['profile_image'], $user, 'userImages');
 
             if ($updateResult) {
                 toastr()->success('تم تحديث البيانات بنجاح');
@@ -49,5 +50,5 @@ class ProfileController extends Controller
         }
     }
 
-    
+
 }
