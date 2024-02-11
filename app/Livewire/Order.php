@@ -24,7 +24,6 @@ class Order extends Component
 
     public function store()
     {
-
         $this->validate();
         $order_number = Str::random(16);
         $carts = Cart::where('user_id', Auth::user()->id)->get();
