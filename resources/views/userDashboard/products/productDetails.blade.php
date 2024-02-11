@@ -149,10 +149,10 @@
                             <div class="tab-style3" style="direction: rtl; text-align: right;" >
                                 <ul class="nav nav-tabs text-uppercase">
                                     <li class="nav-item">
-                                        <a class="nav-link active" id="Description-tab" data-bs-toggle="tab" href="#Description">Description</a>
+                                        <a class="nav-link active" id="Description-tab" data-bs-toggle="tab" href="#Description">الوصف</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" id="Reviews-tab" data-bs-toggle="tab" href="#Reviews">Reviews (3)</a>
+                                        <a class="nav-link" id="Reviews-tab" data-bs-toggle="tab" href="#Reviews">مراجعات المستخدمين </a>
                                     </li>
                                 </ul>
                                 <div class="tab-content shop_info_tab entry-main-content">
