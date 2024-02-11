@@ -43,7 +43,7 @@
                                                 @if($cart->color)
                                                     <strong class="mr-10">اللون &nbsp;&nbsp;</strong>
                                                     <ul class="list-filter color-filter">
-                                                        @foreach (explode(',', $cart->product->color) as $color)
+                                                        @foreach (explode(',', $cart->color) as $color)
                                                             {{\App\Models\Color::where('value', $color)->first()->name}}
                                                         @endforeach
                                                     </ul>
