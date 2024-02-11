@@ -6,6 +6,8 @@ use App\Livewire\Forms\OrderForm;
 use App\Models\Address;
 use App\Models\Cart;
 use App\Models\Coupon;
+use App\Models\OrderDetails;
+use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Livewire\Component;
@@ -24,16 +26,29 @@ class Order extends Component
         $this->validate();
         $order_number = Str::random(16);
         $carts = Cart::where('user_id', Auth::user()->id)->get();
+        OrderDetails::create([
+            'user_id' => Auth::user()->id, 'address_id' => $this->form->address_id,
+            'subtotal' => $this->total_price, 'delivery_price' => $this->deliveryPrice, 'order_number' => $order_number,
+            'number_of_product' => Cart::where('user_id', Auth::user()->id)->count(), 'coupon_value' => $this->discount->value ?? null,
+            'total' => $this->discount ? ($this->total_price + $this->deliveryPrice) * 10 / 100 + ($this->total_price + $this->deliveryPrice) : ($this->total_price + $this->deliveryPrice)
+        ]);
         foreach ($carts as $cart) {
-            Order::create([
+            \App\Models\Order::create([
                 'order_number' => $order_number, 'product_id' => $cart->product_id,
-                'quantity'=>$cart->quantity, 'price'=>$cart->price,
-                'offer'=>$cart->offer, 'price_after_offer'=>$cart->price_after_offer,
-                'total_price'=>($cart->offer ? $cart->price_after_offer : $cart->price) * $cart->quantity,
+                'quantity' => $cart->quantity, 'color' => $cart->color ?? null, 'size' => $cart->size ?? null,
+                'price' => $cart->product->offer ? $cart->product->price_after_offer : $cart->product->price,
+                'total_price' => ($cart->product->offer ? $cart->product->price_after_offer : $cart->product->price) * $cart->quantity,
             ]);
+            Product::where('id', $cart->product_id)->update([
+                'quantity' => ($cart->product->quantity) - ($cart->quantity), 'stock' => 1 + $cart->product->stock,
+            ]);
+            $cart->delete();
         }
 
+        // Send mail for admin -> dispatch
+        //   Mail::to('tomail@gmail.com')->send(new \App\Mail\OrderMail($orders));
 
+        return to_route('order.show', $order_number);
     }
 
     public function mount()
@@ -48,7 +63,7 @@ class Order extends Component
 
     public function coupon()
     {
-        $this->discount = Coupon::select('id', 'value')->where('name', $this->form->coupon)->first();
+        $this->discount = Coupon::select('id', 'value')->where('name', $this->form->coupon)->where('status', 1)->first();
     }
 
     public function render()

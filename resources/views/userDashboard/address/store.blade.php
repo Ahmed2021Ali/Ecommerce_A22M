@@ -4,18 +4,12 @@
 @endsection
 @section('css')
 @endsection
+@section('pageHeader')
+    اضافة عنوان
+@endsection
 
 @section('content')
     <main class="main" style="direction: rtl; text-align: right;">
-        <div class="page-header breadcrumb-wrap">
-            <div class="container">
-                <div class="breadcrumb">
-                    <a href="index.html" rel="nofollow">الصفحة الرائيسية</a>
-                    <span></span> سلة المشتريات
-                    <span></span> اضافة عنوان
-                </div>
-            </div>
-        </div>
         <section class="pt-50 pb-50">
             <div class="container">
                 <div class="row">

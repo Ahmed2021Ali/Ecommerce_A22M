@@ -5,16 +5,11 @@
 @section('css')
 
 @endsection
+@section('pageHeader')
+    سلة مشترياتك
+@endsection
 @section('content')
     <main class="main" style="direction: rtl; text-align: right;">
-        <div class="page-header breadcrumb-wrap">
-            <div class="container">
-                <div class="breadcrumb">
-                    <a href="{{route('home')}}" rel="nofollow">االصفحة الرائيسة </a>
-                    <span></span> سلة مشترياتك
-                </div>
-            </div>
-        </div>
         <section class="mt-50 mb-50">
             <div class="container">
                 <div class="row">
@@ -48,7 +43,7 @@
                                                 @if($cart->color)
                                                     <strong class="mr-10">اللون &nbsp;&nbsp;</strong>
                                                     <ul class="list-filter color-filter">
-                                                        @foreach (explode(',', $cart->product->color) as $color)
+                                                        @foreach (explode(',', $cart->color) as $color)
                                                             {{\App\Models\Color::where('value', $color)->first()->name}}
                                                         @endforeach
                                                     </ul>
@@ -92,6 +87,8 @@
                                     </tr>
 
                                 @endforeach
+                                {{ $carts->links() }}
+
                                 <tr>
                                     <td colspan="6" class="text-end">
                                         <a href="{{route('cart.clear')}}" class="text-muted"> <i

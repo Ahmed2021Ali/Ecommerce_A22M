@@ -2,10 +2,12 @@
     <div class="container">
         <div class="row">
             @foreach ($banners as $banner)
-            @foreach($banner->getMedia('bannerFiles') as $media)
                 <div class="col-lg-4 col-md-6">
                     <div class="banner-img wow fadeIn animated" style="direction: rtl; text-align: center;">
+                       @foreach($banner->getMedia('bannerFiles') as $media)
                         <img src="{{ $media->getFullUrl() }}" width="400" height="250" alt="{{ $banner['main_title'] }}">
+                        @endforeach
+
                         <div class="banner-text" style="text-align: center; padding: 10px; border-radius: 8px; color: #fff; margin-top: 18px; ">
                             <div class="banner-titles" style="background-color: #F15412; padding: 2px; border-radius: 6px; margin-bottom: 6px;">
                                 <span class="main-title" style="font-size: 16px; color: #fff; font-weight: bold;">{{ $banner['main_title'] }}</span>
@@ -17,7 +19,6 @@
                         </div>
                     </div>
                 </div>
-            @endforeach
             @endforeach
         </div>
     </div>

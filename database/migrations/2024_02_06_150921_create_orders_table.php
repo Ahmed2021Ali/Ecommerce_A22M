@@ -13,14 +13,11 @@ return new class extends Migration
             $table->id();
             $table->string('order_number');
             $table->string('quantity');
-            $table->string('price');
-            $table->integer('offer');
-            $table->decimal('price_after_offer',8,2);
+            $table->decimal('price',8,2);
+            $table->string('color')->nullable();
+            $table->string('size')->nullable();
             $table->decimal('total_price',8,2);
-            $table->boolean('delivery_status')->default(0);
-            $table->foreignId('address_id')->references('id')->on('addresses')->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreignId('product_id')->references('id')->on('products')->cascadeOnUpdate()->cascadeOnDelete();
-            $table->foreignId('user_id')->references('id')->on('users')->cascadeOnUpdate()->cascadeOnDelete();
             $table->SoftDeletes();
             $table->timestamps();
         });

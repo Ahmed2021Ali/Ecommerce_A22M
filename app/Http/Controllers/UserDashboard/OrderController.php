@@ -24,9 +24,9 @@ class OrderController extends Controller
         return $this->order->index();
     }
 
-    public function store(Request $request , Address $address)
+    public function show($order_number)
     {
-        return $this->order->store($request,$address);
+        return $this->order->show($order_number);
     }
 
     public function destroy(Order $order)

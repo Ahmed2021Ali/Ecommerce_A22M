@@ -32,7 +32,7 @@ class AddressRepository implements AddressInterface
 
     public function edit($address)
     {
-        //   return view('user.favourites.index',['address' => $address]);
+        return view('userDashboard.address.edit',['address' => $address,'cities' =>AvailableCity::select('id','name')->get()]);
     }
 
     public function update($request, $address)
