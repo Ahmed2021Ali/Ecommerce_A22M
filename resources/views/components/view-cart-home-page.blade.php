@@ -25,7 +25,6 @@
                         </div>
                     </li>
                 @endforeach
-                {{ $carts->links() }}
 
             </ul>
             <div class="shopping-cart-footer">
