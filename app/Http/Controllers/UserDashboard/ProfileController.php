@@ -16,7 +16,6 @@ class ProfileController extends Controller
     }
 
 
-
     public function update(ProfileRequest $request)
     {
         try {
@@ -32,7 +31,7 @@ class ProfileController extends Controller
             }
 
             if (isset($request['profile_image'])) {
-                updateFiles($request['profile_image'], $user, 'prfileImageFiles');
+                $user->addMedia($request['profile_image'])->toMediaCollection('userImages');
             }
             $updateResult = $user->update($validatedData);
             uploadFiles($request['profile_image'], $user, 'userImages');
@@ -53,5 +52,5 @@ class ProfileController extends Controller
         }
     }
 
-    
+
 }

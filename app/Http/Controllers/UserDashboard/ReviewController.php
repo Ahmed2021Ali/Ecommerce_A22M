@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\UserDashboard;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\review\ReviewStoreRequest;
+use App\Models\Product;
 use App\Models\Review;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ReviewController extends Controller
 {
@@ -15,15 +18,11 @@ class ReviewController extends Controller
     }
 
 
-    public function create()
-    {
-        //
-    }
 
-
-    public function store(Request $request)
+    public function store(ReviewStoreRequest $request,Product $product)
     {
-        //
+        Review::create([...$request->validated(),'user_id'=>Auth::user()->id,'product_id'=>$product->id]);
+        return redirect()->back()->with('success','شكرا لتقيماتكم ');
     }
 
 
