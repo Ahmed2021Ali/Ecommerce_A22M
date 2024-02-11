@@ -28,7 +28,9 @@
     </style>
 
 @endsection
-
+@section('pageHeader')
+    تفاصيل المنتج 
+@endsection
 @section('content')
     <main class="main">
         <section class="mt-50 mb-50">

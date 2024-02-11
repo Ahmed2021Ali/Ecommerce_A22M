@@ -5,7 +5,9 @@
     @section('css')
         
     @endsection
-
+    @section('pageHeader')
+        اعدادات الحساب
+    @endsection
     @section('content')
     <section class="pt-150 pb-150" style="direction: rtl;">
         <div class="container">

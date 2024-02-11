@@ -20,6 +20,14 @@
 
     <main class="main">
         @livewireStyles
+        <div class="page-header breadcrumb-wrap" style="direction: rtl; text-align:right">
+            <div class="container">
+                <div class="breadcrumb">
+                    <a href="{{route('home')}}" rel="nofollow">الصفحة الرئيسية</a>
+                    <span></span>  @yield('pageHeader')
+                </div>
+            </div>
+        </div>
         @yield('content')
         @livewireScripts
     </main>

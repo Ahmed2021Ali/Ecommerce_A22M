@@ -20,8 +20,7 @@ class ProfileRequest extends FormRequest
             'name' => 'required|string|max:30',
             'email' => 'required|email|max:50|unique:users,email,' . Auth::user()->id,
             'password' => 'nullable|string|min:6|confirmed',
-            'profile_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust the mime types and maximum file size as needed
-
+            'profile_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', 
         ];
     }
 
@@ -41,7 +40,7 @@ class ProfileRequest extends FormRequest
         'password.min' => 'يجب أن تكون كلمة المرور على الأقل 6 أحرف.',
         'password.confirmed' => 'تأكيد كلمة المرور غير متطابق مع كلمة المرور.',
 
-        // You can customize other messages as needed.
+        
     ];
 }
 

@@ -4,11 +4,11 @@
 @endsection
 @section('css')
 @endsection
-
+@section('pageHeader')
+    المفضلة
+@endsection
 @section('content')
-
-
-<section class="mt-50 mb-50">
+    <section class="mt-50 mb-50">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-9">
