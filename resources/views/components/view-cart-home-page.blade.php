@@ -17,7 +17,11 @@
                             </h4>
                         </div>
                         <div class="shopping-cart-delete">
-                            <a href="{{route('cart.destroy',$cart)}}"><i class="fi-rs-cross-small"></i></a>
+                            <form action="{{route('cart.destroy',$cart)}}" method="post">
+                                @method('delete')
+                                @csrf
+                                <button><i class="fi-rs-cross-small"></i></button>
+                            </form>
                         </div>
                     </li>
                 @endforeach
