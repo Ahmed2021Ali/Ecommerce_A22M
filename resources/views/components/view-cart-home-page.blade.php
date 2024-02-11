@@ -1,6 +1,6 @@
 <div >
     @if( Auth::check())
-        <div class="cart-dropdown-wrap cart-dropdown-hm2" >
+        <div class="cart-dropdown-wrap cart-dropdown-hm2" style="direction: rtl; text-align: right;" >
             <ul >
                     <?php $total_price = 0; ?>
                 @foreach($carts as $cart)
@@ -26,7 +26,7 @@
             </ul>
             <div class="shopping-cart-footer">
                 <div class="shopping-cart-total">
-                    <h4>الاجمالي <span>{{$total_price}}</span></h4>
+                    <h4>{{$total_price}}  <span> الاجماعي   </span></h4>
                 </div>
                 <div class="shopping-cart-button">
                     <a href="{{route('cart.index')}}" class="outline">View cart</a>
