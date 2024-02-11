@@ -23,7 +23,6 @@
             display: none;
         }
 
-
         label.star {
 
             float: right;
@@ -38,7 +37,6 @@
 
         }
 
-
         input.star:checked ~ label.star:before {
 
             content: '\f005';
@@ -49,7 +47,6 @@
 
         }
 
-
         input.star-5:checked ~ label.star:before {
 
             color: #FE7;
@@ -58,16 +55,13 @@
 
         }
 
-
         input.star-1:checked ~ label.star:before {
             color: #F62;
         }
 
-
         label.star:hover {
             transform: rotate(-15deg) scale(1.3);
         }
-
 
         label.star:before {
 
@@ -77,7 +71,6 @@
 
         }
     </style>
-
 @endsection
 @section('pageHeader')
     تفاصيل المنتج
@@ -90,8 +83,10 @@
                     <div class="col-lg-9">
                         <!-- Product Details -->
                         <div class="product-detail accordion-detail">
+
                             <!-- Gallery and Product Info -->
                             <div class="row mb-50">
+
                                 <div class="col-md-6 col-sm-12 col-xs-12">
                                     <!-- Product Gallery -->
                                     <div class="detail-gallery">
@@ -283,7 +278,15 @@
                                             </p>
                                         </div>
                                     </div>
-                                    <livewire:review/>
+                                    <div class="tab-pane fade" id="Reviews">
+                                        <!--Comments-->
+                                        @include('userDashboard.products.review.show')
+                                        <!--comment form-->
+
+                                        <!-- store review form-->
+                                        @include('userDashboard.products.review.store',['product'=>$product])
+                                        <!-- end store review form-->
+                                    </div>
                                 </div>
                             </div>
                             <!-- End Review Product Info -->

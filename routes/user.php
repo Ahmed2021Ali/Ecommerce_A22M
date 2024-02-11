@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserDashboard\ReviewController;
 use App\Http\Controllers\UserDashboard\SearchController;
 use App\Http\Controllers\UserDashboard\AddressController;
 use App\Http\Controllers\UserDashboard\CartController;
@@ -22,6 +23,7 @@ Route::controller(HomepageController::class)->group(function(){
 
 
 Route::resource('products', ProductControlle::class);
+
 
 
 Route::controller(FavController::class)->prefix('fav')->as('fav.')->group(function(){
@@ -60,3 +62,9 @@ Route::get('/pofile', [ProfileController::class, 'index'])->name('profile.index'
 Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
 
 Route::get('/filter', [SearchController::class, 'filter'])->name('search.filter');
+
+Route::controller(ReviewController::class)->prefix('review')->as('review.')->group(function(){
+    Route::post('/store/{product}',  'store')->name('store');
+/*    Route::get('/index',  'index')->name('index');
+    Route::get('/destroy/{order}',  'destroy')->name('destroy');*/
+});

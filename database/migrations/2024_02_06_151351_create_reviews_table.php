@@ -12,7 +12,7 @@ return new class extends Migration
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
             $table->string('comment')->nullable();
-            $table->integer('rate')->nullable();
+            $table->integer('star')->nullable();
             $table->foreignId('product_id')->references('id')->on('products')->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreignId('user_id')->references('id')->on('users')->cascadeOnUpdate()->cascadeOnDelete();
             $table->timestamps();
