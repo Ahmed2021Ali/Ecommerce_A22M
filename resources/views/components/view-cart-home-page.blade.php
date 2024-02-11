@@ -1,7 +1,7 @@
 <div >
     @if( Auth::check())
         <div class="cart-dropdown-wrap cart-dropdown-hm2" style="direction: rtl; text-align: right;" >
-            <ul >
+            <ul>
                     <?php $total_price = 0; ?>
                 @foreach($carts as $cart)
                     <li>
@@ -25,7 +25,6 @@
                         </div>
                     </li>
                 @endforeach
-
             </ul>
             <div class="shopping-cart-footer">
                 <div class="shopping-cart-total">
