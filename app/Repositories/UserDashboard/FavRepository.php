@@ -20,7 +20,6 @@ class FavRepository implements FavInterface
         ]);
     }
 
-
     public function store($product)
     {
         $fav = Fav::where('product_id', $product->id)->where('user_id', Auth::user()->id)->first();
@@ -34,13 +33,10 @@ class FavRepository implements FavInterface
         }
     }
 
-
     public function destroy($fav)
     {
         $fav->delete();
         toastr()->success('تم بنجاح حذف المنتج من المفضلة');
         return redirect()->back();
     }
-
-
 }
