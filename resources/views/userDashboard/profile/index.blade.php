@@ -280,10 +280,9 @@
 
 @endsection
 
-
 @section('js')
     <script>
-        function togglePasswordVisibility(fieldId) {
+        function togglepasswordvisibility(fieldId) {
             var field = document.getElementById(fieldId);
             if (field.type === "password") {
                 field.type = "text";
@@ -293,4 +292,5 @@
         }
     </script>
 @endsection
+
 
