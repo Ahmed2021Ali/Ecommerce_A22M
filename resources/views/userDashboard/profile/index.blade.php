@@ -32,7 +32,6 @@
                                            role="tab" aria-controls="orders" aria-selected="false"><i
                                                 class="fi-rs-shopping-bag mr-10"></i> الطلبات تم الغائها</a>
                                     </li>
-
                                      <li class="nav-item">
                                         <a class="nav-link" id="track-orders-tab" data-bs-toggle="tab" href="#track-orders" role="tab" aria-controls="track-orders" aria-selected="false"><i class="fi-rs-shopping-cart-check mr-10"></i> تتبع طلبك</a>
                                     </li>

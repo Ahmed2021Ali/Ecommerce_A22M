@@ -10,6 +10,7 @@ use App\Models\OrderDetails;
 use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Livewire\Component;
 
@@ -29,7 +30,7 @@ class Order extends Component
         $carts = Cart::where('user_id', Auth::user()->id)->get();
         DB::beginTransaction();
         try {
-            OrderDetails::create([
+          $order=  OrderDetails::create([
                 'user_id' => Auth::user()->id, 'address_id' => $this->form->address_id,
                 'subtotal' => $this->total_price, 'delivery_price' => $this->deliveryPrice, 'order_number' => $order_number,
                 'number_of_product' => Cart::where('user_id', Auth::user()->id)->count(), 'coupon_value' => $this->discount->value ?? null,
@@ -52,7 +53,7 @@ class Order extends Component
             DB::rollback();
         }
         // Send mail for admin -> dispatch
-        //   Mail::to('tomail@gmail.com')->send(new \App\Mail\OrderMail($orders));
+           Mail::to('tomail@gmail.com')->send(new \App\Mail\OrderMail($order));
         return to_route('order.show', $order_number);
     }
 
