@@ -27,7 +27,6 @@
                                         <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                                         @enderror
                                     </div>
-
                                 </div>
                                 <div class="col-lg-6 col-md-6">
                                     <div class="input-style mb-20">
@@ -36,7 +35,6 @@
                                         <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
-
                                 </div>
                                 <div class="col-lg-6 col-md-6">
                                     <div class="input-style mb-20">
@@ -45,7 +43,6 @@
                                         <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
-
                                 </div>
                                 <div class="col-lg-6 col-md-6">
                                     <div class="input-style mb-20">

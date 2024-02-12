@@ -34,8 +34,7 @@
                                 <div class="d-flex justify-content-between">
                                     <div class="d-flex align-items-center">
                                         <p class="font-xs mr-30">{{$review->created_at->toDayDateTimeString()}}</p>
-                                        {{--                                        <a href="#" class="text-brand btn-reply">Reply
-                                                                                    <i class="fi-rs-arrow-right"></i> </a>--}}
+                                        <a href="#" class="text-brand btn-reply"><i class="fi-rs-arrow-right"></i> تعديل </a>
                                     </div>
                                 </div>
                             </div>
