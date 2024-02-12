@@ -67,7 +67,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="tab-pane fade" id="orders" role="tabpanel" aria-labelledby="orders-tab">
                                     <div class="card">
                                         <div class="card-header">
@@ -104,7 +103,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 {{-- <div class="tab-pane fade" id="track-orders" role="tabpanel" aria-labelledby="track-orders-tab">
                                     <div class="card">
                                         <div class="card-header">
@@ -130,7 +128,6 @@
                                         </div>
                                     </div>
                                 </div> --}}
-
                                 <div class="tab-pane fade" id="address" role="tabpanel" aria-labelledby="address-tab">
                                     <div class="row">
                                         @foreach(Auth::user()->addresses as $address)
