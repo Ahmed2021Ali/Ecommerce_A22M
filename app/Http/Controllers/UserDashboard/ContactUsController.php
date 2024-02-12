@@ -24,7 +24,7 @@ class ContactUsController extends Controller
 
     public function store(ContactStoreRequest $request)
     {
-        $this->contact->store($request->validated());
+        return $this->contact->store($request->validated());
     }
 
 
