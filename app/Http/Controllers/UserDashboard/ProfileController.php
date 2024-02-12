@@ -68,12 +68,11 @@ class ProfileController extends Controller
     {
         // Get the authenticated user
         $user = Auth::user();
-    
+        $media = $user->getMedia('userImages');
         // Check if the user has an image
-        if ($user->hasMedia('userImages')) {
+        if ($media) {
             // Delete the user's image (assuming the user has only one image)
-            $user->clearMediaCollection('userImages');
-    
+            $media->delete();
             toastr()->success('تم حذف الصورة الشخصية بنجاح');
             return redirect()->back();
         } else {
@@ -81,28 +80,9 @@ class ProfileController extends Controller
             return redirect()->back()->with('error', 'No image to delete');
         }
     }
-    
 
 
-    public function viewImage($id)
-    {
-        $user = User::find($id);
-    
-        if (!$user) {
-            abort(404); // Or handle accordingly
-        }
-    
-        $mediaItem = $user->getFirstMedia('userImages');
-    
-        if (!$mediaItem) {
-            abort(404); // Or handle accordingly
-        }
-    
-        $imagePath = public_path("storage/{$mediaItem->id}/{$mediaItem->file_name}");
-    
-        return response()->file($imagePath);
-    }
-    
+
 
 
 }
