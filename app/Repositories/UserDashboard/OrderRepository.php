@@ -28,9 +28,13 @@ class OrderRepository implements OrderInterface
         $order->delete();
         return redirect()->back()->with('success', 'تم بنجاح حذف الطلب');
     }
+
     public function payNow($product)
     {
-        dd($product);
-       // return redirect()->back()->with('success', 'تم بنجاح حذف الطلب');
+        $cart = Cart::where('user_id', Auth::user()->id)->where('product_id', $product->id)->first();
+        if (!$cart) {
+            Cart::create(['user_id' => Auth::user()->id, 'product_id' => $product->id]);
+        }
+        return to_route('cart.index')->with('success', 'برجاء ادخال العنوان المراد التوصيل المنتج  الية ');
     }
 }
