@@ -12,23 +12,10 @@ use Illuminate\Support\Facades\Auth;
 class ReviewController extends Controller
 {
 
-    public function index()
-    {
-        //
-    }
-
-
-
     public function store(ReviewStoreRequest $request,Product $product)
     {
         Review::create([...$request->validated(),'user_id'=>Auth::user()->id,'product_id'=>$product->id]);
         return redirect()->back()->with('success','شكرا لتقيماتكم ');
-    }
-
-
-    public function show(Review $review)
-    {
-        //
     }
 
     public function edit(Review $review)
@@ -36,13 +23,15 @@ class ReviewController extends Controller
         return view('userDashboard.products.review.edit',['review'=>$review]);
     }
 
-    public function update(Request $request, Review $review)
+    public function update(ReviewStoreRequest $request, Review $review)
     {
-        //
+        $review->update($request->validated());
+        return to_route('products.show',$review->product_id)->with('success','تم تعديل تقسمك للمنتج بنجاح');
     }
 
     public function destroy(Review $review)
     {
-        //
+        $review->delete();
+        return redirect()->back()->with('success','تم حذف تقييمك');
     }
 }

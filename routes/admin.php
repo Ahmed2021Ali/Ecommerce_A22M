@@ -36,6 +36,8 @@ Route::controller(OrderController::class)->prefix('order')->as('order.')->group(
     Route::get('index','index')->name('index');
     Route::get('delivery/status/{order}','deliveryStatus')->name('deliveryStatus');
     Route::get('/done','ordersDone')->name('done');
+    Route::get('/cancelled','ordersCancelled')->name('cancelled');
+
 
 });
 

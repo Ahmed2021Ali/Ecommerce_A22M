@@ -10,14 +10,14 @@
                                 <h2 class="animated fw-900">{{ $slider->title_h2 }}</h2>
                                 <h1 class="animated fw-900 text-brand">{{ $slider->title_h1 }}</h1>
                                 <p class="animated">{{ $slider->title_p }}</p>
-                                <a class="animated btn btn-brush btn-brush-3" href=""> تسوق الأن </a>
+                                <a class="animated btn btn-brush btn-brush-3" href="{{route('products.index')}}"> تسوق الأن </a>
                             </div>
                         </div>
                         <div class="col-lg-7 col-md-6">
                             <div class="single-slider-img single-slider-img-1">
                                 @foreach($slider->getMedia('sliderFiles') as $media)
                                     <img class="mySlides" src="{{$media->getFullUrl()}}" width="400" height="300">
-                                @endforeach                            
+                                @endforeach
                             </div>
                         </div>
                     </div>

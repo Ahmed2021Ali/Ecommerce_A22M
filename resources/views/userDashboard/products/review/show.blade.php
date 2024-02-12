@@ -3,7 +3,7 @@
         <div class="col-lg-8">
             <h4 class="mb-30">تقيمات العملاء</h4>
             <div class="comment-list">
-                @foreach($product->reviews as $review)
+                @foreach($product->reviews()  as $review)
                     <div class="single-comment justify-content-between d-flex">
                         <div class="user justify-content-between d-flex">
                             <div class="thumb text-center">
@@ -34,7 +34,14 @@
                                 <div class="d-flex justify-content-between">
                                     <div class="d-flex align-items-center">
                                         <p class="font-xs mr-30">{{$review->created_at->toDayDateTimeString()}}</p>
-                                        <a href="{{route('review.edit',$review)}}" class="text-brand btn-reply"><i class="fi-rs-arrow-right"></i> تعديل </a>
+                                        @if($review->user_id === Auth::user()->id)
+                                            <a href="{{route('review.edit',$review)}}" class="text-brand btn-reply"><i class="fi-rs-arrow-right"></i> تعديل </a>
+                                            <form action="{{ route('review.destroy', $review) }}" method="post">
+                                                @method('delete')
+                                                @csrf
+                                                <button class="btn-danger">حذف</button>
+                                            </form>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -43,6 +50,9 @@
                 @endforeach
                 <!--single-comment -->
             </div>
+            {{ $product->reviews()->links() }}
+
+
         </div>
 
         <div class="col-lg-4">

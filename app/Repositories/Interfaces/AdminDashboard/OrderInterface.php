@@ -10,4 +10,7 @@ interface OrderInterface {
 
     public function ordersDone();
 
+    public function ordersCancelled();
+
+
 }

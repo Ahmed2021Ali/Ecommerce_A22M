@@ -26,6 +26,9 @@ class OrderRepository implements OrderInterface
     public function ordersDone()
     {
         return view('adminDashboard.order.order_done', ['orders' => OrderDetails::where('delivery_status',1)->paginate(10)]);
-
+    }
+    public function ordersCancelled()
+    {
+        return view('adminDashboard.order.orderCancelled', ['orders' => OrderDetails::onlyTrashed()->paginate(10)]);
     }
 }

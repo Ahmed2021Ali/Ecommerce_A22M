@@ -390,6 +390,10 @@ return [
                     'text' => 'الاردرات تم توصيلها ',
                     'route' => 'order.done',
                 ],
+                    [
+                        'text' => 'الاردرات تم  الغاوها ',
+                        'route' => 'order.cancelled',
+                    ],
                 ],
         ],
 

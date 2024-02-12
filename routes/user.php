@@ -36,8 +36,9 @@ Route::controller(CartController::class)->prefix('cart')->as('cart.')->group(fun
 
 Route::controller(OrderController::class)->prefix('order')->as('order.')->group(function () {
     Route::get('/show/{order_number}', 'show')->name('show');
-    Route::get('/index', 'index')->name('index');
-    Route::get('/destroy/{order}', 'destroy')->name('destroy');
+    Route::post('/search', 'search')->name('search');
+    Route::get('/pay/now{product}', 'payNow')->name('payNow');
+    Route::delete('/destroy/{order}', 'destroy')->name('destroy');
 });
 
 Route::controller(ContactUsController::class)->prefix('contact-us')->as('contact-us.')->group(function () {
@@ -60,5 +61,6 @@ Route::get('/search', [SearchController::class, 'search'])->name('search');
 Route::controller(ReviewController::class)->prefix('review')->as('review.')->group(function () {
     Route::post('/store/{product}', 'store')->name('store');
     Route::get('/edit/{review}', 'edit')->name('edit');
-
+    Route::put('/update/{review}', 'update')->name('update');
+    Route::delete('/destroy/{review}', 'destroy')->name('destroy');
 });

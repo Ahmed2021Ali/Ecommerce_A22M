@@ -26,9 +26,15 @@
                                             role="tab" aria-controls="orders" aria-selected="false"><i
                                                 class="fi-rs-shopping-bag mr-10"></i> الطلبات</a>
                                     </li>
-                                    {{-- <li class="nav-item">
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="ordersCancelled-tab" data-bs-toggle="tab" href="#ordersCancelled"
+                                           role="tab" aria-controls="orders" aria-selected="false"><i
+                                                class="fi-rs-shopping-bag mr-10"></i> الطلبات تم الغائها</a>
+                                    </li>
+
+                                     <li class="nav-item">
                                         <a class="nav-link" id="track-orders-tab" data-bs-toggle="tab" href="#track-orders" role="tab" aria-controls="track-orders" aria-selected="false"><i class="fi-rs-shopping-cart-check mr-10"></i> تتبع طلبك</a>
-                                    </li> --}}
+                                    </li>
                                     <li class="nav-item">
                                         <a class="nav-link" id="address-tab" data-bs-toggle="tab" href="#address"
                                             role="tab" aria-controls="address" aria-selected="true"><i
@@ -77,36 +83,36 @@
                                             <div class="table-responsive">
                                                 <table class="table">
                                                     <thead>
-                                                        <tr>
-                                                            <th>الطلب</th>
-                                                            <th>التاريخ</th>
-                                                            <th>الحالة</th>
-                                                            <th>الإجمالي</th>
-                                                            <th>الإجراءات</th>
-                                                        </tr>
+                                                    <tr>
+                                                        <th>الطلب</th>
+                                                        <th>التاريخ</th>
+                                                        <th>الحالة</th>
+                                                        <th>الإجمالي</th>
+                                                        <th>الإجراءات</th>
+                                                    </tr>
                                                     </thead>
                                                     <tbody>
-                                                        @foreach (auth::user()->orders as $order)
-                                                            <tr>
-                                                                <td>#{{ $order->order_number }}</td>
-                                                                <td>{{ $order->created_at->toformatteddatestring() }}</td>
-                                                                <td> {{ $order->delivery_status === 0 ? 'الطلب تحت المعالجة' : 'تم وصول الاردر بنجاح ' }}
-                                                                </td>
-                                                                <td>{{ $order->total }} جينية لـ
-                                                                    {{ $order->number_of_product }}
-                                                                    منتج
-                                                                </td>
-                                                                <td><a href="{{ route('order.show', $order->order_number) }}"
-                                                                        class="btn-small d-block">عرض</a></td>
-                                                            </tr>
-                                                        @endforeach
+                                                    @foreach(auth::user()->orders as $order)
+                                                        <tr>
+                                                            <td>#{{$order->order_number}}</td>
+                                                            <td>{{$order->created_at->toformatteddatestring()}}</td>
+                                                            <td> {{$order->delivery_status === 0 ? 'الطلب تحت المعالجة' : 'تم وصول الاردر بنجاح '}}</td>
+                                                            <td>{{$order->total}} جينية لـ {{$order->number_of_product}}
+                                                                منتج
+                                                            </td>
+                                                            <td><a href="{{route('order.show',$order->order_number)}}"
+                                                                   class="btn-small d-block">عرض</a></td>
+                                                        </tr>
+                                                    @endforeach
                                                     </tbody>
                                                 </table>
+                                                {{ auth::user()->orders()->links() }}
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                {{-- <div class="tab-pane fade" id="track-orders" role="tabpanel" aria-labelledby="track-orders-tab">
+
+                                 <div class="tab-pane fade" id="track-orders" role="tabpanel" aria-labelledby="track-orders-tab">
                                     <div class="card">
                                         <div class="card-header">
                                             <h5 class="mb-0">تتبع الطلبات</h5>
@@ -115,14 +121,11 @@
                                             <p>لتتبع طلبك، يرجى إدخال معرف الطلب الخاص بك في الصندوق أدناه والضغط على زر "تتبع". يتم توفير ذلك لك في إيصالك وفي البريد الإلكتروني للتأكيد الذي يجب أن تكون قد تلقيته.</p>
                                             <div class="row">
                                                 <div class="col-lg-8">
-                                                    <form class="contact-form-style mt-30 mb-50" action="#" method="post">
+                                                    <form class="contact-form-style mt-30 mb-50" action="{{route('order.search')}}" method="post">
+                                                        @csrf
                                                         <div class="input-style mb-20">
                                                             <label>معرف الطلب</label>
-                                                            <input name="order-id" placeholder="يتم العثور عليه في بريد تأكيد الطلب الخاص بك" type="text" class="square">
-                                                        </div>
-                                                        <div class="input-style mb-20">
-                                                            <label>البريد الإلكتروني للفاتورة</label>
-                                                            <input name="billing-email" placeholder="البريد الإلكتروني الذي استخدمته أثناء الخروج" type="email" class="square">
+                                                            <input name="order_number" placeholder="يتم العثور عليه في بريد تأكيد الطلب الخاص بك" type="text" class="square">
                                                         </div>
                                                         <button class="submit submit-auto-width" type="submit">تتبع</button>
                                                     </form>
@@ -130,10 +133,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div> --}}
+                                </div>
                                 <div class="tab-pane fade" id="address" role="tabpanel" aria-labelledby="address-tab">
                                     <div class="row">
-                                        @foreach (Auth::user()->addresses as $address)
+                                        @foreach(Auth::user()->addresses as $address)
                                             <div class="col-lg-6">
                                                 <div class="card">
                                                     <div class="card-header">
@@ -176,6 +179,7 @@
                                             </div>
                                         @endforeach
                                     </div>
+                                    {{ auth::user()->addresses()->links() }}
                                 </div>
                                 <div class="tab-pane fade" id="account-detail" role="tabpanel"
                                     aria-labelledby="account-detail-tab">

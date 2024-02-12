@@ -79,9 +79,11 @@
             <h4 class="mb-15">تحديث  التقييم </h4>
 
             <div class="row">
-                <div class="col-lg-8 col-md-12">
+                <div class="col-lg-8 col-md-12" >
                     <form class="form-contact comment_form"
-                          action="" method="post" id="commentForm">
+                          action="{{route('review.update',$review)}}" method="post" id="commentForm">
+                        @method('put')
+                        @csrf
                         <div class="col-md-12">
                             <div class="stars">
                                 <input class="star star-5" id="star-5" type="radio"
@@ -106,7 +108,7 @@
                             <div class="col-12">
                                 <div class="form-group">
                             <textarea class="form-control w-100" name="comment" id="comment" cols="30" rows="9"
-                                      placeholder="Write Comment" value={{ $review->comment }} required></textarea>
+                                      placeholder="Write Comment" required>{{ $review->comment }}</textarea>
                                 </div>
                             </div>
                         </div>
