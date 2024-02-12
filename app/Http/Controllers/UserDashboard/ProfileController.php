@@ -32,8 +32,9 @@ class ProfileController extends Controller
             if (isset($request['profile_image'])) {
                 $user->addMedia($request['profile_image'])->toMediaCollection('userImages');
             }
-            $updateResult = $user->update($validatedData);
             updateFiles($request['profile_image'], $user, 'userImages');
+
+            $updateResult = $user->update($validatedData);
 
             if ($updateResult) {
                 toastr()->success('تم تحديث البيانات بنجاح');
