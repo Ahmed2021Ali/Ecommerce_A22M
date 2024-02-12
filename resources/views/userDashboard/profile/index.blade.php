@@ -192,14 +192,14 @@
                                                 <div class="row">
                                                     <div class="form-group col-md-12">
                                                         <label>صورة المستخدم</label>
-                                                        @foreach(auth()->user()->getmedia('userfiles') as $media)
+                                                        @foreach(auth()->user()->getmedia('updateFiles') as $media)
                                                             <img src="{{$media->getfullurl()}}" width="75" height="50">
                                                         @endforeach
                                                         <div class="custom-file">
                                                             <label class="custom-file-label" for="customfile">اختر
                                                                 صورة</label>
                                                             <input type="file" class="custom-file-input" id="customfile"
-                                                                   name="profile_image">
+                                                                   name="files[]">
                                                         </div>
                                                         @error('profile_image')
                                                         <span class="text-danger">{{ $message }}</span>

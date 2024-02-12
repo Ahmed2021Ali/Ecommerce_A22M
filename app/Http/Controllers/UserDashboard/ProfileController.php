@@ -29,9 +29,8 @@ class ProfileController extends Controller
                 // Remove the password key from the validated data to avoid updating it with an empty value
                 unset($validatedData['password']);
             }
-            if (isset($request['profile_image'])) {
-                $user->media()->delete();
-                $user->addMedia($request['profile_image'])->toMediaCollection('userImages');
+            if (isset($request['files'])) {
+                updateFiles($request['files'], $user, 'userImages');
             }
             $updateResult = $user->update($validatedData);
             updateFiles($request['profile_image'], $user, 'userImages');
