@@ -91,7 +91,7 @@
                                                     </tr>
                                                     </thead>
                                                     <tbody>
-                                                    @foreach(auth::user()->orders as $order)
+                                                    @foreach(auth::user()->orders() as $order)
                                                         <tr>
                                                             <td>#{{$order->order_number}}</td>
                                                             <td>{{$order->created_at->toformatteddatestring()}}</td>
@@ -135,7 +135,7 @@
                                 </div>
                                 <div class="tab-pane fade" id="address" role="tabpanel" aria-labelledby="address-tab">
                                     <div class="row">
-                                        @foreach(Auth::user()->addresses as $address)
+                                        @foreach(Auth::user()->addresses() as $address)
                                             <div class="col-lg-6">
                                                 <div class="card">
                                                     <div class="card-header">
@@ -243,7 +243,7 @@
                                                         @enderror
                                                     </div>
 
-                                            
+
                                                     <div class="form-group col-md-12">
                                                         <label>الأسم <span class="required">*</span></label>
                                                         <input value="{{ old('name', auth::user()->name) }}" class="form-control square" name="name" type="text">
@@ -251,7 +251,7 @@
                                                             <span class="text-danger">{{ $message }}</span>
                                                         @enderror
                                                     </div>
-                                            
+
                                                     <div class="form-group col-md-12">
                                                         <label>عنوان البريد الإلكتروني <span class="required">*</span></label>
                                                         <input value="{{ old('email', auth::user()->email) }}" class="form-control square" name="email" type="email">
@@ -259,7 +259,7 @@
                                                             <span class="text-danger">{{ $message }}</span>
                                                         @enderror
                                                     </div>
-                                            
+
                                                     <div class="form-group col-md-12">
                                                         <label>كلمة المرور الجديدة</label>
                                                         <div class="input-group">
@@ -274,7 +274,7 @@
                                                             <span class="text-danger">{{ $message }}</span>
                                                         @enderror
                                                     </div>
-                                            
+
                                                     <div class="form-group col-md-12">
                                                         <label>تأكيد كلمة المرور</label>
                                                         <div class="input-group">
@@ -289,13 +289,13 @@
                                                             <span class="text-danger">{{ $message }}</span>
                                                         @enderror
                                                     </div>
-                                            
+
                                                     <div class="col-md-12">
                                                         <button type="submit" class="btn btn-fill-out submit" name="submit" value="submit">حفظ</button>
                                                     </div>
                                                 </div>
                                             </form>
-                                            
+
                                         </div>
                                     </div>
                                 </div>
@@ -319,5 +319,5 @@
             }
         }
     </script>
-    
+
 @endsection
