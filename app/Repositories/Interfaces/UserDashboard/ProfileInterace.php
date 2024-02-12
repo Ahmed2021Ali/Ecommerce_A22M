@@ -2,10 +2,10 @@
 
 namespace App\Repositories\Interfaces\UserDashboard;
 
-interface ContactUsInterface {
+interface ProfileInterace {
 
     public function index();
-    
-    public function store($request);
+
+    public function update($request);
 
 }

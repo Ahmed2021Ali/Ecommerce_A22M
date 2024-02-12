@@ -15,7 +15,7 @@
                 <div class="contact-from-area padding-20-row-col wow FadeInUp">
                     <h3 class="mb-10 text-center">يسعدنا تواصلك معنا</h3>
                     <p class="text-muted mb-30 text-center font-sm">بإمكانك ابداء رأيك او الأستفسار عن اي شئ في اي وقت</p>
-                    <form class="contact-form-style text-center" id="contact-form" action="#" method="POST" style="direction: rtl; ">
+                    <form class="contact-form-style text-center" id="contact-form" action="{{url('contact-us/store')}}" method="POST" style="direction: rtl; ">
                         @csrf
                         <div class="row">
                             <div class="col-lg-6 col-md-6">

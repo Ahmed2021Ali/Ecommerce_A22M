@@ -18,13 +18,13 @@ class ContactUsController extends Controller
 
     public function index()
     {
-        return view('userDashboard.contactUs.index');
+        return $this->contact->index();
     }
 
 
     public function store(ContactStoreRequest $request)
     {
-        $this->contact->store($request->validated());
+        return $this->contact->store($request->validated());
     }
 
 
