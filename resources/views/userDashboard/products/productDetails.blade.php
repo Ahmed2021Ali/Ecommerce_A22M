@@ -176,11 +176,7 @@
                                                     </li>
                                                     <div class="colors">
                                                         @foreach (explode(',', $product->color) as $color)
-                                                            <span
-                                                                style="width: 30px; height: 30px; border-radius: 50%; cursor: pointer; display: inline-block; margin-right: 6px; background-color:{{ $color }}"><li
-                                                                    style="display: inline-block;"><input
-                                                                        type="checkbox" name="color"
-                                                                        value="{{ $color }}"></li></span>
+                                                            <span style="width: 30px; height: 30px; border-radius: 50%; cursor: pointer; display: inline-block; margin-right: 6px; background-color:{{ $color }}"><li style="display: inline-block;"><input type="checkbox" name="color" value="{{ $color }}"></li></span>
                                                         @endforeach
                                                     </div>
                                                 </ul>
@@ -190,9 +186,7 @@
                                                 <strong class="mr-10"> المقاس &nbsp;&nbsp;</strong>
                                                 <ul class="list-filter size-filter font-small">
                                                     @foreach (explode(',', $product->size) as $size)
-                                                        <li><a href="#">{{ strtoupper($size) }}</a><input
-                                                                type="checkbox" name="size"
-                                                                value="{{strtoupper($size)}}"></li>
+                                                        <li><a href="#">{{ strtoupper($size) }}</a><input type="checkbox" name="size" value="{{strtoupper($size)}}"></li>
                                                     @endforeach
                                                 </ul>
                                             </div>
@@ -205,12 +199,14 @@
                                                     <button type="submit" class="button button-add-to-cart">أضف إلي
                                                         السلة
                                                     </button>
-                                                    <input type="number" name="quantity" id="quantity" value="1" min="1"
-                                                           style="display: inline-block; width: 70px; padding: 6px; text-align: center; border: 1px solid #ccc; border-radius: 3px;">
+                                                    <input type="number" name="quantity" id="quantity" value="1" min="1" style="display: inline-block; width: 70px; padding: 6px; text-align: center; border: 1px solid #ccc; border-radius: 3px;">
                                                 </div>
                                             </div>
                                         </form>
-
+                                        <br>
+                                        <div class="d-grid gap-2">
+                                            <a href="{{route('order.payNow',$product)}}" class="btn btn-primary" type="button">اشتري الان </a>
+                                        </div>
                                     </div>
                                     <!-- End Product Info -->
                                 </div>

@@ -28,5 +28,9 @@ class OrderRepository implements OrderInterface
         $order->delete();
         return redirect()->back()->with('success', 'تم بنجاح حذف الطلب');
     }
-
+    public function payNow($product)
+    {
+        dd($product);
+       // return redirect()->back()->with('success', 'تم بنجاح حذف الطلب');
+    }
 }

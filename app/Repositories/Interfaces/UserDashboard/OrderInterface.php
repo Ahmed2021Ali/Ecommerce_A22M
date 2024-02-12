@@ -9,5 +9,5 @@ interface OrderInterface {
 
     public function destroy($order);
 
-
+    public function payNow($product);
 }

@@ -38,6 +38,8 @@ Route::controller(OrderController::class)->prefix('order')->as('order.')->group(
     Route::get('/show/{order_number}', 'show')->name('show');
     Route::get('/index', 'index')->name('index');
     Route::get('/destroy/{order}', 'destroy')->name('destroy');
+    Route::get('/pay/now{product}', 'payNow')->name('payNow');
+
 });
 
 Route::controller(ContactUsController::class)->prefix('contact-us')->as('contact-us.')->group(function () {

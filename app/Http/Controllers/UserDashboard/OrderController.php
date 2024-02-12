@@ -28,4 +28,9 @@ class OrderController extends Controller
     {
         return $this->order->destroy($order);
     }
+    public function payNow(Product $product)
+    {
+        return $this->order->payNow($product);
+
+    }
 }
