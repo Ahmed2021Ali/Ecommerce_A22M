@@ -65,6 +65,7 @@
                     <div class="main-menu main-menu-padding-1 main-menu-lh-2 d-none d-lg-block">
                         <nav>
                             <ul class="menu-list">
+                                
                                 <li><a class="active" href="{{ route('home') }}"><i style="font-size: 25px" class="fas fa-home fa-lg"></i> الصفحة الرئيسية</a></li>
                                 <li><a href="#about-us"><i class="fas fa-info-circle fa-lg"></i> تعرف علينا</a></li>
                                 <li><a href="{{ route('products.index') }}"><i class="fas fa-shopping-cart fa-lg"></i> تصفح المنتجات</a></li>
@@ -83,9 +84,19 @@
                                     </ul>
                                 </li>
                                 <li><a href="{{url('contact-us/index')}}"><i class="fas fa-comments"></i> تواصل معنا</a></li>
-                                @auth
-
-                                <li><a href="#"><i class="fas fa-user fa-lg"></i> حسابي <i class="fi-rs-angle-down"></i></a>
+                                <li>
+                                    <a href="{{ route('profile.index') }}" style="align-items: center; text-decoration: none; color: #000;">
+                                        @auth
+                                            @if (Auth::user()->getMedia('userImages')->isNotEmpty())
+                                                @foreach (Auth::user()->getMedia('userImages') as $media)
+                                                    <img src="{{ $media->getUrl() }}" alt="User Image" style="width: 60px; height: 55px; border-radius: 50%; margin-right: 10px; margin-bottom: -22px;">
+                                                @endforeach
+                                            @else
+                                                <i class="fas fa-user fa-lg" style="margin-right: 10px;"></i>
+                                            @endif
+                                        @endauth
+                                        حسابي <i class="fi-rs-angle-down"></i>
+                                    </a>
                                     <ul class="sub-menu">
                                         <li><a href="{{route('profile.index')}}"><i class="fas fa-cogs fa-lg"></i>&nbsp; اعدادات الحساب</a></li>
                                         <li><a href="#"><i class="fas fa-shopping-bag"></i>&nbsp; الطلبات</a></li>
@@ -93,16 +104,14 @@
                                         <li class="nav-item">
                                             <form action="{{ route('logout') }}" method="POST">
                                                 @csrf
-                                                <button type="submit" style=" align-items: center;  border: none; background-color: white;
-                                                color: black; cursor: pointer; padding: 5px; font-size: 16px; margin-right: 10px;">
+                                                <button type="submit" style="align-items: center; border: none; background-color: white; color: black; cursor: pointer; padding: 5px; font-size: 16px; margin-right: 10px;">
                                                     <i class="fas fa-sign-out-alt fa-lg"></i> تسجيل خروج
                                                 </button>
                                             </form>
                                         </li>
-                                    @endauth
-                                    </li>
-                            </ul>
-
+                                    </ul>
+                                </li>
+                                
                         </nav>
                     </div>
                 </div>
