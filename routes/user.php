@@ -48,6 +48,8 @@ Route::controller(ContactUsController::class)->prefix('contact-us')->as('contact
 Route::controller(ProfileController::class)->prefix('profile')->as('profile.')->group(function () {
     Route::get('/', 'index')->name('index');
     Route::post('/update', 'update')->name('update');
+    Route::get( '/delete-user-image', 'deleteUserImage')->name('delete.userImage');
+    Route::get('/view-image/{id}', 'viewImage')->name('view.image');
 });
 
 Route::get('/category/products/{category_id}', [ProductControlle::class, 'productsOfCategory'])->name('category.products');

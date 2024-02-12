@@ -843,9 +843,9 @@ h5.widget-title {
 button.submit, button[type='submit'] {
   font-size: 15px;
   font-weight: 500;
-  padding: 12px 40px;
+  /* padding: 12px 40px; */
   color: #ffffff;
-  border: none;
+  /* border: none; */
   background-color: #F15412;
   border: 1px solid #F15412;
   border-radius: 5px;
