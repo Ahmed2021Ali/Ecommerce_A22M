@@ -3,71 +3,38 @@
 namespace App\Http\Controllers\UserDashboard;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
-use App\Models\Color;
 use App\Models\Product;
-use Illuminate\Http\Request;
+use App\Repositories\Interfaces\UserDashboard\ProductInterface;
 
 class ProductControlle extends Controller
 {
 
+    protected $product;
+
+    public function __construct(ProductInterface $product)
+    {
+        $this->product = $product;
+        $this->middleware('auth');
+    }
+
+
     public function index()
     {
-        $products = Product::paginate(9);
-        $newProducts = Product::latest()->take(3)->get();
-        $categories = Category::all();
-        return view('userDashboard.products.index', compact('products', 'categories', 'newProducts'));
+        return $this->product->index();
     }
 
-
-    public function create()
-    {
-        //
-    }
-
-
-    public function store(Request $request)
-    {
-        //
-    }
 
 
     public function show(Product $product)
     {
-        $categories = Category::all();
-
-        $currentCategoryId = $product->category_id;
-
-        $newProducts = Product::latest()->take(3)->get();
-
-        $relatedProducts = Product::where('category_id', $currentCategoryId)->where('id', '!=', $product->id)->get();
-
-        return view('userDashboard.products.productDetails', compact('product', 'categories', 'newProducts', 'relatedProducts'));
+        return $this->product->show($product);
     }
 
 
     public function productsOfCategory($categoryId)
     {
-        $products = Product::where('category_id', $categoryId)->paginate(9);
-
-        $categories = Category::all();
-
-        $newProducts = Product::latest()->take(3)->get();
-
-        $relatedProducts = Product::where('category_id', $categoryId)->get();
-
-        $categoryName = Category::where('id', $categoryId)->select('id', 'name')->first();
-
-        return view('userDashboard.products.productsOfCategory.index', compact('products', 'categories', 'newProducts', 'relatedProducts', 'categoryName'));
+        return $this->product->show($categoryId);
     }
 
-    public function update(Request $request, string $id)
-    {
-        //
-    }
 
-    public function destroy(string $id)
-    {
-        //
-    }
 }

@@ -89,13 +89,17 @@
                                         @auth
                                             @if (Auth::user()->getMedia('userImages')->isNotEmpty())
                                                 @foreach (Auth::user()->getMedia('userImages') as $media)
-                                                    <img src="{{ $media->getUrl() }}" alt="User Image" style="width: 60px; height: 55px; border-radius: 50%; margin-right: 10px; margin-bottom: -22px;">
+                                                    <img src="{{ $media->getUrl() }}" alt="User Image" style="width: 55px; height: 55px; border-radius: 50%; margin-bottom: -22px;">
                                                 @endforeach
                                             @else
                                                 <i class="fas fa-user fa-lg" style="margin-right: 10px;"></i>
                                             @endif
                                         @endauth
-                                        حسابي <i class="fi-rs-angle-down"></i>
+                                        @if(auth()->user())
+                                        {{Auth::user()->name}} <i class="fi-rs-angle-down"></i> 
+                                        @else حسابي  <i class="fi-rs-angle-down"></i>
+                                    @endif 
+                                        
                                     </a>
                                     <ul class="sub-menu">
                                         <li><a href="{{route('profile.index')}}"><i class="fas fa-cogs fa-lg"></i>&nbsp; اعدادات الحساب</a></li>

@@ -18,7 +18,7 @@ class ContactUsController extends Controller
 
     public function index()
     {
-        return view('userDashboard.contactUs.index');
+        return $this->contact->index();
     }
 
 

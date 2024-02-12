@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use App\Models\Service;
 use App\Repositories\AdminDashboard\BannerRepository;
 use App\Repositories\AdminDashboard\BrandRepository;
 use App\Repositories\AdminDashboard\CategoryRepository;
@@ -25,8 +24,12 @@ use App\Repositories\Interfaces\AdminDashboard\SliderInterface;
 use App\Repositories\Interfaces\AdminDashboard\UserInterface;
 use App\Repositories\Interfaces\UserDashboard\CartInterface;
 use App\Repositories\Interfaces\UserDashboard\FavInterface;
+use App\Repositories\Interfaces\UserDashboard\ProfileInterace;
+use App\Repositories\Interfaces\UserDashboard\SearchInterface;
 use App\Repositories\UserDashboard\CartRepository;
 use App\Repositories\UserDashboard\FavRepository;
+use App\Repositories\UserDashboard\ProfileRepository;
+use App\Repositories\UserDashboard\SearchRepository;
 use Illuminate\Support\ServiceProvider;
 class RepositoryServiceProvider extends ServiceProvider
 {
@@ -99,6 +102,7 @@ class RepositoryServiceProvider extends ServiceProvider
             \App\Repositories\Interfaces\UserDashboard\OrderInterface::class,
             \App\Repositories\UserDashboard\OrderRepository::class,
         );
+
         $this->app->bind(
             \App\Repositories\Interfaces\UserDashboard\AddressInterface::class,
             \App\Repositories\UserDashboard\AddressRepository::class,
@@ -106,6 +110,21 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(
             CityInterface::class,
             CityRepository::class,
+        );
+
+        $this->app->bind(
+            ProfileInterace::class,
+            ProfileRepository::class,
+        );
+
+        $this->app->bind(
+            \App\Repositories\Interfaces\UserDashboard\ProductInterface::class,
+            \App\Repositories\UserDashboard\ProductRepository::class,
+        );
+
+        $this->app->bind(
+            SearchInterface::class,
+            SearchRepository::class,
         );
 
     }

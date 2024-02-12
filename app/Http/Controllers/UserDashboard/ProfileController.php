@@ -5,14 +5,27 @@ namespace App\Http\Controllers\UserDashboard;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Profile\ProfileRequest;
 use App\Models\User;
+use App\Repositories\Interfaces\UserDashboard\ProfileInterace;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {
+
+    protected $profile;
+
+    public function __construct(ProfileInterace $profile)
+    {
+        $this->profile = $profile;
+        $this->middleware('auth');
+    }
+
+
     public function index()
     {
-        return view('userDashboard.profile.index');
+        return $this->profile->index();
     }
 
 
@@ -33,6 +46,7 @@ class ProfileController extends Controller
                 updateFiles($request['files'], $user, 'userImages');
             }
             $updateResult = $user->update($validatedData);
+
             if ($updateResult) {
                 toastr()->success('تم تحديث البيانات بنجاح');
                 return to_route('profile.index');
@@ -48,6 +62,47 @@ class ProfileController extends Controller
             return back()->withErrors(['error' => 'حدث خطأ أثناء تحديث البيانات']);
         }
     }
+
+
+    public function deleteUserImage()
+    {
+        // Get the authenticated user
+        $user = Auth::user();
+    
+        // Check if the user has an image
+        if ($user->hasMedia('userImages')) {
+            // Delete the user's image (assuming the user has only one image)
+            $user->clearMediaCollection('userImages');
+    
+            toastr()->success('تم حذف الصورة الشخصية بنجاح');
+            return redirect()->back();
+        } else {
+            // Handle the case where the user has no image
+            return redirect()->back()->with('error', 'No image to delete');
+        }
+    }
+    
+
+
+    public function viewImage($id)
+    {
+        $user = User::find($id);
+    
+        if (!$user) {
+            abort(404); // Or handle accordingly
+        }
+    
+        $mediaItem = $user->getFirstMedia('userImages');
+    
+        if (!$mediaItem) {
+            abort(404); // Or handle accordingly
+        }
+    
+        $imagePath = public_path("storage/{$mediaItem->id}/{$mediaItem->file_name}");
+    
+        return response()->file($imagePath);
+    }
+    
 
 
 }

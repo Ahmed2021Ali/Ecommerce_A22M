@@ -73,7 +73,7 @@
     </style>
 @endsection
 @section('pageHeader')
-    تفاصيل المنتج
+    تفاصيل المنتج <span></span>  {{$product->name}}
 @endsection
 @section('content')
     <main class="main">
