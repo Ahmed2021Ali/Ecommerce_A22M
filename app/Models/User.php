@@ -39,7 +39,11 @@ class User extends Authenticatable implements HasMedia
 
     public function orders()
     {
-        return $this->hasMany(OrderDetails::class);
+        return $this->hasMany(OrderDetails::class)->paginate(5);
+    }
+    public function ordersOnlyTrashed()
+    {
+        return $this->hasMany(OrderDetails::class)->onlyTrashed()->paginate(5);
     }
     public function favs()
     {
@@ -47,7 +51,7 @@ class User extends Authenticatable implements HasMedia
     }
     public function addresses()
     {
-        return $this->hasMany(Address::class);
+        return $this->hasMany(Address::class)->paginate(2);
     }
     public function carts()
     {

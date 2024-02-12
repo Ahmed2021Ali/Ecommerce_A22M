@@ -10,27 +10,30 @@
 @endsection
 @section('content')
     <main class="main" style="direction: rtl; text-align: right;">
+        @if(!$detailsOrder->deleted_at)
+            <section class="section-container profile my-5 py-5">
+                <div class="text-center mb-5">
+                    <div class="success-gif m-auto">
+                        <img class="w-25" src="/assets/imgs/success.gif" width="200" height="300" alt=""/>
+                    </div>
+                    @if($detailsOrder->delivery_status === 0)
+                        <h4 class="mb-4">جاري تجهيز طلبك الآن</h4>
+                        <p class="mb-1">
+                            سيقوم أحد ممثلي خدمة العملاء بالتواصل معك لتأكيد الطلب
+                        </p>
+                        <p>برجاء الرد على الأرقام الغير مسجلة</p>
+                    @else
+                        <h4 class="mb-4"> تم توصيل الاردر بنجاح - شكرا لثقاتكم </h4>
+                    @endif
 
-        <section class="section-container profile my-5 py-5">
-            <div class="text-center mb-5">
-                <div class="success-gif m-auto">
-                    <img class="w-25" src="/assets/imgs/success.gif" width="200" height="300" alt=""/>
+                    <a href="{{route('home')}}" class="btn btn-fill-out btn-block mt-30">تصفح منتجات اخري</a>
                 </div>
-                @if($detailsOrder->delivery_status === 0)
-                    <h4 class="mb-4">جاري تجهيز طلبك الآن</h4>
-                    <p class="mb-1">
-                        سيقوم أحد ممثلي خدمة العملاء بالتواصل معك لتأكيد الطلب
-                    </p>
-                    <p>برجاء الرد على الأرقام الغير مسجلة</p>
-                @else
-                    <h4 class="mb-4">   تم توصيل الاردر بنجاح  - شكرا لثقاتكم </h4>
-                @endif
 
-                <a href="{{route('home')}}" class="btn btn-fill-out btn-block mt-30">تصفح منتجات اخري</a>
-            </div>
-
-        </section>
-
+            </section>
+        @else
+            <br>
+            <h3 class="mb-4 text-center"> تم الغاء الاردر </h3>
+        @endif
         <section class="mt-50 mb-50">
             <div class="container">
                 <div class="row">
@@ -40,7 +43,7 @@
                             <br>
                             <table class="table">
                                 <tr>
-                                    <th> رقم الاستعلام عن الاردر </th>
+                                    <th> رقم الاستعلام عن الاردر</th>
                                     <td class="product-subtotal"
                                         colspan="2" style="color:red;">{{$detailsOrder->order_number }}</td>
                                 </tr>
@@ -70,7 +73,8 @@
                                     <td class="product-subtotal" colspan="2">{{$detailsOrder->address->note}}</td>
                                 </tr>
                             </table>
-                            <a href="{{route('address.edit',$detailsOrder->address)}}" class="btn btn-fill-out btn-block mt-30">تعديل العنوان</a>
+                            <a href="{{route('address.edit',$detailsOrder->address)}}"
+                               class="btn btn-fill-out btn-block mt-30">تعديل العنوان</a>
                         </section>
                     </div>
                     <div class="col-md-6">

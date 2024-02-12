@@ -16,8 +16,6 @@ class Order extends Model
         'delivery_status',
     ];
 
-
-
     public function product()
     {
         return $this->belongsTo(Product::class);

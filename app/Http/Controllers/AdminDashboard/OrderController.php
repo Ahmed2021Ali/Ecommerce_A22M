@@ -14,6 +14,7 @@ class OrderController extends Controller
     {
         $this->order = $order;
     }
+
    public function index()
    {
        return $this->order->index();
@@ -25,5 +26,10 @@ class OrderController extends Controller
     public function ordersDone()
     {
         return $this->order->ordersDone();
+    }
+
+    public function ordersCancelled()
+    {
+        return $this->order->ordersCancelled();
     }
 }

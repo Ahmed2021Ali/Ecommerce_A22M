@@ -20,6 +20,8 @@ return new class extends Migration
             $table->boolean('delivery_status')->default(0);
             $table->foreignId('address_id')->references('id')->on('addresses')->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreignId('user_id')->references('id')->on('users')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->SoftDeletes();
+
             $table->timestamps();
         });
     }
