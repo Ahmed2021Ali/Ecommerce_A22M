@@ -280,7 +280,7 @@
                                     </div>
                                     <div class="tab-pane fade" id="Reviews">
                                         <!--Comments-->
-                                        @include('userDashboard.products.review.show')
+                                        @include('userDashboard.products.review.show',['product'=>$product])
                                         <!--comment form-->
 
                                         <!-- store review form-->
