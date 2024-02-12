@@ -57,4 +57,6 @@ Route::get('/search', [SearchController::class, 'search'])->name('search');
 
 Route::controller(ReviewController::class)->prefix('review')->as('review.')->group(function () {
     Route::post('/store/{product}', 'store')->name('store');
+    Route::get('/edit/{review}', 'edit')->name('edit');
+
 });
