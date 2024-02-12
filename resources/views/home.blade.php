@@ -13,7 +13,7 @@
     <section class="product-tabs section-padding position-relative wow fadeIn animated">
         <div class="bg-square"></div>
         <div class="container">
-            <div class="tab-header" style="direction: rtl; text-align: right;"> 
+            <div class="tab-header" style="direction: rtl; text-align: right;">
                 <ul class="nav nav-tabs" id="myTab" role="tablist" style="direction: rtl; text-align: right;">
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active" id="nav-tab-one" data-bs-toggle="tab" data-bs-target="#tab-one"
@@ -35,47 +35,50 @@
                         class="fi-rs-angle-double-small-left"></i></a>
             </div>
             <!--End nav-tabs-->
-            <div class="tab-content wow fadeIn animated" id="myTabContent" >
+            <div class="tab-content wow fadeIn animated" id="myTabContent">
                 @include('userDashboard.products.featured.index')
                 @include('userDashboard.products.popular.index')
                 @include('userDashboard.products.newAdded.index')
             </div>
         </div>
     </section>
-    
+
     @include('userDashboard.banners.index')
 
     <section class="section-padding" style="direction: rtl; text-align: center;">
         <div class="container wow fadeIn animated">
             <h3 class="section-title mb-20"><span>المنتجات</span> الجديدة</h3>
             <div class="carausel-6-columns-cover position-relative">
-                <div class="slider-arrow slider-arrow-2 carausel-6-columns-arrow" id="carausel-6-columns-2-arrows"></div>
-                <div class="carausel-6-columns carausel-arrow-center" id="carausel-6-columns-2" >
+                <div class="slider-arrow slider-arrow-2 carausel-6-columns-arrow"
+                     id="carausel-6-columns-2-arrows"></div>
+                <div class="carausel-6-columns carausel-arrow-center" id="carausel-6-columns-2">
                     @foreach($newArrivalProducts as $product)
                         <div class="product-cart-wrap small hover-up">
                             <div class="product-img-action-wrap">
                                 <div class="product-img product-img-zoom" style="direction: rtl; text-align: right;">
                                     <a href="">
-                                        @foreach($product->getMedia('productFiles') as $media)
-                                            <a href="{{ route('products.show', $product->id) }}">
-                                                <img src="{{ $media->getFullUrl() }}" width="400" height="250" style="direction: rtl; text-align: right;">
-                                            </a>
-                                            @break
-                                        @endforeach
-
+                                        <a href="{{ route('products.show', $product->id) }}">
+                                            <img src="{{ $product->getFirstMediaUrl('productFiles') }}" width="400"
+                                                 height="250" style="direction: rtl; text-align: right;">
+                                        </a>
                                     </a>
                                 </div>
                                 <div class="product-action-1">
-                                    <a aria-label="عرض" class="action-btn hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
-                                    <button aria-label="إضافة إلي المفضلة" class="action-btn hover-up" onclick="addToFavorites({{ $product->id }})">
+                                    <a aria-label="عرض" class="action-btn hover-up" data-bs-toggle="modal"
+                                       data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
+                                    <button aria-label="إضافة إلي المفضلة" class="action-btn hover-up"
+                                            onclick="addToFavorites({{ $product->id }})">
                                         <i class="fi-rs-heart"></i>
                                     </button>
-                                    <a aria-label="تسوق الآن" class="action-btn hover-up" href="{{ route('products.show', $product->id) }}"><i class="fi-rs-shopping-bag-add"></i></a>
+                                    <a aria-label="تسوق الآن" class="action-btn hover-up"
+                                       href="{{ route('products.show', $product->id) }}"><i
+                                            class="fi-rs-shopping-bag-add"></i></a>
                                 </div>
                             </div>
                             <div class="product-content-wrap">
-                                <h2><a href="" >{{ $product->name }}</a></h2>
-                                    <span>
+                                <h2><a href="">{{ $product->name }}</a></h2>
+                                <span>
+                                        @include('userDashboard.products.review.ratingProduct',['rate'=>calcReview($product)])
                                         <span>تخفيض %{{ $product->offer }}</span>
                                     </span>
                                 <div class="product-price">
@@ -95,18 +98,20 @@
 
     </section>
 
-    <section class="section-padding" >
+    <section class="section-padding">
         <div class="container">
-            <h3 class="section-title mb-20 wow fadeIn animated" style="text-align: center;"><span>الماركات</span> </h3>
+            <h3 class="section-title mb-20 wow fadeIn animated" style="text-align: center;"><span>الماركات</span></h3>
             <div class="carausel-6-columns-cover position-relative wow fadeIn animated">
-                <div class="slider-arrow slider-arrow-2 carausel-6-columns-arrow" id="carausel-6-columns-3-arrows"></div>
+                <div class="slider-arrow slider-arrow-2 carausel-6-columns-arrow"
+                     id="carausel-6-columns-3-arrows"></div>
                 <div class="carausel-6-columns text-center" id="carausel-6-columns-3">
                     @foreach($brands as $brand)
                         <div class="brand-logo">
                             @foreach($brand->getMedia('brandFiles') as $media)
-                            <img src="{{$media->getFullUrl()}}" class="img-grey-hover" alt="الماركات" style="width: 175px; height: 150px;">
+                                <img src="{{$media->getFullUrl()}}" class="img-grey-hover" alt="الماركات"
+                                     style="width: 175px; height: 150px;">
                             @endforeach
-                    </div>
+                        </div>
                     @endforeach
                 </div>
             </div>

@@ -135,10 +135,8 @@
                                         <h2 class="title-detail">{{$product->name}}</h2>
                                         <div class="product-detail-rating">
                                             <div class="product-rate-cover text-end">
-                                                <div class="product-rate d-inline-block">
-                                                    <div class="product-rating" style="width:90%"></div>
-                                                </div>
-                                                <span class="font-small ml-5 text-muted"> (25 التقييم)</span>
+                                                    @include('userDashboard.products.review.ratingProduct',['rate'=>calcReview($product)])
+                                                <span class="font-small ml-5 text-muted"> ({{$product->reviews->where('star', '!=', null)->count()}} التقييم)</span>
                                             </div>
                                         </div>
                                         <!-- Product Price -->
@@ -301,23 +299,18 @@
                                 <div class="col-12">
                                     <div class="row related-products">
                                         @foreach($relatedProducts as $relatedProduct)
-
                                             <div class="col-lg-3 col-md-4 col-12 col-sm-6">
                                                 <div class="product-cart-wrap small hover-up">
                                                     <div class="product-img-action-wrap">
                                                         <div class="product-img product-img-zoom">
                                                             <a href="{{route('products.show', $relatedProduct->id)}}"
                                                                tabindex="0">
-                                                                <img class="default-img"
-                                                                     src="{{ $relatedProduct->getFirstMediaUrl('productFiles') }}"
-                                                                     alt="{{ $relatedProduct->name }}" width="400px"
-                                                                     height="250px">
+                                                                <img class="default-img" src="{{ $relatedProduct->getFirstMediaUrl('productFiles') }}" alt="{{ $relatedProduct->name }}" width="400px" height="250px">
                                                             </a>
                                                         </div>
                                                         <div class="product-action-1">
                                                             <a aria-label="عرض" class="action-btn small hover-up"
-                                                               data-bs-toggle="modal"
-                                                               data-bs-target="#quickViewModal"><i
+                                                               data-bs-toggle="modal" data-bs-target="#quickViewModal"><i
                                                                     class="fi-rs-search"></i></a>
                                                             <a aria-label="أضف إلى المفضلة"
                                                                class="action-btn small hover-up" href="wishlist.php"
@@ -330,10 +323,7 @@
                                                     <div class="product-content-wrap">
                                                         <h2><a href="{{route('products.show',$relatedProduct)}}"
                                                                tabindex="0">{{$relatedProduct->name}}</a></h2>
-                                                        <div class="rating-result" title="90%">
-                                                        <span>
-                                                        </span>
-                                                        </div>
+                                                        @include('userDashboard.products.review.ratingProduct',['rate'=>calcReview($relatedProduct)])
                                                         <div class="product-price">
                                                             <span>$238.85 </span>
                                                             <span class="old-price">$245.8</span>
@@ -346,6 +336,7 @@
                                 </div>
                             </div>
                             <!-- End Related Products -->
+
                         </div>
                     </div>
                     <!-- Sidebar -->
@@ -363,9 +354,9 @@
                             </ul>
                         </div>
                         @include('userDashboard.layouts.rightSidebar')
+                    </div>
+                    <!-- End Sidebar -->
                 </div>
-                <!-- End Sidebar -->
-            </div>
             </div>
         </section>
     </main>
