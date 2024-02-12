@@ -23,18 +23,12 @@
                                     <div class="product-cart-wrap mb-30">
                                         <div class="product-img-action-wrap">
                                             <div class="product-img product-img-zoom">
-                                                <a href="{{ route('products.show', $fav->product->id) }}"><img
-                                                        src="{{ $fav->product->getFirstMediaUrl('productFiles') }}"
-                                                        width="400" height="250"
-                                                        style="direction: rtl; text-align: right;"></a>
+                                                <a href="{{ route('products.show', $fav->product->id) }}"><img  src="{{ $fav->product->getFirstMediaUrl('productFiles') }}" width="400" height="250" style="direction: rtl; text-align: right;"></a>
                                             </div>
                                             <div class="product-action-1">
                                                 <a aria-label="عرض" class="action-btn hover-up" data-bs-toggle="modal"
                                                     data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
-                                                <a aria-label=" حذف من  المفضلة" class="action-btn hover-up"
-                                                    href="{{ route('fav.destroy', $fav->id) }}"><i
-                                                        class="fi-rs-trash"></i></a>
-
+                                                <a aria-label=" حذف من  المفضلة" class="action-btn hover-up" href="{{ route('fav.destroy', $fav->id) }}"><i class="fi-rs-trash"></i></a>
                                             </div>
                                         </div>
                                         <div class="product-content-wrap">
@@ -88,7 +82,7 @@
                          @include('userDashboard.layouts.rightSidebar')
 
                         <!-- Product sidebar Widget -->
-                        
+
                     </div>
                 </div>
             </div>

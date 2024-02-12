@@ -29,9 +29,8 @@ class Product extends Model implements HasMedia
 
     public function reviews()
     {
-        return $this->hasMany(Review::class);
+        return $this->hasMany(Review::class)->paginate(5);
     }
-
     public function registerMediaConversions(Media $media = null): void
     {
         $this->addMediaCollection('productsFiles');

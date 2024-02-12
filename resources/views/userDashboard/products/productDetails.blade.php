@@ -136,7 +136,7 @@
                                         <div class="product-detail-rating">
                                             <div class="product-rate-cover text-end">
                                                     @include('userDashboard.products.review.ratingProduct',['rate'=>calcReview($product)])
-                                                <span class="font-small ml-5 text-muted"> ({{$product->reviews->where('star', '!=', null)->count()}} التقييم)</span>
+                                                <span class="font-small ml-5 text-muted"> ({{$product->reviews()->where('star', '!=', null)->count()}} التقييم)</span>
                                             </div>
                                         </div>
                                         <!-- Product Price -->
