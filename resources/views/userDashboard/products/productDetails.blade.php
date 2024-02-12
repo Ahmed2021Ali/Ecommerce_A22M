@@ -301,6 +301,7 @@
                                 <div class="col-12">
                                     <div class="row related-products">
                                         @foreach($relatedProducts as $relatedProduct)
+
                                             <div class="col-lg-3 col-md-4 col-12 col-sm-6">
                                                 <div class="product-cart-wrap small hover-up">
                                                     <div class="product-img-action-wrap">
