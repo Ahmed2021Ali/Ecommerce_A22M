@@ -46,7 +46,7 @@ Route::controller(ContactUsController::class)->prefix('contact-us')->as('contact
 });
 
 Route::controller(ProfileController::class)->prefix('profile')->as('profile.')->group(function () {
-    Route::get('/pofile', 'index')->name('index');
+    Route::get('/', 'index')->name('index');
     Route::post('/update', 'update')->name('update');
 });
 
