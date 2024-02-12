@@ -33,7 +33,7 @@ class ReviewController extends Controller
 
     public function edit(Review $review)
     {
-        //
+        return view('userDashboard.products.review.edit',['review'=>$review]);
     }
 
     public function update(Request $request, Review $review)

@@ -33,8 +33,6 @@ class ProfileController extends Controller
                 updateFiles($request['files'], $user, 'userImages');
             }
             $updateResult = $user->update($validatedData);
-            updateFiles($request['profile_image'], $user, 'userImages');
-
             if ($updateResult) {
                 toastr()->success('تم تحديث البيانات بنجاح');
                 return to_route('profile.index');
