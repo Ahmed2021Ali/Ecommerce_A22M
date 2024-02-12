@@ -33,9 +33,6 @@ class ProfileController extends Controller
     {
         try {
             $validatedData = $request->validated();
-
-            $user = User::find(Auth::id());
-
             if ($request->filled('password')) {
                 $validatedData['password'] = Hash::make($request->password);
             } else {
@@ -43,10 +40,9 @@ class ProfileController extends Controller
                 unset($validatedData['password']);
             }
             if (isset($request['files'])) {
-                updateFiles($request['files'], $user, 'userImages');
+                updateFiles($request['files'], Auth::user(), 'userImages');
             }
-            $updateResult = $user->update($validatedData);
-
+            $updateResult = Auth::user()->update($validatedData);
             if ($updateResult) {
                 toastr()->success('تم تحديث البيانات بنجاح');
                 return to_route('profile.index');
@@ -55,7 +51,6 @@ class ProfileController extends Controller
                 return back()->withErrors([
                     'error' => 'لم يتم تحديث البيانات، حاول مرة أخرى.',
                 ])->withInput($validatedData);
-
             }
         } catch (\Exception $e) {
             toastr()->error('حدث خطأ أثناء تحديث البيانات');
@@ -67,14 +62,12 @@ class ProfileController extends Controller
     public function deleteUserImage()
     {
         // Get the authenticated user
-        $user = Auth::user();
-        $media = $user->getMedia('userImages');
+        $media = Auth::user()->getMedia('userImages');
         // Check if the user has an image
         if ($media) {
             // Delete the user's image (assuming the user has only one image)
             $media->delete();
-            toastr()->success('تم حذف الصورة الشخصية بنجاح');
-            return redirect()->back();
+            return redirect()->back()->success('تم حذف الصورة الشخصية بنجاح');
         } else {
             // Handle the case where the user has no image
             return redirect()->back()->with('error', 'No image to delete');
