@@ -15,7 +15,7 @@
                 <div class="contact-from-area padding-20-row-col wow FadeInUp">
                     <h3 class="mb-10 text-center">يسعدنا تواصلك معنا</h3>
                     <p class="text-muted mb-30 text-center font-sm">بإمكانك ابداء رأيك او الأستفسار عن اي شئ في اي وقت</p>
-                    <form class="contact-form-style text-center" id="contact-form" action="#" method="POST" style="direction: rtl; ">
+                    <form class="contact-form-style text-center" id="contact-form" action="{{route('contact.store')}}" method="POST" style="direction: rtl; ">
                         @csrf
                         <div class="row">
                             <div class="col-lg-6 col-md-6">
@@ -30,7 +30,7 @@
                             </div>
                             <div class="col-lg-6 col-md-6">
                                 <div class="input-style mb-20" >
-                                    <input name="telephone" placeholder="رقم الهاتف" type="tel" style="direction: rtl; ">
+                                    <input name="phone" placeholder="رقم الهاتف" type="tel" style="direction: rtl; ">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6">
