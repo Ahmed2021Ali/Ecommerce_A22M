@@ -30,6 +30,7 @@ class ProfileController extends Controller
                 unset($validatedData['password']);
             }
             if (isset($request['profile_image'])) {
+                $user->media()->delete();
                 $user->addMedia($request['profile_image'])->toMediaCollection('userImages');
             }
             updateFiles($request['profile_image'], $user, 'userImages');
