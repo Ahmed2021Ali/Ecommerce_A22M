@@ -22,11 +22,14 @@
         <strong class="mr-10">اللون &nbsp;&nbsp;</strong>
         <br>
         <br>
-        <div class="attr-detail attr-color mb-15" style="display: flex; margin-top: 2px; direction: rtl; text-align: right;">
+        <div class="attr-detail attr-color mb-15"
+             style="display: flex; margin-top: 2px; direction: rtl; text-align: right;">
             <ul class="list-filter color-filter">
                 <div class="colors">
                     @foreach (\App\Models\Color::all() as $color)
-                        <span style="width: 30px; height: 30px;margin-bottom: 10px; border-radius: 50%; cursor: pointer; display: flex; margin-right: 6px; background-color:{{ $color->value }}"><li><input type="checkbox" name="color[]" value="{{ $color->value }}"></li></span>
+                        <span
+                            style="width: 30px; height: 30px;margin-bottom: 10px; border-radius: 50%; cursor: pointer; display: flex; margin-right: 6px; background-color:{{ $color->value }}"><li><input
+                                    type="checkbox" name="color[]" value="{{ $color->value }}"></li></span>
                     @endforeach
                 </div>
             </ul>
@@ -38,25 +41,20 @@
     </div>
 </form>
 
-<div class="sidebar-widget product-sidebar  mb-30 p-30 bg-grey border-radius-10" style="direction: rtl; text-align: right;">
+<div class="sidebar-widget product-sidebar  mb-30 p-30 bg-grey border-radius-10"
+     style="direction: rtl; text-align: right;">
     <div class="widget-header position-relative mb-20 pb-10" style="direction: rtl; text-align: right;">
         <h5 class="widget-title mb-10">المنتجات الجديدة</h5>
         <div class="bt-1 border-color-1"></div>
     </div>
     @foreach($newProducts as $newProduct)
         <div class="single-post clearfix" style="direction: rtl; text-align: right;">
-            <div class="image">
-                @foreach($newProduct->getMedia('productFiles') as $media)
-                    <a href="{{route('products.show', $newProduct->id)}}"><img src="{{$media->getFullUrl()}}" alt="product image"></a>
-                    @break
-                @endforeach
-            </div>
+            <div class="image"><a href="{{route('products.show', $newProduct->id)}}"><img
+                        src="{{$newProduct->getFirstMediaUrl('productFiles')}}" alt="product image"></a></div>
             <div class="content pt-10">
                 <h5><a href="product-details.html">{{$newProduct->name}}</a></h5>
                 <p class="price mb-0 mt-5">{{$newProduct->price}} ج</p>
-                <div class="product-rate">
-                    <div class="product-rating" style="width:90%"></div>
-                </div>
+                @include('userDashboard.products.review.ratingProduct',['rate'=>calcReview($newProduct)])
             </div>
         </div>
     @endforeach

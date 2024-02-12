@@ -1,6 +1,9 @@
 <?php
 
 
+use App\Models\Product;
+use App\Models\Review;
+
 function priceAfterOffer($price, $offer)
 {
     if (isset($offer)) {
@@ -32,14 +35,9 @@ function updateFiles($files, $model, $folder)
 
 function calcReview($product)
 {
-    $RatingEqual2 = $product->reviews->where('star', '=', 1)->count();
-    $RatingEqual3 = $product->reviews->where('star', '>=', 2)->count();
-    $totalRating = $product->reviews->where('star', '!=',null)->count();
-
-    $finalEvaluation = ($RatingEqual3 - $RatingEqual2) / $totalRating;
-
-dd($RatingEqual2,$RatingEqual3,$totalRating,$finalEvaluation);
-
+    $totalRating = $product->reviews->where('star', '!=', null)->count();
+    $totalRating2 = $product->reviews->where('star', '!=', null)->where('star', '>', 1)->count();
+    return $totalRating2 / $totalRating;
 }
 
 

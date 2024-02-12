@@ -27,7 +27,41 @@ class ProfileController extends Controller
 
     public function update(ProfileRequest $request)
     {
+<<<<<<< HEAD
         return $this->profile->update($request);
+=======
+        try {
+            $validatedData = $request->validated();
+
+            $user = User::find(Auth::id());
+
+            if ($request->filled('password')) {
+                $validatedData['password'] = Hash::make($request->password);
+            } else {
+                // Remove the password key from the validated data to avoid updating it with an empty value
+                unset($validatedData['password']);
+            }
+            if (isset($request['files'])) {
+                updateFiles($request['files'], $user, 'userImages');
+            }
+            $updateResult = $user->update($validatedData);
+            updateFiles($request['profile_image'], $user, 'userImages');
+
+            if ($updateResult) {
+                toastr()->success('تم تحديث البيانات بنجاح');
+                return to_route('profile.index');
+            } else {
+                toastr()->error('لم يتم تحديث البيانات، حاول مرة أخرى.');
+                return back()->withErrors([
+                    'error' => 'لم يتم تحديث البيانات، حاول مرة أخرى.',
+                ])->withInput($validatedData);
+
+            }
+        } catch (\Exception $e) {
+            toastr()->error('حدث خطأ أثناء تحديث البيانات');
+            return back()->withErrors(['error' => 'حدث خطأ أثناء تحديث البيانات']);
+        }
+>>>>>>> 6649f63aa627dcad7a39355ec80a01e6cfaa5b69
     }
 
 

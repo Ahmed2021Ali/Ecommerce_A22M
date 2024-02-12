@@ -17,7 +17,7 @@ class ContactUsRepository implements ContactUsInterface
 
     public function store($request)
     {
-        ContactUs::create([$request, 'user_id' => Auth::user()->id]);
+        ContactUs::create([...$request, 'user_id' => Auth::user()->id]);
         return redirect()->back()->with(['success' => 'سيتم التواصل معك في اقرب وقت']);
     }
 

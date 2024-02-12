@@ -15,7 +15,7 @@ return new class extends Migration
             $table->string('phone');
             $table->string('email');
             $table->string('subject');
-            $table->text('massage');
+            $table->text('message');
             $table->foreignId('user_id')->references('id')->on('users')->cascadeOnUpdate()->cascadeOnDelete();
             $table->timestamps();
         });

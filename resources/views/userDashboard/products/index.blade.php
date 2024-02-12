@@ -1,58 +1,64 @@
 @extends('userDashboard.layouts.master')
-    @section('title')
-        المنتجات
-    @endsection
-    @section('css')
+@section('title')
+    المنتجات
+@endsection
+@section('css')
 
-    @endsection
-    @section('pageHeader')
-        المنتجات
-    @endsection
-    @section('content')
+@endsection
+@section('pageHeader')
+    المنتجات
+@endsection
+@section('content')
     <main class="main">
         <section class="mt-50 mb-50">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-9">
                         <div class="row product-grid-3">
-                                <div class="row product-grid-4" style="direction: rtl; text-align: center;">
-                                    @foreach($products as $product)
-                                        <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 col-10" >
-                                            <div class="product-cart-wrap mb-30" >
-                                                <div class="product-img-action-wrap">
-                                                    <div class="product-img product-img-zoom" >
-                                                        @foreach($product->getMedia('productFiles') as $media)
-                                                            <a href="{{route('products.show', $product->id)}}"><img  src="{{$media->getFullUrl()}}" width="600" height="300"></a>
-                                                            @break
-                                                        @endforeach
-                                                    </div>
-                                                    <div class="product-action-1">
-                                                        <a aria-label="عرض" class="action-btn hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
-                                                        <a aria-label="أضف إلي المفضلة" class="action-btn hover-up" onclick="addToFavorites({{ $product->id }})"><i class="fi-rs-heart"></i></a>
-                                                    </div>
+                            <div class="row product-grid-4" style="direction: rtl; text-align: center;">
+                                @foreach($products as $product)
+                                    <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 col-10">
+                                        <div class="product-cart-wrap mb-30">
+                                            <div class="product-img-action-wrap">
+                                                <div class="product-img product-img-zoom">
+                                                    <a href="{{route('products.show', $product->id)}}"><img
+                                                            src="{{$product->getFirstMediaUrl('productFiles')}}"
+                                                            width="600" height="300"></a>
                                                 </div>
-                                                <div class="product-content-wrap">
-                                                    <div class="product-category">
-                                                        <a href="">{{ $product->name }}</a>
+                                                <div class="product-action-1">
+                                                    <a aria-label="عرض" class="action-btn hover-up"
+                                                       data-bs-toggle="modal" data-bs-target="#quickViewModal"><i
+                                                            class="fi-rs-eye"></i></a>
+                                                    <a aria-label="أضف إلي المفضلة" class="action-btn hover-up"
+                                                       onclick="addToFavorites({{ $product->id }})"><i
+                                                            class="fi-rs-heart"></i></a>
+                                                </div>
+                                            </div>
+                                            <div class="product-content-wrap">
+                                                <div class="product-category">
+                                                    <a href="">{{ $product->name }}</a>
 
-                                                    </div>
-                                                    <h2><a href="">{{ $product->description }}</a></h2>
-                                                    <span>
-                                                        <span>تخفيض %{{ $product->offer }}</span>
-                                                    </span>
-                                                    <div class="product-price">
-                                                        <span>${{ $product->price_after_offer ?? $product->price }}</span>
-                                                        @if($product->offer)
-                                                            <span class="old-price">${{ $product->price }}</span>
-                                                        @endif
-                                                    </div>
-                                                    <div class="product-action-1 show">
-                                                        <a aria-label="تسوق الآن" class="action-btn hover-up" href="{{route('products.show', $product->id)}}"><i class="fi-rs-shopping-bag-add"></i></a>
-                                                    </div>
+                                                </div>
+                                                <h2><a href="">{{ $product->description }}</a></h2>
+                                                <span>
+                                                    @include('userDashboard.products.review.ratingProduct',['rate'=>calcReview($product)])
+                                                    <span>تخفيض %{{ $product->offer }}</span>
+                                                </span>
+                                                <div class="product-price">
+                                                    <span>${{ $product->price_after_offer ?? $product->price }}</span>
+                                                    @if($product->offer)
+                                                        <span class="old-price">${{ $product->price }}</span>
+                                                    @endif
+                                                </div>
+                                                <div class="product-action-1 show">
+                                                    <a aria-label="تسوق الآن" class="action-btn hover-up"
+                                                       href="{{route('products.show', $product->id)}}"><i
+                                                            class="fi-rs-shopping-bag-add"></i></a>
                                                 </div>
                                             </div>
                                         </div>
-                                    @endforeach
+                                    </div>
+                                @endforeach
                                 <!--End product-grid-4-->
                             </div>
                         </div>
@@ -65,11 +71,12 @@
                     </div>
                     <div class="col-lg-3 primary-sidebar sticky-sidebar">
                         <div class="widget-category mb-30" style="direction: rtl; text-align: right;">
-                            <h5 >الأقسام</h5>
+                            <h5>الأقسام</h5>
                             <hr>
                             <ul class="categories">
                                 @foreach($categories as $category)
-                                    <li><a href="{{route('category.products', $category->id)}}">{{$category->name}}</a></li>
+                                    <li><a href="{{route('category.products', $category->id)}}">{{$category->name}}</a>
+                                    </li>
                                 @endforeach
                             </ul>
                         </div>
@@ -81,10 +88,10 @@
             </div>
         </section>
     </main>
-    @endsection
+@endsection
 
 
-    @section('js')
+@section('js')
 
-    @endsection
+@endsection
 
