@@ -82,7 +82,7 @@
                                         @endforeach
                                     </ul>
                                 </li>
-                                <li><a href="{{url('contact-us')}}"><i class="fas fa-comments"></i> تواصل معنا</a></li>
+                                <li><a href="{{url('contact-us/index')}}"><i class="fas fa-comments"></i> تواصل معنا</a></li>
                                 @auth
 
                                 <li><a href="#"><i class="fas fa-user fa-lg"></i> حسابي <i class="fi-rs-angle-down"></i></a>

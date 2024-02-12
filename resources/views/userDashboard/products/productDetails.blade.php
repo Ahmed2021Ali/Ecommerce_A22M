@@ -361,49 +361,7 @@
                                 @endforeach
                             </ul>
                         </div>
-
-
-                        <!-- Price Range Filter -->
-                        <form method="GET" action="{{ route('search.filter') }}" enctype="multipart/form-data">
-                            @csrf
-                            <div class="sidebar-widget price_range range mb-30" style="direction: rtl; text-align: right;">
-                                <!-- Price Range Header -->
-                                <div class="widget-header position-relative mb-20 pb-10">
-                                    <h5 class="widget-title mb-10">ملء حسب السعر</h5>
-                                    <div class="bt-1 border-color-1"></div>
-                                </div>
-                                <!-- Price Slider and Input -->
-                                <div class="price-filter">
-                                    <div class="price-filter-inner">
-                                        <div id="slider-range"></div>
-                                        <div class="price_slider_amount">
-                                            <div class="label-input">
-                                                <span>يتراوح</span><input type="text" id="amount" name="price" placeholder="Add Your Price">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Color Filter -->
-                                <br>
-                                <strong class="mr-10">اللون &nbsp;&nbsp;</strong>
-                                <br>
-                                <br>
-                                <div class="attr-detail attr-color mb-15" style="display: flex; margin-top: 2px; direction: rtl; text-align: right;">
-                                    <ul class="list-filter color-filter">
-                                        <div class="colors">
-                                            @foreach (\App\Models\Color::all() as $color)
-                                                <span style="width: 30px; height: 30px;margin-bottom: 10px; border-radius: 50%; cursor: pointer; display: flex; margin-right: 6px; background-color:{{ $color->value }}"><li><input type="checkbox" name="color[]" value="{{ $color->value }}"></li></span>
-                                            @endforeach
-                                        </div>
-                                    </ul>
-                                </div>
-                                <!-- Filter Button -->
-                                <button type="submit" class="btn btn-sm btn-default">
-                                    <i class="fi-rs-filter mr-5"></i> ابحث
-                                </button>
-                            </div>
-                        </form>
-                    <!-- New Products Widget -->
+                        @include('userDashboard.layouts.rightSidebar')
                 </div>
                 <!-- End Sidebar -->
             </div>
