@@ -8,13 +8,6 @@
     .height-100{
         height:50vh;
     }
-
-    .card{
-        width:75px;
-        border:none;
-        height:150px;
-    }
-
     .ratings{
         margin-right:10px;
     }
