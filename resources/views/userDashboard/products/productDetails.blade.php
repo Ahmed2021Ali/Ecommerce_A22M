@@ -94,7 +94,7 @@
                                         <div class="product-image-slider">
                                             @foreach($product->getMedia('productFiles') as $media)
                                                 <figure class="border-radius-10">
-                                                    <img src="{{$product->getFirstMediaUrl('productFiles')}}"
+                                                    <img src="{{$media->getFullUrl()}}"
                                                          alt="product image">
                                                 </figure>
                                             @endforeach
