@@ -10,7 +10,7 @@
                                 <span class="main-title" style="font-size: 16px; color: #fff; font-weight: bold;">{{ $banner['main_title'] }}</span>
                                 <h4 class="small-title" style="font-size: 14px; color: #fff;">{{ $banner['small_title'] }}</h4>
                             </div>
-                            <a href="{{route('products.show', $banner->product->id)}}" class="btn-shop-now" style="display: block; margin-top: 8px; padding: 8px 16px; background-color: #fff; color: #F15412; text-decoration: none; border-radius: 5px; transition: background-color 0.3s;">
+                            <a href="{{route('products.show', encrypt($banner->product->id))}}" class="btn-shop-now" style="display: block; margin-top: 8px; padding: 8px 16px; background-color: #fff; color: #F15412; text-decoration: none; border-radius: 5px; transition: background-color 0.3s;">
                                 تسوق الآن<i class="fi-rs-arrow-right"></i>
                             </a>
                         </div>
