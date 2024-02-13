@@ -38,11 +38,8 @@
                                             </div>
                                             <h2><a href="">{{ $fav->product->description }}</a></h2>
                                             <span>
-                                                @if($fav->product->offer)
-                                                    <span>تخفيض %{{ $fav->product->offer }}</span>
-                                                @endif
+                                                <span>تخفيض %{{ $fav->product->offer }}</span>
                                             </span>
-                                            
                                             <div class="product-price">
                                                 <span>${{ $fav->product->price_after_offer ?? $fav->product->price }}</span>
                                                 @if ($fav->product->offer)
@@ -67,10 +64,25 @@
                         </div>
                     </div>
                     <div class="col-lg-3 primary-sidebar sticky-sidebar">
-                        
-                        <!-- Fillter By Price -->
-                        @include('userDashboard.layouts.rightSidebar')
+                        <div class="row">
+                            <div class="col-lg-12 col-mg-6"></div>
+                            <div class="col-lg-12 col-mg-6"></div>
+                        </div>
+                        <div class="widget-category mb-30" style="direction: rtl;">
+                            <h5 >الاقسام</h5>
+                            <hr>
+                            <ul class="categories">
+                                @foreach ($categories as $category)
+                                    <li><a href="{{route('category.products', $category->id)}}">{{ $category->name }}</a></li>
+                                @endforeach
+                            </ul>
+                            {{ $categories->links() }}
+                        </div>
+                         <!-- Fillter By Price -->
+                         @include('userDashboard.layouts.rightSidebar')
+
                         <!-- Product sidebar Widget -->
+
                     </div>
                 </div>
             </div>

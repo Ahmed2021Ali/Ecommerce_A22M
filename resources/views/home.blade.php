@@ -17,17 +17,17 @@
                 <ul class="nav nav-tabs" id="myTab" role="tablist" style="direction: rtl; text-align: right;">
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active" id="nav-tab-one" data-bs-toggle="tab" data-bs-target="#tab-one"
-                                type="button" role="tab" aria-controls="tab-one" aria-selected="true"> المنتجات المميزة
+                                type="button" role="tab" aria-controls="tab-one" aria-selected="true"> العناصر المميزة
                         </button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="nav-tab-two" data-bs-toggle="tab" data-bs-target="#tab-two"
-                                type="button" role="tab" aria-controls="tab-two" aria-selected="false">أشهر المنتجات
+                                type="button" role="tab" aria-controls="tab-two" aria-selected="false">العناصر المشهورة
                         </button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="nav-tab-three" data-bs-toggle="tab" data-bs-target="#tab-three"
-                                type="button" role="tab" aria-controls="tab-three" aria-selected="false">المنتجات الجديدة
+                                type="button" role="tab" aria-controls="tab-three" aria-selected="false">العناصر الجديدة
                         </button>
                     </li>
                 </ul>
@@ -73,11 +73,9 @@
                             <div class="product-content-wrap">
                                 <h2><a href="">{{ $product->name }}</a></h2>
                                 <span>
-                                    @include('userDashboard.products.review.ratingProduct', ['rate' => calcReview($product)])
-                                    @if($product->offer)
+                                        @include('userDashboard.products.review.ratingProduct',['rate'=>calcReview($product)])
                                         <span>تخفيض %{{ $product->offer }}</span>
-                                    @endif
-                                </span>                                
+                                    </span>
                                 <div class="product-price">
                                     <span>${{ $product->price_after_offer ?? $product->price }}</span>
                                     @if($product->offer)

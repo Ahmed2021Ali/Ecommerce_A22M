@@ -24,6 +24,7 @@
 <script src="{{ URL::asset('assets/js/shop.js?v=3.3') }}"></script>
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
     toastr.options = {
         "positionClass": "toast-top-right",
@@ -41,7 +42,7 @@
             },
             error: function (error) {
                 console.log(error.responseText);
-                toastr.error('عفوا حدث خطأ');
+                toastr.error('عفوا! يجب أن تسجل دخول أولا');
             }
         });
     }

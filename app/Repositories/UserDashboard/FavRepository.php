@@ -16,7 +16,7 @@ class FavRepository implements FavInterface
     {
         return view('userDashboard.fav.index', [
             'favs' => Auth::user()->favs(),'count' => Fav::where('user_id', Auth::user()->id)->count(),
-            'categories' => Category::latest()->take(20)->get(),'newProducts' => Product::latest()->take(3)->get()
+            'categories' => Category::paginate(10),'newProducts' => Product::latest()->take(3)->get()
         ]);
     }
 

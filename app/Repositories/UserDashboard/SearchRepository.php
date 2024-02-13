@@ -13,7 +13,7 @@ class SearchRepository implements SearchInterface
     {
         $query = Product::query();
 
-        $categories = Category::latest()->take(20)->get();
+        $categories = Category::all();
         $newProducts = Product::latest()->take(3)->get();
 
         $this->applyPriceFilter($query, $request->input('price'));
@@ -64,7 +64,7 @@ class SearchRepository implements SearchInterface
     
         if ($products->isNotEmpty()) {
             $newProducts = Product::latest()->take(3)->get();
-            $categories = Category::latest()->take(20)->get();
+            $categories = Category::all();
             return view('userDashboard.products.index', compact('products', 'categories', 'newProducts'));
         } else {
             toastr()->error('لا توجد منتجات بذا الأسم');

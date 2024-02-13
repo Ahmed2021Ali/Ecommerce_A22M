@@ -79,11 +79,7 @@
                                     <ul class="mega-menu">
                                         @foreach (App\Models\Category::all() as $category)
                                         <li class="sub-mega-menu sub-mega-menu-width-22">
-<<<<<<< HEAD
-                                            <a class="menu-title" href="{{route('category.show.products', $category->id)}}">{{ $category->name }}</a>
-=======
                                             <a class="menu-title" href="{{route('category.products', encrypt($category->id))}}">{{ $category->name }}</a>
->>>>>>> a5ed64cde35ccae1481c45b730bd2d546db57a2c
                                             <ul>
                                                 @foreach ($category->products() as $product)
                                                 <li><a href="{{route('products.show', encrypt($product->id))}}">{{ $product->name }}</a></li>
@@ -113,7 +109,6 @@
                                     @endif
 
                                     </a>
-                                    @auth
                                     <ul class="sub-menu">
                                         <li><a href="{{route('profile.index')}}"><i class="fas fa-cogs fa-lg"></i>&nbsp; اعدادات الحساب</a></li>
                                         <li><a href="#"><i class="fas fa-shopping-bag"></i>&nbsp; الطلبات</a></li>
@@ -127,8 +122,6 @@
                                             </form>
                                         </li>
                                     </ul>
-                                    @endauth
-
                                 </li>
 
                         </nav>

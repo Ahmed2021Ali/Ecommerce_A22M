@@ -38,11 +38,8 @@
                                                     </div>
                                                     <h2><a href="{{route('products.show', encrypt($product->id))}}">{{ $product->description }}</a></h2>
                                                     <span>
-                                                        @if($product->offer)
-                                                            <span>تخفيض %{{ $product->offer }}</span>
-                                                        @endif
+                                                        <span>تخفيض %{{ $product->offer }}</span>
                                                     </span>
-                                                    
                                                     <div class="product-price">
                                                         <span>${{ $product->price_after_offer ?? $product->price }}</span>
                                                         @if($product->offer)
@@ -67,8 +64,27 @@
                         </div>
                     </div>
                     <div class="col-lg-3 primary-sidebar sticky-sidebar">
+                        <div class="widget-category mb-30" style="direction: rtl; text-align: right;">
+                            <h5 >الأقسام</h5>
+                            <hr>
+                            <ul class="categories">
+                                @foreach($categories as $category)
+                                    <li><a href="{{route('category.products', $category->id)}}">{{$category->name}}</a></li>
+                                @endforeach
+                            </ul>
+                        </div>
                         <!-- Fillter By Price -->
+                        <form method="GET" action="{{ route('search.filter') }}" enctype="multipart/form-data">
+                            @csrf
+                            <div class="sidebar-widget price_range range mb-30" style="direction: rtl; text-align: right;">
+                                <!-- Price Range Header -->
+                                <div class="widget-header position-relative mb-20 pb-10">
+                                    <h5 class="widget-title mb-10">ملء حسب السعر</h5>
+                                    <div class="bt-1 border-color-1"></div>
+                                </div>
+                                <!-- Price Slider and Input -->
                                 @include('userDashboard.layouts.rightSidebar')
+
                         <!-- Product sidebar Widget -->
                     </div>
                 </div>
