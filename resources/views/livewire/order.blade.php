@@ -100,9 +100,10 @@
             </div>
 
             <div style="text-align:center">
-                <button type="submit" class="btn "><i class="fi-rs-box-alt mr-10"></i> تاكيد
-                    الطلب
-                </button>
+                <div wire:loading><h4>جاري حفظ الاردر - برجاء الانتظار بعض الثواني</h4></div>
+                <div wire:loading.remove>
+                    <button type="submit" class="btn "><i class="fi-rs-box-alt mr-10"></i> تاكيد الطلب</button>
+                </div>
             </div>
 
         </form>

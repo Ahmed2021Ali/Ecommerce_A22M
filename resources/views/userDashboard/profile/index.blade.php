@@ -200,9 +200,7 @@
                                                                     @if(auth()->user()->hasMedia('userImages'))
                                                                         <div class="product-img product-img-zoom mx-auto">
                                                                             <a href="#">
-                                                                                @foreach(auth()->user()->getMedia('userImages') as $media)
-                                                                                    <img src="{{ $media->getFullUrl() }}" width="475" height="250" style="border-radius: 18%;" alt="User Image">
-                                                                                @endforeach
+                                                                                    <img src="{{ auth()->user()->getFirstMediaUrl('userImages') }}" width="475" height="250" style="border-radius: 18%;" alt="User Image">
                                                                             </a>
                                                                         </div>
                                                     
@@ -213,7 +211,7 @@
                                                                             </a>
                                                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                                             <!-- View Form -->
-                                                                            <a href="{{ route('profile.view.image', Auth::id()) }}" class="d-inline action-link" aria-label="عرض" style="border: none; padding: 5; cursor: pointer; font-weight: bold; font-size: large;">
+                                                                            <a href="{{ auth()->user()->getFirstMediaUrl('userImages') }}" class="d-inline action-link" aria-label="عرض" style="border: none; padding: 5; cursor: pointer; font-weight: bold; font-size: large;">
                                                                                 <i class="fi-rs-eye"></i> عرض
                                                                             </a>
                                                                         </div>
