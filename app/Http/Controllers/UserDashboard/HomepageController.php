@@ -23,6 +23,8 @@ class HomepageController extends Controller
         $newArrivalProducts = Product::latest()->take(6)->get();
         $newAddedProducts = Product::latest()->take(12)->get();
         $featuredProducts = Product::paginate(12);
+        $bestsellersProduct = Product::where('status',1)->where('stock', '!=', null)->orderBy('stock','asc')->paginate(12);
+
         $banners = Banner::get();
         return view('home', 
         compact(
@@ -34,7 +36,8 @@ class HomepageController extends Controller
         'brands', 
         'newAddedProducts',
         'featuredProducts',
-        'banners'
+        'banners',
+        'bestsellersProduct',
         
     ));
     }

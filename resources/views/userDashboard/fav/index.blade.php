@@ -68,16 +68,6 @@
                             <div class="col-lg-12 col-mg-6"></div>
                             <div class="col-lg-12 col-mg-6"></div>
                         </div>
-                        <div class="widget-category mb-30" style="direction: rtl;">
-                            <h5 >الاقسام</h5>
-                            <hr>
-                            <ul class="categories">
-                                @foreach ($categories as $category)
-                                    <li><a href="{{route('category.products', $category->id)}}">{{ $category->name }}</a></li>
-                                @endforeach
-                            </ul>
-                            {{ $categories->links() }}
-                        </div>
                          <!-- Fillter By Price -->
                          @include('userDashboard.layouts.rightSidebar')
 

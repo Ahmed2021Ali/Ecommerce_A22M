@@ -31,7 +31,7 @@ class ProductController extends Controller
 
     public function productsOfCategory($categoryId)
     {
-        return $this->product->productsOfCategory(decrypt($categoryId));
+        return $this->product->productsOfCategory(decrypt($categoryId));        
     }
 
 

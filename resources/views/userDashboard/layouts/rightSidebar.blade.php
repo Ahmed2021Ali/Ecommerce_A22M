@@ -1,3 +1,17 @@
+<div class="widget-category mb-30" style="direction: rtl; text-align: right;">
+    <h5>الأقسام</h5>
+    <hr>
+    <ul class="categories">
+        @foreach($categories as $category)
+            <li>
+                <a href="{{ route('category.products', encrypt($category->id)) }}">
+                    {{ $category->name }}
+                </a>
+            </li>
+        @endforeach
+    </ul>
+</div>
+
 <form method="GET" action="{{ route('search.filter') }}" enctype="multipart/form-data">
     @csrf
     <div class="sidebar-widget price_range range mb-30" style="direction: rtl; text-align: right;">
@@ -42,7 +56,7 @@
 </form>
 
 <div class="sidebar-widget product-sidebar  mb-30 p-30 bg-grey border-radius-10"
-     style="direction: rtl; text-align: right;">
+    style="direction: rtl; text-align: right;">
     <div class="widget-header position-relative mb-20 pb-10" style="direction: rtl; text-align: right;">
         <h5 class="widget-title mb-10">المنتجات الجديدة</h5>
         <div class="bt-1 border-color-1"></div>

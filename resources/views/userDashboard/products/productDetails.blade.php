@@ -288,17 +288,6 @@
                     <!-- Sidebar -->
                     <div class="col-lg-3 primary-sidebar sticky-sidebar">
                         <!-- Categories -->
-                        <div class="widget-category mb-30" style="direction: rtl; text-align: right;">
-                            <h5>الأقسام</h5>
-                            <hr>
-                            <ul class="categories">
-                                @foreach($categories as $category)
-                                    <li><a href="{{route('category.products', $category->id)}}">{{$category->name}}</a>
-                                    </li>
-                                @endforeach
-                            </ul>
-                            {{ $categories->links() }}
-                        </div>
                         @include('userDashboard.layouts.rightSidebar')
                     </div>
                     <!-- End Sidebar -->
