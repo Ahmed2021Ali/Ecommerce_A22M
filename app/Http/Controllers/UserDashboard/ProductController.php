@@ -23,11 +23,9 @@ class ProductController extends Controller
         return $this->product->index();
     }
 
-
-
     public function show($id)
     {
-        return $this->product->show(decrypt($id));
+        return $this->product->show(Product::find(decrypt($id)));
     }
 
 

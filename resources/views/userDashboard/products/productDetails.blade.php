@@ -170,7 +170,8 @@
                                                      style="display: flex; margin-top: 2px; direction: rtl; text-align: right;">
                                                     <strong class="mr-10">اللون &nbsp;&nbsp;</strong>
                                                     <ul class="list-filter color-filter">
-                                                        <li><a href="#"><span class="product-color-teal" style="width: 30px; height: 30px; border-radius: 50%; cursor: pointer; display: flex; margin-right: 6px;"></span></a>
+                                                        <li><a href="#"><span class="product-color-teal"
+                                                                              style="width: 30px; height: 30px; border-radius: 50%; cursor: pointer; display: flex; margin-right: 6px;"></span></a>
                                                         </li>
                                                         <div class="colors">
                                                             @foreach (explode(',', $product->color) as $color)
@@ -236,7 +237,7 @@
                                 <hr>
                                 <div class="col-12">
                                     <div class="row related-products">
-                                        @foreach($relatedProducts as $relatedProduct)
+                                        @foreach($product->category->products() as $relatedProduct)
                                             <div class="col-lg-3 col-md-4 col-12 col-sm-6">
                                                 <div class="product-cart-wrap small hover-up">
                                                     <div class="product-img-action-wrap">
@@ -263,7 +264,8 @@
                                                         </div>
                                                     </div>
                                                     <div class="product-content-wrap">
-                                                        <h2><a href="{{route('products.show', encrypt($relatedProduct->id))}}"
+                                                        <h2>
+                                                            <a href="{{route('products.show', encrypt($relatedProduct->id))}}"
                                                                tabindex="0">{{$relatedProduct->name}}</a></h2>
                                                         @include('userDashboard.products.review.ratingProduct',['rate'=>calcReview($relatedProduct)])
                                                         <div class="product-price">
@@ -274,11 +276,13 @@
                                                 </div>
                                             </div>
                                         @endforeach
+                                            <br>
+
                                     </div>
                                 </div>
+                                {{ $product->category->products() }}
                             </div>
                             <!-- End Related Products -->
-
                         </div>
                     </div>
                     <!-- Sidebar -->
@@ -293,6 +297,7 @@
                                     </li>
                                 @endforeach
                             </ul>
+                            {{ $categories->links() }}
                         </div>
                         @include('userDashboard.layouts.rightSidebar')
                     </div>

@@ -6,7 +6,7 @@ interface ProductInterface {
 
     public function index();
 
-    public function show($id);
+    public function show($product);
 
     public function productsOfCategory($categoryId);
 

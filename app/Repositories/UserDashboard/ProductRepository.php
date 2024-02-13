@@ -19,17 +19,15 @@ class ProductRepository implements ProductInterface
     }
 
 
-    public function show($id)
+    public function show($product)
     {
-        $product=Product::find($id);
-        $categories = Category::all();
+/*        $categories = Category::all();
         $currentCategoryId = $product->category_id;
-
         $newProducts = Product::latest()->take(3)->get();
-
         $relatedProducts = Product::where('category_id', $currentCategoryId)->where('id', '!=', $product->id)->get();
-
-        return view('userDashboard.products.productDetails', compact('product', 'categories', 'newProducts', 'relatedProducts'));
+        return view('userDashboard.products.productDetails', compact('product', 'categories', 'newProducts', 'relatedProducts'));*/
+        return view('userDashboard.products.productDetails', ['product'=>$product,
+            'categories'=>Category::paginate(8), 'newProducts'=>Product::latest()->take(3)->get()]);
     }
 
 
