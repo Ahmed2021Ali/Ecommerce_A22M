@@ -14,19 +14,14 @@ class ProductRepository implements ProductInterface
     {
         $products = Product::paginate(9);
         $newProducts = Product::latest()->take(3)->get();
-        $categories = Category::latest()->take(20)->get();
+        $categories = Category::all();
         return view('userDashboard.products.index', compact('products', 'categories', 'newProducts'));
     }
 
 
     public function show($product)
     {
-<<<<<<< HEAD
-        $categories = Category::latest()->take(20)->get();
-
-=======
 /*        $categories = Category::all();
->>>>>>> a5ed64cde35ccae1481c45b730bd2d546db57a2c
         $currentCategoryId = $product->category_id;
         $newProducts = Product::latest()->take(3)->get();
         $relatedProducts = Product::where('category_id', $currentCategoryId)->where('id', '!=', $product->id)->get();
@@ -40,13 +35,7 @@ class ProductRepository implements ProductInterface
     {
         $categoryId=Category::find($categoryId)->id;
         $products = Product::where('category_id', $categoryId)->paginate(9);
-<<<<<<< HEAD
-
-        $categories = Category::latest()->take(20)->get();
-
-=======
         $categories = Category::all();
->>>>>>> a5ed64cde35ccae1481c45b730bd2d546db57a2c
         $newProducts = Product::latest()->take(3)->get();
         $relatedProducts = Product::where('category_id', $categoryId)->get();
         $categoryName = Category::where('id', $categoryId)->select('id', 'name')->first();

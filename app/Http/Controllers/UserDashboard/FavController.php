@@ -11,7 +11,6 @@ class FavController extends Controller
 {
 
     protected $fav;
-    
     public function __construct(FavInterface $fav)
     {
         $this->fav = $fav;

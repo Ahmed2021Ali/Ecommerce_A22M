@@ -146,12 +146,8 @@
                                                 </ins>
                                                 <ins><span class="old-price font-md ml-15">{{$product->price}}</span>
                                                 </ins>
-                                                <span class="save-price font-md color3 ml-15">
-                                                    @if($product->offer)
-                                                        تخفيض %{{ $product->offer }}
-                                                    @endif
-                                                </span>
-                                                
+                                                <span
+                                                    class="save-price  font-md color3 ml-15">تخفيض %{{ $product->offer }}</span>
                                             </div>
                                         </div>
                                         <div class="bt-1 border-color-1 mt-15 mb-15"></div>
@@ -291,8 +287,6 @@
                     </div>
                     <!-- Sidebar -->
                     <div class="col-lg-3 primary-sidebar sticky-sidebar">
-<<<<<<< HEAD
-=======
                         <!-- Categories -->
                         <div class="widget-category mb-30" style="direction: rtl; text-align: right;">
                             <h5>الأقسام</h5>
@@ -305,7 +299,6 @@
                             </ul>
                             {{ $categories->links() }}
                         </div>
->>>>>>> a5ed64cde35ccae1481c45b730bd2d546db57a2c
                         @include('userDashboard.layouts.rightSidebar')
                     </div>
                     <!-- End Sidebar -->
