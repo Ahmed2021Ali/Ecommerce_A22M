@@ -87,6 +87,7 @@
                                                         <th>الحالة</th>
                                                         <th>الإجمالي</th>
                                                         <th>الإجراءات</th>
+                                                        <th>الغاء الاردر</th>
                                                     </tr>
                                                     </thead>
                                                     <tbody>
@@ -100,7 +101,16 @@
                                                             </td>
                                                             <td><a href="{{route('order.show',$order->order_number)}}"
                                                                    class="btn-small d-block">عرض</a></td>
+                                                            <td>
+                                                                <form action="{{ route('order.destroy', $order) }}" method="post">
+                                                                    @method('delete')
+                                                                    @csrf
+                                                                    <button type="submit" class="btn btn-danger">حذف</button>
+                                                                </form>
+                                                            </td>
                                                         </tr>
+
+
                                                     @endforeach
                                                     </tbody>
                                                 </table>
