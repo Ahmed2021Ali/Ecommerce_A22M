@@ -4,18 +4,21 @@ namespace App\Http\Requests\cart;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CartUpdateRequest extends FormRequest
+class CartRequest extends FormRequest
 {
-    public function authorize(): bool
+
+    public function authorize() : bool
     {
         return true;
     }
 
+
     public function rules(): array
     {
         return [
-            'quantity'=>['nullable','numeric'],
-            'moreColor'=>['nullable','string'],
+            'quantity'=>['required'],
+            'color'=>['nullable'],
+            'size'=>['nullable'],
         ];
     }
 }

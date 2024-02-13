@@ -3,8 +3,6 @@
 namespace App\Http\Controllers\UserDashboard;
 
 use App\Http\Controllers\Controller;
-use App\Models\Address;
-use App\Models\Order;
 use App\Models\OrderDetails;
 use App\Models\Product;
 use App\Repositories\Interfaces\UserDashboard\OrderInterface;

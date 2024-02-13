@@ -10,23 +10,23 @@ use Illuminate\Support\Facades\Validator;
 class SearchRepository implements SearchInterface
 {
         public function filter($request)
-    {
-        $query = Product::query();
+        {
+            $query = Product::query();
 
-        $categories = Category::all();
-        $newProducts = Product::latest()->take(3)->get();
+            $categories = Category::all();
+            $newProducts = Product::latest()->take(3)->get();
 
-        $this->applyPriceFilter($query, $request->input('price'));
-        $this->applyColorFilter($query, $request->input('color'));
+            $this->applyPriceFilter($query, $request->input('price'));
+            $this->applyColorFilter($query, $request->input('color'));
 
-        $products = $query->paginate(9);
+            $products = $query->paginate(9);
 
-        if ($products->isEmpty()) {
-            toastr()->error('عفوا! لا يوجد منتجات بالمواصفات المحددة');
-            return back();
-        }
+            if ($products->isEmpty()) {
+                toastr()->error('عفوا! لا يوجد منتجات بالمواصفات المحددة');
+                return back();
+            }
 
-        return view('userDashboard.products.index', compact('products', 'categories', 'newProducts'));
+            return view('userDashboard.products.index', compact('products', 'categories', 'newProducts'));
     }
 
     protected function applyPriceFilter($query, $price)
@@ -84,7 +84,7 @@ class SearchRepository implements SearchInterface
     
     protected function executeSearch($search)
     {
-        return Product::select('id', 'name', 'price', 'price_after_offer')
+        return Product::select('id', 'name', 'price', 'price_after_offer', 'description', 'offer')
             ->where(function ($q) use ($search) {
                 $q->where('name', 'like', "%$search%")
                     ->orWhere('description', 'like', "%$search%");

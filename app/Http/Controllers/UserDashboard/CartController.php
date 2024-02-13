@@ -3,12 +3,11 @@
 namespace App\Http\Controllers\UserDashboard;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\cart\CartStoreRequest;
+use App\Http\Requests\cart\CartRequest;
 use App\Models\Cart;
 use App\Models\Product;
 use App\Repositories\Interfaces\UserDashboard\CartInterface;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+
 
 class CartController extends Controller
 {
@@ -26,12 +25,12 @@ class CartController extends Controller
         return $this->cart->index();
     }
 
-    public function store(CartStoreRequest $request ,Product $product)
+    public function store(CartRequest $request ,Product $product)
     {
-       return $this->cart->store($request->validated(),$product);
+        return $this->cart->store($request->validated(),$product);
     }
 
-    public function update(CartStoreRequest $request,Cart $cart)
+    public function update(CartRequest $request,Cart $cart)
     {
         return $this->cart->update($request->validated(),$cart);
     }

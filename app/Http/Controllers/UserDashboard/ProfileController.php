@@ -4,12 +4,9 @@ namespace App\Http\Controllers\UserDashboard;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Profile\ProfileRequest;
-use App\Models\User;
 use App\Repositories\Interfaces\UserDashboard\ProfileInterace;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {
@@ -61,15 +58,11 @@ class ProfileController extends Controller
 
     public function deleteUserImage()
     {
-        // Get the authenticated user
         $media = Auth::user()->getMedia('userImages');
-        // Check if the user has an image
         if ($media) {
-            // Delete the user's image (assuming the user has only one image)
             $media->delete();
             return redirect()->back()->success('تم حذف الصورة الشخصية بنجاح');
         } else {
-            // Handle the case where the user has no image
             return redirect()->back()->with('error', 'No image to delete');
         }
     }

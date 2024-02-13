@@ -2,9 +2,7 @@
 
 namespace App\Repositories\UserDashboard;
 
-use App\Models\Address;
 use App\Models\Cart;
-use App\Models\Color;
 use App\Repositories\Interfaces\UserDashboard\CartInterface;
 use Illuminate\Support\Facades\Auth;
 
@@ -47,6 +45,8 @@ class CartRepository implements CartInterface
         }
     }
 
+
+
     public function update($request, $cart)
     {
         if ($request['quantity'] > $cart->product->quantity) {
@@ -58,6 +58,8 @@ class CartRepository implements CartInterface
         }
     }
 
+
+    
     public function destroy($cart)
     {
         $cart->delete();

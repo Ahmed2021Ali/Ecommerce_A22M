@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\review\ReviewStoreRequest;
 use App\Models\Product;
 use App\Models\Review;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class ReviewController extends Controller
@@ -20,8 +19,9 @@ class ReviewController extends Controller
 
     public function edit($id)
     {
-        return view('userDashboard.products.review.edit',['review'=>Review::find(decrypt($id))]);
+        return view('userDashboard.products.review.edit',['review' => Review::find(decrypt($id))]);
     }
+
 
     public function update(ReviewStoreRequest $request, Review $review)
     {
@@ -29,6 +29,7 @@ class ReviewController extends Controller
         return to_route('products.show',$review->product_id)->with('success','تم تعديل تقسمك للمنتج بنجاح');
     }
 
+    
     public function destroy(Review $review)
     {
         $review->delete();
