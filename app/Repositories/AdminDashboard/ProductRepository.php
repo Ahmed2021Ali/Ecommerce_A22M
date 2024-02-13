@@ -55,10 +55,10 @@ class ProductRepository implements ProductInterface
         return redirect()->back()->with(['success' => 'تم بنجاح تحديث المنتج ']);
     }
 
-    /*    public function show(Product $product)
-        {
-            return view('admin.products.show', ['opinions' => $product->opinions]);
-        }*/
+    public function show($product)
+    {
+        return view('adminDashboard.products.show', ['reviews' => $product->reviews()]);
+    }
 
     public function destroy($product)
     {

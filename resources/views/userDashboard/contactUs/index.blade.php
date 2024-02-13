@@ -21,8 +21,46 @@
                             <div class="col-lg-6 col-md-6">
                                 <div class="input-style mb-20">
                                     <input name="name" placeholder="الأسم" type="text">
+                                    @error('name')
+                                    <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                                    @enderror
                                 </div>
                             </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="input-style mb-20">
+                                    <input name="email" placeholder="البريد الألكتروني" type="email">
+                                    @error('email')
+                                    <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="input-style mb-20">
+                                    <input name="phone" placeholder="رقم الهاتف" type="tel" style="direction: rtl; ">
+                                    @error('phone')
+                                    <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="input-style mb-20">
+                                    <input name="subject" placeholder="الموضوع" type="text">
+                                    @error('subject')
+                                    <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12">
+                                <div class="textarea-style mb-30">
+                                    <textarea name="message" placeholder="الرسالة"></textarea>
+                                    @error('message')
+                                    <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <button class="submit submit-auto-width" type="submit">إرسال الرسالة</button>
+                            </div>
+                        </div>
                         </form>
                         <p class="form-messege"></p>
                     </div>

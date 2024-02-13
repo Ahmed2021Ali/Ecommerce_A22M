@@ -18,8 +18,7 @@
                                 <ul class="nav flex-column" role="tablist">
                                     <li class="nav-item">
                                         <a class="nav-link active" id="dashboard-tab" data-bs-toggle="tab" href="#dashboard"
-                                            role="tab" aria-controls="dashboard" aria-selected="false"><i
-                                                class="fi-rs-settings-sliders mr-10"></i> لوحة التحكم</a>
+                                            role="tab" aria-controls="dashboard" aria-selected="false"><i class="fi-rs-settings-sliders mr-10"></i> لوحة التحكم</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" id="orders-tab" data-bs-toggle="tab" href="#orders"
@@ -110,8 +109,45 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="tab-pane fade" id="ordersCancelled" role="tabpanel" aria-labelledby="ordersCancelled-tab">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h5 class="mb-0"> الطلبات تم الغائها</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                <table class="table">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>الطلب</th>
+                                                        <th>التاريخ</th>
+                                                        <th>الحالة</th>
+                                                        <th>الإجمالي</th>
+                                                        <th>الإجراءات</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    @foreach(auth::user()->ordersOnlyTrashed() as $order)
+                                                        <tr>
+                                                            <td>#{{$order->order_number}}</td>
+                                                            <td>{{$order->created_at->toformatteddatestring()}}</td>
+                                                            <td>تم الغاء الطلبية </td>
+                                                            <td>{{$order->total}} جينية لـ {{$order->number_of_product}}
+                                                                منتج
+                                                            </td>
+                                                            <td><a href="{{route('order.show',$order->order_number)}}"
+                                                                   class="btn-small d-block">عرض</a></td>
+                                                        </tr>
+                                                    @endforeach
+                                                    </tbody>
+                                                </table>
+                                                {{ auth::user()->ordersOnlyTrashed()->links() }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
-                                 <div class="tab-pane fade" id="track-orders" role="tabpanel" aria-labelledby="track-orders-tab">
+                                <div class="tab-pane fade" id="track-orders" role="tabpanel" aria-labelledby="track-orders-tab">
                                     <div class="card">
                                         <div class="card-header">
                                             <h5 class="mb-0">تتبع الطلبات</h5>
@@ -203,7 +239,7 @@
                                                                                     <img src="{{ auth()->user()->getFirstMediaUrl('userImages') }}" width="475" height="250" style="border-radius: 18%;" alt="User Image">
                                                                             </a>
                                                                         </div>
-                                                    
+
                                                                         <div class="product-action-icons text-center" style="margin-top: 7px">
                                                                             <!-- Delete Link -->
                                                                             <a href="{{ route('profile.delete.userImage') }}" class="action-link" aria-label="حذف" onclick="return confirm('هل انت متأكد من حذف الصورة الشخصية؟')" style="font-weight: bold; font-size: large;">
@@ -220,7 +256,7 @@
                                                                             لا توجد صورة حاليا
                                                                         </div>
                                                                     @endif
-                                                    
+
                                                                     <div class="product-content-wrap text-center">
                                                                         <div class="product-category">
                                                                             <a href="#">{{ auth()->user()->name }}</a>
@@ -230,18 +266,16 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    
+
                                                         <div class="custom-file">
                                                             <label class="custom-file-label" for="customfile">اختر صورة</label>
                                                             <input type="file" class="custom-file-input" id="customfile" name="files[]">
                                                         </div>
-                                                    
+
                                                         @error('files')
                                                             <span class="text-danger">{{ $message }}</span>
                                                         @enderror
                                                     </div>
-                                                    
-
 
                                                     <div class="form-group col-md-12">
                                                         <label>الأسم <span class="required">*</span></label>

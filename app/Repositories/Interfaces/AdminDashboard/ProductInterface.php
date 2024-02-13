@@ -9,6 +9,8 @@ interface ProductInterface {
     public function create();
 
     public function store($request);
+    public function show($product);
+
 
     public function edit($product);
 

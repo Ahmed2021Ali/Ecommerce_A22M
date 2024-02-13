@@ -32,6 +32,10 @@ class ProductController extends Controller
     {
         return $this->product->store($request->validated());
     }
+    public function show(product $product)
+    {
+        return $this->product->show($product);
+    }
 
     public function edit(product $product)
     {
