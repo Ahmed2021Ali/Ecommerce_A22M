@@ -194,16 +194,16 @@
                                                     <!-- User Image Display -->
                                                     <label>الصورة الشخصية</label>
                                                     <div class="form-group col-lg-14">
-                                                        <div class="col-lg-6 col-md-6 col-xs-9 col-9">
+                                                        <div class="col-lg-6 col-md-6 col-xs-9 col-9 d-flex justify-content-center">
                                                             <div class="product-cart-wrap mb-40">
                                                                 <div class="product-img-action-wrap">
                                                                     @if(auth()->user()->hasMedia('userImages'))
-                                                                        <div class="product-img product-img-zoom">
+                                                                        <div class="product-img product-img-zoom mx-auto">
                                                                             <a href="#">
                                                                                     <img src="{{ auth()->user()->getFirstMediaUrl('userImages') }}" width="475" height="250" style="border-radius: 18%;" alt="User Image">
                                                                             </a>
                                                                         </div>
-
+                                                    
                                                                         <div class="product-action-icons text-center" style="margin-top: 7px">
                                                                             <!-- Delete Link -->
                                                                             <a href="{{ route('profile.delete.userImage') }}" class="action-link" aria-label="حذف" onclick="return confirm('هل انت متأكد من حذف الصورة الشخصية؟')" style="font-weight: bold; font-size: large;">
@@ -220,7 +220,7 @@
                                                                             لا توجد صورة حاليا
                                                                         </div>
                                                                     @endif
-
+                                                    
                                                                     <div class="product-content-wrap text-center">
                                                                         <div class="product-category">
                                                                             <a href="#">{{ auth()->user()->name }}</a>
@@ -230,16 +230,17 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-
+                                                    
                                                         <div class="custom-file">
                                                             <label class="custom-file-label" for="customfile">اختر صورة</label>
                                                             <input type="file" class="custom-file-input" id="customfile" name="files[]">
                                                         </div>
-
+                                                    
                                                         @error('files')
                                                             <span class="text-danger">{{ $message }}</span>
                                                         @enderror
                                                     </div>
+                                                    
 
 
                                                     <div class="form-group col-md-12">

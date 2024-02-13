@@ -19,7 +19,8 @@
 .fa-lg {
   font-size: 1.33333em;
   line-height: 0.75em;
-  vertical-align: -.0667em; }
+  vertical-align: -.0667em;
+  padding: 13px 11px 11px 18px; }
 
 .fa-xs {
   font-size: .75em; }
