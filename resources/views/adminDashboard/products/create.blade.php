@@ -23,7 +23,7 @@
                 <div class="col-4">
                     <label for="Quantity">الكمية المتوفر لديك</label>
                     <input type="number" name="quantity" id="quantity" class="form-control" placeholder=""
-                           aria-describedby="helpId" value="{{ old('quantity') }}" multiple>
+                           aria-describedby="helpId" value="{{ old('quantity') }}" >
                     @error('quantity')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
@@ -35,7 +35,7 @@
                             <option value="{{$color->value}}">{{$color->name}}</option>
                         @endforeach
                     </select>
-                    @error('moreColor')
+                    @error('color')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
@@ -67,9 +67,6 @@
                     <label for="offer">الخصم كام في المية </label>
                     <input type="number" name="offer" id="offer" class="form-control" placeholder="%"
                            aria-describedby="helpId" value="{{ old('offer') }}">
-                    @error('offer')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
                 </div>
             </div>
             <div class="form-row">
