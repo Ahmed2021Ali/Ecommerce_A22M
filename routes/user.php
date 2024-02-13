@@ -15,7 +15,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomepageController::class, 'index'])->name('home');
 
+
+/*  route of Product */
 Route::resource('products', ProductController::class);
+Route::get('/category/products/{category_id}', [ProductController::class, 'productsOfCategory'])->name('category.products');
+/*  End Route of Product */
+
 
 Route::resource('address', AddressController::class);
 
@@ -51,11 +56,10 @@ Route::controller(ContactUsController::class)->prefix('contact-us')->as('contact
 Route::controller(ProfileController::class)->prefix('profile')->as('profile.')->group(function () {
     Route::get('/', 'index')->name('index');
     Route::post('/update', 'update')->name('update');
-    Route::get( '/delete-user-image', 'deleteUserImage')->name('delete.userImage');
+    Route::get('/delete-user-image', 'deleteUserImage')->name('delete.userImage');
     Route::get('/view-image/{id}', 'viewImage')->name('view.image');
 });
 
-Route::get('/category/products/{category_id}', [ProductController::class, 'productsOfCategory'])->name('category.products');
 
 Route::controller(ReviewController::class)->prefix('review')->as('review.')->group(function () {
     Route::post('/store/{product}', 'store')->name('store');
