@@ -17,37 +17,43 @@
                             <div class="dashboard-menu">
                                 <ul class="nav flex-column" role="tablist">
                                     <li class="nav-item">
-                                        <a class="nav-link active" id="dashboard-tab" data-bs-toggle="tab" href="#dashboard"
-                                            role="tab" aria-controls="dashboard" aria-selected="false"><i class="fi-rs-settings-sliders mr-10"></i> لوحة التحكم</a>
+                                        <a class="nav-link active" id="dashboard-tab" data-bs-toggle="tab"
+                                           href="#dashboard"
+                                           role="tab" aria-controls="dashboard" aria-selected="false"><i
+                                                class="fi-rs-settings-sliders mr-10"></i> لوحة التحكم</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" id="orders-tab" data-bs-toggle="tab" href="#orders"
-                                            role="tab" aria-controls="orders" aria-selected="false"><i
+                                           role="tab" aria-controls="orders" aria-selected="false"><i
                                                 class="fi-rs-shopping-bag mr-10"></i> الطلبات</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" id="ordersCancelled-tab" data-bs-toggle="tab" href="#ordersCancelled"
+                                        <a class="nav-link" id="ordersCancelled-tab" data-bs-toggle="tab"
+                                           href="#ordersCancelled"
                                            role="tab" aria-controls="orders" aria-selected="false"><i
                                                 class="fi-rs-shopping-bag mr-10"></i> الطلبات تم الغائها</a>
                                     </li>
-                                     <li class="nav-item">
-                                        <a class="nav-link" id="track-orders-tab" data-bs-toggle="tab" href="#track-orders" role="tab" aria-controls="track-orders" aria-selected="false"><i class="fi-rs-shopping-cart-check mr-10"></i> تتبع طلبك</a>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="track-orders-tab" data-bs-toggle="tab"
+                                           href="#track-orders" role="tab" aria-controls="track-orders"
+                                           aria-selected="false"><i class="fi-rs-shopping-cart-check mr-10"></i> تتبع
+                                            طلبك</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" id="address-tab" data-bs-toggle="tab" href="#address"
-                                            role="tab" aria-controls="address" aria-selected="true"><i
+                                           role="tab" aria-controls="address" aria-selected="true"><i
                                                 class="fi-rs-marker mr-10"></i> عنواني</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" id="account-detail-tab" data-bs-toggle="tab"
-                                            href="#account-detail" role="tab" aria-controls="account-detail"
-                                            aria-selected="true"><i class="fi-rs-user mr-10"></i> تفاصيل الحساب</a>
+                                           href="#account-detail" role="tab" aria-controls="account-detail"
+                                           aria-selected="true"><i class="fi-rs-user mr-10"></i> تفاصيل الحساب</a>
                                     </li>
                                     <li class="nav-item">
                                         <form action="{{ route('logout') }}" method="POST">
                                             @csrf
                                             <button type="submit"
-                                                style=" align-items: center;  border: none; background-color: white;
+                                                    style=" align-items: center;  border: none; background-color: white;
                                                 color: black; cursor: pointer; padding: 15px; font-size: 16px; margin-right: 33px;">
                                                 <i class="fas fa-sign-out-alt fa-lg"></i> تسجيل خروج
                                             </button>
@@ -59,15 +65,15 @@
                         <div class="col-md-8">
                             <div class="tab-content dashboard-content">
                                 <div class="tab-pane fade active show" id="dashboard" role="tabpanel"
-                                    aria-labelledby="dashboard-tab">
+                                     aria-labelledby="dashboard-tab">
                                     <div class="card">
                                         <div class="card-header">
                                             <h5 class="mb-0">مرحبًا {{ Auth::user()->name }}!</h5>
                                         </div>
                                         <div class="card-body">
                                             <p>من لوحة التحكم الخاصة بك، يمكنك بسهولة التحقق وعرض الطلبات
-                                                    الأخيرة الخاصة بك و تعديل
-                                                    كلمة المرور وتفاصيل الحساب.
+                                                الأخيرة الخاصة بك و تعديل
+                                                كلمة المرور وتفاصيل الحساب.
                                             </p>
                                         </div>
                                     </div>
@@ -102,10 +108,12 @@
                                                             <td><a href="{{route('order.show',$order->order_number)}}"
                                                                    class="btn-small d-block">عرض</a></td>
                                                             <td>
-                                                                <form action="{{ route('order.destroy', $order) }}" method="post">
+                                                                <form action="{{ route('order.destroy', $order) }}"
+                                                                      method="post">
                                                                     @method('delete')
                                                                     @csrf
-                                                                    <button type="submit" class="btn btn-danger">حذف</button>
+                                                                    <button type="submit" class="btn btn-danger">حذف
+                                                                    </button>
                                                                 </form>
                                                             </td>
                                                         </tr>
@@ -117,7 +125,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tab-pane fade" id="ordersCancelled" role="tabpanel" aria-labelledby="ordersCancelled-tab">
+                                <div class="tab-pane fade" id="ordersCancelled" role="tabpanel"
+                                     aria-labelledby="ordersCancelled-tab">
                                     <div class="card">
                                         <div class="card-header">
                                             <h5 class="mb-0"> الطلبات تم الغائها</h5>
@@ -139,7 +148,7 @@
                                                         <tr>
                                                             <td>#{{$order->order_number}}</td>
                                                             <td>{{$order->created_at->toformatteddatestring()}}</td>
-                                                            <td>تم الغاء الطلبية </td>
+                                                            <td>تم الغاء الطلبية</td>
                                                             <td>{{$order->total}} جينية لـ {{$order->number_of_product}}
                                                                 منتج
                                                             </td>
@@ -154,23 +163,29 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="tab-pane fade" id="track-orders" role="tabpanel" aria-labelledby="track-orders-tab">
+                                <div class="tab-pane fade" id="track-orders" role="tabpanel"
+                                     aria-labelledby="track-orders-tab">
                                     <div class="card">
                                         <div class="card-header">
                                             <h5 class="mb-0">تتبع الطلبات</h5>
                                         </div>
                                         <div class="card-body contact-from-area">
-                                            <p>لتتبع طلبك، يرجى إدخال معرف الطلب الخاص بك في الصندوق أدناه والضغط على زر "تتبع". يتم توفير ذلك لك في إيصالك وفي البريد الإلكتروني للتأكيد الذي يجب أن تكون قد تلقيته.</p>
+                                            <p>لتتبع طلبك، يرجى إدخال معرف الطلب الخاص بك في الصندوق أدناه والضغط على زر
+                                                "تتبع". يتم توفير ذلك لك في إيصالك وفي البريد الإلكتروني للتأكيد الذي
+                                                يجب أن تكون قد تلقيته.</p>
                                             <div class="row">
                                                 <div class="col-lg-8">
-                                                    <form class="contact-form-style mt-30 mb-50" action="{{route('order.search')}}" method="post">
+                                                    <form class="contact-form-style mt-30 mb-50"
+                                                          action="{{route('order.search')}}" method="post">
                                                         @csrf
                                                         <div class="input-style mb-20">
                                                             <label>معرف الطلب</label>
-                                                            <input name="order_number" placeholder="يتم العثور عليه في بريد تأكيد الطلب الخاص بك" type="text" class="square">
+                                                            <input name="order_number"
+                                                                   placeholder="يتم العثور عليه في بريد تأكيد الطلب الخاص بك"
+                                                                   type="text" class="square">
                                                         </div>
-                                                        <button class="submit submit-auto-width" type="submit">تتبع</button>
+                                                        <button class="submit submit-auto-width" type="submit">تتبع
+                                                        </button>
                                                     </form>
                                                 </div>
                                             </div>
@@ -178,6 +193,15 @@
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="address" role="tabpanel" aria-labelledby="address-tab">
+                                    @if(Auth::user()->addresses()->isEmpty())
+                                        <h3>ليس لديك اي عنوان توصيل , لاضافة عنوان برجاء اضغط هنا </h3>
+                                    @endif
+                                    <br>
+                                    <div class="">
+                                        <a href="{{route('address.create')}}" class="btn btn-primary"
+                                           type="button"> اضافة عنوان جدبد </a>
+                                    </div>
+                                    <br>
                                     <div class="row">
                                         @foreach(Auth::user()->addresses() as $address)
                                             <div class="col-lg-6">
@@ -215,8 +239,8 @@
                                                                     {{ $address->note }}</td>
                                                             </tr>
                                                         </table>
-                                                        <a href="{{ route('address.edit', $address) }}"
-                                                            class="btn -primary">تعديل العنوان</a>
+                                                        <a href="{{ route('address.edit',encrypt($address->id))}}"
+                                                           class="btn -primary">تعديل العنوان</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -225,42 +249,57 @@
                                     {{ auth::user()->addresses()->links() }}
                                 </div>
                                 <div class="tab-pane fade" id="account-detail" role="tabpanel"
-                                    aria-labelledby="account-detail-tab">
+                                     aria-labelledby="account-detail-tab">
                                     <div class="card">
                                         <div class="card-header">
                                             <h5>تفاصيل الحساب</h5>
                                         </div>
                                         <div class="card-body">
 
-                                            <form method="post" name="enq" action="{{ route('profile.update') }}" enctype="multipart/form-data">
+                                            <form method="post" name="enq" action="{{ route('profile.update') }}"
+                                                  enctype="multipart/form-data">
                                                 @csrf
                                                 <div class="row">
                                                     <!-- User Image Display -->
                                                     <label>الصورة الشخصية</label>
                                                     <div class="form-group col-lg-14">
-                                                        <div class="col-lg-6 col-md-6 col-xs-9 col-9 d-flex justify-content-center">
+                                                        <div
+                                                            class="col-lg-6 col-md-6 col-xs-9 col-9 d-flex justify-content-center">
                                                             <div class="product-cart-wrap mb-40">
                                                                 <div class="product-img-action-wrap">
                                                                     @if(auth()->user()->hasMedia('userImages'))
-                                                                        <div class="product-img product-img-zoom mx-auto">
+                                                                        <div
+                                                                            class="product-img product-img-zoom mx-auto">
                                                                             <a href="#">
-                                                                                    <img src="{{ auth()->user()->getFirstMediaUrl('userImages') }}" width="475" height="250" style="border-radius: 18%;" alt="User Image">
+                                                                                <img
+                                                                                    src="{{ auth()->user()->getFirstMediaUrl('userImages') }}"
+                                                                                    width="475" height="250"
+                                                                                    style="border-radius: 18%;"
+                                                                                    alt="User Image">
                                                                             </a>
                                                                         </div>
 
-                                                                        <div class="product-action-icons text-center" style="margin-top: 7px">
+                                                                        <div class="product-action-icons text-center"
+                                                                             style="margin-top: 7px">
                                                                             <!-- Delete Link -->
-                                                                            <a href="{{ route('profile.delete.userImage') }}" class="action-link" aria-label="حذف" onclick="return confirm('هل انت متأكد من حذف الصورة الشخصية؟')" style="font-weight: bold; font-size: large;">
+                                                                            <a href="{{ route('profile.delete.userImage') }}"
+                                                                               class="action-link" aria-label="حذف"
+                                                                               onclick="return confirm('هل انت متأكد من حذف الصورة الشخصية؟')"
+                                                                               style="font-weight: bold; font-size: large;">
                                                                                 <i class="fi-rs-trash"></i> حذف
                                                                             </a>
                                                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                                             <!-- View Form -->
-                                                                            <a href="{{ auth()->user()->getFirstMediaUrl('userImages') }}" class="d-inline action-link" aria-label="عرض" style="border: none; padding: 5; cursor: pointer; font-weight: bold; font-size: large;">
+                                                                            <a href="{{ auth()->user()->getFirstMediaUrl('userImages') }}"
+                                                                               class="d-inline action-link"
+                                                                               aria-label="عرض"
+                                                                               style="border: none; padding: 5; cursor: pointer; font-weight: bold; font-size: large;">
                                                                                 <i class="fi-rs-eye"></i> عرض
                                                                             </a>
                                                                         </div>
                                                                     @else
-                                                                        <div class="product-img-placeholder text-center" style="border: 1px dashed #ccc; padding: 20px; border-radius: 18%;">
+                                                                        <div class="product-img-placeholder text-center"
+                                                                             style="border: 1px dashed #ccc; padding: 20px; border-radius: 18%;">
                                                                             لا توجد صورة حاليا
                                                                         </div>
                                                                     @endif
@@ -276,63 +315,77 @@
                                                         </div>
 
                                                         <div class="custom-file">
-                                                            <label class="custom-file-label" for="customfile">اختر صورة</label>
-                                                            <input type="file" class="custom-file-input" id="customfile" name="files[]">
+                                                            <label class="custom-file-label" for="customfile">اختر
+                                                                صورة</label>
+                                                            <input type="file" class="custom-file-input" id="customfile"
+                                                                   name="files[]">
                                                         </div>
 
                                                         @error('files')
-                                                            <span class="text-danger">{{ $message }}</span>
+                                                        <span class="text-danger">{{ $message }}</span>
                                                         @enderror
                                                     </div>
 
                                                     <div class="form-group col-md-12">
                                                         <label>الأسم <span class="required">*</span></label>
-                                                        <input value="{{ old('name', auth::user()->name) }}" class="form-control square" name="name" type="text">
+                                                        <input value="{{ old('name', auth::user()->name) }}"
+                                                               class="form-control square" name="name" type="text">
                                                         @error('name')
-                                                            <span class="text-danger">{{ $message }}</span>
+                                                        <span class="text-danger">{{ $message }}</span>
                                                         @enderror
                                                     </div>
 
                                                     <div class="form-group col-md-12">
-                                                        <label>عنوان البريد الإلكتروني <span class="required">*</span></label>
-                                                        <input value="{{ old('email', auth::user()->email) }}" class="form-control square" name="email" type="email">
+                                                        <label>عنوان البريد الإلكتروني <span
+                                                                class="required">*</span></label>
+                                                        <input value="{{ old('email', auth::user()->email) }}"
+                                                               class="form-control square" name="email" type="email">
                                                         @error('email')
-                                                            <span class="text-danger">{{ $message }}</span>
+                                                        <span class="text-danger">{{ $message }}</span>
                                                         @enderror
                                                     </div>
 
                                                     <div class="form-group col-md-12">
                                                         <label>كلمة المرور الجديدة</label>
                                                         <div class="input-group">
-                                                            <input class="form-control square" name="password" type="password" id="password-field">
+                                                            <input class="form-control square" name="password"
+                                                                   type="password" id="password-field">
                                                             <div class="input-group-append">
-                                                                <button type="button" class="btn btn-outline-secondary toggle-password-btn" onclick="togglepasswordvisibility('password-field')">
+                                                                <button type="button"
+                                                                        class="btn btn-outline-secondary toggle-password-btn"
+                                                                        onclick="togglepasswordvisibility('password-field')">
                                                                     <i class="fas fa-eye"></i> عرض
                                                                 </button>
                                                             </div>
                                                         </div>
                                                         @error('password')
-                                                            <span class="text-danger">{{ $message }}</span>
+                                                        <span class="text-danger">{{ $message }}</span>
                                                         @enderror
                                                     </div>
 
                                                     <div class="form-group col-md-12">
                                                         <label>تأكيد كلمة المرور</label>
                                                         <div class="input-group">
-                                                            <input class="form-control square" name="password_confirmation" type="password" id="confirm-password-field">
+                                                            <input class="form-control square"
+                                                                   name="password_confirmation" type="password"
+                                                                   id="confirm-password-field">
                                                             <div class="input-group-append">
-                                                                <button type="button" class="btn btn-outline-secondary toggle-password-btn" onclick="togglepasswordvisibility('confirm-password-field')">
+                                                                <button type="button"
+                                                                        class="btn btn-outline-secondary toggle-password-btn"
+                                                                        onclick="togglepasswordvisibility('confirm-password-field')">
                                                                     <i class="fas fa-eye"></i> عرض
                                                                 </button>
                                                             </div>
                                                         </div>
                                                         @error('password_confirmation')
-                                                            <span class="text-danger">{{ $message }}</span>
+                                                        <span class="text-danger">{{ $message }}</span>
                                                         @enderror
                                                     </div>
 
                                                     <div class="col-md-12">
-                                                        <button type="submit" class="btn btn-fill-out submit" name="submit" value="submit">حفظ</button>
+                                                        <button type="submit" class="btn btn-fill-out submit"
+                                                                name="submit" value="submit">حفظ
+                                                        </button>
                                                     </div>
                                                 </div>
                                             </form>

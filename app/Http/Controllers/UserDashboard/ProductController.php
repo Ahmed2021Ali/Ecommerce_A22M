@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Repositories\Interfaces\UserDashboard\ProductInterface;
 
-class ProductControlle extends Controller
+class ProductController extends Controller
 {
 
     protected $product;
@@ -33,7 +33,7 @@ class ProductControlle extends Controller
 
     public function productsOfCategory($categoryId)
     {
-        return $this->product->productsOfCategory($categoryId);
+        return $this->product->show($categoryId);
     }
 
 

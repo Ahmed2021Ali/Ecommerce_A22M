@@ -21,7 +21,7 @@
                                         <div class="product-cart-wrap mb-30">
                                             <div class="product-img-action-wrap">
                                                 <div class="product-img product-img-zoom">
-                                                    <a href="{{route('products.show', $product->id)}}"><img
+                                                    <a href="{{route('products.show', encrypt($product->id))}}"><img
                                                             src="{{$product->getFirstMediaUrl('productFiles')}}"
                                                             width="600" height="300"></a>
                                                 </div>
@@ -36,10 +36,10 @@
                                             </div>
                                             <div class="product-content-wrap">
                                                 <div class="product-category">
-                                                    <a href="">{{ $product->name }}</a>
+                                                    <a href="{{route('products.show', encrypt($product->id))}}">{{ $product->name }}</a>
 
                                                 </div>
-                                                <h2><a href="">{{ $product->description }}</a></h2>
+                                                <h2><a href="{{route('products.show', encrypt($product->id))}}">{{ $product->description }}</a></h2>
                                                 <span>
                                                     @include('userDashboard.products.review.ratingProduct', ['rate' => calcReview($product)])
                                                 
@@ -56,7 +56,7 @@
                                                 </div>
                                                 <div class="product-action-1 show">
                                                     <a aria-label="تسوق الآن" class="action-btn hover-up"
-                                                       href="{{route('products.show', $product->id)}}"><i
+                                                       href="{{route('products.show', encrypt($product->id))}}"><i
                                                             class="fi-rs-shopping-bag-add"></i></a>
                                                 </div>
                                             </div>

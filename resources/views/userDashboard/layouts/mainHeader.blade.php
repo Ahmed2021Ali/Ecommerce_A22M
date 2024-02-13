@@ -33,8 +33,8 @@
                             </div>
                         </form>
                     </div>
-                    
-                    
+
+
                     <div class="header-action-right">
                         <div class="header-action-2">
                             @if (Auth::check())
@@ -71,7 +71,7 @@
                     <div class="main-menu main-menu-padding-1 main-menu-lh-2 d-none d-lg-block">
                         <nav>
                             <ul class="menu-list">
-                                
+
                                 <li><a class="active" href="{{ route('home') }}"><i style="font-size: 25px" class="fas fa-home fa-lg"></i> الصفحة الرئيسية</a></li>
                                 <li><a href="#about-us"><i class="fas fa-info-circle fa-lg"></i> تعرف علينا</a></li>
                                 <li><a href="{{ route('products.index') }}"><i class="fas fa-shopping-cart fa-lg"></i> تصفح المنتجات</a></li>
@@ -79,12 +79,18 @@
                                     <ul class="mega-menu">
                                         @foreach (App\Models\Category::all() as $category)
                                         <li class="sub-mega-menu sub-mega-menu-width-22">
+<<<<<<< HEAD
                                             <a class="menu-title" href="{{route('category.show.products', $category->id)}}">{{ $category->name }}</a>
+=======
+                                            <a class="menu-title" href="{{route('category.products', encrypt($category->id))}}">{{ $category->name }}</a>
+>>>>>>> a5ed64cde35ccae1481c45b730bd2d546db57a2c
                                             <ul>
-                                                @foreach ($category->products as $product)
-                                                <li><a href="{{ route('products.show', $product->id) }}">{{ $product->name }}</a></li>
+                                                @foreach ($category->products() as $product)
+                                                <li><a href="{{route('products.show', encrypt($product->id))}}">{{ $product->name }}</a></li>
                                                 @endforeach
                                             </ul>
+                                            {{ $category->products()->links() }}
+
                                         </li>
                                         @endforeach
                                     </ul>
@@ -102,10 +108,10 @@
                                             @endif
                                         @endauth
                                         @if(auth()->user())
-                                        {{Auth::user()->name}} <i class="fi-rs-angle-down"></i> 
+                                        {{Auth::user()->name}} <i class="fi-rs-angle-down"></i>
                                         @else حسابي  <i class="fi-rs-angle-down"></i>
-                                    @endif 
-                                        
+                                    @endif
+
                                     </a>
                                     @auth
                                     <ul class="sub-menu">
@@ -124,7 +130,7 @@
                                     @endauth
 
                                 </li>
-                                
+
                         </nav>
                     </div>
                 </div>

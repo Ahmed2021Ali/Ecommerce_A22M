@@ -7,7 +7,7 @@ use App\Http\Controllers\UserDashboard\CartController;
 use App\Http\Controllers\UserDashboard\ContactUsController;
 use App\Http\Controllers\UserDashboard\FavController;
 use App\Http\Controllers\UserDashboard\HomepageController;
-use App\Http\Controllers\UserDashboard\ProductControlle;
+use App\Http\Controllers\UserDashboard\ProductController;
 use App\Http\Controllers\UserDashboard\OrderController;
 use App\Http\Controllers\UserDashboard\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -15,11 +15,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomepageController::class, 'index'])->name('home');
 
-Route::get('/category/products/{category_id}', [ProductControlle::class, 'productsOfCategory'])->name('category.show.products');
+Route::get('/category/products/{category_id}', [ProductController::class, 'productsOfCategory'])->name('category.show.products');
 
-Route::resource('products', ProductControlle::class);
+Route::resource('products', ProductController::class);
 
 Route::resource('address', AddressController::class);
+
+Route::get('/filter', [SearchController::class, 'filter'])->name('search.filter');
+Route::get('/search', [SearchController::class, 'search'])->name('search');
 
 Route::controller(FavController::class)->prefix('fav')->as('fav.')->group(function () {
     Route::get('/index', 'index')->name('index');
@@ -54,16 +57,14 @@ Route::controller(ProfileController::class)->prefix('profile')->as('profile.')->
     Route::get('/view-image/{id}', 'viewImage')->name('view.image');
 });
 
+Route::get('/category/products/{category_id}', [ProductController::class, 'productsOfCategory'])->name('category.products');
 
-Route::controller(SearchController::class)->group(function () {
-    Route::post('/filter', 'filter')->name('search.filter');
-    Route::get('/search', 'search')->name('search');
-});
-
+Route::get('/filter', [SearchController::class, 'filter'])->name('search.filter');
+Route::get('/search', [SearchController::class, 'search'])->name('search');
 
 Route::controller(ReviewController::class)->prefix('review')->as('review.')->group(function () {
     Route::post('/store/{product}', 'store')->name('store');
-    Route::get('/edit/{review}', 'edit')->name('edit');
+    Route::get('/edit/{id}', 'edit')->name('edit');
     Route::put('/update/{review}', 'update')->name('update');
     Route::delete('/destroy/{review}', 'destroy')->name('destroy');
 });

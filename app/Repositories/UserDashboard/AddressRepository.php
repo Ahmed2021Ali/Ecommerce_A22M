@@ -24,14 +24,15 @@ class AddressRepository implements AddressInterface
         return to_route('cart.index')->with(['success' => 'تم بنجاح اضافة العنوان']);
     }
 
-    public function edit($address)
+    public function edit($id)
     {
+        $address=Address::find($id);
         return view('userDashboard.address.edit',['address' => $address,'cities' =>AvailableCity::select('id','name')->get()]);
     }
 
     public function update($request, $address)
     {
-        $address->update([$request, 'user_id' => Auth::user()->id]);
+        $address->update([...$request, 'user_id' => Auth::user()->id]);
         return redirect()->back()->with(['success' => ' تم بنجاح تحديث العنوان']);
     }
 

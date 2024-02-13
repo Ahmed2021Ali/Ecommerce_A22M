@@ -174,7 +174,8 @@
                                                      style="display: flex; margin-top: 2px; direction: rtl; text-align: right;">
                                                     <strong class="mr-10">اللون &nbsp;&nbsp;</strong>
                                                     <ul class="list-filter color-filter">
-                                                        <li><a href="#"><span class="product-color-teal" style="width: 30px; height: 30px; border-radius: 50%; cursor: pointer; display: flex; margin-right: 6px;"></span></a>
+                                                        <li><a href="#"><span class="product-color-teal"
+                                                                              style="width: 30px; height: 30px; border-radius: 50%; cursor: pointer; display: flex; margin-right: 6px;"></span></a>
                                                         </li>
                                                         <div class="colors">
                                                             @foreach (explode(',', $product->color) as $color)
@@ -227,35 +228,8 @@
                             <!-- End Gallery and Product Info -->
 
 
-                            <!-- Review Product Info -->
-                            <div class="tab-style3" style="direction: rtl; text-align: right;">
-                                <ul class="nav nav-tabs text-uppercase">
-                                    <li class="nav-item">
-                                        <a class="nav-link active" id="Description-tab" data-bs-toggle="tab"
-                                           href="#Description">الوصف</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="Reviews-tab" data-bs-toggle="tab" href="#Reviews">مراجعات
-                                            المستخدمين </a>
-                                    </li>
-                                </ul>
-                                <div class="tab-content shop_info_tab entry-main-content">
-                                    <div class="tab-pane fade show active" id="Description">
-                                        <div class="">
-                                            <p>{{$product->description}}</p>
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="Reviews">
-                                        <!--Comments-->
-                                        @include('userDashboard.products.review.show',['product'=>$product])
-                                        <!--comment form-->
-
-                                        <!-- store review form-->
-                                        @include('userDashboard.products.review.store',['product'=>$product])
-                                        <!-- end store review form-->
-                                    </div>
-                                </div>
-                            </div>
+                            <!-- Review and Description Product Info -->
+                            @include('userDashboard.products.review.index',['product'=>$product])
                             <!-- End Review Product Info -->
 
 
@@ -267,12 +241,12 @@
                                 <hr>
                                 <div class="col-12">
                                     <div class="row related-products">
-                                        @foreach($relatedProducts as $relatedProduct)
+                                        @foreach($product->category->products() as $relatedProduct)
                                             <div class="col-lg-3 col-md-4 col-12 col-sm-6">
                                                 <div class="product-cart-wrap small hover-up">
                                                     <div class="product-img-action-wrap">
                                                         <div class="product-img product-img-zoom">
-                                                            <a href="{{route('products.show', $relatedProduct->id)}}"
+                                                            <a href="{{route('products.show', encrypt($relatedProduct->id))}}"
                                                                tabindex="0">
                                                                 <img class="default-img"
                                                                      src="{{ $relatedProduct->getFirstMediaUrl('productFiles') }}"
@@ -289,12 +263,13 @@
                                                                class="action-btn small hover-up" href="wishlist.php"
                                                                tabindex="0"><i class="fi-rs-heart"></i></a>
                                                             <a aria-label="تسوق الآن" class="action-btn hover-up"
-                                                               href="{{route('products.show', $product->id)}}"><i
+                                                               href="{{route('products.show', encrypt($relatedProduct->id))}}"><i
                                                                     class="fi-rs-shopping-bag-add"></i></a>
                                                         </div>
                                                     </div>
                                                     <div class="product-content-wrap">
-                                                        <h2><a href="{{route('products.show',$relatedProduct)}}"
+                                                        <h2>
+                                                            <a href="{{route('products.show', encrypt($relatedProduct->id))}}"
                                                                tabindex="0">{{$relatedProduct->name}}</a></h2>
                                                         @include('userDashboard.products.review.ratingProduct',['rate'=>calcReview($relatedProduct)])
                                                         <div class="product-price">
@@ -305,15 +280,32 @@
                                                 </div>
                                             </div>
                                         @endforeach
+                                            <br>
+
                                     </div>
                                 </div>
+                                {{ $product->category->products() }}
                             </div>
                             <!-- End Related Products -->
-
                         </div>
                     </div>
                     <!-- Sidebar -->
                     <div class="col-lg-3 primary-sidebar sticky-sidebar">
+<<<<<<< HEAD
+=======
+                        <!-- Categories -->
+                        <div class="widget-category mb-30" style="direction: rtl; text-align: right;">
+                            <h5>الأقسام</h5>
+                            <hr>
+                            <ul class="categories">
+                                @foreach($categories as $category)
+                                    <li><a href="{{route('category.products', $category->id)}}">{{$category->name}}</a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                            {{ $categories->links() }}
+                        </div>
+>>>>>>> a5ed64cde35ccae1481c45b730bd2d546db57a2c
                         @include('userDashboard.layouts.rightSidebar')
                     </div>
                     <!-- End Sidebar -->

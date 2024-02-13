@@ -36,7 +36,7 @@
                                         <p class="font-xs mr-30">{{$review->created_at->toDayDateTimeString()}}</p>
 
                                         @if(Auth::check() && $review->user_id === Auth::user()->id)
-                                            <a href="{{route('review.edit',$review)}}" class="text-brand btn-reply"><i class="fi-rs-arrow-right"></i> تعديل </a>
+                                            <a href="{{route('review.edit',encrypt($review->id))}}" class="text-brand btn-reply"><i class="fi-rs-arrow-right"></i> تعديل </a>
                                             <form action="{{ route('review.destroy', $review) }}" method="post">
                                                 @method('delete')
                                                 @csrf
