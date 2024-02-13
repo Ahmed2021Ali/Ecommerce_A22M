@@ -15,15 +15,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomepageController::class, 'index'])->name('home');
 
+Route::get('/category/products/{category_id}', [ProductControlle::class, 'productsOfCategory'])->name('category.show.products');
+
 Route::resource('products', ProductControlle::class);
 
 Route::resource('address', AddressController::class);
 
 Route::controller(FavController::class)->prefix('fav')->as('fav.')->group(function () {
     Route::get('/index', 'index')->name('index');
-    Route::get('/store/{product}', 'store')->name('store');
     Route::get('/destroy/{fav}', 'destroy')->name('destroy');
 });
+Route::post('/store/{product}', [FavController::class, 'store'])->name('store');
 
 Route::controller(CartController::class)->prefix('cart')->as('cart.')->group(function () {
     Route::get('/index', 'index')->name('index');
@@ -52,10 +54,12 @@ Route::controller(ProfileController::class)->prefix('profile')->as('profile.')->
     Route::get('/view-image/{id}', 'viewImage')->name('view.image');
 });
 
-Route::get('/category/products/{category_id}', [ProductControlle::class, 'productsOfCategory'])->name('category.products');
 
-Route::get('/filter', [SearchController::class, 'filter'])->name('search.filter');
-Route::get('/search', [SearchController::class, 'search'])->name('search');
+Route::controller(SearchController::class)->group(function () {
+    Route::post('/filter', 'filter')->name('search.filter');
+    Route::get('/search', 'search')->name('search');
+});
+
 
 Route::controller(ReviewController::class)->prefix('review')->as('review.')->group(function () {
     Route::post('/store/{product}', 'store')->name('store');

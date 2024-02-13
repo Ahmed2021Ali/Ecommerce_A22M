@@ -23,9 +23,13 @@
                         </div>
                         <h2><a href="">{{ $product->description }}</a></h2>
                         <span>
-                            @include('userDashboard.products.review.ratingProduct',['rate'=>calcReview($product)])
-                            <span>تخفيض %{{ $product->offer }}</span>
+                            @include('userDashboard.products.review.ratingProduct', ['rate' => calcReview($product)])
+                        
+                            @if($product->offer)
+                                <span>تخفيض %{{ $product->offer }}</span>
+                            @endif
                         </span>
+                        
                         <div class="product-price">
                             <span>${{ $product->price_after_offer ?? $product->price }}</span>
                             @if($product->offer)

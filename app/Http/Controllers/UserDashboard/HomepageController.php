@@ -20,9 +20,9 @@ class HomepageController extends Controller
         $sliders = Slider::all();
         $services = Service::all();
         $brands = Brand::all();
-        $newArrivalProducts = Product::latest()->take(10)->get();
-        $newAddedProducts = Product::latest()->take(8)->get();
-        $featuredProducts = Product::paginate(10);
+        $newArrivalProducts = Product::latest()->take(6)->get();
+        $newAddedProducts = Product::latest()->take(12)->get();
+        $featuredProducts = Product::paginate(12);
         $banners = Banner::get();
         return view('home', 
         compact(

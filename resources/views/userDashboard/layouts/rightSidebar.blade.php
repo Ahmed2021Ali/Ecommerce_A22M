@@ -1,3 +1,16 @@
+<div class="row">
+    <div class="col-lg-12 col-mg-6">
+        <div class="widget-category mb-30" style="direction: rtl;">
+            <h5>الاقسام</h5>
+            <hr>
+            <ul class="categories">
+                @foreach ($categories as $category)
+                    <li><a href="{{ route('category.show.products',  $category->id) }}">{{ $category->name }}</a></li>
+                @endforeach
+            </ul>
+        </div>
+    </div>
+</div>
 <form method="GET" action="{{ route('search.filter') }}" enctype="multipart/form-data">
     @csrf
     <div class="sidebar-widget price_range range mb-30" style="direction: rtl; text-align: right;">

@@ -14,14 +14,14 @@ class ProductRepository implements ProductInterface
     {
         $products = Product::paginate(9);
         $newProducts = Product::latest()->take(3)->get();
-        $categories = Category::all();
+        $categories = Category::latest()->take(20)->get();
         return view('userDashboard.products.index', compact('products', 'categories', 'newProducts'));
     }
 
 
     public function show($product)
     {
-        $categories = Category::all();
+        $categories = Category::latest()->take(20)->get();
 
         $currentCategoryId = $product->category_id;
 
@@ -37,7 +37,7 @@ class ProductRepository implements ProductInterface
     {
         $products = Product::where('category_id', $categoryId)->paginate(9);
 
-        $categories = Category::all();
+        $categories = Category::latest()->take(20)->get();
 
         $newProducts = Product::latest()->take(3)->get();
 

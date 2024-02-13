@@ -41,9 +41,13 @@
                                                 </div>
                                                 <h2><a href="">{{ $product->description }}</a></h2>
                                                 <span>
-                                                    @include('userDashboard.products.review.ratingProduct',['rate'=>calcReview($product)])
-                                                    <span>تخفيض %{{ $product->offer }}</span>
+                                                    @include('userDashboard.products.review.ratingProduct', ['rate' => calcReview($product)])
+                                                
+                                                    @if($product->offer)
+                                                        <span>تخفيض %{{ $product->offer }}</span>
+                                                    @endif
                                                 </span>
+                                                
                                                 <div class="product-price">
                                                     <span>${{ $product->price_after_offer ?? $product->price }}</span>
                                                     @if($product->offer)
@@ -70,16 +74,6 @@
                         </div>
                     </div>
                     <div class="col-lg-3 primary-sidebar sticky-sidebar">
-                        <div class="widget-category mb-30" style="direction: rtl; text-align: right;">
-                            <h5>الأقسام</h5>
-                            <hr>
-                            <ul class="categories">
-                                @foreach($categories as $category)
-                                    <li><a href="{{route('category.products', $category->id)}}">{{$category->name}}</a>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        </div>
                         <!-- Fillter By Price -->
                         @include('userDashboard.layouts.rightSidebar')
                         <!-- Product sidebar Widget -->

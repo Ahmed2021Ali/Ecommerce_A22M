@@ -33,7 +33,7 @@ class ProductControlle extends Controller
 
     public function productsOfCategory($categoryId)
     {
-        return $this->product->show($categoryId);
+        return $this->product->productsOfCategory($categoryId);
     }
 
 

@@ -146,8 +146,12 @@
                                                 </ins>
                                                 <ins><span class="old-price font-md ml-15">{{$product->price}}</span>
                                                 </ins>
-                                                <span
-                                                    class="save-price  font-md color3 ml-15">تخفيض %{{ $product->offer }}</span>
+                                                <span class="save-price font-md color3 ml-15">
+                                                    @if($product->offer)
+                                                        تخفيض %{{ $product->offer }}
+                                                    @endif
+                                                </span>
+                                                
                                             </div>
                                         </div>
                                         <div class="bt-1 border-color-1 mt-15 mb-15"></div>
@@ -310,18 +314,6 @@
                     </div>
                     <!-- Sidebar -->
                     <div class="col-lg-3 primary-sidebar sticky-sidebar">
-
-                        <!-- Categories -->
-                        <div class="widget-category mb-30" style="direction: rtl; text-align: right;">
-                            <h5>الأقسام</h5>
-                            <hr>
-                            <ul class="categories">
-                                @foreach($categories as $category)
-                                    <li><a href="{{route('category.products', $category->id)}}">{{$category->name}}</a>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        </div>
                         @include('userDashboard.layouts.rightSidebar')
                     </div>
                     <!-- End Sidebar -->

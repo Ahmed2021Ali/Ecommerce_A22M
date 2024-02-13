@@ -3,9 +3,6 @@
 namespace App\Http\Controllers\UserDashboard;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
-use App\Models\Color;
-use App\Models\Product;
 use App\Repositories\Interfaces\UserDashboard\SearchInterface;
 use Illuminate\Http\Request;
 
