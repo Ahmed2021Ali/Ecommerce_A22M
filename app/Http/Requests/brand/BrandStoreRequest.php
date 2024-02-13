@@ -17,7 +17,7 @@ class BrandStoreRequest extends FormRequest
     {
         return [
             'status'=>['required','integer','between:0,1'],
-            'files.*'=>['nullable','max:5000','mimes:png,jpg,jpeg'],
+            'files.*'=>['required','max:5000','mimes:png,jpg,jpeg'],
 
         ];
     }

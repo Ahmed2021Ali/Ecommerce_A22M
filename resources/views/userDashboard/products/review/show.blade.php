@@ -34,7 +34,8 @@
                                 <div class="d-flex justify-content-between">
                                     <div class="d-flex align-items-center">
                                         <p class="font-xs mr-30">{{$review->created_at->toDayDateTimeString()}}</p>
-                                        @if($review->user_id === Auth::user()->id)
+
+                                        @if(Auth::check() && $review->user_id === Auth::user()->id)
                                             <a href="{{route('review.edit',$review)}}" class="text-brand btn-reply"><i class="fi-rs-arrow-right"></i> تعديل </a>
                                             <form action="{{ route('review.destroy', $review) }}" method="post">
                                                 @method('delete')

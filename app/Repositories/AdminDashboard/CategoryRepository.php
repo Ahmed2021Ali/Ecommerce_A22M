@@ -18,7 +18,9 @@ class CategoryRepository implements CategoryInterface
     public function store($request)
     {
         $category = Category::create([...Arr::except($request, 'files')]);
-        uploadFiles($request['files'], $category, 'categoryFiles');
+        if (isset($request['files'])) {
+            uploadFiles($request['files'], $category, 'categoryFiles');
+        }
         return redirect()->back()->with(['success' => 'تم بنجاح اضافة القسم']);
     }
 
