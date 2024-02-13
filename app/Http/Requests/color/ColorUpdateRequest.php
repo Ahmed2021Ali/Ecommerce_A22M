@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\banner;
+namespace App\Http\Requests\color;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class BannerUpdateRequest extends FormRequest
+class ColorUpdateRequest extends FormRequest
 {
     public function authorize(): bool
     {

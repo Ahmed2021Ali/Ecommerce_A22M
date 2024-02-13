@@ -19,7 +19,7 @@ class StoreProductRequest extends FormRequest
             'name' => ['required', 'string', 'max:256', 'min:2'],
             'color.*' => ['nullable'],
             'size.*' => ['nullable', 'string'],
-            'quantity' => ['required', 'integer', 'max:999', 'min:1'],
+            'quantity' => ['required', 'integer', 'min:1'],
             'price' => ['required', 'numeric', 'max:99999.99', 'min:1'],
             'offer' => ['nullable', 'integer', 'max:99', 'min:1'],
             'status' => ['required', 'integer', 'between:0,1'],

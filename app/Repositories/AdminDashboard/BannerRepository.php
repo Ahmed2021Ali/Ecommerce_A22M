@@ -18,16 +18,13 @@ class BannerRepository implements BannerInterface
 
     public function store($request)
     {
-        $banner = Banner::create([...Arr::except($request, 'files')]);
+        $banner = Banner::create([...$request]);
         return redirect()->back()->with(['success' => 'تم بنجاح اضافة بانر']);
     }
 
     public function update($request, $banner)
     {
-        $banner->update([...Arr::except($request, 'files')]);
-        if (isset($request['files'])) {
-            updateFiles($request['files'], $banner, 'bannerFiles');
-        }
+        $banner->update([...$request]);
         return redirect()->back()->with(['success' => ' تم بنجاح تحديث بانر']);
     }
 
