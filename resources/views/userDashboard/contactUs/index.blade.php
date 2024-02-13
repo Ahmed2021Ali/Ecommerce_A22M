@@ -20,7 +20,7 @@
                         <div class="row">
                             <div class="col-lg-6 col-md-6">
                                 <div class="input-style mb-20">
-                                    <input name="name" placeholder="الأسم" type="text">
+                                    <input name="name" placeholder="الأسم" type="text" required>
                                     @error('name')
                                     <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                                     @enderror
@@ -28,7 +28,7 @@
                             </div>
                             <div class="col-lg-6 col-md-6">
                                 <div class="input-style mb-20">
-                                    <input name="email" placeholder="البريد الألكتروني" type="email">
+                                    <input name="email" placeholder="البريد الألكتروني" type="email" required>
                                     @error('email')
                                     <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -37,7 +37,7 @@
                             </div>
                             <div class="col-lg-6 col-md-6">
                                 <div class="input-style mb-20">
-                                    <input name="phone" placeholder="رقم الهاتف" type="tel" style="direction: rtl; ">
+                                    <input name="phone" placeholder="رقم الهاتف" type="tel" style="direction: rtl; " required>
                                     @error('phone')
                                     <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -45,7 +45,7 @@
                             </div>
                             <div class="col-lg-6 col-md-6">
                                 <div class="input-style mb-20">
-                                    <input name="subject" placeholder="الموضوع" type="text">
+                                    <input name="subject" placeholder="الموضوع" type="text" required>
                                     @error('subject')
                                     <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -53,7 +53,7 @@
                             </div>
                             <div class="col-lg-12 col-md-12">
                                 <div class="textarea-style mb-30">
-                                    <textarea name="message" placeholder="الرسالة"></textarea>
+                                    <textarea name="message" placeholder="الرسالة" required></textarea>
                                     @error('message')
                                     <span class="text-danger">{{ $message }}</span>
                                     @enderror
