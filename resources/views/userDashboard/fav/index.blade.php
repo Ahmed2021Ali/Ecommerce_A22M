@@ -69,8 +69,7 @@
                             <div class="col-lg-12 col-mg-6"></div>
                         </div>
                          <!-- Fillter By Price -->
-                         @include('userDashboard.layouts.rightSidebar')
-
+                        <x-right-sidebar/>
                         <!-- Product sidebar Widget -->
 
                     </div>

@@ -1,12 +1,20 @@
 @extends('userDashboard.layouts.master')
 @section('title')
-    المنتجات
+    @if(isset($category))
+        {{ $category->name }} - المنتجات
+    @else
+        المنتجات
+    @endif
 @endsection
 @section('css')
 
 @endsection
 @section('pageHeader')
-    المنتجات
+    @if(isset($category))
+        {{ $category->name }} <span></span> المنتجات
+    @else
+        المنتجات
+    @endif
 @endsection
 @section('content')
     <main class="main">
@@ -39,7 +47,9 @@
                                                     <a href="{{route('products.show', encrypt($product->id))}}">{{ $product->name }}</a>
 
                                                 </div>
-                                                <h2><a href="{{route('products.show', encrypt($product->id))}}">{{ $product->description }}</a></h2>
+                                                <h2>
+                                                    <a href="{{route('products.show', encrypt($product->id))}}">{{ $product->description }}</a>
+                                                </h2>
                                                 <span>
                                                     @include('userDashboard.products.review.ratingProduct',['rate'=>calcReview($product)])
                                                     <span>تخفيض %{{ $product->offer }}</span>
@@ -70,9 +80,9 @@
                         </div>
                     </div>
                     <div class="col-lg-3 primary-sidebar sticky-sidebar">
-                        
+
                         <!-- Fillter By Price -->
-                        @include('userDashboard.layouts.rightSidebar')
+                        <x-right-sidebar/>
                         <!-- Product sidebar Widget -->
                     </div>
                 </div>

@@ -288,7 +288,7 @@
                     <!-- Sidebar -->
                     <div class="col-lg-3 primary-sidebar sticky-sidebar">
                         <!-- Categories -->
-                        @include('userDashboard.layouts.rightSidebar')
+                        <x-right-sidebar/>
                     </div>
                     <!-- End Sidebar -->
                 </div>

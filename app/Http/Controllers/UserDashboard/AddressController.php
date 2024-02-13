@@ -26,7 +26,7 @@ class AddressController extends Controller
     }
     public function edit($id)
     {
-        return $this->address->edit(decrypt($id));
+        return $this->address->edit(Address::find(decrypt($id)));
     }
     public function update(UpdateAddressRequest $request, Address $address)
     {

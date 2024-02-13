@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\UserDashboard;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Product;
 use App\Repositories\Interfaces\UserDashboard\ProductInterface;
 
@@ -28,10 +29,9 @@ class ProductController extends Controller
         return $this->product->show(Product::find(decrypt($id)));
     }
 
-
     public function productsOfCategory($categoryId)
     {
-        return $this->product->productsOfCategory(decrypt($categoryId));        
+        return $this->product->productsOfCategory(Category::find(decrypt($categoryId)));
     }
 
 
