@@ -37,11 +37,11 @@ function updateFiles($files, $model, $folder)
 
 function calcReview($product)
 {
-    $totalRating = $product->reviews()->where('star', '!=', null)->count();
+/*    $totalRating = $product->reviews()->where('star', '!=', null)->count();
     $totalRating2 = $product->reviews()->where('star', '!=', null)->where('star', '>', 1)->count();
     if ($totalRating2 > 0 && $totalRating > 0) {
         return $totalRating2 / $totalRating;
-    }
+    }*/
 }
 
 
