@@ -57,22 +57,17 @@
                             <div class="product-img-action-wrap">
                                 <div class="product-img product-img-zoom" style="direction: rtl; text-align: right;">
                                     <a href="">
-                                        <a href="{{ route('products.show', $product->id) }}">
-                                            <img src="{{ $product->getFirstMediaUrl('productFiles') }}" width="400"
-                                                 height="250" style="direction: rtl; text-align: right;">
+                                        <a href="{{route('products.show', encrypt($product->id))}}">
+                                            <img src="{{ $product->getFirstMediaUrl('productFiles') }}" width="400" height="250" style="direction: rtl; text-align: right;">
                                         </a>
                                     </a>
                                 </div>
                                 <div class="product-action-1">
-                                    <a aria-label="عرض" class="action-btn hover-up" data-bs-toggle="modal"
-                                       data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
-                                    <button aria-label="إضافة إلي المفضلة" class="action-btn hover-up"
-                                            onclick="addToFavorites({{ $product->id }})">
+                                    <a aria-label="عرض" class="action-btn hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
+                                    <button aria-label="إضافة إلي المفضلة" class="action-btn hover-up" onclick="addToFavorites({{ $product->id }})">
                                         <i class="fi-rs-heart"></i>
                                     </button>
-                                    <a aria-label="تسوق الآن" class="action-btn hover-up"
-                                       href="{{ route('products.show', $product->id) }}"><i
-                                            class="fi-rs-shopping-bag-add"></i></a>
+                                    <a aria-label="تسوق الآن" class="action-btn hover-up" href="{{route('products.show', encrypt($product->id))}}"><i class="fi-rs-shopping-bag-add"></i></a>
                                 </div>
                             </div>
                             <div class="product-content-wrap">
@@ -107,10 +102,7 @@
                 <div class="carausel-6-columns text-center" id="carausel-6-columns-3">
                     @foreach($brands as $brand)
                         <div class="brand-logo">
-                            @foreach($brand->getMedia('brandFiles') as $media)
-                                <img src="{{$media->getFullUrl()}}" class="img-grey-hover" alt="الماركات"
-                                     style="width: 175px; height: 150px;">
-                            @endforeach
+                                <img src="{{$brand->getFirstMediaUrl('brandFiles')}}" class="img-grey-hover" alt="الماركات" style="width: 175px; height: 150px;">
                         </div>
                     @endforeach
                 </div>

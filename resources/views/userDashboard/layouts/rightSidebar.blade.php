@@ -49,10 +49,10 @@
     </div>
     @foreach($newProducts as $newProduct)
         <div class="single-post clearfix" style="direction: rtl; text-align: right;">
-            <div class="image"><a href="{{route('products.show', $newProduct->id)}}"><img
+            <div class="image"><a href="{{route('products.show', encrypt($newProduct->id))}}"><img
                         src="{{$newProduct->getFirstMediaUrl('productFiles')}}" alt="product image"></a></div>
             <div class="content pt-10">
-                <h5><a href="product-details.html">{{$newProduct->name}}</a></h5>
+                <h5><a href="{{route('products.show', encrypt($newProduct->id))}}">{{$newProduct->name}}</a></h5>
                 <p class="price mb-0 mt-5">{{$newProduct->price}} ج</p>
                 @include('userDashboard.products.review.ratingProduct',['rate'=>calcReview($newProduct)])
             </div>

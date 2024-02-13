@@ -18,9 +18,9 @@ class ReviewController extends Controller
         return redirect()->back()->with('success','شكرا لتقيماتكم ');
     }
 
-    public function edit(Review $review)
+    public function edit($id)
     {
-        return view('userDashboard.products.review.edit',['review'=>$review]);
+        return view('userDashboard.products.review.edit',['review'=>Review::find(decrypt($id))]);
     }
 
     public function update(ReviewStoreRequest $request, Review $review)

@@ -24,9 +24,9 @@ class AddressController extends Controller
     {
         return $this->address->store($request->validated());
     }
-    public function edit(Address $address)
+    public function edit($id)
     {
-        return $this->address->edit($address);
+        return $this->address->edit(decrypt($id));
     }
     public function update(UpdateAddressRequest $request, Address $address)
     {

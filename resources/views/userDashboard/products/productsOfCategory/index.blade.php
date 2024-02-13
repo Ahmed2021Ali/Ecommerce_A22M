@@ -22,7 +22,7 @@
                                                 <div class="product-img-action-wrap">
                                                     <div class="product-img product-img-zoom" >
                                                         @foreach($product->getMedia('productFiles') as $media)
-                                                            <a href="{{route('products.show', $product->id)}}"><img  src="{{$media->getFullUrl()}}" width="600" height="300"></a>
+                                                            <a href="{{route('products.show', encrypt($product->id))}}"><img  src="{{$media->getFullUrl()}}" width="600" height="300"></a>
                                                             @break
                                                         @endforeach
                                                     </div>
@@ -33,10 +33,10 @@
                                                 </div>
                                                 <div class="product-content-wrap">
                                                     <div class="product-category">
-                                                        <a href="">{{ $product->name }}</a>
+                                                        <a href="{{route('products.show', encrypt($product->id))}}">{{ $product->name }}</a>
 
                                                     </div>
-                                                    <h2><a href="">{{ $product->description }}</a></h2>
+                                                    <h2><a href="{{route('products.show', encrypt($product->id))}}">{{ $product->description }}</a></h2>
                                                     <span>
                                                         <span>تخفيض %{{ $product->offer }}</span>
                                                     </span>
@@ -47,7 +47,7 @@
                                                         @endif
                                                     </div>
                                                     <div class="product-action-1 show">
-                                                        <a aria-label="تسوق الآن" class="action-btn hover-up" href="{{route('products.show', $product->id)}}"><i class="fi-rs-shopping-bag-add"></i></a>
+                                                        <a aria-label="تسوق الآن" class="action-btn hover-up" href="{{route('products.show', encrypt($product->id))}}"><i class="fi-rs-shopping-bag-add"></i></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -55,7 +55,6 @@
                                     @endforeach
                                 <!--End product-grid-4-->
                             </div>
-
                         </div>
                         <!--pagination-->
                         <div class="pagination-area mt-15 mb-sm-5 mb-lg-0" style="direction: rtl;">

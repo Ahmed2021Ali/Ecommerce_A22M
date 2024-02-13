@@ -239,7 +239,7 @@
                                                                     {{ $address->note }}</td>
                                                             </tr>
                                                         </table>
-                                                        <a href="{{ route('address.edit', $address) }}"
+                                                        <a href="{{ route('address.edit',encrypt($address->id))}}"
                                                            class="btn -primary">تعديل العنوان</a>
                                                     </div>
                                                 </div>

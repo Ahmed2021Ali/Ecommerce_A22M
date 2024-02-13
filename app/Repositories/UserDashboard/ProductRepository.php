@@ -19,10 +19,10 @@ class ProductRepository implements ProductInterface
     }
 
 
-    public function show($product)
+    public function show($id)
     {
+        $product=Product::find($id);
         $categories = Category::all();
-
         $currentCategoryId = $product->category_id;
 
         $newProducts = Product::latest()->take(3)->get();
@@ -35,14 +35,11 @@ class ProductRepository implements ProductInterface
 
     public function productsOfCategory($categoryId)
     {
+        $categoryId=Category::find($categoryId)->id;
         $products = Product::where('category_id', $categoryId)->paginate(9);
-
         $categories = Category::all();
-
         $newProducts = Product::latest()->take(3)->get();
-
         $relatedProducts = Product::where('category_id', $categoryId)->get();
-
         $categoryName = Category::where('id', $categoryId)->select('id', 'name')->first();
 
         return view('userDashboard.products.productsOfCategory.index', compact('products', 'categories', 'newProducts', 'relatedProducts', 'categoryName'));

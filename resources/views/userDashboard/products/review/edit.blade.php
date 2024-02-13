@@ -74,12 +74,10 @@
 @endsection
 @section('content')
     @if(Auth::check())
-
         <div class="comment-form" style="direction: rtl; text-align: center;">
-            <h4 class="mb-15">تحديث  التقييم </h4>
-
+            <h4 class="mb-15">تحديث التقييم </h4>
             <div class="row">
-                <div class="col-lg-8 col-md-12" >
+                <div class="col-lg-8 col-md-12">
                     <form class="form-contact comment_form"
                           action="{{route('review.update',$review)}}" method="post" id="commentForm">
                         @method('put')
@@ -123,7 +121,6 @@
         </div>
     @endif
 @endsection
-
 
 @section('js')
 

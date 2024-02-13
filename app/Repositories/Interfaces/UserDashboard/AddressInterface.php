@@ -7,7 +7,7 @@ interface AddressInterface {
     public function create();
 
     public function store($request);
-    public function edit($address);
+    public function edit($id);
 
     public function update($request,$address);
 
