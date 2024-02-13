@@ -16,16 +16,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomepageController::class, 'index'])->name('home');
 
 
-/*  route of Product */
 Route::resource('products', ProductController::class);
 Route::get('/category/products/{category_id}', [ProductController::class, 'productsOfCategory'])->name('category.products');
-/*  End Route of Product */
-
 
 Route::resource('address', AddressController::class);
 
-Route::get('/filter', [SearchController::class, 'filter'])->name('search.filter');
-Route::get('/search', [SearchController::class, 'search'])->name('search');
+Route::controller(SearchController::class)->as('search')->group(function () {
+    Route::get('/filter', 'filter')->name('.filter');
+    Route::get('/search', 'search');
+});
 
 Route::controller(FavController::class)->prefix('fav')->as('fav.')->group(function () {
     Route::get('/index', 'index')->name('index');

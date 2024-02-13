@@ -15,31 +15,13 @@ class HomepageController extends Controller
 {
     public function index()
     {
-        $products = Product::all();
-        $banners = Banner::all();
-        $sliders = Slider::all();
-        $services = Service::all();
-        $brands = Brand::all();
-        $newArrivalProducts = Product::latest()->take(6)->get();
-        $newAddedProducts = Product::latest()->take(12)->get();
-        $featuredProducts = Product::paginate(12);
-        $bestsellersProduct = Product::where('status',1)->where('stock', '!=', null)->orderBy('stock','asc')->paginate(12);
+        return view('home', ['products'=>Product::paginate(9), 'banners'=>Banner::all(), 'sliders'=>Slider::all(),
+        'services'=>Service::all(),'brands'=>Brand::all(),'newArrivalProducts'=>Product::latest()->take(6)->get(),
+        'newAddedProducts'=>Product::latest()->take(12)->get(),
+        'featuredProducts'=>Product::paginate(12),
+        'bestsellersProduct'=>Product::where('status',1)->where('stock', '!=', null)->orderBy('stock','asc')->paginate(12),
 
-        $banners = Banner::get();
-        return view('home', 
-        compact(
-        'products',
-        'banners',
-        'sliders', 
-        'services', 
-        'newArrivalProducts',
-        'brands', 
-        'newAddedProducts',
-        'featuredProducts',
-        'banners',
-        'bestsellersProduct',
-        
-    ));
+    ]);
     }
 
 }

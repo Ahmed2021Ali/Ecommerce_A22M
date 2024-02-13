@@ -26,14 +26,9 @@
                     <div class="search-style-1" style="direction: rtl; text-align: right;">
                         <form action="{{ route('search') }}" method="GET">
                             <div style="display: flex; align-items: center;">
-                                <button type="submit"
-                                        style="background: none; border: none; padding: 0; margin: 0; cursor: pointer;">
-                                    <i class="fas fa-search fa-lg"
-                                       style="margin-right: 8px; padding: 13px 11px 11px 18px;"></i>
-                                </button>
+                                <button type="submit" style="background: none; border: none; padding: 0; margin: 0; cursor: pointer;"><i class="fas fa-search fa-lg" style="margin-right: 8px; padding: 13px 11px 11px 18px;"></i></button>
                                 <!-- Input with placeholder on the right -->
-                                <input required type="text" name="search"
-                                       style="direction: rtl; text-align: right; flex: 1;" placeholder="بحث">
+                                <input required type="text" name="search" style="direction: rtl; text-align: right; flex: 1;" placeholder="بحث">
                             </div>
                         </form>
                     </div>
