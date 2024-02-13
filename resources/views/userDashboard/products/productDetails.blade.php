@@ -135,7 +135,7 @@
                                         <h2 class="title-detail">{{$product->name}}</h2>
                                         <div class="product-detail-rating">
                                             <div class="product-rate-cover text-end">
-                                                    @include('userDashboard.products.review.ratingProduct',['rate'=>calcReview($product)])
+                                                @include('userDashboard.products.review.ratingProduct',['rate'=>calcReview($product)])
                                                 <span class="font-small ml-5 text-muted"> ({{$product->reviews()->where('star', '!=', null)->count()}} التقييم)</span>
                                             </div>
                                         </div>
@@ -151,10 +151,6 @@
                                             </div>
                                         </div>
                                         <div class="bt-1 border-color-1 mt-15 mb-15"></div>
-                                        <!-- Product Description -->
-                                        <div class="short-desc mb-30">
-                                            <p>{{$product->description}}</p>
-                                        </div>
                                         <!-- Additional Info -->
                                         <div class="product_sort_info font-xs mb-30"
                                              style="direction: rtl; text-align: right;">
@@ -167,29 +163,40 @@
                                         </div>
                                         <form action="{{route('cart.store',$product) }}" method="post">
                                             @csrf
-                                            <div class="attr-detail attr-color mb-15"
-                                                 style="display: flex; margin-top: 2px; direction: rtl; text-align: right;">
-                                                <strong class="mr-10">اللون &nbsp;&nbsp;</strong>
-                                                <ul class="list-filter color-filter">
-                                                    <li><a href="#"><span class="product-color-teal"
-                                                                          style="width: 30px; height: 30px; border-radius: 50%; cursor: pointer; display: flex; margin-right: 6px;"></span></a>
-                                                    </li>
-                                                    <div class="colors">
-                                                        @foreach (explode(',', $product->color) as $color)
-                                                            <span style="width: 30px; height: 30px; border-radius: 50%; cursor: pointer; display: inline-block; margin-right: 6px; background-color:{{ $color }}"><li style="display: inline-block;"><input type="checkbox" name="color" value="{{ $color }}"></li></span>
-                                                        @endforeach
-                                                    </div>
-                                                </ul>
-                                            </div>
 
-                                            <div class="attr-detail attr-size">
-                                                <strong class="mr-10"> المقاس &nbsp;&nbsp;</strong>
-                                                <ul class="list-filter size-filter font-small">
-                                                    @foreach (explode(',', $product->size) as $size)
-                                                        <li><a href="#">{{ strtoupper($size) }}</a><input type="checkbox" name="size" value="{{strtoupper($size)}}"></li>
-                                                    @endforeach
-                                                </ul>
-                                            </div>
+                                            @if($product->color !== null)
+                                                {{-- color --}}
+                                                <div class="attr-detail attr-color mb-15"
+                                                     style="display: flex; margin-top: 2px; direction: rtl; text-align: right;">
+                                                    <strong class="mr-10">اللون &nbsp;&nbsp;</strong>
+                                                    <ul class="list-filter color-filter">
+                                                        <li><a href="#"><span class="product-color-teal" style="width: 30px; height: 30px; border-radius: 50%; cursor: pointer; display: flex; margin-right: 6px;"></span></a>
+                                                        </li>
+                                                        <div class="colors">
+                                                            @foreach (explode(',', $product->color) as $color)
+                                                                <span
+                                                                    style="width: 30px; height: 30px; border-radius: 50%; cursor: pointer; display: inline-block; margin-right: 6px; background-color:{{ $color }}"><li
+                                                                        style="display: inline-block;"><input
+                                                                            type="checkbox" name="color"
+                                                                            value="{{ $color }}"></li></span>
+                                                            @endforeach
+                                                        </div>
+                                                    </ul>
+                                                </div>
+                                            @endif
+
+                                            @if($product->size !== null)
+                                                {{-- size --}}
+                                                <div class="col-md-12">
+                                                    <select name="size" id="size" class="form-control">
+                                                        <option value="" style="display: none">اختار مقاسك</option>
+                                                        @foreach (explode(',', $product->size) as $size)
+                                                            <option
+                                                                value="{{ strtoupper($size) }}">{{ strtoupper($size) }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            @endif
                                             <div class="bt-1 border-color-1 mt-30 mb-30"></div>
                                             <div class="detail-extralink">
                                                 <div class="product-extra-link2">
@@ -199,13 +206,15 @@
                                                     <button type="submit" class="button button-add-to-cart">أضف إلي
                                                         السلة
                                                     </button>
-                                                    <input type="number" name="quantity" id="quantity" value="1" min="1" style="display: inline-block; width: 70px; padding: 6px; text-align: center; border: 1px solid #ccc; border-radius: 3px;">
+                                                    <input type="number" name="quantity" id="quantity" value="1" min="1"
+                                                           style="display: inline-block; width: 70px; padding: 6px; text-align: center; border: 1px solid #ccc; border-radius: 3px;">
                                                 </div>
                                             </div>
                                         </form>
                                         <br>
                                         <div class="d-grid gap-2">
-                                            <a href="{{route('order.payNow',$product)}}" class="btn btn-primary" type="button">اشتري الان </a>
+                                            <a href="{{route('order.payNow',$product)}}" class="btn btn-primary"
+                                               type="button">اشتري الان </a>
                                         </div>
                                     </div>
                                     <!-- End Product Info -->
@@ -229,47 +238,7 @@
                                 <div class="tab-content shop_info_tab entry-main-content">
                                     <div class="tab-pane fade show active" id="Description">
                                         <div class="">
-                                            <p>Uninhibited carnally hired played in whimpered dear gorilla koala
-                                                depending and much yikes off far quetzal goodness and from for grimaced
-                                                goodness unaccountably and meadowlark near unblushingly crucial scallop
-                                                tightly neurotic hungrily some and dear furiously this apart.</p>
-                                            <p>Spluttered narrowly yikes left moth in yikes bowed this that grizzly much
-                                                hello on spoon-fed that alas rethought much decently richly and wow
-                                                against the frequent fluidly at formidable acceptably flapped
-                                                besides and much circa far over the bucolically hey precarious goldfinch
-                                                mastodon goodness gnashed a jellyfish and one however because.
-                                            </p>
-                                            <ul class="product-more-infor mt-30">
-                                                <li><span>Type Of Packing</span> Bottle</li>
-                                                <li><span>Color</span> Green, Pink, Powder Blue, Purple</li>
-                                                <li><span>Quantity Per Case</span> 100ml</li>
-                                                <li><span>Ethyl Alcohol</span> 70%</li>
-                                                <li><span>Piece In One</span> Carton</li>
-                                            </ul>
-                                            <hr class="wp-block-separator is-style-dots">
-                                            <p>Laconic overheard dear woodchuck wow this outrageously taut beaver hey
-                                                hello far meadowlark imitatively egregiously hugged that yikes minimally
-                                                unanimous pouted flirtatiously as beaver beheld above forward
-                                                energetic across this jeepers beneficently cockily less a the raucously
-                                                that magic upheld far so the this where crud then below after jeez
-                                                enchanting drunkenly more much wow callously irrespective limpet.</p>
-                                            <h4 class="mt-30">Packaging & Delivery</h4>
-                                            <hr class="wp-block-separator is-style-wide">
-                                            <p>Less lion goodness that euphemistically robin expeditiously bluebird
-                                                smugly scratched far while thus cackled sheepishly rigid after due one
-                                                assenting regarding censorious while occasional or this more crane
-                                                went more as this less much amid overhung anathematic because much held
-                                                one exuberantly sheep goodness so where rat wry well concomitantly.
-                                            </p>
-                                            <p>Scallop or far crud plain remarkably far by thus far iguana lewd
-                                                precociously and and less rattlesnake contrary caustic wow this near
-                                                alas and next and pled the yikes articulate about as less cackled
-                                                dalmatian
-                                                in much less well jeering for the thanks blindly sentimental whimpered
-                                                less across objectively fanciful grimaced wildly some wow and rose
-                                                jeepers outgrew lugubrious luridly irrationally attractively
-                                                dachshund.
-                                            </p>
+                                            <p>{{$product->description}}</p>
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="Reviews">
@@ -301,12 +270,16 @@
                                                         <div class="product-img product-img-zoom">
                                                             <a href="{{route('products.show', $relatedProduct->id)}}"
                                                                tabindex="0">
-                                                                <img class="default-img" src="{{ $relatedProduct->getFirstMediaUrl('productFiles') }}" alt="{{ $relatedProduct->name }}" width="400px" height="250px">
+                                                                <img class="default-img"
+                                                                     src="{{ $relatedProduct->getFirstMediaUrl('productFiles') }}"
+                                                                     alt="{{ $relatedProduct->name }}" width="400px"
+                                                                     height="250px">
                                                             </a>
                                                         </div>
                                                         <div class="product-action-1">
                                                             <a aria-label="عرض" class="action-btn small hover-up"
-                                                               data-bs-toggle="modal" data-bs-target="#quickViewModal"><i
+                                                               data-bs-toggle="modal"
+                                                               data-bs-target="#quickViewModal"><i
                                                                     class="fi-rs-search"></i></a>
                                                             <a aria-label="أضف إلى المفضلة"
                                                                class="action-btn small hover-up" href="wishlist.php"

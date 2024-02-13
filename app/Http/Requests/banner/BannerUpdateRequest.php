@@ -17,7 +17,7 @@ class BannerUpdateRequest extends FormRequest
             'small_title'=>['nullable'],
             'main_title'=>['nullable'],
             'status'=>['nullable','integer','between:0,1'],
-            'files.*'=>['nullable','max:5000','mimes:png,jpg,jpeg'],
+            'product_id' => 'required|exists:products,id',
         ];
     }
 }

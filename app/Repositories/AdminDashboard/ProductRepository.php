@@ -21,14 +21,15 @@ class ProductRepository implements ProductInterface
 
     public function create()
     {
-        return view('adminDashboard.products.create', ['categories' => Category::all(),'colors'=>Color::select('name','value')->get()]);
+        return view('adminDashboard.products.create', ['categories' => Category::all(), 'colors' => Color::select('name', 'value')->get()]);
     }
 
     public function store($request)
     {
         $product = Product::create([...Arr::except($request, ['files', 'size', 'color']),
             'price_after_offer' => priceAfterOffer($request['price'], $request['offer']),
-            'size' => implode(',', $request['size']), 'color' => implode(',', $request['color'])
+            'size' => isset($request['size']) ? implode(',', $request['size']) : null,
+            'color' => isset($request['color']) ? implode(',', $request['color']) : null,
         ]);
         uploadFiles($request['files'], $product, 'productFiles');
         return redirect()->back()->with(['success' => 'تم بنجاح اضافة المنتج']);
@@ -37,16 +38,20 @@ class ProductRepository implements ProductInterface
     public function edit($product)
     {
         return view('adminDashboard.products.edit', ['categories' => Category::all(),
-            'product' => $product,'colors'=>Color::select('name','value')->get()]);
+            'product' => $product, 'colors' => Color::select('name', 'value')->get()]);
     }
 
     public function update($request, $product)
     {
         $product->update([...Arr::except($request, ['files', 'size', 'color']),
             'price_after_offer' => priceAfterOffer($request['price'], $request['offer']),
-            'size' => implode(',', $request['size']), 'color' => implode(',', $request['color'])
+            'size' => isset($request['size']) ? implode(',', $request['size']) : null,
+            'color' => isset($request['color']) ? implode(',', $request['color']) : null,
         ]);
-        updateFiles($request['files'], $product, 'productFiles');
+        if (isset($request['files'])) {
+            updateFiles($request['files'], $product, 'productFiles');
+        }
+
         return redirect()->back()->with(['success' => 'تم بنجاح تحديث المنتج ']);
     }
 

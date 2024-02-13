@@ -39,7 +39,7 @@
                             {{--edit--}}
                             <x-adminlte-modal id="edit_{{$banner->id}}" title="تعديل" theme="teal"
                                               icon="fas fa-bolt" size='lg' disable-animations>
-                                @include('adminDashboard.banner.edit',['banner'=>$banner])
+                                @include('adminDashboard.banner.edit',['products'=>$products])
 
                             </x-adminlte-modal>
                             <x-adminlte-button label="تعديل" data-toggle="modal"
