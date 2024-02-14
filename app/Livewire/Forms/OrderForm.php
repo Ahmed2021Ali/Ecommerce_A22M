@@ -37,8 +37,8 @@ class OrderForm extends Form
                 Order::create([
                     'order_number' => $order_number, 'product_id' => $cart->product_id,
                     'quantity' => $cart->quantity,'color' => $cart->color,'size' => $cart->size,
-                    'price' => $cart->product->offer ? $cart->product->price_after_offer : $cart->product->price,
-                    'total_price' => ($cart->product->offer ? $cart->product->price_after_offer : $cart->product->price) * $cart->quantity,
+                    'price' => calcPriceProduct($cart->product->price,$cart->product->offer,$cart->product->price_after_offer,null),
+                    'total_price' => calcPriceProduct($cart->product->price,$cart->product->offer,$cart->product->price_after_offer,$cart->quantity),
                 ]);
                 Product::where('id', $cart->product_id)->update([
                     'quantity' => ($cart->product->quantity) - ($cart->quantity), 'stock' => 1 + $cart->product->stock,

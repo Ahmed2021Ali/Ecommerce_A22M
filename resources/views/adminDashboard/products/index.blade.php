@@ -37,7 +37,7 @@
                         </td>
 
                         <td>{{ $product->size }}</td>
-                        <td>{{$product->offer ? $product->price_after_offer : $product->price  }}</td>
+                        <td>{{calcPriceProduct($product->price,$product->offer,$product->price_after_offer,null)}}</td>
                         <td>{{ $product->status == '1'? 'معروض ' : 'غير معروض ' }}</td>
                         <td>{{ $product->quantity }}</td>
                         <td>{{ $product->category->name }}</td>
