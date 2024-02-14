@@ -16,7 +16,7 @@ class Category extends Model implements HasMedia
 
     public function products()
     {
-        return $this->hasMany(Product::class)->paginate(8);
+        return $this->hasMany(Product::class)->where('status',1)->paginate(8);
     }
     public function registerMediaConversions(Media $media = null): void
     {

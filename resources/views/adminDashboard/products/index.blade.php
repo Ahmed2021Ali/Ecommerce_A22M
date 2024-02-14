@@ -32,13 +32,12 @@
                         <td>{{ $product->name }}</td>
                         <td>
                             @foreach (explode(',', $product->color) as $color)
-                                {{ optional(\App\Models\Color::where('value', $color)->first())->name }} ,
+                                {{ optional(\App\Models\Color::where('value', $color)->first())->name ?? '' }} ,
                             @endforeach
-
                         </td>
 
                         <td>{{ $product->size }}</td>
-                        <td>{{$product->price_after_offer ? $product->price_after_offer : $product->price  }}</td>
+                        <td>{{$product->offer ? $product->price_after_offer : $product->price  }}</td>
                         <td>{{ $product->status == '1'? 'معروض ' : 'غير معروض ' }}</td>
                         <td>{{ $product->quantity }}</td>
                         <td>{{ $product->category->name }}</td>

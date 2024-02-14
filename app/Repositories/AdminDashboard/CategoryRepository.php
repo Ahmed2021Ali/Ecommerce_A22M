@@ -27,7 +27,7 @@ class CategoryRepository implements CategoryInterface
 
     public function show($category)
     {
-        return view('adminDashboard.products.index', ['products' => $category->products]);
+        return view('adminDashboard.products.index', ['products' => $category->products()]);
     }
 
 

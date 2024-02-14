@@ -28,7 +28,7 @@
                                 </thead>
                                 <tbody>
                                 <?php $total_price = 0; ?>
-                                @foreach($carts as $cart)
+                                @foreach(Auth::user()->carts() as $cart)
                                     <tr>
                                         <td class="image product-thumbnail">
                                             <a href="{{route('products.show', $cart->product->id)}}"><img
@@ -43,9 +43,9 @@
                                                 @if($cart->color)
                                                     <strong class="mr-10">اللون &nbsp;&nbsp;</strong>
                                                     <ul class="list-filter color-filter">
-                                                        @foreach (explode(',', $cart->color) as $color)
-                                                            {{\App\Models\Color::where('value', $color)->first()->name}}
-                                                        @endforeach
+                                                            @foreach (explode(',', $cart->color) as $color)
+                                                                {{\App\Models\Color::where('value', $color)->first()->name ?? ''}}
+                                                            @endforeach
                                                     </ul>
                                                 @endif
                                                 @if($cart->size)
@@ -85,23 +85,19 @@
                                             </form>
                                         </td>
                                     </tr>
-
                                 @endforeach
-                                {{ $carts->links() }}
+                                {{ Auth::user()->carts()->links() }}
 
                                 <tr>
                                     <td colspan="6" class="text-end">
-                                        <a href="{{route('cart.clear')}}" class="text-muted"> <i
-                                                class="fi-rs-cross-small"></i> Clear Cart</a>
+                                        <a href="{{route('cart.clear')}}" class="text-muted"> <i class="fi-rs-cross-small"></i> Clear Cart</a>
                                     </td>
                                 </tr>
                                 </tbody>
                             </table>
                         </div>
                         <div class="divider center_icon mt-50 mb-50"><i class="fi-rs-fingerprint"></i></div>
-                        <livewire:order :total_price="$total_price" />
-
-
+                        <livewire:order :total_price="$total_price"/>
                     </div>
                 </div>
             </div>

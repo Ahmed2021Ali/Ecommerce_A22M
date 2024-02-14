@@ -15,10 +15,10 @@ class HomepageController extends Controller
 {
     public function index()
     {
-        return view('home', ['products'=>Product::paginate(9), 'banners'=>Banner::all(), 'sliders'=>Slider::all(),
-        'services'=>Service::all(),'brands'=>Brand::all(),'newArrivalProducts'=>Product::latest()->take(6)->get(),
-        'newAddedProducts'=>Product::latest()->take(12)->get(),
-        'featuredProducts'=>Product::paginate(12),
+        return view('home', ['products'=>Product::where('status',1)->paginate(9), 'banners'=>Banner::all(), 'sliders'=>Slider::all(),
+        'services'=>Service::where('status',1)->get(),'brands'=>Brand::where('status',1)->get(),'newArrivalProducts'=>Product::where('status',1)->latest()->take(6)->get(),
+        'newAddedProducts'=>Product::where('status',1)->latest()->take(12)->get(),
+        'featuredProducts'=>Product::where('status',1)->paginate(12),
         'bestsellersProduct'=>Product::where('status',1)->where('stock', '!=', null)->orderBy('stock','asc')->paginate(12),
 
     ]);
