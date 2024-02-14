@@ -30,13 +30,13 @@ class OrderForm extends Form
             $order = OrderDetails::create([
                 'user_id' => Auth::user()->id, 'address_id' => $this->address_id, 'subtotal' => $subTotal,
                 'delivery_price' => $deliveryPrice, 'order_number' => $order_number,
-                'number_of_product' => Auth::user()->carts()->count(), 'coupon_value' => $discount->value ?? null,
-                'total' => $discount ? ($subTotal + $deliveryPrice) * 10 / 100 + ($subTotal + $deliveryPrice) : ($subTotal + $deliveryPrice)
+                'number_of_product' => Auth::user()->carts()->count(),'coupon_value' => $discount->value ?? null,
+                'total' => calcTotalPriceOrder($subTotal, $deliveryPrice, $discount->value??null)
             ]);
             foreach (Auth::user()->carts() as $cart) {
                 Order::create([
                     'order_number' => $order_number, 'product_id' => $cart->product_id,
-                    'quantity' => $cart->quantity, 'color' => $cart->color ?? null, 'size' => $cart->size ?? null,
+                    'quantity' => $cart->quantity,'color' => $cart->color,'size' => $cart->size,
                     'price' => $cart->product->offer ? $cart->product->price_after_offer : $cart->product->price,
                     'total_price' => ($cart->product->offer ? $cart->product->price_after_offer : $cart->product->price) * $cart->quantity,
                 ]);

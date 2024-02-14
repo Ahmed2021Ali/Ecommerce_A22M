@@ -58,7 +58,8 @@
                                         </td>
 
                                         <td class="price" data-title="Price">
-                                            <span>{{$cart->product->offer ? $cart->product->price_after_offer : $cart->product->price}} </span>
+                                            <span>{{calcPriceProduct($cart->product->price,$cart->product->offer,$cart->product->price_after_offer,null)}} </span>
+
                                         </td>
 
                                         <td class="text-center" data-title="Stock">
@@ -74,7 +75,7 @@
 
                                         <td class="text-right" data-title="Cart">
                                                 <?php $subTotal += ($cart->product->offer ? $cart->product->price_after_offer : $cart->product->price) * $cart->quantity; ?>
-                                            <span>{{($cart->product->offer ? $cart->product->price_after_offer : $cart->product->price) * $cart->quantity }} </span>
+                                            <span>{{calcPriceProduct($cart->product->price,$cart->product->offer,$cart->product->price_after_offer,$cart->quantity)}}</span>
                                         </td>
 
                                         <td class="action" data-title="Remove">

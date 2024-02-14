@@ -30,12 +30,7 @@
                                 <tr>
                                     <td class="cart_total_label">الاجمالي</td>
                                     <td class="cart_total_amount"><strong><span class="font-xl fw-900 text-brand">
-                                            @if ($discount)
-                                                    {{($subTotal+$deliveryPrice)-($subTotal+$deliveryPrice)*$discount->value/100}}
-                                                    جينية
-                                                @else
-                                                    {{$subTotal+$deliveryPrice}} جينية
-                                                @endif
+                                                {{calcTotalPriceOrder($subTotal, $deliveryPrice, $discount->value ?? null)}}
                                         </span></strong>
                                     </td>
                                 </tr>
