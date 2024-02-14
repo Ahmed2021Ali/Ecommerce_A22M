@@ -16,7 +16,6 @@ class ReviewUpdateRequest extends FormRequest
         return [
             'star'=>['nullable'],
             'comment'=>['nullable'],
-
         ];
     }
 }

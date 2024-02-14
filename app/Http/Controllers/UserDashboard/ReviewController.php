@@ -4,35 +4,35 @@ namespace App\Http\Controllers\UserDashboard;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\review\ReviewStoreRequest;
+use App\Http\Requests\review\ReviewUpdateRequest;
 use App\Models\Product;
 use App\Models\Review;
-use Illuminate\Support\Facades\Auth;
+use App\Repositories\Interfaces\UserDashboard\ReviewInterface;
 
 class ReviewController extends Controller
 {
 
-    public function store(ReviewStoreRequest $request,Product $product)
-    {
-        Review::create([...$request->validated(),'user_id'=>Auth::user()->id,'product_id'=>$product->id]);
-        return redirect()->back()->with('success','شكرا لتقيماتكم ');
-    }
+    protected $review;
 
+    public function __construct(ReviewInterface $review)
+    {
+        $this->review = $review;
+        $this->middleware('auth');
+    }
+    public function store(ReviewStoreRequest $request, Product $product)
+    {
+        return $this->review->store($request->validated(), $product);
+    }
     public function edit($id)
     {
-        return view('userDashboard.products.review.edit',['review' => Review::find(decrypt($id))]);
+        return $this->review->edit(Review::find(decrypt($id)));
     }
-
-
-    public function update(ReviewStoreRequest $request, Review $review)
+    public function update(ReviewUpdateRequest $request, Review $review)
     {
-        $review->update($request->validated());
-        return to_route('products.show',$review->product_id)->with('success','تم تعديل تقسمك للمنتج بنجاح');
+        return $this->review->update($request->validated(), $review);
     }
-
-    
     public function destroy(Review $review)
     {
-        $review->delete();
-        return redirect()->back()->with('success','تم حذف تقييمك');
+        return $this->review->destroy($review);
     }
 }

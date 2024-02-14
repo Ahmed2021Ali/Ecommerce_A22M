@@ -25,10 +25,12 @@ use App\Repositories\Interfaces\AdminDashboard\UserInterface;
 use App\Repositories\Interfaces\UserDashboard\CartInterface;
 use App\Repositories\Interfaces\UserDashboard\FavInterface;
 use App\Repositories\Interfaces\UserDashboard\ProfileInterace;
+use App\Repositories\Interfaces\UserDashboard\ReviewInterface;
 use App\Repositories\Interfaces\UserDashboard\SearchInterface;
 use App\Repositories\UserDashboard\CartRepository;
 use App\Repositories\UserDashboard\FavRepository;
 use App\Repositories\UserDashboard\ProfileRepository;
+use App\Repositories\UserDashboard\ReviewRepository;
 use App\Repositories\UserDashboard\SearchRepository;
 use Illuminate\Support\ServiceProvider;
 class RepositoryServiceProvider extends ServiceProvider
@@ -125,6 +127,11 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(
             SearchInterface::class,
             SearchRepository::class,
+        );
+
+        $this->app->bind(
+            ReviewInterface::class,
+            ReviewRepository::class,
         );
 
     }
