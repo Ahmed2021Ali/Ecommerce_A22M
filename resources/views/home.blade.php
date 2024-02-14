@@ -63,7 +63,7 @@
                                     </a>
                                 </div>
                                 <div class="product-action-1">
-                                    <a aria-label="عرض" class="action-btn hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
+                                    <a href="{{ $product->getFirstMediaUrl('productFiles') }}" aria-label="عرض" class="action-btn hover-up"  data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
                                     <button aria-label="إضافة إلي المفضلة" class="action-btn hover-up" onclick="addToFavorites({{ $product->id }})">
                                         <i class="fi-rs-heart"></i>
                                     </button>
@@ -74,8 +74,10 @@
                                 <h2><a href="">{{ $product->name }}</a></h2>
                                 <span>
                                         @include('userDashboard.products.review.ratingProduct',['rate'=>calcReview($product)])
-                                        <span>تخفيض %{{ $product->offer }}</span>
-                                    </span>
+                                        @if($product->offer)
+                                            <span>تخفيض %{{ $product->offer }}</span>
+                                        @endif
+                                </span>
                                 <div class="product-price">
                                     <span>${{ $product->price_after_offer ?? $product->price }}</span>
                                     @if($product->offer)

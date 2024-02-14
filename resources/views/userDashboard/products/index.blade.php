@@ -34,8 +34,8 @@
                                                             width="600" height="300"></a>
                                                 </div>
                                                 <div class="product-action-1">
-                                                    <a aria-label="عرض" class="action-btn hover-up"
-                                                       data-bs-toggle="modal" data-bs-target="#quickViewModal"><i
+                                                    <a href="{{ $product->getFirstMediaUrl('productFiles') }}" aria-label="عرض" class="action-btn hover-up"
+                                                        data-bs-target="#quickViewModal"><i
                                                             class="fi-rs-eye"></i></a>
                                                     <a aria-label="أضف إلي المفضلة" class="action-btn hover-up"
                                                        onclick="addToFavorites({{ $product->id }})"><i
@@ -48,12 +48,16 @@
 
                                                 </div>
                                                 <h2>
-                                                    <a href="{{route('products.show', encrypt($product->id))}}">{{ $product->description }}</a>
+                                                    <a href="{{route('products.show', encrypt($product->id))}}">{{ Str::limit($product->description, 50) }}
+
+                                                    </a>
                                                 </h2>
                                                 <span>
                                                     @include('userDashboard.products.review.ratingProduct',['rate'=>calcReview($product)])
+                                                    @if($product->offer)
                                                     <span>تخفيض %{{ $product->offer }}</span>
-                                                </span>
+                                                @endif
+                                                                                                </span>
                                                 <div class="product-price">
                                                     <span>${{ $product->price_after_offer ?? $product->price }}</span>
                                                     @if($product->offer)
@@ -62,7 +66,7 @@
                                                 </div>
                                                 <div class="product-action-1 show">
                                                     <a aria-label="تسوق الآن" class="action-btn hover-up"
-                                                       href="{{route('products.show', encrypt($product->id))}}"><i
+                                                    href="{{route('products.show', encrypt($product->id))}}"><i
                                                             class="fi-rs-shopping-bag-add"></i></a>
                                                 </div>
                                             </div>
@@ -80,7 +84,6 @@
                         </div>
                     </div>
                     <div class="col-lg-3 primary-sidebar sticky-sidebar">
-
                         <!-- Fillter By Price -->
                         <x-right-sidebar/>
                         <!-- Product sidebar Widget -->

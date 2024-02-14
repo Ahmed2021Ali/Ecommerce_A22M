@@ -99,7 +99,9 @@
                 <div class="col-6">
                     <label for="description">الوصف</label>
                     <textarea name="description" id="description" cols="10" rows="3"
-                              class="form-control">{{ $product->description }}</textarea>
+                                class="form-control">{{ Str::limit($product->description, 50) }}
+
+                    </textarea>
                     @error('description')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror

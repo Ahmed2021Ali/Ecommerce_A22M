@@ -37,7 +37,7 @@
 
         }
 
-        input.star:checked ~ label.star:before {
+        input.star:checked~label.star:before {
 
             content: '\f005';
 
@@ -47,7 +47,7 @@
 
         }
 
-        input.star-5:checked ~ label.star:before {
+        input.star-5:checked~label.star:before {
 
             color: #FE7;
 
@@ -55,7 +55,7 @@
 
         }
 
-        input.star-1:checked ~ label.star:before {
+        input.star-1:checked~label.star:before {
             color: #F62;
         }
 
@@ -73,7 +73,7 @@
     </style>
 @endsection
 @section('pageHeader')
-    تفاصيل المنتج <span></span>  {{$product->name}}
+    تفاصيل المنتج <span></span> {{ $product->name }}
 @endsection
 @section('content')
     <main class="main">
@@ -92,18 +92,17 @@
                                     <div class="detail-gallery">
                                         <!-- Gallery Images -->
                                         <div class="product-image-slider">
-                                            @foreach($product->getMedia('productFiles') as $media)
+                                            @foreach ($product->getMedia('productFiles') as $media)
                                                 <figure class="border-radius-10">
-                                                    <img src="{{$media->getFullUrl()}}"
-                                                         alt="product image">
+                                                    <img src="{{ $media->getFullUrl() }}" alt="product image">
                                                 </figure>
                                             @endforeach
                                         </div>
                                         <!-- Thumbnail Images -->
                                         <div class="slider-nav-thumbnails pl-15 pr-15">
-                                            @foreach($product->getMedia('productFiles') as $media)
+                                            @foreach ($product->getMedia('productFiles') as $media)
                                                 <div>
-                                                    <img src="{{$media->getFullUrl()}}" alt="product image">
+                                                    <img src="{{ $media->getFullUrl() }}" alt="product image">
                                                 </div>
                                             @endforeach
                                         </div>
@@ -132,28 +131,35 @@
                                     <!-- Product Info -->
                                     <div class="detail-info" style="direction: rtl; text-align: right;">
                                         <!-- Product Title and Rating -->
-                                        <h2 class="title-detail">{{$product->name}}</h2>
+                                        <h2 class="title-detail">{{ $product->name }}</h2>
                                         <div class="product-detail-rating">
                                             <div class="product-rate-cover text-end">
-                                                @include('userDashboard.products.review.ratingProduct',['rate'=>calcReview($product)])
-                                                <span class="font-small ml-5 text-muted"> ({{$product->reviews()->where('star', '!=', null)->count()}} التقييم)</span>
+                                                @include('userDashboard.products.review.ratingProduct', [
+                                                    'rate' => calcReview($product),
+                                                ])
+                                                <span class="font-small ml-5 text-muted">
+                                                    ({{ $product->reviews()->where('star', '!=', null)->count() }}
+                                                    التقييم)</span>
                                             </div>
                                         </div>
                                         <!-- Product Price -->
                                         <div class="clearfix product-price-cover">
                                             <div class="product-price primary-color float-left">
-                                                <ins><span class="text-brand">{{$product->price_after_offer}}</span>
+                                                <ins><span class="text-brand">{{ $product->price_after_offer }}</span>
                                                 </ins>
-                                                <ins><span class="old-price font-md ml-15">{{$product->price}}</span>
+                                                <ins><span class="old-price font-md ml-15">{{ $product->price }}</span>
                                                 </ins>
-                                                <span
-                                                    class="save-price  font-md color3 ml-15">تخفيض %{{ $product->offer }}</span>
+                                                @if ($product->offer)
+                                                    <span class="save-price  font-md color3 ml-15">تخفيض
+                                                        %{{ $product->offer }}</span>
+                                                @endif
+
                                             </div>
                                         </div>
                                         <div class="bt-1 border-color-1 mt-15 mb-15"></div>
                                         <!-- Additional Info -->
                                         <div class="product_sort_info font-xs mb-30"
-                                             style="direction: rtl; text-align: right;">
+                                            style="direction: rtl; text-align: right;">
                                             <ul>
                                                 <li class="mb-10"><i class="fi-rs-refresh mr-5"></i> سياسة الإرجاع لمدة
                                                     30 يومًا
@@ -161,39 +167,40 @@
                                                 <li><i class="fi-rs-credit-card mr-5"></i> الدفع عند الاستلام متاح</li>
                                             </ul>
                                         </div>
-                                        <form action="{{route('cart.store',$product) }}" method="post">
+                                        <form action="{{ route('cart.store', $product) }}" method="post">
                                             @csrf
 
-                                            @if($product->color !== null)
+                                            @if ($product->color !== null)
                                                 {{-- color --}}
                                                 <div class="attr-detail attr-color mb-15"
-                                                     style="display: flex; margin-top: 2px; direction: rtl; text-align: right;">
+                                                    style="display: flex; margin-top: 2px; direction: rtl; text-align: right;">
                                                     <strong class="mr-10">اللون &nbsp;&nbsp;</strong>
                                                     <ul class="list-filter color-filter">
                                                         <li><a href="#"><span class="product-color-teal"
-                                                                              style="width: 30px; height: 30px; border-radius: 50%; cursor: pointer; display: flex; margin-right: 6px;"></span></a>
+                                                                    style="width: 30px; height: 30px; border-radius: 50%; cursor: pointer; display: flex; margin-right: 6px;"></span></a>
                                                         </li>
                                                         <div class="colors">
                                                             @foreach (explode(',', $product->color) as $color)
                                                                 <span
-                                                                    style="width: 30px; height: 30px; border-radius: 50%; cursor: pointer; display: inline-block; margin-right: 6px; background-color:{{ $color }}"><li
-                                                                        style="display: inline-block;"><input
+                                                                    style="width: 30px; height: 30px; border-radius: 50%; cursor: pointer; display: inline-block; margin-right: 6px; background-color:{{ $color }}">
+                                                                    <li style="display: inline-block;"><input
                                                                             type="checkbox" name="color"
-                                                                            value="{{ $color }}"></li></span>
+                                                                            value="{{ $color }}"></li>
+                                                                </span>
                                                             @endforeach
                                                         </div>
                                                     </ul>
                                                 </div>
                                             @endif
 
-                                            @if($product->size !== null)
+                                            @if ($product->size !== null)
                                                 {{-- size --}}
                                                 <div class="col-md-12">
                                                     <select name="size" id="size" class="form-control">
                                                         <option value="" style="display: none">اختار مقاسك</option>
                                                         @foreach (explode(',', $product->size) as $size)
-                                                            <option
-                                                                value="{{ strtoupper($size) }}">{{ strtoupper($size) }}</option>
+                                                            <option value="{{ strtoupper($size) }}">
+                                                                {{ strtoupper($size) }}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -202,20 +209,21 @@
                                             <div class="detail-extralink">
                                                 <div class="product-extra-link2">
                                                     <a aria-label="Add To Wishlist" class="action-btn hover-up"
-                                                       href="{{route('fav.store',$product)}}"><i
+                                                        href="{{ route('fav.store', $product) }}"><i
                                                             class="fi-rs-heart"></i></a>
                                                     <button type="submit" class="button button-add-to-cart">أضف إلي
                                                         السلة
                                                     </button>
-                                                    <input type="number" name="quantity" id="quantity" value="1" min="1"
-                                                           style="display: inline-block; width: 70px; padding: 6px; text-align: center; border: 1px solid #ccc; border-radius: 3px;">
+                                                    <input type="number" name="quantity" id="quantity" value="1"
+                                                        min="1"
+                                                        style="display: inline-block; width: 70px; padding: 6px; text-align: center; border: 1px solid #ccc; border-radius: 3px;">
                                                 </div>
                                             </div>
                                         </form>
                                         <br>
                                         <div class="d-grid gap-2">
-                                            <a href="{{route('order.payNow',$product)}}" class="btn btn-primary"
-                                               type="button">اشتري الان </a>
+                                            <a href="{{ route('order.payNow', $product) }}" class="btn btn-primary"
+                                                type="button">اشتري الان </a>
                                         </div>
                                     </div>
                                     <!-- End Product Info -->
@@ -225,7 +233,7 @@
 
 
                             <!-- Review and Description Product Info -->
-                            @include('userDashboard.products.review.index',['product'=>$product])
+                            @include('userDashboard.products.review.index', ['product' => $product])
                             <!-- End Review Product Info -->
 
 
@@ -237,37 +245,53 @@
                                 <hr>
                                 <div class="col-12">
                                     <div class="row related-products">
-                                        @foreach($product->category->products() as $relatedProduct)
+                                        @foreach ($product->category->products() as $relatedProduct)
                                             <div class="col-lg-3 col-md-4 col-12 col-sm-6">
                                                 <div class="product-cart-wrap small hover-up">
                                                     <div class="product-img-action-wrap">
                                                         <div class="product-img product-img-zoom">
-                                                            <a href="{{route('products.show', encrypt($relatedProduct->id))}}"
-                                                               tabindex="0">
-                                                                <img class="default-img"
-                                                                     src="{{ $relatedProduct->getFirstMediaUrl('productFiles') }}"
-                                                                     alt="{{ $relatedProduct->name }}" width="400px"
-                                                                     height="250px">
+                                                            <a href="{{ route('products.show', encrypt($relatedProduct->id)) }}"
+                                                                tabindex="0">
+                                                                <img class="default-img" 
+                                                                    src="{{ $relatedProduct->getFirstMediaUrl('productFiles') }}"
+                                                                    alt="{{ $relatedProduct->name }}" width="400px"
+                                                                    height="250px">
                                                             </a>
                                                         </div>
                                                         <div class="product-action-1">
-                                                            <a aria-label="عرض" class="action-btn small hover-up"
-                                                               data-bs-toggle="modal"
-                                                               data-bs-target="#quickViewModal"><i
-                                                                    class="fi-rs-search"></i></a>
+                                                            <a href="{{ $product->getFirstMediaUrl('productFiles') }}"
+                                                                aria-label="عرض" class="action-btn small hover-up"
+                                                                data-bs-target="#quickViewModal"><i
+                                                                    class="fi-rs-eye"></i></a>
                                                             <a aria-label="أضف إلى المفضلة"
-                                                               class="action-btn small hover-up" href="wishlist.php"
-                                                               tabindex="0"><i class="fi-rs-heart"></i></a>
+                                                                class="action-btn small hover-up" href="wishlist.php"
+                                                                tabindex="0"><i class="fi-rs-heart"></i></a>
                                                             <a aria-label="تسوق الآن" class="action-btn hover-up"
-                                                               href="{{route('products.show', encrypt($relatedProduct->id))}}"><i
+                                                                href="{{ route('products.show', encrypt($relatedProduct->id)) }}"><i
                                                                     class="fi-rs-shopping-bag-add"></i></a>
                                                         </div>
                                                     </div>
                                                     <div class="product-content-wrap">
+                                                        <div class="product-category">
+                                                            <a href="{{route('products.show', encrypt($product->id))}}">{{ $relatedProduct->name }}</a>
+        
+                                                        </div>
                                                         <h2>
-                                                            <a href="{{route('products.show', encrypt($relatedProduct->id))}}"
-                                                               tabindex="0">{{$relatedProduct->name}}</a></h2>
-                                                        @include('userDashboard.products.review.ratingProduct',['rate'=>calcReview($relatedProduct)])
+                                                            <a href="{{route('products.show', encrypt($product->id))}}">{{ Str::limit($relatedProduct->description, 50) }}
+        
+                                                            </a>
+                                                        </h2>
+                                                        <span>
+                                                            @include('userDashboard.products.review.ratingProduct',['rate'=>calcReview($relatedProduct)])
+                                                            @if($relatedProduct->offer)
+                                                            <span>تخفيض %{{ $relatedProduct->offer }}</span>
+                                                        @endif
+                                                                
+                                                        
+                                                        @include(
+                                                            'userDashboard.products.review.ratingProduct',
+                                                            ['rate' => calcReview($relatedProduct)]
+                                                        )
                                                         <div class="product-price">
                                                             <span>$238.85 </span>
                                                             <span class="old-price">$245.8</span>
@@ -276,7 +300,7 @@
                                                 </div>
                                             </div>
                                         @endforeach
-                                            <br>
+                                        <br>
 
                                     </div>
                                 </div>
@@ -288,7 +312,7 @@
                     <!-- Sidebar -->
                     <div class="col-lg-3 primary-sidebar sticky-sidebar">
                         <!-- Categories -->
-                        <x-right-sidebar/>
+                        <x-right-sidebar />
                     </div>
                     <!-- End Sidebar -->
                 </div>

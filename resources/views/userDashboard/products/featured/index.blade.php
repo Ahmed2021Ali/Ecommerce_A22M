@@ -10,7 +10,7 @@
                                     style="direction: rtl; text-align: right;"></a>
                         </div>
                         <div class="product-action-1">
-                            <a aria-label="عرض" class="action-btn hover-up" data-bs-toggle="modal"
+                            <a href="{{ $product->getFirstMediaUrl('productFiles') }}" aria-label="عرض" class="action-btn hover-up"
                                data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
                             <a aria-label="أضف إلي المفضلة" class="action-btn hover-up"
                                onclick="addToFavorites({{ $product->id }})"><i class="fi-rs-heart"></i></a>
@@ -20,11 +20,15 @@
                         <div class="product-category">
                             <a href="{{route('products.show', encrypt($product->id))}}">{{ $product->name }}</a>
                         </div>
-                        <h2><a href="{{route('products.show', encrypt($product->id))}}">{{ $product->description }}</a></h2>
+                        <h2><a href="{{route('products.show', encrypt($product->id))}}">{{ Str::limit($product->description, 50) }}
+
+                        </a></h2>
                         <span>
                             @include('userDashboard.products.review.ratingProduct',['rate'=>calcReview($product)])
+                            @if($product->offer)
                             <span>تخفيض %{{ $product->offer }}</span>
-                        </span>
+                        @endif
+                                                </span>
                         <div class="product-price">
                             <span>${{ $product->price_after_offer ?? $product->price }}</span>
                             @if($product->offer)

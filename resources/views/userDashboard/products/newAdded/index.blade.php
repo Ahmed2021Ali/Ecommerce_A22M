@@ -21,11 +21,15 @@
                             <a href="{{route('products.show', encrypt($product->id))}}">{{ $product->name }}</a>
 
                         </div>
-                        <h2><a href="{{route('products.show', encrypt($product->id))}}">{{ $product->description }}</a></h2>
+                        <h2><a href="{{route('products.show', encrypt($product->id))}}">{{ Str::limit($product->description, 50) }}
+
+                        </a></h2>
                         <span>
                             @include('userDashboard.products.review.ratingProduct',['rate'=>calcReview($product)])
+                            @if($product->offer)
                             <span>تخفيض %{{ $product->offer }}</span>
-                        </span>
+                        @endif
+                                                </span>
                         <div class="product-price">
                             <span>${{ $product->price_after_offer ?? $product->price }}</span>
                             @if($product->offer)

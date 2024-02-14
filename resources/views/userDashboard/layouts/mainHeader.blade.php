@@ -87,15 +87,18 @@
                                     @auth
 
                                     <a href="{{ route('profile.index') }}"
-                                       style="align-items: center; text-decoration: none; color: #000;">
+                                        style="align-items: center; text-decoration: none; color: #000;">
                                             @if (Auth::user()->hasMedia('userImages'))
                                                 <img src="{{Auth::user()->getFirstMediaUrl('userImages')}}" alt="User Image" style="width: 55px; height: 55px; border-radius: 50%; margin-bottom: -22px;">
                                             @else
                                                 <i class="fas fa-user fa-lg"></i>
                                             @endif
-                                                {{Auth::user()->name}} <i class="fi-rs-angle-down"></i>
+                                            {{ Str::limit(Auth::user()->name, 9) }} <i class="fi-rs-angle-down"></i>
                                     </a>
                                     <ul class="sub-menu">
+                                        <li><i class="fas fa-user fa-lg" style="margin-right: 23px;"></i>&nbsp;
+                                            {{ Auth::user()->name }}
+                                        </li>
                                         <li><a href="{{route('profile.index')}}"><i class="fas fa-cogs fa-lg"></i>&nbsp;
                                                 اعدادات الحساب</a></li>
                                         <li><a href="#"><i class="fas fa-shopping-bag"></i>&nbsp; الطلبات</a></li>
