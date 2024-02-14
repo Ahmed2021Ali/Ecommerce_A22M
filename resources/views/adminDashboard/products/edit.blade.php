@@ -3,7 +3,8 @@
     تعديل المنتج
 @endsection
 @section('content_header')
-    <a href="{{ route('product.index') }}" class="btn btn-info" style="direction: rtl; text-align: right;">عرض كل المنتجات</a>
+    <a href="{{ route('product.index') }}" class="btn btn-info" style="direction: rtl; text-align: right;">عرض كل
+        المنتجات</a>
     <h1>تحديث المنتج</h1>
 @stop
 
@@ -16,7 +17,7 @@
                 <div class="col-4">
                     <label for="name">اسم المنتج</label>
                     <input type="text" name="name" id="name" class="form-control" placeholder=""
-                           aria-describedby="helpId" value="{{ $product->name }}">
+                           aria-describedby="helpId" value="{{ $product->name }}" >
                     @error('name')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
@@ -32,22 +33,19 @@
                 <div class="col-4">
                     <label for="size">المقاسات المتاحة </label>
                     <select name="size[]" id="size" class="form-control" MULTIPLE>
-                        <option {{ in_array('x',explode(',',$product->size)) ? 'selected' : '' }}  value="x">x</option>
-                        <option {{ in_array('l',explode(',',$product->size)) ? 'selected' : '' }} value="l"> l</option>
-                        <option {{ in_array('xl',explode(',',$product->size)) ? 'selected' : '' }}  value="xl"> xl</option>
+                        @foreach ($sizes as $size)
+                            <option {{ in_array($size->name, explode(',', $size->name)) ? 'selected' : '' }} value="{{ $size->name }}"> {{ $size->name }} </option>
+                        @endforeach
                     </select>
-                    @error('size')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
+                    @error('size')<div class="alert alert-danger">{{ $message }}</div>@enderror
                 </div>
             </div>
             <div class="form-row">
                 <div class="col-4">
                     <label for="price">السعر</label>
                     <input type="number" name="price" id="price" class="form-control" placeholder=""
-                           aria-describedby="helpId" value="{{ $product->price }}">
-                    @error('price')
-                    <div class="alert alert-danger">{{ $message }}</div>
+                           aria-describedby="helpId" value="{{ $product->price }}" required>
+                    @error('price')<div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="col-4">
@@ -63,11 +61,12 @@
                     <label for="color">الالوان المتوفرة </label>
                     <select name="color[]" id="color" class="form-control" MULTIPLE>
                         @foreach ($colors as $color)
-                            <option {{ in_array($color->value, explode(',', $product->color)) ? 'selected' : '' }} value="{{ $color->value }}">{{ $color->name }}</option>
+                            <option
+                                {{ in_array($color->value, explode(',', $product->color)) ? 'selected' : '' }} value="{{ $color->value }}">{{ $color->name }}</option>
                         @endforeach
                     </select>
 
-                    @error('moreColor')
+                    @error('color')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
@@ -76,9 +75,9 @@
             <div class="form-row">
                 <div class="col-3">
                     <label for="status">الحالة</label>
-                    <select name="status" id="status" class="form-control">
-                        <option {{ $product->status == 1 ? 'selected' : '' }} value="1">متاح</option>
-                        <option {{ $product->status == 0 ? 'selected' : '' }} value="0">غير متاح</option>
+                    <select name="status" id="status" class="form-control" required>
+                        <option {{ $product->status === 1 ? 'selected' : '' }} value="1">متاح</option>
+                        <option {{ $product->status === 0 ? 'selected' : '' }} value="0">غير متاح</option>
                     </select>
                     @error('status')
                     <div class="alert alert-danger">{{ $message }}</div>
@@ -86,7 +85,7 @@
                 </div>
                 <div class="col-3">
                     <label for="category_id"> اسم القسم التابع لة هذا المنتج</label>
-                    <select name="category_id" id="category_id" class="form-control">
+                    <select name="category_id" id="category_id" class="form-control" required>
                         @foreach ($categories as $category)
                             <option {{ $category->id == $product->category_id ? 'selected' : '' }}
                                     value="{{ $category->id }}">{{ $category->name }}
@@ -102,7 +101,7 @@
                 <div class="col-6">
                     <label for="description">الوصف</label>
                     <textarea name="description" id="description" cols="10" rows="3"
-                                class="form-control">{{ Str::limit($product->description, 50) }}
+                              class="form-control" required>{{ Str::limit($product->description, 50) }}
 
                     </textarea>
                     @error('description')

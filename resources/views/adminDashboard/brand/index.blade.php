@@ -52,7 +52,7 @@
                             {{--  images  --}}
                             <x-adminlte-modal id="images_{{ $brand->id }}" title="الصور" theme="purple"
                                               icon="fas fa-bolt" size='lg' disable-animations>
-                                @include('adminDashboard.brand.images',['banner'=>$brand])
+                                @include('adminDashboard.images.index',['images'=>$brand,'folder'=>'brandFiles'])
                             </x-adminlte-modal>
                             <x-adminlte-button label="عرض الصور " data-toggle="modal"
                                                data-target="#images_{{ $brand->id }}" class="bg-secondary"/>

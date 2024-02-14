@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Size;
 use App\Repositories\AdminDashboard\BannerRepository;
 use App\Repositories\AdminDashboard\BrandRepository;
 use App\Repositories\AdminDashboard\CategoryRepository;
@@ -9,6 +10,7 @@ use App\Repositories\AdminDashboard\CityRepository;
 use App\Repositories\AdminDashboard\ColorRepository;
 use App\Repositories\AdminDashboard\CouponRepository;
 use App\Repositories\AdminDashboard\ServiceRepository;
+use App\Repositories\AdminDashboard\SizeRepository;
 use App\Repositories\AdminDashboard\SliderRepository;
 use App\Repositories\Interfaces\AdminDashboard\BannerInterface;
 use App\Repositories\Interfaces\AdminDashboard\BrandInterface;
@@ -22,6 +24,7 @@ use App\Repositories\AdminDashboard\RoleRepository;
 use App\Repositories\AdminDashboard\UserRepository;
 use App\Repositories\Interfaces\AdminDashboard\RoleInterface;
 use App\Repositories\Interfaces\AdminDashboard\ServiceInterface;
+use App\Repositories\Interfaces\AdminDashboard\SizeInterface;
 use App\Repositories\Interfaces\AdminDashboard\SliderInterface;
 use App\Repositories\Interfaces\AdminDashboard\UserInterface;
 use App\Repositories\Interfaces\UserDashboard\CartInterface;
@@ -139,7 +142,10 @@ class RepositoryServiceProvider extends ServiceProvider
             ColorInterface::class,
             ColorRepository::class,
         );
-
+        $this->app->bind(
+            SizeInterface::class,
+            SizeRepository::class,
+        );
     }
 
 

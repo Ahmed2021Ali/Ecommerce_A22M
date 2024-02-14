@@ -12,6 +12,7 @@ use App\Http\Controllers\AdminDashboard\OrderController;
 use App\Http\Controllers\AdminDashboard\ProductController;
 use App\Http\Controllers\AdminDashboard\ServiceController;
 use App\Http\Controllers\AdminDashboard\SliderController;
+use App\Http\Controllers\SizeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminDashboard\RoleController;
 use App\Http\Controllers\AdminDashboard\UserController;
@@ -24,6 +25,7 @@ Route::get('/admin-dashboard', function () {
 
 Route::get('admin-dashboard/Homepage',[DashboardController::class,'index'])->name('dashboard.index');
 Route::resource('category', CategoryController::class);
+Route::resource('size', SizeController::class);
 Route::resource('slider', SliderController::class);
 Route::resource('banner', BannerController::class);
 Route::resource('service', ServiceController::class);

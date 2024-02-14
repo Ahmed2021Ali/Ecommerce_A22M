@@ -16,8 +16,8 @@ class ServiceRepository implements ServiceInterface
 
     public function store($request)
     {
-        $slider = Service::create([...Arr::except($request, 'files')]);
-        uploadFiles($request['files'], $slider, 'serviceFiles');
+        $service = Service::create([...Arr::except($request, 'files')]);
+        uploadFiles($request['files'], $service, 'serviceFiles');
         return redirect()->back()->with(['success' => 'تم بنجاح اضافة الخدمة']);
     }
 

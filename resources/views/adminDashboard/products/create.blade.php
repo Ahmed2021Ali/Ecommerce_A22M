@@ -14,7 +14,7 @@
                 <div class="col-4">
                     <label for="name">اسم المنتج</label>
                     <input type="text" name="name" id="title" class="form-control" placeholder=""
-                           aria-describedby="helpId" value="{{ old('name') }}">
+                           aria-describedby="helpId" value="{{ old('name') }}" required>
                     @error('name')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
@@ -22,7 +22,7 @@
                 <div class="col-4">
                     <label for="Quantity">الكمية المتوفر لديك</label>
                     <input type="number" name="quantity" id="quantity" class="form-control" placeholder=""
-                           aria-describedby="helpId" value="{{ old('quantity') }}" >
+                           aria-describedby="helpId" value="{{ old('quantity') }}" required>
                     @error('quantity')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
@@ -43,12 +43,9 @@
                 <div class="col-4">
                     <label for="color">المقاسات المتاحة </label>
                     <select name="size[]" id="size" class="form-control" MULTIPLE>
-                        <option value="x">x</option>
-                        <option value="l">l</option>
-                        <option value="xl">xl</option>
-                        <option value="m">m</option>
-                        <option value="s">s</option>
-                        <option value="xxl">xxl</option>
+                        @foreach($sizes  as $size)
+                            <option value="{{$size->name}}">{{$size->name}}</option>
+                        @endforeach
                     </select>
                     @error('size')
                     <div class="alert alert-danger">{{ $message }}</div>
@@ -57,7 +54,7 @@
                 <div class="col-4">
                     <label for="price">السعر</label>
                     <input type="number" name="price" id="price" class="form-control" placeholder=""
-                           aria-describedby="helpId" value="{{ old('price') }}">
+                           aria-describedby="helpId" value="{{ old('price') }}" required>
                     @error('price')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
@@ -71,9 +68,9 @@
             <div class="form-row">
                 <div class="col-3">
                     <label for="status">حالة المنتج </label>
-                    <select name="status" id="status" class="form-control">
-                        <option {{ old('status') == 1 ? 'selected' : '' }} value="1">متاح</option>
-                        <option {{ old('status') == 0 ? 'selected' : '' }} value="0">غير متاح</option>
+                    <select name="status" id="status" class="form-control" required>
+                        <option {{ old('status') === 1 ? 'selected' : '' }} value="1">متاح</option>
+                        <option {{ old('status') === 0 ? 'selected' : '' }} value="0">غير متاح</option>
                     </select>
                     @error('status')
                     <div class="alert alert-danger">{{ $message }}</div>
@@ -96,7 +93,7 @@
                 <div class="col-6">
                     <label for="description"> الوصف المنتج </label>
                     <textarea name="description" id="description" cols="10" rows="3"
-                              class="form-control">{{ old('description') }}</textarea>
+                              class="form-control" required>{{ old('description') }}</textarea>
                     @error('description')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
@@ -105,7 +102,8 @@
             <div class="form-row">
                 <div class="col-12">
                     <label for="image">الصور</label>
-                    <input type="file" name="files[]" id="files" class="form-control" multiple accept="image/*">
+                    <input type="file" name="files[]" id="files" class="form-control" multiple accept="image/*"
+                           required>
                     @error('files')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror

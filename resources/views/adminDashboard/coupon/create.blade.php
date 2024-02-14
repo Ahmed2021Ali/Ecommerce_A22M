@@ -5,7 +5,7 @@
         <label for="status"
                class="col-md-4 col-form-label text-md-end">{{ __('الحالة ') }}</label>
         <div class="col-md-6">
-            <select name="status" id="status" class="form-control">
+            <select name="status" id="status" class="form-control" required>
                 <option value="1">متاح</option>
                 <option value="0">غير متاح</option>
             </select>

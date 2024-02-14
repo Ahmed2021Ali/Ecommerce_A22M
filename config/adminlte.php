@@ -296,7 +296,7 @@ return [
         ],
         [
             'text' => ' الموقع الالكتروني',
-            'icon' =>  'fas fa-walking',
+            'icon' => 'fas fa-walking',
             'route' => 'home',
         ],
         [
@@ -316,10 +316,15 @@ return [
                     'text' => 'تحزين منتج جديد ',
                     'route' => 'product.create',
                 ], [
-                    'text' => ' الوان المنتجات المتاحة ',
+                    'text' => ' الوان المنتجات ',
                     'icon_color' => 'yellow',
                     'route' => 'color.index',
                 ],
+                    [
+                        'text' => ' مقاسات المنتجات ',
+                        'icon_color' => 'yellow',
+                        'route' => 'size.index',
+                    ],
                 ],
         ],
         [

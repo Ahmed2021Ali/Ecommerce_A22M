@@ -58,7 +58,7 @@
                             {{--  images  --}}
                             <x-adminlte-modal id="images_{{ $product->id }}" title="الصور" theme="purple"
                                               icon="fas fa-bolt" size='lg' disable-animations>
-                                @include('adminDashboard.products.images',['product'=>$product])
+                                @include('adminDashboard.images.index',['images'=>$product,'folder'=>'productsFiles'])
                             </x-adminlte-modal>
                             <x-adminlte-button label="عرض صور المنتج" data-toggle="modal"
                                                data-target="#images_{{ $product->id }}" class="bg-secondary"/>
@@ -72,7 +72,7 @@
             </table>
 
         </div>
-        {{--        {{ $products->links() }}--}}
+             {{ $products->links() }}
     </div>
 
 @stop

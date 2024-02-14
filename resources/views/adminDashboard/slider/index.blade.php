@@ -61,7 +61,7 @@
                             {{--  images  --}}
                             <x-adminlte-modal id="images_{{ $slider->id }}" title="الصور" theme="purple"
                                               icon="fas fa-bolt" size='lg' disable-animations>
-                                @include('adminDashboard.slider.images',['slider'=>$slider])
+                                @include('adminDashboard.images.index',['images'=>$slider,'folder'=>'sliderFiles'])
                             </x-adminlte-modal>
                             <x-adminlte-button label="عرض الصور " data-toggle="modal"
                                                data-target="#images_{{ $slider->id }}" class="bg-secondary"/>

@@ -54,7 +54,8 @@
                             {{--  images  --}}
                             <x-adminlte-modal id="images_{{ $service->id }}" title="الصور" theme="purple"
                                               icon="fas fa-bolt" size='lg' disable-animations>
-                                @include('adminDashboard.service.images',['slider'=>$service])
+                                @include('adminDashboard.images.index',['images'=>$service,'folder'=>'serviceFiles'])
+
                             </x-adminlte-modal>
                             <x-adminlte-button label="عرض الصور " data-toggle="modal"
                                                data-target="#images_{{ $service->id }}" class="bg-secondary"/>

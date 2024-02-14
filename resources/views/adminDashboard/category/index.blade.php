@@ -33,7 +33,7 @@
                             {{--  images  --}}
                             <x-adminlte-modal id="images_{{ $category->id }}" title="الصور" theme="purple"
                                               icon="fas fa-bolt" size='lg' disable-animations>
-                                @include('adminDashboard.category.images',['$category'=>$category])
+                                @include('adminDashboard.images.index',['images'=>$category,'folder'=>'categoryFiles'])
                             </x-adminlte-modal>
                             <x-adminlte-button label="عرض الصورة " data-toggle="modal"
                                                data-target="#images_{{ $category->id }}" class="bg-secondary"/>
