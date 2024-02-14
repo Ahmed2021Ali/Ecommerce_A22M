@@ -10,11 +10,6 @@ use Illuminate\Support\Facades\Auth;
 class CartRepository implements CartInterface
 {
 
-    public function index()
-    {
-        return view('userDashboard.cart.index', ['carts' => Auth::user()->carts()]);
-    }
-
     public function store($request, $product)
     {
         $cart = Cart::where('user_id', Auth::user()->id)->where('product_id', $product->id)
@@ -30,8 +25,8 @@ class CartRepository implements CartInterface
         if ($request['quantity'] > $product->quantity) {
             return redirect()->back()->with('error', 'الكمية غير متوفره');
         }
-        Cart::create(['user_id' => Auth::user()->id, 'product_id' => $product->id,
-            'quantity' => $request['quantity'], 'color' => isset($request['color']) ?? null, 'size' => isset($request['size']) ?? null]);
+        Cart::create(['user_id' => Auth::user()->id, 'product_id' => $product->id, 'quantity' => $request['quantity'],
+            'color' => isset($request['color']) ?? null, 'size' => isset($request['size']) ?? null]);
         return redirect()->back()->with('success', 'تم بنجاح اضافة المنتج الي عربة التسويق الخاص بك');
     }
 
@@ -40,13 +35,10 @@ class CartRepository implements CartInterface
     {
         if ($request['quantity'] > $cart->product->quantity) {
             return redirect()->back()->with('error', 'الكمية غير متوفره');
-        } else {
-            $cart->quantity = $request['quantity'];
-            $cart->save();
-            return redirect()->back()->with('success', 'تم زيادة العدد المطلوب لهذا المنتج');
         }
+        $cart->update(['quantity' => $request['quantity']]);
+        return redirect()->back()->with('success', 'تم زيادة العدد المطلوب لهذا المنتج');
     }
-
 
     public function destroy($cart)
     {
@@ -56,8 +48,7 @@ class CartRepository implements CartInterface
 
     public function clear()
     {
-        $carts = Cart::where('user_id', Auth::user()->id)->get();
-        foreach ($carts as $cart) {
+        foreach (Auth::user()->carts() as $cart) {
             $cart->delete();
         }
         return redirect()->back()->with(['success' => ' تم بنجاح حذف المنتجات من المفضلة']);

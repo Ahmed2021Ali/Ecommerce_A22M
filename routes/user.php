@@ -33,9 +33,9 @@ Route::controller(FavController::class)->prefix('fav')->as('fav.')->group(functi
     Route::get('/destroy/{fav}', 'destroy')->name('destroy');
 });
 
-    // (Ajax Ahmed Abd Ellatif)   (Ahmed Maghraby enhancement)
+    // (Ajax Ahmed Abd Ellatif)    //  (Ahmed Maghraby enhancement) -> ( enhancement has Done )
 Route::controller(CartController::class)->prefix('cart')->as('cart.')->group(function () {
-    Route::get('/index', 'index')->name('index');
+    Route::view('/index', 'userDashboard.cart.index')->name('index');
     Route::post('/store/{product}', 'store')->name('store');
     Route::put('/update/{cart}', 'update')->name('update');
     Route::delete('/destroy/{cart}', 'destroy')->name('destroy');

@@ -34,7 +34,6 @@
                             @foreach (explode(',', $product->color) as $color)
                                 {{ optional(\App\Models\Color::where('value', $color)->first())->name ?? '' }} ,
                             @endforeach
-
                         </td>
 
                         <td>{{ $product->size }}</td>

@@ -4,7 +4,6 @@ namespace App\Repositories\Interfaces\UserDashboard;
 
 interface CartInterface {
 
-    public function index();
 
     public function store($request,$product);
 
