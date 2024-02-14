@@ -3,7 +3,7 @@
 @section('title', 'عرض كل المنتجات')
 
 @section('content_header')
-    <h1 style="direction: rtl; text-align: right;">عرض كل المنتجات</h1>
+    <h1 style="text-align:center">عرض كل المنتجات</h1>
 @stop
 @section('cs')
 @endsection
@@ -37,7 +37,8 @@
                         </td>
 
                         <td>{{ $product->size }}</td>
-                        <td>{{calcPriceProduct($product->price,$product->offer,$product->price_after_offer,null)}}</td>
+                        <td>{{calcPriceProduct($product->price, $product->offer, $product->price_after_offer, null) }}</td>
+
                         <td>{{ $product->status == '1'? 'معروض ' : 'غير معروض ' }}</td>
                         <td>{{ $product->quantity }}</td>
                         <td>{{ $product->category->name }}</td>

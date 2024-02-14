@@ -7,7 +7,6 @@
 @stop
 
 @section('content')
-
     <div class="col-12">
         <form action="{{ route('product.store') }}" method="post" enctype="multipart/form-data">
             @csrf

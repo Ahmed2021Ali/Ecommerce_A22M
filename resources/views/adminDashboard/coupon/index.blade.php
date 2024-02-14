@@ -1,13 +1,13 @@
 @extends('adminlte::page')
 
-@section('title',' بانر')
+@section('title',' عرض كل الكوبونات')
 
 @section('content_header')
-    <h1>عرض كل الكوبونات</h1>
+    <h1 style="text-align:center">عرض كل الكوبونات</h1>
 @stop
 
 @section('content')
-
+<div style="direction: rtl; text-align: right;">
     <x-adminlte-modal id="create" title="اضافة  كوبون " theme="purple" icon="fas fa-bolt" size='lg' disable-animations>
         @include('adminDashboard.coupon.create')
     </x-adminlte-modal>
@@ -63,4 +63,6 @@
 
         </div>
     </div>
+</div>
+
 @stop

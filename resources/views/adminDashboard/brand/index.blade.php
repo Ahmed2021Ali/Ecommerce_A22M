@@ -1,13 +1,13 @@
 @extends('adminlte::page')
 
-@section('title',' بانر')
+@section('title',' عرض كل البرندات')
 
 @section('content_header')
-    <h1>عرض كل البرندات</h1>
+    <h1 style="text-align:center">عرض كل البرندات</h1>
 @stop
 
 @section('content')
-
+<div style="direction: rtl; text-align: right;">
     <x-adminlte-modal id="create" title="اضافة  برند " theme="purple" icon="fas fa-bolt" size='lg' disable-animations>
         @include('adminDashboard.brand.create')
     </x-adminlte-modal>
@@ -68,4 +68,6 @@
 
         </div>
     </div>
+</div>
+
 @stop

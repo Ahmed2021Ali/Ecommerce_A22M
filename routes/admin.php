@@ -19,7 +19,7 @@ use App\Http\Controllers\AdminDashboard\UserController;
 
 Route::get('/admin-dashboard', function () {
     return view('adminDashboard.dashboard');
-})->middleware('checkAdminRole')->name('admin.dashboard');
+})->name('admin.dashboard');//->middleware('checkAdminRole')->name('admin.dashboard');
 
 Route::resource('category', CategoryController::class);
 Route::resource('slider', SliderController::class);
@@ -28,7 +28,6 @@ Route::resource('service', ServiceController::class);
 Route::resource('brand', BrandController::class);
 Route::resource('product', ProductController::class);
 Route::resource('color', ColorController::class);
-
 Route::resource('coupon', CouponController::class);
 Route::resource('contact', ContactUsController::class)->except(['store','edit','update']);
 

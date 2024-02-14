@@ -6,6 +6,7 @@ use App\Repositories\AdminDashboard\BannerRepository;
 use App\Repositories\AdminDashboard\BrandRepository;
 use App\Repositories\AdminDashboard\CategoryRepository;
 use App\Repositories\AdminDashboard\CityRepository;
+use App\Repositories\AdminDashboard\ColorRepository;
 use App\Repositories\AdminDashboard\CouponRepository;
 use App\Repositories\AdminDashboard\ServiceRepository;
 use App\Repositories\AdminDashboard\SliderRepository;
@@ -13,6 +14,7 @@ use App\Repositories\Interfaces\AdminDashboard\BannerInterface;
 use App\Repositories\Interfaces\AdminDashboard\BrandInterface;
 use App\Repositories\Interfaces\AdminDashboard\CategoryInterface;
 use App\Repositories\Interfaces\AdminDashboard\CityInterface;
+use App\Repositories\Interfaces\AdminDashboard\ColorInterface;
 use App\Repositories\Interfaces\AdminDashboard\CouponInterface;
 use App\Repositories\Interfaces\AdminDashboard\ProductInterface;
 use App\Repositories\AdminDashboard\ProductRepository;
@@ -132,6 +134,10 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(
             ReviewInterface::class,
             ReviewRepository::class,
+        );
+        $this->app->bind(
+            ColorInterface::class,
+            ColorRepository::class,
         );
 
     }

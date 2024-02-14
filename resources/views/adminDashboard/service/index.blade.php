@@ -1,13 +1,13 @@
 @extends('adminlte::page')
 
-@section('title',' Slider')
+@section('title',' عرض كل الخدمات')
 
 @section('content_header')
-    <h1>عرض كل الخدمات</h1>
+    <h1 style="text-align:center" >عرض كل الخدمات</h1>
 @stop
 
 @section('content')
-
+<div style="direction: rtl; text-align: right;">
     <x-adminlte-modal id="create" title="اضافة  الخدمة " theme="purple" icon="fas fa-bolt" size='lg' disable-animations>
         @include('adminDashboard.service.create')
     </x-adminlte-modal>
@@ -70,4 +70,5 @@
 
         </div>
     </div>
+</div>
 @stop

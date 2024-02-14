@@ -1,11 +1,14 @@
 @extends('adminlte::page')
+@section('title')
+    تعديل المنتج
+@endsection
 @section('content_header')
-    <a href="{{ route('product.index') }}" class="btn btn-info">Show All Products</a>
+    <a href="{{ route('product.index') }}" class="btn btn-info" style="direction: rtl; text-align: right;">عرض كل المنتجات</a>
     <h1>تحديث المنتج</h1>
 @stop
 
 @section('content')
-    <div class="col-12">
+    <div class="col-12" style="direction: rtl; text-align: right;">
         <form action="{{ route('product.update', $product) }}" method="post" enctype="multipart/form-data">
             @method('PUT')
             @csrf

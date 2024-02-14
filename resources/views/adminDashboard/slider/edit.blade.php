@@ -92,14 +92,11 @@
                 <strong>{{ $message }}</strong>
             </span>
             @enderror
-            @foreach($slider->getMedia('sliderFiles') as $media)
-                <img src="{{$media->getFullUrl()}}" width="200px" height="100px">
-            @endforeach
         </div>
     </div>
 
     <div class="row mb-0">
-        <div class="col-md-6 offset-md-4">
+        <div class="col-md-12 offset-md-4" style="text-align:center">
             <button type="submit" class="btn btn-primary">
                 {{ __('تحديث') }}
             </button>

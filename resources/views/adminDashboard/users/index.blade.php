@@ -3,11 +3,11 @@
 @section('title', ' عرض كل المستخدمين')
 
 @section('content_header')
-    <h1>عرض كل المستخدمين</h1>
+    <h1 style="text-align:center">عرض كل المستخدمين</h1>
 @stop
 
 @section('content')
-
+<div style="direction: rtl; text-align: right;">
     <div class="row">
         <div class="col-lg-12 margin-tb mb-4">
             <div class="pull-right">
@@ -17,7 +17,6 @@
             </div>
         </div>
     </div>
-
     @if ($message = Session::get('success'))
         <div class="alert alert-success my-2">
             <p>{{ $message }}</p>
@@ -43,29 +42,30 @@
                     @endif
                 </td>
                 <td>
-                @if($user->email !== 'owner@gmail.com')
-                    <a class="btn btn-primary" href="{{ route('users.edit',$user->id) }}">تعديل</a>
-                    <x-adminlte-modal id="deleteModal_{{ $user->id }}" title="تأكيد الحذف" theme="danger" icon="fas fa-trash" size='sm' disable-animations>
-                        <x-slot name="header">
-                            <h4 class="modal-title text-danger"></h4>
-                        </x-slot>
-                        <div class="modal-body">
-                            <p>هل أنت متأكد أنك تريد حذف هذا المستخدم؟</p>
-                        </div>
-                        <div class="modal-footer justify-content-between">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">إلغاء</button>
-                            <form id="deleteForm_{{ $user->id }}" action="{{ route('users.destroy', $user->id) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger">حذف</button>
-                            </form>
-                        </div>
-                    </x-adminlte-modal>
-                    
-                    <x-adminlte-button label="حذف" data-toggle="modal" data-target="#deleteModal_{{ $user->id }}" class="bg-danger"/>
+                    @if($user->email !== 'owner@gmail.com')
+                        <a class="btn btn-primary" href="{{ route('users.edit',$user->id) }}">تعديل</a>
+                        <x-adminlte-modal id="deleteModal_{{ $user->id }}" title="تأكيد الحذف" theme="danger" icon="fas fa-trash" size='sm' disable-animations>
+                            <x-slot name="header">
+                                <h4 class="modal-title text-danger"></h4>
+                            </x-slot>
+                            <div class="modal-body">
+                                <p>هل أنت متأكد أنك تريد حذف هذا المستخدم؟</p>
+                            </div>
+                            <div class="modal-footer justify-content-between">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">إلغاء</button>
+                                <form id="deleteForm_{{ $user->id }}" action="{{ route('users.destroy', $user->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger">حذف</button>
+                                </form>
+                            </div>
+                        </x-adminlte-modal>
+
+                        <x-adminlte-button label="حذف" data-toggle="modal" data-target="#deleteModal_{{ $user->id }}" class="bg-danger"/>
                     @endif
                 </td>
             </tr>
         @endforeach
     </table>
+</div>
 @stop
