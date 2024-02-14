@@ -42,7 +42,7 @@ Route::controller(CartController::class)->prefix('cart')->as('cart.')->group(fun
     Route::get('/clear', 'clear')->name('clear');
 });
 
-//(Ahmed Maghraby enhancement)
+//(Ahmed Maghraby enhancement) -> ( enhancement has Done )
 Route::controller(OrderController::class)->prefix('order')->as('order.')->group(function () {
     Route::get('/show/{order_number}', 'show')->name('show');
     Route::post('/search', 'search')->name('search');

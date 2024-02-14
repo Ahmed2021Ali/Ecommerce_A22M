@@ -25,10 +25,8 @@
                     @else
                         <h4 class="mb-4"> تم توصيل الاردر بنجاح - شكرا لثقاتكم </h4>
                     @endif
-
                     <a href="{{route('home')}}" class="btn btn-fill-out btn-block mt-30">تصفح منتجات اخري</a>
                 </div>
-
             </section>
         @else
             <br>
