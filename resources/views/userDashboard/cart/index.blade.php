@@ -43,9 +43,9 @@
                                                 @if($cart->color)
                                                     <strong class="mr-10">اللون &nbsp;&nbsp;</strong>
                                                     <ul class="list-filter color-filter">
-                                                        @foreach (explode(',', $cart->color) as $color)
-                                                            {{\App\Models\Color::where('value', $color)->first()->name}}
-                                                        @endforeach
+                                                            @foreach (explode(',', $cart->color) as $color)
+                                                                {{\App\Models\Color::where('value', $color)->first()->name ?? ''}}
+                                                            @endforeach
                                                     </ul>
                                                 @endif
                                                 @if($cart->size)
@@ -99,7 +99,7 @@
                             </table>
                         </div>
                         <div class="divider center_icon mt-50 mb-50"><i class="fi-rs-fingerprint"></i></div>
-                        <livewire:order :total_price="$total_price" />
+                        <livewire:order :total_price="$total_price"/>
 
 
                     </div>

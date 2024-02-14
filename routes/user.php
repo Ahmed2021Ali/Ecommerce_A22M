@@ -12,7 +12,7 @@ use App\Http\Controllers\UserDashboard\OrderController;
 use App\Http\Controllers\UserDashboard\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-
+//(Ahmed Maghraby enhancement)
 Route::get('/', [HomepageController::class, 'index'])->name('home');
 
 
