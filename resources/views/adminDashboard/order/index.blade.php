@@ -1,61 +1,62 @@
 @extends('adminlte::page')
 
-@section('title', ' Order')
+@section('title', ' عرض كل الارادرات العميل التي لم يتم توصيلها حتي الان')
 
 @section('content_header')
     <h1>عرض كل الارادرات العميل التي لم يتم توصيلها حتي الان</h1>
 @stop
 
 @section('content')
-    <div class="row">
-        <div class="col-12">
-            <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                    <th>#</th>
-                    <th>كود الطلب </th>
-                    <th>عدد المنتجات الاردر</th>
-                    <th>سعر المنتجات</th>
-                    <th>سعر التوصيل</th>
-                    <th>كوبون خصم </th>
-                    <th>الاجمالي الكلي</th>
-                    <th> اسم صاحب الاردر</th>
-                    <th>المحافظة</th>
-                    <th>العنوان</th>
-                    <th>رقم الهاتف</th>
-                    <th>المستخدم </th>
-                    <th>هل تم توصيل ؟</th>
-                </tr>
-                </thead>
-                <tbody>
-                @foreach ($orders as $order)
+    <div style="direction: rtl; text-align: right;">
+        <div class="row">
+            <div class="col-12">
+                <table id="example1" class="table table-bordered table-striped">
+                    <thead>
                     <tr>
-                        <td>{{ $loop->iteration }}</td>
-                        <td>
-                            <a href="{{ route('order.show', $order->order_number) }}" class="btn btn-primary"> عرض الاردر</a>
-                        </td>
-                        <td>{{ $order->number_of_product }}</td>
-                        <td>{{ $order->subtotal }}</td>
-                        <td>{{ $order->delivery_price }}</td>
-                        <td>{{ $order->coupon_value }}</td>
-                        <td>{{ $order->total }}</td>
-                        <td>{{ $order->address->fname." ".$order->address->lname }}</td>
-                        <td>{{ $order->address->city->name }}</td>
-                        <td>{{ $order->address->address }}</td>
-                        <td>{{ $order->address->phone }}</td>
-                        <td>{{ $order->user->name }}</td>
-                        <td>
-                        <a href="{{route('order.deliveryStatus',$order)}}" class="btn btn-success">نعم تم التوصيل </td>
+                        <th>#</th>
+                        <th>كود الطلب </th>
+                        <th>عدد المنتجات الاردر</th>
+                        <th>سعر المنتجات</th>
+                        <th>سعر التوصيل</th>
+                        <th>كوبون خصم </th>
+                        <th>الاجمالي الكلي</th>
+                        <th> اسم صاحب الاردر</th>
+                        <th>المحافظة</th>
+                        <th>العنوان</th>
+                        <th>رقم الهاتف</th>
+                        <th>المستخدم </th>
+                        <th>هل تم توصيل ؟</th>
                     </tr>
-                @endforeach
+                    </thead>
+                    <tbody>
+                    @foreach ($orders as $order)
+                        <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>
+                                <a href="{{ route('order.show', $order->order_number) }}" class="btn btn-primary"> عرض الاردر</a>
+                            </td>
+                            <td>{{ $order->number_of_product }}</td>
+                            <td>{{ $order->subtotal }}</td>
+                            <td>{{ $order->delivery_price }}</td>
+                            <td>{{ $order->coupon_value }}</td>
+                            <td>{{ $order->total }}</td>
+                            <td>{{ $order->address->fname." ".$order->address->lname }}</td>
+                            <td>{{ $order->address->city->name }}</td>
+                            <td>{{ $order->address->address }}</td>
+                            <td>{{ $order->address->phone }}</td>
+                            <td>{{ $order->user->name }}</td>
+                            <td>
+                                <a href="{{route('order.deliveryStatus',$order)}}" class="btn btn-success">نعم تم التوصيل </td>
+                        </tr>
+                    @endforeach
 
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
 
+            </div>
+            {{ $orders->links() }}
         </div>
-        {{ $orders->links() }}
     </div>
-
 @stop
 
 @section('js')

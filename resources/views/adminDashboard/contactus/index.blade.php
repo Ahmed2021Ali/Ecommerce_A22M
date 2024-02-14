@@ -1,13 +1,13 @@
 @extends('adminlte::page')
 
-@section('title',' بانر')
+@section('title',' رض كل العملاء يردون عن نتواصل  معاهم لحل مشاكلهم')
 
 @section('content_header')
-    <h1>عرض كل بانر</h1>
+    <h1 style="text-align:center">عرض كل العملاء يردون عن نتواصل  معاهم لحل مشاكلهم  </h1>
 @stop
 
 @section('content')
-
+    <div style="direction: rtl; text-align: right;">
     <div class="row">
         <div class="col-12">
             <br>
@@ -57,5 +57,6 @@
             {{ $contacts->links() }}
 
         </div>
+    </div>
     </div>
 @stop

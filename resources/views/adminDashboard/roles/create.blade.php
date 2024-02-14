@@ -3,10 +3,12 @@
 @section('title', 'إضافة نوع مستخدم')
 
 @section('content_header')
-    <h2>إضافة نوع مستخدم</h2>
+    <h2 style="text-align:center">إضافة نوع مستخدم</h2>
 @stop
 
 @section('content')
+    <div style="direction: rtl; text-align: right;">
+
     <div class="row">
         <div class="col-lg-12 margin-tb mb-4">
             <div class="pull-left">
@@ -20,15 +22,15 @@
     </div>
 
     @if (count($errors) > 0)
-    <div class="alert alert-danger">
-        <strong>عذرًا!</strong> هناك بعض المشاكل في الإدخال الخاص بك. <br><br>
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ 'حقل ' . $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+        <div class="alert alert-danger">
+            <strong>عذرًا!</strong> هناك بعض المشاكل في الإدخال الخاص بك. <br><br>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ 'حقل ' . $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
 
     <form action="{{ route('roles.store') }}" method="POST">
@@ -47,19 +49,22 @@
                         @foreach ($permission as $value)
                             <div class="col-md-3">
                                 <div class="form-check">
-                                    <input type="checkbox" name="permission[]" value="{{ $value->name }}" class="form-check-input" id="permission_{{ $value->name }}" >
-                                    <label class="form-check-label" for="permission_{{ $value->id }}">{{ $value->name }}</label>
+                                    <input type="checkbox" name="permission[]" value="{{ $value->name }}"
+                                           class="form-check-input" id="permission_{{ $value->name }}">
+                                    <label class="form-check-label"
+                                           for="permission_{{ $value->id }}">{{ $value->name }}</label>
                                 </div>
                             </div>
                         @endforeach
                     </div>
                 </div>
             </div>
-            
-            
+
+
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-primary">تأكيد</button>
             </div>
         </div>
     </form>
+    </div>
 @stop

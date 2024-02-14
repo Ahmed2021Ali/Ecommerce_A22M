@@ -252,7 +252,7 @@ return [
     */
 
     'use_route_url' => true,
-    'dashboard_url' => 'admin.dashboard',
+    'dashboard_url' => 'dashboard.index',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -289,6 +289,16 @@ return [
     */
 
     'menu' => [
+        [
+            'text' => 'الصفحة الرائيسية',
+            'icon' => ' fas fa-sync-alt',
+            'route' => 'dashboard.index',
+        ],
+        [
+            'text' => ' الموقع الالكتروني',
+            'icon' =>  'fas fa-walking',
+            'route' => 'home',
+        ],
         [
             'text' => 'الاقسام',
             'icon_color' => 'red',
