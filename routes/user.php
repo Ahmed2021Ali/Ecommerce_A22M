@@ -12,7 +12,7 @@ use App\Http\Controllers\UserDashboard\OrderController;
 use App\Http\Controllers\UserDashboard\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-//(Ahmed Maghraby enhancement)
+//(Ahmed Maghraby enhancement)    no enhancement
 Route::get('/', [HomepageController::class, 'index'])->name('home');
 
 
@@ -64,7 +64,7 @@ Route::controller(ProfileController::class)->prefix('profile')->as('profile.')->
 });
 
 
-//(Ahmed Maghraby enhancement move to repository)
+//(Ahmed Maghraby enhancement move to repository) -> ( enhancement has Done )
 Route::controller(ReviewController::class)->prefix('review')->as('review.')->group(function () {
     Route::post('/store/{product}', 'store')->name('store');
     Route::get('/edit/{id}', 'edit')->name('edit');
