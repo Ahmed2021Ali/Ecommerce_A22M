@@ -1,5 +1,5 @@
 <div>
-    @if ($total_price)
+    @if ($subTotal)
         <form wire:submit="store">
 
             <div class="row mb-50">
@@ -14,7 +14,7 @@
                                 <tr>
                                     <td class="cart_total_label">الاجمالي المنتجات</td>
                                     <td class="cart_total_amount"><span
-                                            class="font-lg fw-900 text-brand">{{$total_price}} جينية</span></td>
+                                            class="font-lg fw-900 text-brand">{{$subTotal}} جينية</span></td>
                                 </tr>
                                 <tr>
                                     <td class="cart_total_label">سعر التوصيل</td>
@@ -31,10 +31,10 @@
                                     <td class="cart_total_label">الاجمالي</td>
                                     <td class="cart_total_amount"><strong><span class="font-xl fw-900 text-brand">
                                             @if ($discount)
-                                                    {{($total_price+$deliveryPrice)-($total_price+$deliveryPrice)*$discount->value/100}}
+                                                    {{($subTotal+$deliveryPrice)-($subTotal+$deliveryPrice)*$discount->value/100}}
                                                     جينية
                                                 @else
-                                                    {{$total_price+$deliveryPrice}} جينية
+                                                    {{$subTotal+$deliveryPrice}} جينية
                                                 @endif
                                         </span></strong>
                                     </td>

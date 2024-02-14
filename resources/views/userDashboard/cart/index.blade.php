@@ -27,7 +27,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <?php $total_price = 0; ?>
+                                <?php $subTotal = 0; ?>
                                 @foreach(Auth::user()->carts() as $cart)
                                     <tr>
                                         <td class="image product-thumbnail">
