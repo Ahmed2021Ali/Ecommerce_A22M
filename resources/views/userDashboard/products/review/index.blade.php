@@ -13,7 +13,7 @@
         <div class="tab-pane fade show active" id="Description">
             <div class="">
                 <p>
-                    {{ $product->descriptio }}
+                    {{ $product->description }}
                 </p>
             </div>
         </div>

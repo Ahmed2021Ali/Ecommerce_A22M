@@ -21,7 +21,7 @@
         <div class="sidebar-widget price_range range mb-30" style="direction: rtl; text-align: right;">
             <!-- Price Range Header -->
             <div class="widget-header position-relative mb-20 pb-10">
-                <h5 class="widget-title mb-10">ملء حسب السعر</h5>
+                <h5 class="widget-title mb-10">ابحث حسب السعر أو السعر واللون معا</h5>
                 <div class="bt-1 border-color-1"></div>
             </div>
             <!-- Price Slider and Input -->
@@ -42,7 +42,7 @@
             <br>
 
             <div class="attr-detail attr-color mb-15"
-                 style="display: flex; margin-top: 2px; direction: rtl; text-align: right;">
+                style="display: flex; margin-top: 2px; direction: rtl; text-align: right;">
                 <ul class="list-filter color-filter">
                     <div class="colors">
                         @foreach ($colors as $color)

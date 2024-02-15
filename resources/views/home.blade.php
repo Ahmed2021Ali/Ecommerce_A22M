@@ -72,6 +72,7 @@
                             </div>
                             <div class="product-content-wrap">
                                 <h2><a href="">{{ $product->name }}</a></h2>
+                                {{ Str::limit($product->description, 35) }}
                                 <span>
                                         @include('userDashboard.products.review.ratingProduct',['rate'=>calcReview($product)])
                                         @if($product->offer)

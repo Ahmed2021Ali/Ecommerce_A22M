@@ -19,10 +19,11 @@
     <div class="header-middle header-middle-ptb-1 d-none d-lg-block">
         <div class="container">
             <div class="header-wrap">
-                {{-- <div class="logo logo-width-1" >
-                    <a href="index.html"><img src="assets/imgs/logo/logo.png" alt="logo"></a>
-                </div> --}}
+               
                 <div class="header-right">
+                    <div class="logo logo-width-1" >
+                        <a href="index.html"><img src="assets/imgs/logo/IMG-20240210-WA0078-removebg.png" alt="logo"></a>
+                    </div>
                     <div class="search-style-1" style="direction: rtl; text-align: right;">
                         <form action="{{ route('search') }}" method="GET">
                             <div style="display: flex; align-items: center;">

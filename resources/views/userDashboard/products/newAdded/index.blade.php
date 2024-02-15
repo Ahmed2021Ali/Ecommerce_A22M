@@ -10,7 +10,7 @@
                                     style="direction: rtl; text-align: right;"></a>
                         </div>
                         <div class="product-action-1">
-                            <a aria-label="عرض" class="action-btn hover-up" data-bs-toggle="modal"
+                            <a href="{{ $product->getFirstMediaUrl('productFiles') }}" aria-label="عرض" class="action-btn hover-up" 
                                data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
                             <a aria-label="أضف إلي المفضلة" class="action-btn hover-up"
                                onclick="addToFavorites({{ $product->id }})"><i class="fi-rs-heart"></i></a>

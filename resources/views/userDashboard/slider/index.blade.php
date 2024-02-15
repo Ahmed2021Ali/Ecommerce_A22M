@@ -2,7 +2,7 @@
     <div class="hero-slider-1 dot-style-1 dot-style-1-position-1">
         @foreach($sliders as $slider)
             <div class="single-hero-slider single-animation-wrap">
-                <div class="container" style="direction: rtl; text-align: right;">>
+                <div class="container" style="direction: rtl; text-align: right;">
                     <div class="row align-items-center slider-animated-1">
                         <div class="col-lg-5 col-md-6">
                             <div class="hero-slider-content-2">

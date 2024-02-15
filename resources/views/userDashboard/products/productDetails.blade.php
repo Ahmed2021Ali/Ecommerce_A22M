@@ -259,7 +259,7 @@
                                                             </a>
                                                         </div>
                                                         <div class="product-action-1">
-                                                            <a href="{{ $product->getFirstMediaUrl('productFiles') }}"
+                                                            <a href="{{ $relatedProduct->getFirstMediaUrl('productFiles') }}"
                                                                 aria-label="عرض" class="action-btn small hover-up"
                                                                 data-bs-target="#quickViewModal"><i
                                                                     class="fi-rs-eye"></i></a>
