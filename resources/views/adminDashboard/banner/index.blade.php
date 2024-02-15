@@ -3,11 +3,11 @@
 @section('title',' بانر')
 
 @section('content_header')
-    <h1>عرض كل بانر</h1>
+    <h1 style="text-align:center" >عرض كل بانر</h1>
 @stop
 
 @section('content')
-
+<div style="direction: rtl; text-align: right;">
     <x-adminlte-modal id="create" title="اضافة  بانر " theme="purple" icon="fas fa-bolt" size='lg' disable-animations>
         @include('adminDashboard.banner.create')
     </x-adminlte-modal>
@@ -58,7 +58,7 @@
                             {{--  images  --}}
                             <x-adminlte-modal id="images_{{ $banner->id }}" title="الصور" theme="purple"
                                               icon="fas fa-bolt" size='lg' disable-animations>
-                                @include('adminDashboard.banner.images',['banner'=>$banner])
+                                @include('adminDashboard.images.index',['images'=>$banner->product,'folder'=>'productsFiles'])
                             </x-adminlte-modal>
                             <x-adminlte-button label="عرض الصور " data-toggle="modal"
                                                data-target="#images_{{ $banner->id }}" class="bg-secondary"/>
@@ -74,4 +74,5 @@
 
         </div>
     </div>
+</div>
 @stop

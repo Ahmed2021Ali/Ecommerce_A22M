@@ -35,7 +35,7 @@
 
 
     <div class="row mb-0">
-        <div class="col-md-6 offset-md-4">
+        <div class="col-md-12 offset-md-4" style="text-align:center">
             <button type="submit" class="btn btn-primary">
                 {{ __('اضافة ') }}
             </button>

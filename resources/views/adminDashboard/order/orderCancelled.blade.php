@@ -7,6 +7,7 @@
 @stop
 
 @section('content')
+    <div style="direction: rtl; text-align: right;">
     <div class="row">
         <div class="col-12">
             <table id="example1" class="table table-bordered table-striped">
@@ -52,7 +53,7 @@
         </div>
         {{ $orders->links() }}
     </div>
-
+    </div>
 @stop
 
 @section('js')

@@ -27,17 +27,17 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <?php $total_price = 0; ?>
+                                <?php $subTotal = 0; ?>
                                 @foreach(Auth::user()->carts() as $cart)
                                     <tr>
                                         <td class="image product-thumbnail">
-                                            <a href="{{route('products.show', $cart->product->id)}}"><img
+                                            <a href="{{route('products.show', encrypt($cart->product->id))}}"><img
                                                     src="{{$cart->product->getFirstMediaUrl('productFiles')}}"></a>
                                         </td>
 
                                         <td class="product-des product-name">
                                             <h3 class="product-name"><a
-                                                    href="{{route('products.show', $cart->product->id)}}">{{$cart->product->name}}</a>
+                                                    href="{{route('products.show', encrypt($cart->product->id))}}">{{$cart->product->name}}</a>
                                             </h3>
                                             <div class="attr-detail attr-color mb-15">
                                                 @if($cart->color)
@@ -58,7 +58,8 @@
                                         </td>
 
                                         <td class="price" data-title="Price">
-                                            <span>{{$cart->product->offer ? $cart->product->price_after_offer : $cart->product->price}} </span>
+                                            <span>{{calcPriceProduct($cart->product->price,$cart->product->offer,$cart->product->price_after_offer,null)}} </span>
+
                                         </td>
 
                                         <td class="text-center" data-title="Stock">
@@ -73,8 +74,8 @@
                                         </td>
 
                                         <td class="text-right" data-title="Cart">
-                                                <?php $total_price += ($cart->product->offer ? $cart->product->price_after_offer : $cart->product->price) * $cart->quantity; ?>
-                                            <span>{{($cart->product->offer ? $cart->product->price_after_offer : $cart->product->price) * $cart->quantity }} </span>
+                                                <?php $subTotal += ($cart->product->offer ? $cart->product->price_after_offer : $cart->product->price) * $cart->quantity; ?>
+                                            <span>{{calcPriceProduct($cart->product->price,$cart->product->offer,$cart->product->price_after_offer,$cart->quantity)}}</span>
                                         </td>
 
                                         <td class="action" data-title="Remove">
@@ -97,7 +98,7 @@
                             </table>
                         </div>
                         <div class="divider center_icon mt-50 mb-50"><i class="fi-rs-fingerprint"></i></div>
-                        <livewire:order :total_price="$total_price"/>
+                        <livewire:order :subTotal="$subTotal"/>
                     </div>
                 </div>
             </div>

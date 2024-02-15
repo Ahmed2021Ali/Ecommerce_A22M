@@ -4,7 +4,7 @@
         <label for="status"
                class="col-md-4 col-form-label text-md-end">{{ __('الحالة ') }}</label>
         <div class="col-md-6">
-            <select name="status" id="status" class="form-control">
+            <select name="status" id="status" class="form-control" required>
                 <option value="1">تعرضها</option>
                 <option value="0">لا تعرضها</option>
             </select>
@@ -64,12 +64,12 @@
             @enderror
         </div>
     </div>
-    
+
 
     <div class="row mb-0">
-        <div class="col-md-6 offset-md-4">
+        <div class="col-md-12 offset-md-4" style="text-align:center">
             <button type="submit" class="btn btn-primary">
-                {{ __('اضافة ') }}
+                {{ __('اضافة  بانر ') }}
             </button>
         </div>
     </div>

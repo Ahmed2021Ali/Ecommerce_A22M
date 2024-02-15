@@ -2,17 +2,21 @@
 
 namespace App\Providers;
 
+use App\Models\Size;
 use App\Repositories\AdminDashboard\BannerRepository;
 use App\Repositories\AdminDashboard\BrandRepository;
 use App\Repositories\AdminDashboard\CategoryRepository;
 use App\Repositories\AdminDashboard\CityRepository;
+use App\Repositories\AdminDashboard\ColorRepository;
 use App\Repositories\AdminDashboard\CouponRepository;
 use App\Repositories\AdminDashboard\ServiceRepository;
+use App\Repositories\AdminDashboard\SizeRepository;
 use App\Repositories\AdminDashboard\SliderRepository;
 use App\Repositories\Interfaces\AdminDashboard\BannerInterface;
 use App\Repositories\Interfaces\AdminDashboard\BrandInterface;
 use App\Repositories\Interfaces\AdminDashboard\CategoryInterface;
 use App\Repositories\Interfaces\AdminDashboard\CityInterface;
+use App\Repositories\Interfaces\AdminDashboard\ColorInterface;
 use App\Repositories\Interfaces\AdminDashboard\CouponInterface;
 use App\Repositories\Interfaces\AdminDashboard\ProductInterface;
 use App\Repositories\AdminDashboard\ProductRepository;
@@ -20,15 +24,18 @@ use App\Repositories\AdminDashboard\RoleRepository;
 use App\Repositories\AdminDashboard\UserRepository;
 use App\Repositories\Interfaces\AdminDashboard\RoleInterface;
 use App\Repositories\Interfaces\AdminDashboard\ServiceInterface;
+use App\Repositories\Interfaces\AdminDashboard\SizeInterface;
 use App\Repositories\Interfaces\AdminDashboard\SliderInterface;
 use App\Repositories\Interfaces\AdminDashboard\UserInterface;
 use App\Repositories\Interfaces\UserDashboard\CartInterface;
 use App\Repositories\Interfaces\UserDashboard\FavInterface;
 use App\Repositories\Interfaces\UserDashboard\ProfileInterace;
+use App\Repositories\Interfaces\UserDashboard\ReviewInterface;
 use App\Repositories\Interfaces\UserDashboard\SearchInterface;
 use App\Repositories\UserDashboard\CartRepository;
 use App\Repositories\UserDashboard\FavRepository;
 use App\Repositories\UserDashboard\ProfileRepository;
+use App\Repositories\UserDashboard\ReviewRepository;
 use App\Repositories\UserDashboard\SearchRepository;
 use Illuminate\Support\ServiceProvider;
 class RepositoryServiceProvider extends ServiceProvider
@@ -127,6 +134,18 @@ class RepositoryServiceProvider extends ServiceProvider
             SearchRepository::class,
         );
 
+        $this->app->bind(
+            ReviewInterface::class,
+            ReviewRepository::class,
+        );
+        $this->app->bind(
+            ColorInterface::class,
+            ColorRepository::class,
+        );
+        $this->app->bind(
+            SizeInterface::class,
+            SizeRepository::class,
+        );
     }
 
 

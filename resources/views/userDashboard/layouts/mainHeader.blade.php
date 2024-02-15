@@ -27,9 +27,13 @@
                     <div class="search-style-1" style="direction: rtl; text-align: right;">
                         <form action="{{ route('search') }}" method="GET">
                             <div style="display: flex; align-items: center;">
-                                <button type="submit" style="background: none; border: none; padding: 0; margin: 0; cursor: pointer;"><i class="fas fa-search fa-lg" style="margin-right: 8px; padding: 13px 11px 11px 18px;"></i></button>
+                                <button type="submit"
+                                        style="background: none; border: none; padding: 0; margin: 0; cursor: pointer;">
+                                    <i class="fas fa-search fa-lg"
+                                       style="margin-right: 8px; padding: 13px 11px 11px 18px;"></i></button>
                                 <!-- Input with placeholder on the right -->
-                                <input required type="text" name="search" style="direction: rtl; text-align: right; flex: 1;" placeholder="بحث">
+                                <input required type="text" name="search"
+                                       style="direction: rtl; text-align: right; flex: 1;" placeholder="بحث">
                             </div>
                         </form>
                     </div>
@@ -42,14 +46,14 @@
                                     <a href="{{ route('fav.index') }}">
                                         <img class="svgInject" alt="Surfside Media"
                                              src="{{ URL::asset('assets/imgs/theme/icons/icon-heart.svg') }}">
-                                        <x-count-fav/>
+                                        <span class="pro-count blue">{{Auth::user()->favs()->count()}}</span>
                                     </a>
                                 </div>
                                 <div class="header-action-icon-2">
                                     <a class="mini-cart-icon" href="{{route('cart.index')}}">
                                         <img alt="Surfside Media"
                                              src="{{ URL::asset('assets/imgs/theme/icons/icon-cart.svg') }}">
-                                        <x-count-cart/>
+                                        <span class="pro-count blue">{{Auth::user()->carts()->count()}}</span>
                                     </a>
                                     <x-view-cart-home-page/>
                                 </div>
@@ -87,34 +91,36 @@
                                 <li>
                                     @auth
 
-                                    <a href="{{ route('profile.index') }}"
-                                        style="align-items: center; text-decoration: none; color: #000;">
+                                        <a href="{{ route('profile.index') }}"
+                                           style="align-items: center; text-decoration: none; color: #000;">
                                             @if (Auth::user()->hasMedia('userImages'))
-                                                <img src="{{Auth::user()->getFirstMediaUrl('userImages')}}" alt="User Image" style="width: 55px; height: 55px; border-radius: 50%; margin-bottom: -22px;">
+                                                <img src="{{Auth::user()->getFirstMediaUrl('userImages')}}"
+                                                     alt="User Image"
+                                                     style="width: 55px; height: 55px; border-radius: 50%; margin-bottom: -22px;">
                                             @else
                                                 <i class="fas fa-user fa-lg"></i>
                                             @endif
                                             {{ Str::limit(Auth::user()->name, 9) }} <i class="fi-rs-angle-down"></i>
-                                    </a>
-                                    <ul class="sub-menu">
-                                        <li><i class="fas fa-user fa-lg" style="margin-right: 23px;"></i>&nbsp;
-                                            {{ Auth::user()->name }}
-                                        </li>
-                                        <li><a href="{{route('profile.index')}}"><i class="fas fa-cogs fa-lg"></i>&nbsp;
-                                                اعدادات الحساب</a></li>
-                                        <li><a href="#"><i class="fas fa-shopping-bag"></i>&nbsp; الطلبات</a></li>
-                                        <li><a href="{{route('fav.index')}}"><i class="fas fa-heart fa-lg"></i>&nbsp;
-                                                المفضلة</a></li>
-                                        <li class="nav-item">
-                                            <form action="{{ route('logout') }}" method="POST">
-                                                @csrf
-                                                <button type="submit"
-                                                        style="align-items: center; border: none; background-color: white; color: black; cursor: pointer; padding: 5px; font-size: 16px; margin-right: 10px;">
-                                                    <i class="fas fa-sign-out-alt fa-lg"></i> تسجيل خروج
-                                                </button>
-                                            </form>
-                                        </li>
-                                    </ul>
+                                        </a>
+                                        <ul class="sub-menu">
+                                            <li><i class="fas fa-user fa-lg" style="margin-right: 23px;"></i>&nbsp;
+                                                {{ Auth::user()->name }}
+                                            </li>
+                                            <li><a href="{{route('profile.index')}}"><i class="fas fa-cogs fa-lg"></i>&nbsp;
+                                                    اعدادات الحساب</a></li>
+                                            <li><a href="#"><i class="fas fa-shopping-bag"></i>&nbsp; الطلبات</a></li>
+                                            <li><a href="{{route('fav.index')}}"><i class="fas fa-heart fa-lg"></i>&nbsp;
+                                                    المفضلة</a></li>
+                                            <li class="nav-item">
+                                                <form action="{{ route('logout') }}" method="POST">
+                                                    @csrf
+                                                    <button type="submit"
+                                                            style="align-items: center; border: none; background-color: white; color: black; cursor: pointer; padding: 5px; font-size: 16px; margin-right: 10px;">
+                                                        <i class="fas fa-sign-out-alt fa-lg"></i> تسجيل خروج
+                                                    </button>
+                                                </form>
+                                            </li>
+                                        </ul>
                                 </li>
                             @endauth
 

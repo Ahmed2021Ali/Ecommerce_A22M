@@ -12,7 +12,7 @@ use App\Http\Controllers\UserDashboard\OrderController;
 use App\Http\Controllers\UserDashboard\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-//(Ahmed Maghraby enhancement)
+//(Ahmed Maghraby enhancement)    no enhancement
 Route::get('/', [HomepageController::class, 'index'])->name('home');
 
 
@@ -42,7 +42,7 @@ Route::controller(CartController::class)->prefix('cart')->as('cart.')->group(fun
     Route::get('/clear', 'clear')->name('clear');
 });
 
-//(Ahmed Maghraby enhancement)
+//(Ahmed Maghraby enhancement) -> ( enhancement has Done )
 Route::controller(OrderController::class)->prefix('order')->as('order.')->group(function () {
     Route::get('/show/{order_number}', 'show')->name('show');
     Route::post('/search', 'search')->name('search');
@@ -64,7 +64,7 @@ Route::controller(ProfileController::class)->prefix('profile')->as('profile.')->
 });
 
 
-//(Ahmed Maghraby enhancement move to repository)
+//(Ahmed Maghraby enhancement move to repository) -> ( enhancement has Done )
 Route::controller(ReviewController::class)->prefix('review')->as('review.')->group(function () {
     Route::post('/store/{product}', 'store')->name('store');
     Route::get('/edit/{id}', 'edit')->name('edit');

@@ -5,9 +5,9 @@
         <label for="status"
                class="col-md-4 col-form-label text-md-end">{{ __('الحالة ') }}</label>
         <div class="col-md-6">
-            <select name="status" id="status" class="form-control">
-                <option {{ $service->status == 1 ? 'selected' : '' }} value="1">تعرضها</option>
-                <option {{ $service->status == 0 ? 'selected' : '' }} value="0">لا تعرضها</option>
+            <select name="status" id="status" class="form-control" required>
+                <option {{ $service->status === 1 ? 'selected' : '' }} value="1">تعرضها</option>
+                <option {{ $service->status === 0 ? 'selected' : '' }} value="0">لا تعرضها</option>
             </select>
             @error('status')
             <span class="invalid-feedback" role="alert">
@@ -52,12 +52,11 @@
     </div>
 
     <div class="row mb-0">
-        <div class="col-md-6 offset-md-4">
+        <div class="col-md-12 offset-md-4" style="text-align:center">
             <button type="submit" class="btn btn-primary">
-                {{ __('تحديث') }}
+                {{ __('تحديث ') }}
             </button>
         </div>
-
     </div>
 </form>
 @include('adminDashboard.layouts.footerSlot')

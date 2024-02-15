@@ -20,7 +20,6 @@ class HomepageController extends Controller
         'newAddedProducts'=>Product::where('status',1)->latest()->take(12)->get(),
         'featuredProducts'=>Product::where('status',1)->paginate(12),
         'bestsellersProduct'=>Product::where('status',1)->where('stock', '!=', null)->orderBy('stock','asc')->paginate(12),
-
     ]);
     }
 

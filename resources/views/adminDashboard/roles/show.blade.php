@@ -3,10 +3,11 @@
 @section('title', 'عرض نوع المستخدم')
 
 @section('content_header')
-    <h1>عرض نوع المستخدم</h1>
+    <h1 style="text-align:center">عرض نوع المستخدم</h1>
 @stop
 
 @section('content')
+    <div style="direction: rtl; text-align: right;">
     <div class="row">
         <div class="col-lg-12 margin-tb mb-4">
             <div class="pull-left">
@@ -29,7 +30,7 @@
                 @endif
             </div>
         </div>
-    
+
         <div class="col-xs-12 mb-3">
             <div class="form-group">
                 <strong>:الأذونات</strong>
@@ -47,9 +48,5 @@
             </div>
         </div>
     </div>
-    
-    
-    
-    
-    
+    </div>
 @stop

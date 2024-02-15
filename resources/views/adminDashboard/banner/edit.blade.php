@@ -52,10 +52,12 @@
     <div class="row mb-3">
         <label for="product_name" class="col-md-4 col-form-label text-md-end">{{ __('اختر المنتج') }}</label>
         <div class="col-md-6">
-            <select id="product_id" class="form-control @error('product_id') is-invalid @enderror" name="product_id" required>
+            <select id="product_id" class="form-control @error('product_id') is-invalid @enderror" name="product_id"
+                    required>
                 <option value="" disabled selected>أختر المنتج</option>
                 @foreach($products as $product)
-                    <option {{ $banner->product_id === $product->id ? 'selected' : '' }} value="{{ $product->id }}">{{ $product->name }}</option>
+                    <option
+                        {{ $banner->product_id === $product->id ? 'selected' : '' }} value="{{ $product->id }}">{{ $product->name }}</option>
                 @endforeach
             </select>
             @error('product_id')
@@ -67,12 +69,11 @@
     </div>
 
     <div class="row mb-0">
-        <div class="col-md-6 offset-md-4">
+        <div class="col-md-12 offset-md-4" style="text-align:center">
             <button type="submit" class="btn btn-primary">
-                {{ __('تحديث') }}
+                {{ __('تحديث  بانر ') }}
             </button>
         </div>
-
     </div>
 </form>
 @include('adminDashboard.layouts.footerSlot')

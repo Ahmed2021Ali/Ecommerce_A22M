@@ -16,12 +16,12 @@ class SliderStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title_h1'=>['nullable'],
-            'title_h2'=>['nullable'],
-            'title_h4'=>['nullable'],
-            'title_p'=>['nullable'],
+            'title_h1'=>['nullable','max:255'],
+            'title_h2'=>['nullable','max:255'],
+            'title_h4'=>['nullable','max:255'],
+            'title_p'=>['nullable','max:255'],
             'status'=>['nullable','integer','between:0,1'],
-            'files.*'=>['required','max:5000','mimes:png,jpg,jpeg'],
+            'files.*'=>['required','max:3000','mimes:png,jpg,jpeg'],
         ];
     }
 }

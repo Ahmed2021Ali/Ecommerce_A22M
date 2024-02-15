@@ -3,7 +3,7 @@
 @section('title', 'عرض كل المنتجات')
 
 @section('content_header')
-    <h1 style="direction: rtl; text-align: right;">عرض كل المنتجات</h1>
+    <h1 style="text-align:center">عرض كل المنتجات</h1>
 @stop
 @section('cs')
 @endsection
@@ -37,7 +37,8 @@
                         </td>
 
                         <td>{{ $product->size }}</td>
-                        <td>{{$product->offer ? $product->price_after_offer : $product->price  }}</td>
+                        <td>{{calcPriceProduct($product->price, $product->offer, $product->price_after_offer, null) }}</td>
+
                         <td>{{ $product->status == '1'? 'معروض ' : 'غير معروض ' }}</td>
                         <td>{{ $product->quantity }}</td>
                         <td>{{ $product->category->name }}</td>
@@ -57,7 +58,7 @@
                             {{--  images  --}}
                             <x-adminlte-modal id="images_{{ $product->id }}" title="الصور" theme="purple"
                                               icon="fas fa-bolt" size='lg' disable-animations>
-                                @include('adminDashboard.products.images',['product'=>$product])
+                                @include('adminDashboard.images.index',['images'=>$product,'folder'=>'productsFiles'])
                             </x-adminlte-modal>
                             <x-adminlte-button label="عرض صور المنتج" data-toggle="modal"
                                                data-target="#images_{{ $product->id }}" class="bg-secondary"/>
@@ -71,7 +72,7 @@
             </table>
 
         </div>
-        {{--        {{ $products->links() }}--}}
+             {{ $products->links() }}
     </div>
 
 @stop

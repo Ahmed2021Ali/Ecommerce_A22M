@@ -7,7 +7,6 @@ use App\Http\Requests\coupon\CouponStoreRequest;
 use App\Http\Requests\coupon\CouponUpdateRequest;
 use App\Models\Coupon;
 use App\Repositories\Interfaces\AdminDashboard\CouponInterface;
-use Illuminate\Http\Request;
 
 class CouponController extends Controller
 {

@@ -26,7 +26,7 @@
                                                 <a href="{{ route('products.show', $fav->product->id) }}"><img  src="{{ $fav->product->getFirstMediaUrl('productFiles') }}" width="400" height="250" style="direction: rtl; text-align: right;"></a>
                                             </div>
                                             <div class="product-action-1">
-                                                <a href="{{ $favs->getFirstMediaUrl('productFiles') }}" aria-label="عرض" class="action-btn hover-up" 
+                                                <a href="{{ $fav->product->getFirstMediaUrl('productFiles') }}" aria-label="عرض" class="action-btn hover-up"
                                                     data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
                                                 <a aria-label=" حذف من  المفضلة" class="action-btn hover-up" href="{{ route('fav.destroy', $fav->id) }}"><i class="fi-rs-trash"></i></a>
                                             </div>
@@ -36,13 +36,13 @@
                                                 <a href="">{{ $fav->product->name }}</a>
 
                                             </div>
-                                            <h2><a href="">{{ Str::limit($product->description, 50) }}
+                                            <h2><a href="">{{ Str::limit($fav->product->description, 50) }}
 
                                             </a>
                                         </h2>
                                             <span>
-                                                @if($product->offer)
-                                                    <span>تخفيض %{{ $product->offer }}</span>
+                                                @if($fav->product->offer)
+                                                    <span>تخفيض %{{ $fav->product->offer }}</span>
                                                 @endif                                                                                        </span>
                                             <div class="product-price">
                                                 <span>${{ $fav->product->price_after_offer ?? $fav->product->price }}</span>

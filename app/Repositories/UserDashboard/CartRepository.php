@@ -12,8 +12,14 @@ class CartRepository implements CartInterface
 
     public function store($request, $product)
     {
+        if (!isset($request['color'])) {
+            $request['color'] = null;
+        }
+        if (!isset($request['size'])) {
+            $request['size'] = null;
+        }
         $cart = Cart::where('user_id', Auth::user()->id)->where('product_id', $product->id)
-            ->where('color', isset($request['color']) ?? null)->where('size', isset($request['size']) ?? null)->first();
+            ->where('color', $request['color'])->where('size', $request['size'])->first();
         if ($cart) {
             $cart->quantity += $request['quantity'];
             if ($cart->quantity > $product->quantity) {
@@ -25,11 +31,10 @@ class CartRepository implements CartInterface
         if ($request['quantity'] > $product->quantity) {
             return redirect()->back()->with('error', 'الكمية غير متوفره');
         }
-        Cart::create(['user_id' => Auth::user()->id, 'product_id' => $product->id, 'quantity' => $request['quantity'],
-            'color' => isset($request['color']) ?? null, 'size' => isset($request['size']) ?? null]);
+        Cart::create(['user_id' => Auth::user()->id, 'product_id' => $product->id,'quantity' => $request['quantity'],
+            'color' => $request['color'],'size' => $request['size']]);
         return redirect()->back()->with('success', 'تم بنجاح اضافة المنتج الي عربة التسويق الخاص بك');
     }
-
 
     public function update($request, $cart)
     {

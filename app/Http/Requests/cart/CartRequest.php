@@ -16,7 +16,7 @@ class CartRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'quantity'=>['required'],
+            'quantity'=>['required','numeric'],
             'color'=>['nullable'],
             'size'=>['nullable'],
         ];
