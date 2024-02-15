@@ -271,7 +271,7 @@
                                                                 <div class="product-img-action-wrap">
                                                                     @if (auth()->user()->hasMedia('userImages'))
                                                                         <div class="product-img product-img-zoom mx-auto">
-                                                                            <a href="#">
+                                                                            <a href="{{ auth()->user()->getFirstMediaUrl('userImages') }}">
                                                                                 <img src="{{ auth()->user()->getFirstMediaUrl('userImages') }}"
                                                                                     width="475" height="250"
                                                                                     style="border-radius: 18%;"
@@ -330,7 +330,7 @@
                                                     <div class="form-group col-md-12">
                                                         <label>الأسم <span class="required">*</span></label>
                                                         <input value="{{ old('name', auth::user()->name) }}"
-                                                            class="form-control square" name="name" type="text">
+                                                            class="form-control square" name="name" type="text" required>
                                                         @error('name')
                                                             <span class="text-danger">{{ $message }}</span>
                                                         @enderror
@@ -340,7 +340,7 @@
                                                         <label>عنوان البريد الإلكتروني <span
                                                                 class="required">*</span></label>
                                                         <input value="{{ old('email', auth::user()->email) }}"
-                                                            class="form-control square" name="email" type="email">
+                                                            class="form-control square" name="email" type="email" required>
                                                         @error('email')
                                                             <span class="text-danger">{{ $message }}</span>
                                                         @enderror

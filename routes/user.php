@@ -55,7 +55,7 @@ Route::controller(ContactUsController::class)->prefix('contact-us')->as('contact
     Route::get('/index', 'index')->name('index');
 });
 
-//(Ahmed Abd Ellatif enhancement only)
+//(Ahmed Abd Ellatif enhancemened => done)
 Route::controller(ProfileController::class)->prefix('profile')->as('profile.')->group(function () {
     Route::get('/', 'index')->name('index');
     Route::post('/update', 'update')->name('update');

@@ -8,4 +8,6 @@ interface ProfileInterace {
 
     public function update($request);
 
+    public function deleteUserImage();
+
 }

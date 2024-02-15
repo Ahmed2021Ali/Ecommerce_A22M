@@ -20,7 +20,7 @@ class ProfileRequest extends FormRequest
             'name' => 'required|string|max:30',
             'email' => 'required|email|max:50|unique:users,email,' . Auth::user()->id,
             'password' => 'nullable|string|min:6|confirmed',
-            'files.*' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'files.*' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:6144',
         ];
     }
 
@@ -40,7 +40,9 @@ class ProfileRequest extends FormRequest
         'password.min' => 'يجب أن تكون كلمة المرور على الأقل 6 أحرف.',
         'password.confirmed' => 'تأكيد كلمة المرور غير متطابق مع كلمة المرور.',
 
-
+        'files.*.image' => 'يجب أن يكون الملف المحدد صورة.',
+        'files.*.mimes' => 'يجب أن يكون الملف بأحد الامتدادات التالية: jpeg، png، jpg، gif.',
+        'files.*.max' => 'يجب ألا يتجاوز حجم الملف :max كيلوبايت.',
     ];
 }
 
