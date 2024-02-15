@@ -21,9 +21,9 @@
             <div class="header-wrap">
                
                 <div class="header-right">
-                    <div class="logo logo-width-1" >
+                    {{-- <div class="logo logo-width-1" >
                         <a href="index.html"><img src="assets/imgs/logo/IMG-20240210-WA0078-removebg.png" alt="logo"></a>
-                    </div>
+                    </div> --}}
                     <div class="search-style-1" style="direction: rtl; text-align: right;">
                         <form action="{{ route('search') }}" method="GET">
                             <div style="display: flex; align-items: center;">
