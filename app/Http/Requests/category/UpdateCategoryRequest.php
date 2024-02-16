@@ -16,8 +16,8 @@ class UpdateCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'=>['required','string'],
-            'files.*'=>['required','max:5000','mimes:png,jpg,jpeg'],
+            'name'=>['nullable','string'],
+            'files.*'=>['nullable','mimes:png,jpg,jpeg'],
         ];
     }
 }

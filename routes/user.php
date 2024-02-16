@@ -36,7 +36,7 @@ Route::post('/store/{product}', [FavController::class, 'store'])->name('fav.stor
 
     // (Ajax Ahmed Abd Ellatif)    //  (Ahmed Maghraby enhancement) -> ( enhancement has Done )
 Route::controller(CartController::class)->prefix('cart')->as('cart.')->group(function () {
-    Route::view('/index', 'userDashboard.cart.index')->name('index');
+    Route::get('/index', 'index')->name('index');
     Route::post('/store/{product}', 'store')->name('store');
     Route::put('/update/{cart}', 'update')->name('update');
     Route::delete('/destroy/{cart}', 'destroy')->name('destroy');
@@ -47,7 +47,6 @@ Route::controller(CartController::class)->prefix('cart')->as('cart.')->group(fun
 Route::controller(OrderController::class)->prefix('order')->as('order.')->group(function () {
     Route::get('/show/{order_number}', 'show')->name('show');
     Route::post('/search', 'search')->name('search');
-    Route::get('/pay/now{product}', 'payNow')->name('payNow');
     Route::delete('/destroy/{order}', 'destroy')->name('destroy');
 });
 

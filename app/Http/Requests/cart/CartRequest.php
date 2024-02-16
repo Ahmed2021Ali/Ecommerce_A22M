@@ -3,6 +3,7 @@
 namespace App\Http\Requests\cart;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class CartRequest extends FormRequest
 {
@@ -19,6 +20,7 @@ class CartRequest extends FormRequest
             'quantity'=>['required','numeric'],
             'color'=>['nullable'],
             'size'=>['nullable'],
+            'button'=>['required',Rule::in(['addCart', 'payNow'])],
         ];
     }
 }

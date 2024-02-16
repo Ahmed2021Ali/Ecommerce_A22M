@@ -21,7 +21,7 @@ class UserRepository implements UserInterface {
 
     public function create()
     {
-        
+
         $roles = Role::pluck('name','name')->all();
         return view('adminDashboard.users.create',compact('roles'));
     }
@@ -29,15 +29,15 @@ class UserRepository implements UserInterface {
 
 
     public function store($request)
-    {    
+    {
         $validatedData = $this->validateAndHashPassword($request->validated());
         $user = $this->createUser($validatedData);
         $this->assignRolesToUser($user, $validatedData['roles']);
-    
+
         return redirect()->route('users.index')
                         ->with('success','تم اضافة المستخدم بنجاح');
     }
-    
+
 
     //This method handles the validation and hashing of the user's password:
     public function validateAndHashPassword($data)
@@ -45,12 +45,12 @@ class UserRepository implements UserInterface {
         $data['password'] = Hash::make($data['password']);
         return $data;
     }
-    
+
     public function createUser($data)
     {
         return User::create($data);
     }
-    
+
     public function assignRolesToUser($user, $roles)
     {
         $user->assignRole($roles);
@@ -64,7 +64,6 @@ class UserRepository implements UserInterface {
         $user = $this->findUserById($id);
         $roles = $this->getAllRoles();
         $userRole = $this->getUserRoles($user);
-
         return view('adminDashboard.users.edit', compact('user', 'roles', 'userRole'));
     }
 
@@ -105,16 +104,16 @@ class UserRepository implements UserInterface {
         $validatedData = $this->validateUserData($request->validated());
         $this->updateUser($id, $validatedData);
         $this->updateUserRoles($id, $validatedData['roles']);
-    
+
         return redirect()->route('users.index')->with('success', 'تم تعديل المستخدم بنجاح');
     }
-    
+
 
     /*
         It checks if the password is present in the data.
         If the password is present, it hashes it using Hash::make().
         If no password is present, it removes the password field from the data.
-        Returns the validated and manipulated user data. 
+        Returns the validated and manipulated user data.
     */
     public function validateUserData($data)
     {
@@ -125,13 +124,13 @@ class UserRepository implements UserInterface {
         }
         return $data;
     }
-    
+
     public function updateUser($id, $data)
     {
         $user = User::findOrFail($id);
         $user->update($data);
     }
-    
+
 
     public function deleteExistingUserRoles($id)
     {
@@ -145,7 +144,7 @@ class UserRepository implements UserInterface {
         $user = User::findOrFail($id);
         $user->assignRole($roles);
     }
-    
+
 
     public function destroy($id)
     {

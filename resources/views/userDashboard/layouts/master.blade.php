@@ -5,12 +5,12 @@
     <meta charset="utf-8">
     <title>@yield('title')</title>
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="description" content="">
+    <meta name="description" content="A&m Store">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:title" content="">
-    <meta property="og:type" content="">
-    <meta property="og:url" content="">
-    <meta property="og:image" content="">
+    <meta property="og:title" content="A&m Store">
+    <meta property="og:type" content="A&m Store">
+    <meta property="og:url" content="A&m Store">
+    <meta property="og:image" content="A&m Store">
     @include('userDashboard.layouts.headCSS')
     @yield('css')
 </head>

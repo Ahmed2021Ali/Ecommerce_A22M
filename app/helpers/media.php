@@ -42,6 +42,7 @@ function calcReview($product)
         if ($totalRating2 > 0 && $totalRating > 0) {
             return $totalRating2 / $totalRating;
         }*/
+    return 4;
 }
 
 function calcTotalPriceOrder($subTotal, $deliveryPrice, $discount)

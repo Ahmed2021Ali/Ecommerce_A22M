@@ -14,14 +14,6 @@ use Illuminate\Support\Str;
 class OrderRepository implements OrderInterface
 {
 
-    public function payNow($product)
-    {
-        if (!Auth::user()->carts()->where('product_id', $product->id)->first()) {
-            Cart::create(['user_id' => Auth::user()->id, 'product_id' => $product->id]);
-        }
-        return to_route('cart.index')->with('success', 'برجاء ادخال العنوان المراد التوصيل المنتج  الية ');
-    }
-
     public function show($order_number)
     {
         return view('userDashboard.checkout.index', ['orders' => Order::where('order_number', $order_number)->get(),

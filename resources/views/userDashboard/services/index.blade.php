@@ -8,9 +8,7 @@
                     </div>
                     @foreach($services as $service)
                         <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0 text-center">
-                            @foreach($service->getMedia('serviceFiles') as $media)
-                                <img src="{{ $media->getFullUrl() }}" width="100" height="100">
-                            @endforeach
+                                <img src="{{ $service->getFirstMediaUrl('serviceFiles') }}" width="100" height="100">
                             <h4>{{ $service->name }}</h4>
                         </div>
                     @endforeach

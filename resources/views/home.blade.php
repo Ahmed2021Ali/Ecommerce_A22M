@@ -78,7 +78,7 @@
                         <div class="product-cart-wrap small hover-up">
                             <div class="product-img-action-wrap">
                                 <div class="product-img product-img-zoom" style="direction: rtl; text-align: right;">
-                                    <a href="">
+                                    <a href="{{route('products.show', encrypt($product->id))}}">
                                         <a href="{{route('products.show', encrypt($product->id))}}">
                                             <img src="{{ $product->getFirstMediaUrl('productFiles') }}" width="400" height="250" style="direction: rtl; text-align: right;">
                                         </a>
@@ -94,7 +94,7 @@
                                 </div>
                             </div>
                             <div class="product-content-wrap">
-                                <h2><a href="">{{ $product->name }}</a></h2>
+                                <h2><a href="{{route('products.show', encrypt($product->id))}}">{{ $product->name }}</a></h2>
                                 {{ Str::limit($product->description, 35) }}
                                 <span>
                                         @include('userDashboard.products.review.ratingProduct',['rate'=>calcReview($product)])
@@ -103,7 +103,7 @@
                                         @endif
                                 </span>
                                 <div class="product-price">
-                                    <span>${{ $product->price_after_offer ?? $product->price }}</span>
+                                    <span>{{ $product->price_after_offer ?? $product->price }}</span>
                                     @if($product->offer)
                                         <span class="old-price">${{ $product->price }}</span>
                                     @endif

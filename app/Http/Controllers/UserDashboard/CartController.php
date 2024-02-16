@@ -17,9 +17,11 @@ class CartController extends Controller
     {
         $this->cart = $cart;
         $this->middleware('auth');
-
     }
-
+    public function index()
+    {
+        return $this->cart->index();
+    }
     public function store(CartRequest $request ,Product $product)
     {
         return $this->cart->store($request->validated(),$product);
