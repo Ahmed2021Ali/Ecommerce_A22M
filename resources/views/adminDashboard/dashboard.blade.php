@@ -20,7 +20,7 @@
         <!-- small box -->
         <div class="small-box bg-info">
             <div class="inner">
-                <h3> {{ $countUsers }}  </h3>
+                <h3> {{ $countUsers ?? '0' }}  </h3>
                 <p> المستخدمين الموقع </p>
             </div>
             <div class="icon">
@@ -35,7 +35,7 @@
         <!-- small box -->
         <div class="small-box bg-secondary">
             <div class="inner">
-                <h3>{{$countCategories}}</h3>
+                <h3>{{$countCategories??'0'}}</h3>
                 <p> الاقسام المعروضة ع الموقع </p>
             </div>
             <div class="icon">
@@ -50,7 +50,7 @@
         <!-- small box -->
         <div class="small-box bg-warning">
             <div class="inner">
-                <h3>{{$countProducts}}</h3>
+                <h3>{{$countProducts??'0'}}</h3>
                 <p> المنتجات المعروضة علي الموقع </p>
             </div>
             <div class="icon">
@@ -65,7 +65,7 @@
         <!-- small box -->
         <div class="small-box bg-light">
             <div class="inner">
-                <h3>{{$countCity}}</h3>
+                <h3>{{$countCity??'0'}}</h3>
                 <p> عدد المحافضات المتاح فيها التوصيل الاردرات </p>
             </div>
             <div class="icon">
@@ -80,7 +80,7 @@
         <!-- small box -->
         <div class="small-box bg-danger">
             <div class="inner">
-                <h3>{{$countorderwiting}}</h3>
+                <h3>{{$countorderwiting??'0'}}</h3>
                 <p>الاردرات التي لم يتم توصيلها- في قائمة الانتظار </p>
             </div>
             <div class="icon">
@@ -95,7 +95,7 @@
         <!-- small box -->
         <div class="small-box bg-success">
             <div class="inner">
-                <h3>{{$countorderdone}}</h3>
+                <h3>{{$countorderdone??'0'}}</h3>
                 <p>الاردرات تم توصيلها بنجاح </p>
             </div>
             <div class="icon">
@@ -110,7 +110,7 @@
         <!-- small box -->
         <div class="small-box bg-primary">
             <div class="inner">
-                <h3>{{$countCoupon}}</h3>
+                <h3>{{$countCoupon??'0'}}</h3>
                 <p>عدد الكوبونات المتاحة للمستخدين  </p>
             </div>
             <div class="icon">
