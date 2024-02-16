@@ -29,9 +29,10 @@ Route::controller(SearchController::class)->as('search')->group(function () { //
     // Ajax Ahmed Abd Ellatif
 Route::controller(FavController::class)->prefix('fav')->as('fav.')->group(function () {
     Route::get('/index', 'index')->name('index');
-    Route::get('/store/{product}', 'store')->name('store');
     Route::get('/destroy/{fav}', 'destroy')->name('destroy');
 });
+
+Route::post('/store/{product}', [FavController::class, 'store'])->name('fav.store');
 
     // (Ajax Ahmed Abd Ellatif)    //  (Ahmed Maghraby enhancement) -> ( enhancement has Done )
 Route::controller(CartController::class)->prefix('cart')->as('cart.')->group(function () {

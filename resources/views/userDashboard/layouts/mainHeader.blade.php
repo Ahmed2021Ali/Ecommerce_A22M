@@ -1,8 +1,7 @@
 <header class="header-area header-style-1 header-height-2">
     <div class="header-top header-top-ptb-1 d-none d-lg-block">
-        <div class="container" style="direction: rtl; text-align: right;>
-            <div class=" row align-items-center
-        ">
+        <div class="container" style="direction: rtl; text-align: right;">
+            <div class="row align-items-center"></div>
         <div class="col-xl-3 col-lg-4">
             <div class="header-info header-info-right">
                 @guest
@@ -19,25 +18,22 @@
     <div class="header-middle header-middle-ptb-1 d-none d-lg-block">
         <div class="container">
             <div class="header-wrap">
-               
                 <div class="header-right">
-                    {{-- <div class="logo logo-width-1" >
-                        <a href="index.html"><img src="assets/imgs/logo/IMG-20240210-WA0078-removebg.png" alt="logo"></a>
-                    </div> --}}
+                    <a href="{{route('home')}}"><img src="{{URL::asset('assets/imgs/logo/Picsart_24-02-16_18-01-27-786.png')}}" alt="A22M Logo" style="width: 77px"></a>
                     <div class="search-style-1" style="direction: rtl; text-align: right;">
                         <form action="{{ route('search') }}" method="GET">
                             <div style="display: flex; align-items: center;">
                                 <button type="submit"
                                         style="background: none; border: none; padding: 0; margin: 0; cursor: pointer;">
                                     <i class="fas fa-search fa-lg"
-                                       style="margin-right: 8px; padding: 13px 11px 11px 18px;"></i></button>
+                                        style="margin-right: 8px; padding: 13px 11px 11px 18px;"></i></button>
                                 <!-- Input with placeholder on the right -->
                                 <input required type="text" name="search"
-                                       style="direction: rtl; text-align: right; flex: 1;" placeholder="بحث">
+                                    style="direction: rtl; text-align: right; flex: 1;" placeholder="بحث">
                             </div>
                         </form>
+                        
                     </div>
-
 
                     <div class="header-action-right">
                         <div class="header-action-2">
@@ -45,20 +41,19 @@
                                 <div class="header-action-icon-2">
                                     <a href="{{ route('fav.index') }}">
                                         <img class="svgInject" alt="Surfside Media"
-                                             src="{{ URL::asset('assets/imgs/theme/icons/icon-heart.svg') }}">
+                                            src="{{ URL::asset('assets/imgs/theme/icons/icon-heart.svg') }}">
                                         <span class="pro-count blue">{{Auth::user()->favs()->count()}}</span>
                                     </a>
                                 </div>
                                 <div class="header-action-icon-2">
                                     <a class="mini-cart-icon" href="{{route('cart.index')}}">
                                         <img alt="Surfside Media"
-                                             src="{{ URL::asset('assets/imgs/theme/icons/icon-cart.svg') }}">
+                                            src="{{ URL::asset('assets/imgs/theme/icons/icon-cart.svg') }}">
                                         <span class="pro-count blue">{{Auth::user()->carts()->count()}}</span>
                                     </a>
                                     <x-view-cart-home-page/>
                                 </div>
                             @endif
-
                         </div>
                     </div>
                 </div>
@@ -75,7 +70,6 @@
                     <div class="main-menu main-menu-padding-1 main-menu-lh-2 d-none d-lg-block">
                         <nav>
                             <ul class="menu-list">
-
                                 <li><a class="active" href="{{ route('home') }}"><i style="font-size: 25px"
                                                                                     class="fas fa-home fa-lg"></i>
                                         الصفحة الرئيسية</a></li>
@@ -90,13 +84,12 @@
                                 </li>
                                 <li>
                                     @auth
-
                                         <a href="{{ route('profile.index') }}"
-                                           style="align-items: center; text-decoration: none; color: #000;">
+                                            style="align-items: center; text-decoration: none; color: #000;">
                                             @if (Auth::user()->hasMedia('userImages'))
                                                 <img src="{{Auth::user()->getFirstMediaUrl('userImages')}}"
-                                                     alt="User Image"
-                                                     style="width: 55px; height: 55px; border-radius: 50%; margin-bottom: -22px;">
+                                                    alt="User Image"
+                                                    style="width: 55px; height: 55px; border-radius: 50%; margin-bottom: -22px;">
                                             @else
                                                 <i class="fas fa-user fa-lg"></i>
                                             @endif
@@ -123,7 +116,6 @@
                                         </ul>
                                 </li>
                             @endauth
-
                         </nav>
                     </div>
                 </div>
@@ -201,12 +193,9 @@
         </div>
     </div>
 </header>
-
 <div class="mobile-header-active mobile-header-wrapper-style">
     <div class="mobile-header-wrapper-inner">
         <div class="mobile-header-top">
-
-
             <div class="mobile-menu-close close-style-wrap close-style-position-inherit">
                 <button class="close-style search-close">
                     <i class="icon-top"></i>
@@ -231,14 +220,11 @@
                             <li><a href="shop.html"><i class="surfsidemedia-font-dress"></i>Women's Clothing</a></li>
                             <li><a href="shop.html"><i class="surfsidemedia-font-tshirt"></i>Men's Clothing</a></li>
                             <li><a href="shop.html"><i class="surfsidemedia-font-smartphone"></i> Cellphones</a></li>
-                            <li><a href="shop.html"><i class="surfsidemedia-font-desktop"></i>Computer & Office</a>
-                            </li>
-                            <li><a href="shop.html"><i class="surfsidemedia-font-cpu"></i>Consumer Electronics</a>
-                            </li>
+                            <li><a href="shop.html"><i class="surfsidemedia-font-desktop"></i>Computer & Office</a></li>
+                            <li><a href="shop.html"><i class="surfsidemedia-font-cpu"></i>Consumer Electronics</a></li>
                             <li><a href="shop.html"><i class="surfsidemedia-font-home"></i>Home & Garden</a></li>
                             <li><a href="shop.html"><i class="surfsidemedia-font-high-heels"></i>Shoes</a></li>
-                            <li><a href="shop.html"><i class="surfsidemedia-font-teddy-bear"></i>Mother & Kids</a>
-                            </li>
+                            <li><a href="shop.html"><i class="surfsidemedia-font-teddy-bear"></i>Mother & Kids</a></li>
                             <li><a href="shop.html"><i class="surfsidemedia-font-kite"></i>Outdoor fun</a></li>
                         </ul>
                     </div>

@@ -39,6 +39,28 @@
                 @include('userDashboard.products.featured.index')
                 @include('userDashboard.products.popular.index')
                 @include('userDashboard.products.newAdded.index')
+            {{-- Categories --}}
+            <section class="popular-categories section-padding mt-15 mb-25" style="text-align: right;">
+                <div class="container wow fadeIn animated">
+                    <h3 class="section-title mb-20" style="text-align:center;"><span>الأقسام</span></h3>
+                    <div class="carausel-6-columns-cover position-relative">
+                        <div class="slider-arrow slider-arrow-2 carausel-6-columns-arrow" id="carausel-6-columns-arrows"></div>
+                        <div class="carausel-6-columns" id="carausel-6-columns">
+                            @foreach($categories as $category)
+                                <div class="card-1">
+                                    <figure class="img-hover-scale overflow-hidden">
+                                        <a href="{{ route('category.products', encrypt($category->id)) }}">
+                                            <img src="{{ $category->getFirstMediaUrl('categoryFiles') }}" alt="{{ $category->name }}" style="width: 100%; height: 150px; object-fit: cover;">
+                                        </a>
+                                    </figure>
+                                    <h5><a href="{{ route('category.products', encrypt($category->id)) }}">{{ $category->name }}</a></h5>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </section>
+            {{--End Categories --}}
             </div>
         </div>
     </section>
@@ -64,9 +86,10 @@
                                 </div>
                                 <div class="product-action-1">
                                     <a href="{{ $product->getFirstMediaUrl('productFiles') }}" aria-label="عرض" class="action-btn hover-up"  data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
-                                    <button aria-label="إضافة إلي المفضلة" class="action-btn hover-up" onclick="addToFavorites({{ $product->id }})">
+                                    <a id="addToFavoritesBtn" aria-label="إضافة إلي المفضلة"  onclick="addToFavorites({{ $product->id }})">
                                         <i class="fi-rs-heart"></i>
-                                    </button>
+                                    </a>
+                                    
                                     <a aria-label="تسوق الآن" class="action-btn hover-up" href="{{route('products.show', encrypt($product->id))}}"><i class="fi-rs-shopping-bag-add"></i></a>
                                 </div>
                             </div>
@@ -101,7 +124,7 @@
             <h3 class="section-title mb-20 wow fadeIn animated" style="text-align: center;"><span>الماركات</span></h3>
             <div class="carausel-6-columns-cover position-relative wow fadeIn animated">
                 <div class="slider-arrow slider-arrow-2 carausel-6-columns-arrow"
-                     id="carausel-6-columns-3-arrows"></div>
+                    id="carausel-6-columns-3-arrows"></div>
                 <div class="carausel-6-columns text-center" id="carausel-6-columns-3">
                     @foreach($brands as $brand)
                         <div class="brand-logo">

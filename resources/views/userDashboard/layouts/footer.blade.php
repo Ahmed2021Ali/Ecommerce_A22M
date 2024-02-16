@@ -29,6 +29,7 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6">
                     <div class="widget-about font-md mb-md-5 mb-lg-0">
+                            <a href="{{route('home')}}"><img src="{{URL::asset('assets/imgs/logo/Picsart_24-02-16_18-01-27-786.png')}}" alt="A22M Logo" style="width: 50px"></a>
                         <h5 class="mt-20 mb-10 fw-600 text-grey-4"><i class="fas fa-comments"></i> تواصل معنا</h5>
                         <p>
                             <i class="fas fa-map-marker-alt float-right"></i>

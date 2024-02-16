@@ -24,14 +24,13 @@ class FavRepository implements FavInterface
     {
         $fav = Fav::where('product_id', $product->id)->where('user_id', Auth::user()->id)->first();
         if ($fav) {
-            toastr()->success(' عفوا ! المنتج مضاف فعليا في المفضلة');
-            return redirect()->back();
+            return response()->json(['success' => false, 'message' => 'عفوا ! المنتج مضاف فعليا في المفضلة']);
         } else {
             Fav::create(['product_id' => $product->id, 'user_id' => Auth::user()->id]);
-            toastr()->success(' تم اضافة المنتج في المفضلة');
-            return redirect()->back();
+            return response()->json(['success' => true, 'message' => 'تم اضافة المنتج في المفضلة']);
         }
     }
+    
 
     public function destroy($fav)
     {

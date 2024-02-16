@@ -5,7 +5,6 @@ namespace App\Http\Controllers\UserDashboard;
 use App\Http\Controllers\Controller;
 use App\Models\Banner;
 use App\Models\Brand;
-use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Service;
@@ -20,6 +19,7 @@ class HomepageController extends Controller
         'newAddedProducts'=>Product::where('status',1)->latest()->take(12)->get(),
         'featuredProducts'=>Product::where('status',1)->paginate(12),
         'bestsellersProduct'=>Product::where('status',1)->where('stock', '!=', null)->orderBy('stock','asc')->paginate(12),
+        'categories'=> Category::all(),
     ]);
     }
 
