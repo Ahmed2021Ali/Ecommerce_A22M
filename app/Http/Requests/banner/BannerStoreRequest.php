@@ -16,8 +16,8 @@ class BannerStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'small_title'=>['nullable'],
-            'main_title'=>['nullable'],
+            'small_title'=>['nullable','string','max:100'],
+            'main_title'=>['nullable','string','max:100'],
             'status'=>['nullable','integer','between:0,1'],
             'product_id' => 'required|exists:products,id',
         ];

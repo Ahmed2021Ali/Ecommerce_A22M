@@ -15,7 +15,7 @@ class BrandUpdateRequest extends FormRequest
     {
         return [
             'status'=>['nullable','integer','between:0,1'],
-            'files.*'=>['nullable','max:5000','mimes:png,jpg,jpeg'],
+            'files.*'=>['nullable','max:2000','mimes:png,jpg,jpeg'],
 
         ];
     }
