@@ -17,6 +17,6 @@ class StoreCategoryRequest extends FormRequest
     {
         return [
             'name'=>['required','string'],
-            'files.*'=>['nullable','max:5000','mimes:png,jpg,jpeg'],        ];
+            'files.*'=>['required','mimes:png,jpg,jpeg'],        ];
     }
 }

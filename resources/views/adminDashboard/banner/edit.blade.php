@@ -6,8 +6,8 @@
                class="col-md-4 col-form-label text-md-end">{{ __('الحالة ') }}</label>
         <div class="col-md-6">
             <select name="status" id="status" class="form-control">
-                <option {{ $banner->status == 1 ? 'selected' : '' }} value="1">تعرضها</option>
-                <option {{ $banner->status == 0 ? 'selected' : '' }} value="0">لا تعرضها</option>
+                <option {{ $banner->status === 1 ? 'selected' : '' }} value="1">تعرضها</option>
+                <option {{ $banner->status === 0 ? 'selected' : '' }} value="0">لا تعرضها</option>
             </select>
             @error('status')
             <span class="invalid-feedback" role="alert">
@@ -23,7 +23,7 @@
         <div class="col-md-6">
             <input id="main_title" type="text"
                    class="form-control @error('main_title') is-invalid @enderror" name="main_title"
-                   value="{{ $banner->small_title }}" required autocomplete="main_title" autofocus>
+                   value="{{ $banner->small_title }}" autocomplete="main_title" autofocus>
             @error('main_title')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
@@ -37,9 +37,9 @@
         <label for="title"
                class="col-md-4 col-form-label text-md-end">{{ __(' العنوان الفرعي ') }}</label>
         <div class="col-md-6">
-            <input id="title_h2" type="text"
+            <input id="small_title" type="text"
                    class="form-control @error('small_title') is-invalid @enderror" name="small_title"
-                   value="{{ $banner->main_title }}" required autocomplete="small_title" autofocus>
+                   value="{{ $banner->main_title }}"  autocomplete="small_title" autofocus>
             @error('small_title')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>

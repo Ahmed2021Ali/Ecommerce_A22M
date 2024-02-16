@@ -101,7 +101,7 @@
             </div>
             <div class="form-row">
                 <div class="col-12">
-                    <label for="image">الصور</label>
+                    <label for="files">الصور</label>
                     <input type="file" name="files[]" id="files" class="form-control" multiple accept="image/*"
                            required>
                     @error('files')

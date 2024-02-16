@@ -45,8 +45,7 @@
                     <label for="price">السعر</label>
                     <input type="number" name="price" id="price" class="form-control" placeholder=""
                            aria-describedby="helpId" value="{{ $product->price }}" required>
-                    @error('price')<div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
+                    @error('price')<div class="alert alert-danger">{{ $message }}</div>@enderror
                 </div>
                 <div class="col-4">
                     <label for="offer">هل يوجد خصم ع هذا المنتج % </label>
@@ -102,7 +101,6 @@
                     <label for="description">الوصف</label>
                     <textarea name="description" id="description" cols="10" rows="3"
                               class="form-control" required>{{ Str::limit($product->description, 50) }}
-
                     </textarea>
                     @error('description')
                     <div class="alert alert-danger">{{ $message }}</div>
