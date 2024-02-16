@@ -19,6 +19,7 @@ class CartRequest extends FormRequest
             'quantity'=>['required','numeric'],
             'color'=>['nullable'],
             'size'=>['nullable'],
+            'button'=>['required'],
         ];
     }
 }

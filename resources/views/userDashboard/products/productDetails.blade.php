@@ -211,20 +211,18 @@
                                                     <a aria-label="Add To Wishlist" class="action-btn hover-up"
                                                         href="{{ route('fav.store', $product) }}"><i
                                                             class="fi-rs-heart"></i></a>
-                                                    <button type="submit" class="button button-add-to-cart">أضف إلي
+                                                    <button type="submit" name="button" value="addCart"  class="button button-add-to-cart">أضف إلي
                                                         السلة
                                                     </button>
-                                                    <input type="number" name="quantity" id="quantity" value="1"
-                                                        min="1"
-                                                        style="display: inline-block; width: 70px; padding: 6px; text-align: center; border: 1px solid #ccc; border-radius: 3px;">
+                                                    <input type="number" name="quantity" id="quantity" value="1" min="1"  style="display: inline-block; width: 70px; padding: 6px; text-align: center; border: 1px solid #ccc; border-radius: 3px;">
                                                 </div>
                                             </div>
+                                            <br>
+                                            <div class="d-grid gap-2">
+                                                <button type="submit" name="button" value="payNow"  class="btn btn-primary">اشتري الان </button>
+                                            </div>
                                         </form>
-                                        <br>
-                                        <div class="d-grid gap-2">
-                                            <a href="{{ route('order.payNow', $product) }}" class="btn btn-primary"
-                                                type="button">اشتري الان </a>
-                                        </div>
+
                                     </div>
                                     <!-- End Product Info -->
                                 </div>
@@ -252,7 +250,7 @@
                                                         <div class="product-img product-img-zoom">
                                                             <a href="{{ route('products.show', encrypt($relatedProduct->id)) }}"
                                                                 tabindex="0">
-                                                                <img class="default-img" 
+                                                                <img class="default-img"
                                                                     src="{{ $relatedProduct->getFirstMediaUrl('productFiles') }}"
                                                                     alt="{{ $relatedProduct->name }}" width="400px"
                                                                     height="250px">
@@ -274,11 +272,11 @@
                                                     <div class="product-content-wrap">
                                                         <div class="product-category">
                                                             <a href="{{route('products.show', encrypt($product->id))}}">{{ $relatedProduct->name }}</a>
-        
+
                                                         </div>
                                                         <h2>
                                                             <a href="{{route('products.show', encrypt($product->id))}}">{{ Str::limit($relatedProduct->description, 50) }}
-        
+
                                                             </a>
                                                         </h2>
                                                         <span>
@@ -286,8 +284,8 @@
                                                             @if($relatedProduct->offer)
                                                             <span>تخفيض %{{ $relatedProduct->offer }}</span>
                                                         @endif
-                                                                
-                                                        
+
+
                                                         @include(
                                                             'userDashboard.products.review.ratingProduct',
                                                             ['rate' => calcReview($relatedProduct)]

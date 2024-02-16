@@ -17,10 +17,6 @@ class OrderController extends Controller
         $this->middleware('auth');
 
     }
-    public function payNow(Product $product)
-    {
-        return $this->order->payNow($product);
-    }
 
     public function show($order_number)
     {
