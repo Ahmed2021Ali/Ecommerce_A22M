@@ -16,8 +16,8 @@ class CouponStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'=>['required'],
-            'value'=>['required','numeric'],
+            'name'=>['required','string','max:150'],
+            'value'=>['required','numeric' ,'min:1','max:99'],
             'status'=>['nullable','integer','between:0,1'],
 
         ];
