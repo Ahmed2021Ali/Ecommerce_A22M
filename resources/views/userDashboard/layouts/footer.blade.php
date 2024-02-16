@@ -89,7 +89,7 @@
             </div>
             <div class="col-lg-6">
                 <p class="text-lg-end text-start font-sm text-muted mb-0">
-                    &copy; <strong class="text-brand"> Ahmed Maghraby & Ahmed Abd Ellatif </strong> كل الحقوق محفوظة لدي  <i class="fas fa-copyright"></i>
+                    &copy; <strong class="text-brand"><a target="_blank" href="https://www.facebook.com/Eng.AhmedMaghraby"> Ahmed Maghraby </a> & <a target="_blank" href="https://www.facebook.com/ahmed.abdellatif.mohammed/" >Ahmed Abd Ellatif</a> </strong> كل الحقوق محفوظة لدي  <i class="fas fa-copyright"></i>
                 </p>
             </div>
         </div>

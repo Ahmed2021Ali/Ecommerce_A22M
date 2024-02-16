@@ -1,4 +1,4 @@
-<link rel="shortcut icon" type="image/x-icon" href="{{ URL::asset('assets/imgs/theme/favicon.ico') }}">
+<link rel="shortcut icon" type="image/x-icon" href="{{ URL::asset('assets/imgs/logo/Picsart_24-02-16_18-01-27-786.png') }}">
 <link rel="stylesheet" href="{{ URL::asset('assets/css/main.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('assets/css/custom.css') }}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
