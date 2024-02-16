@@ -310,7 +310,7 @@ return [
             'submenu' =>
                 [
                     [
-                        'text' => 'عرض   ',
+                        'text' => 'عرض  المنتجات ',
                         'route' => 'product.index',
                     ], [
                     'text' => 'تحزين منتج جديد ',
