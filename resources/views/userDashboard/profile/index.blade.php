@@ -17,45 +17,26 @@
                             <div class="dashboard-menu">
                                 <ul class="nav flex-column" role="tablist">
                                     <li class="nav-item">
-                                        <a class="nav-link active" id="dashboard-tab" data-bs-toggle="tab" href="#dashboard"
-                                            role="tab" aria-controls="dashboard" aria-selected="false"><i
-                                                class="fi-rs-settings-sliders mr-10"></i> لوحة التحكم</a>
+                                        <a class="nav-link active" id="dashboard-tab" data-bs-toggle="tab" href="#dashboard" role="tab" aria-controls="dashboard" aria-selected="false"><i class="fi-rs-settings-sliders mr-10"></i> لوحة التحكم</a>
+                                    </li>
+                                    <li class="nav-item"><a class="nav-link" id="orders-tab" data-bs-toggle="tab" href="#orders" role="tab" aria-controls="orders" aria-selected="false"><i class="fi-rs-shopping-bag mr-10"></i> الطلبات</a>
+                                    </li>
+                                    <li class="nav-item"><a class="nav-link" id="ordersCancelled-tab" data-bs-toggle="tab" href="#ordersCancelled" role="tab" aria-controls="orders" aria-selected="false"><i class="fi-rs-shopping-bag mr-10"></i> الطلبات تم الغائها</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" id="orders-tab" data-bs-toggle="tab" href="#orders"
-                                            role="tab" aria-controls="orders" aria-selected="false"><i
-                                                class="fi-rs-shopping-bag mr-10"></i> الطلبات</a>
+                                        <a class="nav-link" id="track-orders-tab" data-bs-toggle="tab" href="#track-orders" role="tab" aria-controls="track-orders" aria-selected="false"><i class="fi-rs-shopping-cart-check mr-10"></i> تتبع طلبك</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" id="ordersCancelled-tab" data-bs-toggle="tab"
-                                            href="#ordersCancelled" role="tab" aria-controls="orders"
-                                            aria-selected="false"><i class="fi-rs-shopping-bag mr-10"></i> الطلبات تم
-                                            الغائها</a>
+                                        <a class="nav-link" id="address-tab" data-bs-toggle="tab" href="#address" role="tab" aria-controls="address" aria-selected="true"><i class="fi-rs-marker mr-10"></i> عنواني</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" id="track-orders-tab" data-bs-toggle="tab" href="#track-orders"
-                                            role="tab" aria-controls="track-orders" aria-selected="false"><i
-                                                class="fi-rs-shopping-cart-check mr-10"></i> تتبع
-                                            طلبك</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="address-tab" data-bs-toggle="tab" href="#address"
-                                            role="tab" aria-controls="address" aria-selected="true"><i
-                                                class="fi-rs-marker mr-10"></i> عنواني</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="account-detail-tab" data-bs-toggle="tab"
-                                            href="#account-detail" role="tab" aria-controls="account-detail"
-                                            aria-selected="true"><i class="fi-rs-user mr-10"></i> تفاصيل الحساب</a>
+                                        <a class="nav-link" id="account-detail-tab" data-bs-toggle="tab" href="#account-detail" role="tab" aria-controls="account-detail" aria-selected="true"><i class="fi-rs-user mr-10"></i> تفاصيل الحساب</a>
                                     </li>
                                     <li class="nav-item">
                                         <form action="{{ route('logout') }}" method="POST">
                                             @csrf
-                                            <button type="submit"
-                                                style=" align-items: center;  border: none; background-color: white;
-                                                color: black; cursor: pointer; padding: 15px; font-size: 16px; margin-right: 33px;">
-                                                <i class="fas fa-sign-out-alt fa-lg"></i> تسجيل خروج
-                                            </button>
+                                            <button type="submit" style=" align-items: center;  border: none; background-color: white;
+                                                color: black; cursor: pointer; padding: 15px; font-size: 16px; margin-right: 33px;"><i class="fas fa-sign-out-alt fa-lg"></i> تسجيل خروج</button>
                                         </form>
                                     </li>
                                 </ul>
@@ -213,17 +194,17 @@
                                                             <tr>
                                                                 <th>اسم صاحب الاردر</th>
                                                                 <td class="product-subtotal" colspan="2">
-                                                                    {{ $address->fname . $address->lname }}</td>
+                                                                    {{ Str::limit($address->fname . $address->lname, 30) }}</td>
                                                             </tr>
                                                             <tr>
                                                                 <th> المدينة</th>
                                                                 <td class="product-subtotal" colspan="2">
-                                                                    {{ $address->city->name }}</td>
+                                                                    {{ Str::limit($address->city->name, 30) }}</td>
                                                             </tr>
                                                             <tr>
                                                                 <th> العنوان التفصيلي</th>
                                                                 <td class="product-subtotal" colspan="2">
-                                                                    {{ $address->address }}</td>
+                                                                    {{ Str::limit($address->address, 30) }}</td>
                                                             </tr>
                                                             <tr>
                                                                 <th> رقم هاتف</th>
@@ -233,12 +214,14 @@
                                                             <tr>
                                                                 <th> الاميل</th>
                                                                 <td class="product-subtotal" colspan="2">
-                                                                    {{ $address->email }}</td>
+                                                                    {{ Str::limit($address->email, 30) }}
+                                                                </td>
                                                             </tr>
                                                             <tr>
                                                                 <th> ملحوظة توصيل</th>
                                                                 <td class="product-subtotal" colspan="2">
-                                                                    {{ $address->note }}</td>
+                                                                    {{ Str::limit($address->note, 30) }}
+                                                                </td>
                                                             </tr>
                                                         </table>
                                                         <a href="{{ route('address.edit', encrypt($address->id)) }}"

@@ -83,7 +83,7 @@
                                 <option style="display: none">اختار عنوان التوصيل</option>
                                 @foreach($addresses as $address)
                                     <option
-                                        value="{{$address->id}}">{{$address->city->name." - ".$address->address}} </option>
+                                        value="{{$address->id}}">{{ Str::limit($address->city->name." - ".$address->address, 100) }} </option>
                                 @endforeach
                             @endif
                             <div>

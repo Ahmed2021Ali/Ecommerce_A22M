@@ -128,7 +128,7 @@
                                     <!-- Product Info -->
                                     <div class="detail-info" style="direction: rtl; text-align: right;">
                                         <!-- Product Title and Rating -->
-                                        <h2 class="title-detail">{{ $product->name }}</h2>
+                                        <h2 class="title-detail">{{ Str::limit($product->name, 29) }}</h2>
                                         <div class="product-detail-rating">
                                             <div class="product-rate-cover text-end">
                                                 @include('userDashboard.products.review.ratingProduct', [
@@ -246,22 +246,13 @@
                                                         <div class="product-img product-img-zoom">
                                                             <a href="{{ route('products.show', encrypt($relatedProduct->id)) }}"
                                                                 tabindex="0">
-                                                                <img class="default-img"
-                                                                    src="{{ $relatedProduct->getFirstMediaUrl('productFiles') }}"
-                                                                    alt="{{ $relatedProduct->name }}" width="400px"
-                                                                    height="250px">
+                                                                <img class="default-img" src="{{ $relatedProduct->getFirstMediaUrl('productFiles') }}" alt="{{ $relatedProduct->name }}" width="400px" height="250px">
                                                             </a>
                                                         </div>
                                                         <div class="product-action-1">
-                                                            <a href="{{ $relatedProduct->getFirstMediaUrl('productFiles') }}"
-                                                                aria-label="عرض" class="action-btn small hover-up"
-                                                                data-bs-target="#quickViewModal"><i
-                                                                    class="fi-rs-eye"></i></a>
-                                                            <a aria-label="أضف إلى المفضلة"
-                                                                class="action-btn small hover-up" onclick="addToFavorites({{ $relatedProduct->id }})"
-                                                                tabindex="0"><i class="fi-rs-heart"></i></a>
-                                                            <a aria-label="تسوق الآن" class="action-btn hover-up"
-                                                                href="{{ route('products.show', encrypt($relatedProduct->id)) }}"><i
+                                                            <a href="{{ $relatedProduct->getFirstMediaUrl('productFiles') }}" aria-label="عرض" class="action-btn small hover-up" data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
+                                                            <a aria-label="أضف إلى المفضلة" class="action-btn small hover-up" onclick="addToFavorites({{ $relatedProduct->id }})" tabindex="0"><i class="fi-rs-heart"></i></a>
+                                                            <a aria-label="تسوق الآن" class="action-btn hover-up" href="{{ route('products.show', encrypt($relatedProduct->id)) }}"><i
                                                                     class="fi-rs-shopping-bag-add"></i></a>
                                                         </div>
                                                     </div>
@@ -281,11 +272,6 @@
                                                             <span>تخفيض %{{ $relatedProduct->offer }}</span>
                                                         @endif
 
-
-                                                        @include(
-                                                            'userDashboard.products.review.ratingProduct',
-                                                            ['rate' => calcReview($relatedProduct)]
-                                                        )
                                                         <div class="product-price">
                                                             <span>$238.85 </span>
                                                             <span class="old-price">$245.8</span>

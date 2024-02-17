@@ -59,7 +59,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="phone">رقم الهاتف<span class="required">*</span></label>
-                                    <input class="form__input" type="text" value="{{$address->phone}}" name="phone" required/>
+                                    <input class="form__input" type="tel" id="phone" name="phone" pattern="^01[0-2]\d{8}$" required/>
                                     @error('phone')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror

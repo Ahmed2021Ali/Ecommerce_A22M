@@ -14,16 +14,12 @@ class FavRepository implements FavInterface
 
     public function index()
     {
-        return view('userDashboard.fav.index', [
-            'favs' => Auth::user()->favs(),'count' => Fav::where('user_id', Auth::user()->id)->count(),
-            'categories' => Category::paginate(10),'newProducts' => Product::latest()->take(3)->get()
-        ]);
+        return view('userDashboard.fav.index');
     }
 
     public function store($request, $product)
     {
         $fav = Fav::where('product_id', $product->id)->where('user_id', Auth::user()->id)->first();
-    
         if ($fav) {
             if ($request->ajax()) {
                 return response()->json(['success' => false, 'message' => 'عفوا ! المنتج مضاف فعليا في المفضلة']);
@@ -32,7 +28,6 @@ class FavRepository implements FavInterface
             }
         } else {
             Fav::create(['product_id' => $product->id, 'user_id' => Auth::user()->id]);
-    
             if ($request->ajax()) {
                 return response()->json(['success' => true, 'message' => 'تم اضافة المنتج في المفضلة']);
             } else {
@@ -40,7 +35,7 @@ class FavRepository implements FavInterface
             }
         }
     }
-    
+
 
     public function destroy($fav)
     {
