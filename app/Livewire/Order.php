@@ -24,18 +24,22 @@ class Order extends Component
 
     public function mount()
     {
-        $this->addresses = Address::select('id','city_id','address')->where('user_id', Auth::user()->id)->get();
+        $this->addresses = Address::select('id', 'city_id', 'address')->where('user_id', Auth::user()->id)->get();
     }
 
     public function changeAddress(): void
     {
-        $this->deliveryPrice = Address::find($this->form->address_id)->city->price;
+        $address = Address::find($this->form->address_id);
+        if (isset($address)) {
+            $this->deliveryPrice = $address->city->price;
+        }
     }
 
     public function coupon()
     {
         $this->discount = Coupon::select('id', 'value')->where('name', $this->form->coupon)->where('status', 1)->first();
     }
+
     public function render()
     {
         return view('livewire.order');
