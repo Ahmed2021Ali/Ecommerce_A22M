@@ -12,6 +12,7 @@ class ContactUsController extends Controller
     public function __construct(ContactUsInterface $contact)
     {
         $this->contact = $contact;
+        $this->middleware('checkAdminRole');
     }
 
     public function index()

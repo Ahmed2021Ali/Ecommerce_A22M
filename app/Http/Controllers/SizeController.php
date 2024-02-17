@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Size;
 use App\Repositories\Interfaces\AdminDashboard\SizeInterface;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 
 class SizeController extends Controller
 {
@@ -13,6 +12,7 @@ class SizeController extends Controller
     public function __construct(SizeInterface $size)
     {
         $this->size = $size;
+        $this->middleware('checkAdminRole');
     }
     public function index()
     {

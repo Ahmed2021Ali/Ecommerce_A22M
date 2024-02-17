@@ -15,6 +15,7 @@ class CategoryController extends Controller
     public function __construct(CategoryInterface $category)
     {
         $this->category = $category;
+        $this->middleware('checkAdminRole');
     }
 
     public function index()

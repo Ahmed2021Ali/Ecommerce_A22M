@@ -252,7 +252,7 @@ return [
     */
 
     'use_route_url' => true,
-    'dashboard_url' => 'dashboard.index',
+    'dashboard_url' => 'admin.dashboard',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -292,7 +292,7 @@ return [
         [
             'text' => 'الصفحة الرائيسية',
             'icon' => ' fas fa-sync-alt',
-            'route' => 'dashboard.index',
+            'route' => 'admin.dashboard',
         ],
         [
             'text' => ' الموقع الالكتروني',

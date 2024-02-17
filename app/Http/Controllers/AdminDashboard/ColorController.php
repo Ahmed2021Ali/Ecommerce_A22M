@@ -17,6 +17,7 @@ class ColorController extends Controller
     public function __construct(ColorRepository $color)
     {
         $this->color = $color;
+        $this->middleware('checkAdminRole');
     }
 
     public function index()

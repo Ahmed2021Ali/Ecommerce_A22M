@@ -12,9 +12,13 @@ class ReviewRepository implements ReviewInterface
 
     public function store($request, $product)
     {
-        Review::create([...$request, 'user_id' => Auth::user()->id, 'product_id' => $product->id]);
-        return redirect()->back()->with('success', 'شكرا لتقيماتكم ');
+        // Your validation and other logic here
+    
+        Review::create([...$request->all(), 'user_id' => Auth::user()->id, 'product_id' => $product]);
+    
+        return response()->json(['success' => true]);
     }
+    
 
     public function edit($review)
     {
@@ -24,7 +28,7 @@ class ReviewRepository implements ReviewInterface
     public function update($request, $review)
     {
         $review->update([...$request]);
-        return to_route('products.show',encrypt($review->product_id))->with('success', 'تم تعديل تقسمك للمنتج بنجاح');
+        return to_route('products.show',encrypt($review->product_id))->with('success', 'تم تعديل تقييمك للمنتج بنجاح');
     }
 
     public function destroy($review)

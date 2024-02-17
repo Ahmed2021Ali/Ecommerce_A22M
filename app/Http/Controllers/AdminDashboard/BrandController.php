@@ -6,7 +6,6 @@ use App\Http\Requests\brand\BrandStoreRequest;
 use App\Http\Requests\brand\BrandUpdateRequest;
 use App\Models\Brand;
 use App\Repositories\Interfaces\AdminDashboard\BrandInterface;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 class BrandController extends Controller
 {
@@ -14,11 +13,14 @@ class BrandController extends Controller
     public function __construct(BrandInterface $brand)
     {
         $this->brand = $brand;
+        $this->middleware('checkAdminRole');
     }
+    
     public function index()
     {
         return $this->brand->index();
     }
+
     public function store(BrandStoreRequest $request)
     {
         return $this->brand->store($request->validated());

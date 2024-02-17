@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers\AdminDashboard;
 
-use App\Http\Requests\banner\BandStoreRequest;
-use App\Http\Requests\banner\BandUpdateRequest;
 use App\Http\Requests\banner\BannerStoreRequest;
 use App\Http\Requests\banner\BannerUpdateRequest;
 use App\Models\Banner;
@@ -16,6 +14,7 @@ class BannerController extends Controller
     public function __construct(BannerInterface $banner)
     {
         $this->banner = $banner;
+        $this->middleware('checkAdminRole');
     }
     public function index()
     {

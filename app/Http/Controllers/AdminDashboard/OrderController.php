@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\AdminDashboard;
 
 use App\Http\Controllers\Controller;
-use App\Models\Order;
 use App\Models\OrderDetails;
 use App\Repositories\Interfaces\AdminDashboard\OrderInterface;
 
@@ -13,6 +12,7 @@ class OrderController extends Controller
     public function __construct(OrderInterface $order)
     {
         $this->order = $order;
+        $this->middleware('checkAdminRole');
     }
 
    public function index()

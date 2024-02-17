@@ -15,6 +15,6 @@ class CheckAdminRole
                 return $next($request);
             }
         }
-        return redirect()->back()->with('error', 'Sorry, you do not have the required permissions.');
+        return redirect()->back()->with('error', 'عفوا ليس لديك الصلاحية');
     }
 }

@@ -14,6 +14,7 @@ class SliderController extends Controller
     public function __construct(SliderInterface $slider)
     {
         $this->slider = $slider;
+        $this->middleware('checkAdminRole');
     }
     public function index()
     {

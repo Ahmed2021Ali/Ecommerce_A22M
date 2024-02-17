@@ -13,23 +13,24 @@ class CouponController extends Controller
     protected $coupon;
     public function __construct(CouponInterface $coupon)
     {
-        $this->copon = $coupon;
+        $this->coupon = $coupon;
+        $this->middleware('checkAdminRole');
     }
     public function index()
     {
-        return $this->copon->index();
+        return $this->coupon->index();
     }
     public function store(CouponStoreRequest $request)
     {
-        return $this->copon->store($request->validated());
+        return $this->coupon->store($request->validated());
     }
 
     public function update(CouponUpdateRequest $request, Coupon $coupon)
     {
-        return $this->copon->update($request->validated(),$coupon);
+        return $this->coupon->update($request->validated(),$coupon);
     }
     public function destroy(Coupon $coupon)
     {
-        return $this->copon->destroy($coupon);
+        return $this->coupon->destroy($coupon);
     }
 }

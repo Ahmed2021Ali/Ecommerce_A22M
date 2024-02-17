@@ -14,6 +14,7 @@ class ServiceController extends Controller
     public function __construct(ServiceInterface $service)
     {
         $this->service = $service;
+        $this->middleware('checkAdminRole');
     }
     public function index()
     {

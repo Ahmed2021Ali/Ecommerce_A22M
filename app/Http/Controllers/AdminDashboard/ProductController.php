@@ -16,6 +16,7 @@ class ProductController extends Controller
     public function __construct(ProductInterface $product)
     {
         $this->product = $product;
+        $this->middleware('checkAdminRole');
     }
 
     public function index()
