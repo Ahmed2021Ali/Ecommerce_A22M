@@ -98,6 +98,7 @@
             </div>
         </div>
     </section>
+
     @if(!$banners->isEmpty())
         @include('userDashboard.banners.index')
     @endif
@@ -153,8 +154,6 @@
         </section>
     @endif
 
-
-
     @if(!$brands->isEmpty())
         <section class="section-padding">
             <div class="container">
@@ -175,6 +174,7 @@
             </div>
         </section>
     @endif
+
 @endsection
 
 @section('js')
