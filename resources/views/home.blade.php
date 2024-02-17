@@ -20,6 +20,7 @@
         <div class="container">
             <div class="tab-header" style="direction: rtl; text-align: right;">
                 <ul class="nav nav-tabs" id="myTab" role="tablist" style="direction: rtl; text-align: right;">
+<<<<<<< Updated upstream
                     @if(!$featuredProducts->isEmpty())
                         <li class="nav-item" role="presentation">
                             <button class="nav-link active" id="nav-tab-one" data-bs-toggle="tab" data-bs-target="#tab-one"
@@ -42,6 +43,23 @@
                         </li>
                     @endif
 
+=======
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="nav-tab-one" data-bs-toggle="tab" data-bs-target="#tab-one"
+                                type="button" role="tab" aria-controls="tab-one" aria-selected="true"> العروض المتاحة
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="nav-tab-two" data-bs-toggle="tab" data-bs-target="#tab-two"
+                                type="button" role="tab" aria-controls="tab-two" aria-selected="false"> الاكثر مبيعا
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="nav-tab-three" data-bs-toggle="tab" data-bs-target="#tab-three"
+                                type="button" role="tab" aria-controls="tab-three" aria-selected="false">العناصر الجديدة
+                        </button>
+                    </li>
+>>>>>>> Stashed changes
                 </ul>
                 @if(!$products->isEmpty())
                     <a href="{{route('products.index')}}" class="view-more d-none d-md-flex">عرض الكل<i class="fi-rs-angle-double-small-left"></i></a>
@@ -117,7 +135,12 @@
                                     <a id="addToFavoritesBtn" aria-label="إضافة إلي المفضلة" onclick="addToFavorites({{ $product->id }})">
                                         <i class="fi-rs-heart"></i>
                                     </a>
+<<<<<<< Updated upstream
                                     <a aria-label="تسوق الآن" class="action-btn hover-up" href="{{ route('products.show', encrypt($product->id)) }}"><i class="fi-rs-shopping-bag-add"></i></a>
+=======
+
+                                    <a aria-label="تسوق الآن" class="action-btn hover-up" href="{{route('products.show', encrypt($product->id))}}"><i class="fi-rs-shopping-bag-add"></i></a>
+>>>>>>> Stashed changes
                                 </div>
                             </div>
                             <div class="product-content-wrap">

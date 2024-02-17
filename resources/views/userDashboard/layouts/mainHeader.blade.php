@@ -32,7 +32,7 @@
                                     style="direction: rtl; text-align: right; flex: 1;" placeholder="بحث">
                             </div>
                         </form>
-                        
+
                     </div>
 
                     <div class="header-action-right">
@@ -70,8 +70,7 @@
                     <div class="main-menu main-menu-padding-1 main-menu-lh-2 d-none d-lg-block">
                         <nav>
                             <ul class="menu-list">
-                                <li><a class="active" href="{{ route('home') }}"><i style="font-size: 25px"
-                                                                                    class="fas fa-home fa-lg"></i>
+                                <li><a class="active" href="{{ route('home') }}"><i style="font-size: 25px" class="fas fa-home fa-lg"></i>
                                         الصفحة الرئيسية</a></li>
                                 <li><a href="#about-us"><i class="fas fa-info-circle fa-lg"></i> تعرف علينا</a></li>
                                 <li><a href="{{ route('products.index') }}"><i class="fas fa-shopping-cart fa-lg"></i>
@@ -129,23 +128,23 @@
                 <p class="mobile-promotion">Happy <span class="text-brand">Mother's Day</span>. Big Sale Up to 40%</p>
                 <div class="header-action-right d-block d-lg-none">
                     <div class="header-action-2">
+                        @if (Auth::check())
                         <div class="header-action-icon-2">
-                            <a href="shop-wishlist.php">
-                                <img alt="Surfside Media" src="assets/imgs/theme/icons/icon-heart.svg">
-                                <span class="pro-count white">4</span>
+                            <a href="{{ route('fav.index') }}">
+                                <img alt="A$M" src="assets/imgs/theme/icons/icon-heart.svg">
+                                <span class="pro-count white">{{Auth::user()->favs()->count()}}</span>
                             </a>
                         </div>
                         <div class="header-action-icon-2">
-                            <a class="mini-cart-icon" href="cart.html">
+                            <a class="mini-cart-icon" href="{{route('cart.index')}}">
                                 <img alt="Surfside Media" src="assets/imgs/theme/icons/icon-cart.svg">
-                                <span class="pro-count white">2</span>
+                                <span class="pro-count white">{{Auth::user()->carts()->count()}}</span>
                             </a>
-                            <div class="cart-dropdown-wrap cart-dropdown-hm2">
+                            {{--<div class="cart-dropdown-wrap cart-dropdown-hm2">
                                 <ul>
                                     <li>
                                         <div class="shopping-cart-img">
-                                            <a href="product-details.html"><img alt="Surfside Media"
-                                                                                src="assets/imgs/shop/thumbnail-3.jpg"></a>
+                                            <a href="product-details.html"><img alt="Surfside Media" src="assets/imgs/shop/thumbnail-3.jpg"></a>
                                         </div>
                                         <div class="shopping-cart-title">
                                             <h4><a href="product-details.html">Plain Striola Shirts</a></h4>
@@ -178,8 +177,9 @@
                                         <a href="shop-checkout.php">Checkout</a>
                                     </div>
                                 </div>
-                            </div>
+                            </div>--}}
                         </div>
+                        @endif
                         <div class="header-action-icon-2 d-block d-lg-none">
                             <div class="burger-icon burger-icon-white">
                                 <span class="burger-icon-top"></span>
@@ -193,16 +193,16 @@
         </div>
     </div>
 </header>
+
 <div class="mobile-header-active mobile-header-wrapper-style">
     <div class="mobile-header-wrapper-inner">
+
         <div class="mobile-header-top">
             <div class="mobile-menu-close close-style-wrap close-style-position-inherit">
-                <button class="close-style search-close">
-                    <i class="icon-top"></i>
-                    <i class="icon-bottom"></i>
-                </button>
+                <button class="close-style search-close"><i class="icon-top"></i><i class="icon-bottom"></i></button>
             </div>
         </div>
+
         <div class="mobile-header-content-area">
             <div class="mobile-search search-style-3 mobile-header-border" style="direction: rtl; text-align: right;">
                 <form action="#">

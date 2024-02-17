@@ -108,21 +108,18 @@
                                         </div>
                                     </div>
                                     <!-- End Gallery -->
-                                    <div class="social-icons single-share">
+
+                                        {{-- share with--}}
+                                    <div class="social-icons single-share" style="text-align:center">
                                         <ul class="text-grey-5 d-inline-block">
-                                            <li><strong class="mr-10">Share this:</strong></li>
-                                            <li class="social-facebook"><a href="#"><img
+                                            <li class="social-facebook"><a class="facebook" target="blank"><img
                                                         src="{{ URL::asset('assets/imgs/theme/icons/icon-facebook.svg') }}"
                                                         alt=""></a></li>
-                                            <li class="social-twitter"><a href="#"><img
+                                            <li><a class="whatsapp" target="blank"><i class="fab fa-whatsapp"></i></a></li>
+                                            <li class="social-twitter"><a class="twitter" target="blank"><img
                                                         src="{{ URL::asset('assets/imgs/theme/icons/icon-twitter.svg') }}"
                                                         alt=""></a></li>
-                                            <li class="social-instagram"><a href="#"><img
-                                                        src="{{ URL::asset('assets/imgs/theme/icons/icon-instagram.svg') }}"
-                                                        alt=""></a></li>
-                                            <li class="social-linkedin"><a href="#"><img
-                                                        src="{{ URL::asset('assets/imgs/theme/icons/icon-pinterest.svg"') }}"
-                                                        alt=""></a></li>
+                                            <li><strong class="mr-10">شارك هذا المنتج علي  </strong></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -317,4 +314,20 @@
             </div>
         </section>
     </main>
+@endsection
+@section('js')
+    <script>
+        const link = '{{url()->current()}}';
+        const msg = 'العرض لفترة محدودة';
+        const title = 'العرض لفترة محدودة';
+
+        const fb = document.querySelector('.facebook');
+        fb.href = `https://www.facebook.com/share.php?u=${link}`;
+
+        const twitter = document.querySelector('.twitter');
+        twitter.href = `http://twitter.com/share?&url=${link}&text=${msg}&hashtags=javascript,programming`;
+
+        const whatsapp = document.querySelector('.whatsapp');
+        whatsapp.href = `https://api.whatsapp.com/send?text=${msg}: ${link}`;
+    </script>
 @endsection

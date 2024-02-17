@@ -10,11 +10,18 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class Brand extends Model implements HasMedia
 {
-    use HasFactory,InteractsWithMedia;
+    use HasFactory, InteractsWithMedia;
 
-    protected $fillable=['status'];
+    protected $fillable = ['status'];
+
     public function registerMediaConversions(Media $media = null): void
-{
-    $this->addMediaCollection('brandFiles');
-}
+    {
+        $this->addMediaCollection('brandFiles')
+            ->registerMediaConversions(function (Media $media) {
+                $this
+                    ->addMediaConversion('thumb')
+                    ->width(100)
+                    ->height(100);
+            });
+    }
 }
