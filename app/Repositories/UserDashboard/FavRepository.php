@@ -20,14 +20,24 @@ class FavRepository implements FavInterface
         ]);
     }
 
-    public function store($product)
+    public function store($request, $product)
     {
         $fav = Fav::where('product_id', $product->id)->where('user_id', Auth::user()->id)->first();
+    
         if ($fav) {
-            return response()->json(['success' => false, 'message' => 'عفوا ! المنتج مضاف فعليا في المفضلة']);
+            if ($request->ajax()) {
+                return response()->json(['success' => false, 'message' => 'عفوا ! المنتج مضاف فعليا في المفضلة']);
+            } else {
+                return redirect()->back()->with(['error' => 'عفوا ! المنتج مضاف فعليا في المفضلة']);
+            }
         } else {
             Fav::create(['product_id' => $product->id, 'user_id' => Auth::user()->id]);
-            return response()->json(['success' => true, 'message' => 'تم اضافة المنتج في المفضلة']);
+    
+            if ($request->ajax()) {
+                return response()->json(['success' => true, 'message' => 'تم اضافة المنتج في المفضلة']);
+            } else {
+                return redirect()->back()->with(['success' => 'تم اضافة المنتج في المفضلة']);
+            }
         }
     }
     

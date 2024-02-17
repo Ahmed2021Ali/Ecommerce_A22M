@@ -9,7 +9,7 @@
                     @forelse($services as $service)
                         <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0 text-center">
                             <img src="{{ $service->getFirstMediaUrl('serviceFiles') }}" width="100" height="100">
-                            <h4>{{ $service->name }}</h4>
+                            <h4 style="margin-bottom: 19px;">{{ $service->name }}</h4>
                         </div>
                     @empty
 

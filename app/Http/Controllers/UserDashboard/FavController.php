@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Fav;
 use App\Models\Product;
 use App\Repositories\Interfaces\UserDashboard\FavInterface;
+use Illuminate\Http\Request;
 
 class FavController extends Controller
 {
@@ -21,9 +22,9 @@ class FavController extends Controller
         return $this->fav->index();
     }
 
-    public function store(Product $product)
+    public function store(Request $request, Product $product)
     {
-        return $this->fav->store($product);
+        return $this->fav->store($request,$product);
     }
 
     public function destroy(Fav $fav)

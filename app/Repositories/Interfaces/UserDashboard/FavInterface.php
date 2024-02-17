@@ -6,7 +6,7 @@ interface FavInterface {
 
     public function index();
 
-    public function store($product);
+    public function store($request, $product);
 
     public function destroy($fav);
 
