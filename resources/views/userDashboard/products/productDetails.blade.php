@@ -205,9 +205,8 @@
                                             <div class="bt-1 border-color-1 mt-30 mb-30"></div>
                                             <div class="detail-extralink">
                                                 <div class="product-extra-link2">
-                                                    <a aria-label="Add To Wishlist" class="action-btn hover-up"
-                                                        href="{{ route('fav.store', $product) }}"><i
-                                                            class="fi-rs-heart"></i></a>
+                                                    <a aria-label="Add To Wishlist" class="action-btn hover-up" onclick="addToFavorites({{ $product->id }})"><i
+                                                            class="fi-rs-heart" ></i></a>
                                                     <button type="submit" name="button" value="addCart"  class="button button-add-to-cart">أضف إلي
                                                         السلة
                                                     </button>
@@ -259,7 +258,7 @@
                                                                 data-bs-target="#quickViewModal"><i
                                                                     class="fi-rs-eye"></i></a>
                                                             <a aria-label="أضف إلى المفضلة"
-                                                                class="action-btn small hover-up" href="wishlist.php"
+                                                                class="action-btn small hover-up" onclick="addToFavorites({{ $relatedProduct->id }})"
                                                                 tabindex="0"><i class="fi-rs-heart"></i></a>
                                                             <a aria-label="تسوق الآن" class="action-btn hover-up"
                                                                 href="{{ route('products.show', encrypt($relatedProduct->id)) }}"><i

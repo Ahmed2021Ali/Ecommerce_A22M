@@ -73,7 +73,7 @@
                             <h3 class="section-title mb-20" style="text-align:center;"><span>الأقسام</span></h3>
                             <div class="carausel-6-columns-cover position-relative">
                                 <div class="slider-arrow slider-arrow-2 carausel-6-columns-arrow"
-                                     id="carausel-6-columns-arrows"></div>
+                                    id="carausel-6-columns-arrows"></div>
                                 <div class="carausel-6-columns" id="carausel-6-columns">
                                     @foreach($categories as $category)
                                         <div class="card-1">
@@ -106,39 +106,39 @@
                 <h3 class="section-title mb-20"><span>المنتجات</span> الجديدة</h3>
                 <div class="carausel-6-columns-cover position-relative">
                     <div class="slider-arrow slider-arrow-2 carausel-6-columns-arrow"
-                         id="carausel-6-columns-2-arrows"></div>
+                        id="carausel-6-columns-2-arrows"></div>
                     <div class="carausel-6-columns carausel-arrow-center" id="carausel-6-columns-2">
-                        @foreach($newArrivalProducts as $product)
+                        @foreach($newArrivalProducts as $newArrivalProduct)
                             <div class="product-cart-wrap small hover-up">
                                 <div class="product-img-action-wrap">
                                     <div class="product-img product-img-zoom"
-                                         style="direction: rtl; text-align: right;">
-                                        <a href="{{ route('products.show', encrypt($product->id)) }}">
-                                            <img src="{{ $product->getFirstMediaUrl('productFiles') }}" width="400" height="250" style="direction: rtl; text-align: right;">
+                                        style="direction: rtl; text-align: right;">
+                                        <a href="{{ route('products.show', encrypt($newArrivalProduct->id)) }}">
+                                            <img src="{{ $newArrivalProduct->getFirstMediaUrl('productFiles') }}" width="400" height="250" style="direction: rtl; text-align: right;" alt="{{$newArrivalProduct->name}}">
                                         </a>
                                     </div>
                                     <div class="product-action-1">
-                                        <a href="{{ $product->getFirstMediaUrl('productFiles') }}" aria-label="عرض" class="action-btn hover-up" data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
-                                        <a id="addToFavoritesBtn" aria-label="إضافة إلي المفضلة" onclick="addToFavorites({{ $product->id }})"><i class="fi-rs-heart"></i></a>
-                                        <a aria-label="تسوق الآن" class="action-btn hover-up" href="{{ route('products.show', encrypt($product->id)) }}"><i class="fi-rs-shopping-bag-add"></i></a>
-                                        <a aria-label="تسوق الآن" class="action-btn hover-up" href="{{route('products.show', encrypt($product->id))}}"><i class="fi-rs-shopping-bag-add"></i></a>
+                                        <a href="{{ $newArrivalProduct->getFirstMediaUrl('productFiles') }}" aria-label="عرض" class="action-btn hover-up" data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
+                                        <a id="addToFavoritesBtn" aria-label="إضافة إلي المفضلة" onclick="addToFavorites({{ $newArrivalProduct->id }})"><i class="fi-rs-heart"></i></a>
+                                        <a aria-label="تسوق الآن" class="action-btn hover-up" href="{{ route('products.show', encrypt($newArrivalProduct->id)) }}"><i class="fi-rs-shopping-bag-add"></i></a>
+                                        <a aria-label="تسوق الآن" class="action-btn hover-up" href="{{route('products.show', encrypt($newArrivalProduct->id))}}"><i class="fi-rs-shopping-bag-add"></i></a>
                                     </div>
                                 </div>
                                 <div class="product-content-wrap">
                                     <h2>
-                                        <a href="{{ route('products.show', encrypt($product->id)) }}">{{ $product->name }}</a>
+                                        <a href="{{ route('products.show', encrypt($newArrivalProduct->id)) }}">{{ $newArrivalProduct->name }}</a>
                                     </h2>
-                                    {{ Str::limit($product->description, 35) }}
+                                    {{ Str::limit($newArrivalProduct->description, 35) }}
                                     <span>
-                                    @include('userDashboard.products.review.ratingProduct',['rate'=>calcReview($product)])
-                                        @if($product->offer)
-                                            <span>تخفيض %{{ $product->offer }}</span>
+                                    @include('userDashboard.products.review.ratingProduct',['rate'=>calcReview($newArrivalProduct)])
+                                        @if($newArrivalProduct->offer)
+                                            <span>تخفيض %{{ $newArrivalProduct->offer }}</span>
                                         @endif
                                 </span>
                                     <div class="product-price">
-                                        <span>{{ $product->price_after_offer ?? $product->price }}</span>
-                                        @if($product->offer)
-                                            <span class="old-price">${{ $product->price }}</span>
+                                        <span>{{ $newArrivalProduct->price_after_offer ?? $newArrivalProduct->price }}</span>
+                                        @if($newArrivalProduct->offer)
+                                            <span class="old-price">${{ $newArrivalProduct->price }}</span>
                                         @endif
                                     </div>
                                 </div>

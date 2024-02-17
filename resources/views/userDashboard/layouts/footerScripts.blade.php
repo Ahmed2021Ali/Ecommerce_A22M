@@ -27,3 +27,26 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
+
+{{-- Ajax for add product to fav --}}
+<script>
+    function addToFavorites(productId) {
+        $.ajax({
+            type: 'POST',
+            url: '/store/' + productId,
+            data: {
+                _token: '{{ csrf_token() }}',
+            },
+            success: function (data) {
+                if (data.success) {
+                    toastr.success(data.message);
+                } else {
+                    toastr.error(data.message);
+                }
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+</script>
