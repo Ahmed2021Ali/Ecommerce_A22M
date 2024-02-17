@@ -33,7 +33,7 @@
     function addToFavorites(productId) {
         $.ajax({
             type: 'POST',
-            url: '/store/' + productId,
+            url: '/fav/store/' + productId,
             data: {
                 _token: '{{ csrf_token() }}',
             },
