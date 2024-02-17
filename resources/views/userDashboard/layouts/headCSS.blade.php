@@ -38,12 +38,11 @@
         margin-bottom:2px;
     }
 </style>
-
 <!-- Add this line in the head section of your HTML -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
-
-    <style>   .menu-list i {
+    <style>
+        .menu-list i {
         font-size: 18px !important; /* Set the desired size for all icons */
         margin-right: 10px;
     }

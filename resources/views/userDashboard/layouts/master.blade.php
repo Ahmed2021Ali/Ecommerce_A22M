@@ -20,6 +20,7 @@
 
     <main class="main">
         @livewireStyles
+        @if(!isset($sliders))
         <div class="page-header breadcrumb-wrap" style="direction: rtl; text-align:right">
             <div class="container">
                 <div class="breadcrumb">
@@ -28,6 +29,7 @@
                 </div>
             </div>
         </div>
+        @endif
         @yield('content')
         @livewireScripts
     </main>

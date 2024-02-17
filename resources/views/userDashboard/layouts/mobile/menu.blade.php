@@ -18,7 +18,7 @@
                 </form>
             </div>
 
-            <div class="mobile-menu-wrap mobile-header-border" >
+            <div class="mobile-menu-wrap mobile-header-border">
 
                 {{-- show product  Products --}}
                 <x-product-mobile/>
@@ -60,9 +60,15 @@
 
                 @if(Auth::check())
                     <div class="single-mobile-header-info">
+                        <a href="{{route('profile.index')}}" style="align-items: center; border: none; background-color: white; color: black; cursor: pointer; padding: 5px; font-size: 16px; margin-right: 10px;"><i class="fas fa-cogs fa-lg"></i> اعدادات الحساب &nbsp;</a>
+                    </div>
+                    <div class="single-mobile-header-info">
                         <form action="{{ route('logout') }}" method="POST">
                             @csrf
-                            <button type="submit" style="align-items: center; border: none; background-color: white; color: black; cursor: pointer; padding: 5px; font-size: 16px; margin-right: 10px;"><i class="fas fa-sign-out-alt fa-lg"></i> تسجيل خروج</button>
+                            <button type="submit"
+                                    style="align-items: center; border: none; background-color: white; color: black; cursor: pointer; padding: 5px; font-size: 16px; margin-right: 10px;">
+                                <i class="fas fa-sign-out-alt fa-lg"></i> تسجيل خروج
+                            </button>
                         </form>
                     </div>
                 @endif

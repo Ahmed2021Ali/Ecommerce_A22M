@@ -35,7 +35,7 @@
         <label for="value"
                class="col-md-4 col-form-label text-md-end">{{ __('   القيمة كام في المية ') }}</label>
         <div class="col-md-6">
-            <input id="value" type="text"
+            <input id="value" type="number"
                    class="form-control @error('value') is-invalid @enderror" name="value"
                    value="{{ $coupon->value }}"  autocomplete="value" autofocus>
             @error('value')
