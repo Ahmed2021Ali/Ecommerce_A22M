@@ -16,12 +16,6 @@ class Brand extends Model implements HasMedia
 
     public function registerMediaConversions(Media $media = null): void
     {
-        $this->addMediaCollection('brandFiles')
-            ->registerMediaConversions(function (Media $media) {
-                $this
-                    ->addMediaConversion('thumb')
-                    ->width(100)
-                    ->height(100);
-            });
+        $this->addMediaCollection('brandFiles');
     }
 }
