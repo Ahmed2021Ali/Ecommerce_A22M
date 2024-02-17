@@ -14,6 +14,8 @@ class Category extends Model implements HasMedia
 
     protected $fillable = ['name'];
 
+
+
     public function products()
     {
         return $this->hasMany(Product::class)->where('status',1)->paginate(8);

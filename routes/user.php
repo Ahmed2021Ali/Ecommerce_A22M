@@ -51,8 +51,8 @@ Route::controller(OrderController::class)->prefix('order')->as('order.')->group(
 });
 
 Route::controller(ContactUsController::class)->prefix('contact-us')->as('contact-us.')->group(function () {
-    Route::post('/store', 'store')->name('store');
     Route::get('/index', 'index')->name('index');
+    Route::post('/store', 'store')->name('store');
 });
 
 //(Ahmed Abd Ellatif enhancemened => done)

@@ -32,4 +32,3 @@
     </div>
     <div class="slider-arrow hero-slider-1-arrow"></div>
 </section>
-@endif
