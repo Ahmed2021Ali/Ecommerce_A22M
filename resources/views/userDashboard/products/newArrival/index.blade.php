@@ -19,11 +19,8 @@
                                 <a href="{{ $newProduct->getFirstMediaUrl('productFiles') }}" aria-label="عرض"
                                    class="action-btn hover-up" data-bs-target="#quickViewModal"><i
                                         class="fi-rs-eye"></i></a>
-                                <a  id="addToFavoritesBtn" aria-label="إضافة إلي المفضلة"
+                                <a aria-label="أضف إلي المفضلة" class="action-btn hover-up"
                                    onclick="addToFavorites({{ $newProduct->id }})"><i class="fi-rs-heart"></i></a>
-                                <a aria-label="تسوق الآن" class="action-btn hover-up"
-                                   href="{{ route('products.show', encrypt($newProduct->id)) }}"><i
-                                        class="fi-rs-shopping-bag-add"></i></a>
                             </div>
                         </div>
                         <div class="product-content-wrap">
@@ -42,6 +39,12 @@
                                 @if($newProduct->offer)
                                     <span class="old-price">${{ $newProduct->price }}</span>
                                 @endif
+                            </div>
+                            <div class="product-action-1 show">
+                                <a aria-label="تسوق الآن" class="action-btn hover-up"
+                                   href="{{route('products.show', encrypt($newProduct->id))}}">
+                                    <i class="fi-rs-shopping-bag-add"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
