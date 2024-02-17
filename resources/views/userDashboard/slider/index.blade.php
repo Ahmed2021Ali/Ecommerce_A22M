@@ -6,17 +6,17 @@
                     <div class="row align-items-center slider-animated-1">
                         <div class="col-lg-5 col-md-6">
                             <div class="hero-slider-content-2">
-                                <h4 class="animated">{{ $slider->title_h4 }}</h4>
-                                <h2 class="animated fw-900">{{ $slider->title_h2 }}</h2>
-                                <h1 class="animated fw-900 text-brand">{{ $slider->title_h1 }}</h1>
-                                <p class="animated">{{ $slider->title_p }}</p>
+                                <h4 class="animated">{{ Str::limit($slider->title_h4 , 37) }}</h4>
+                                <h2 class="animated fw-900">{{ Str::limit($slider->title_h2 , 18) }}</h2>
+                                <h1 class="animated fw-900 text-brand">{{ Str::limit($slider->title_h1 , 15) }}</h1>
+                                <p class="animated">{{ Str::limit($slider->title_p , 55) }}</p>
                                 <a class="animated btn btn-brush btn-brush-3" href="{{ route('products.index') }}"> تسوق الأن </a>
                             </div>
                         </div>
                         <div class="col-lg-7 col-md-6">
                             <div class="single-slider-img single-slider-img-1">
                                 @forelse($slider->getMedia('sliderFiles') as $media)
-                                    <img class="mySlides" src="{{ $media->getFullUrl() }}" width="400" height="300">
+                                    <img class="mySlides" src="{{ $media->getFullUrl() }}" width="700" height="450">
                                 @empty
                                     <!-- This will be displayed if there are no images in the slider -->
                                     <p style="color: #F15412;">لا يوجد اي صور لهذا الأسلادير حاليا</p>

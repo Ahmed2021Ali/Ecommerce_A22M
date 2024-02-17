@@ -16,7 +16,7 @@ class ColorStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'=>['required','string','max:75'],
+            'name'=>['required','string','max:30'],
             'value'=>['required','unique:colors'],
         ];
     }

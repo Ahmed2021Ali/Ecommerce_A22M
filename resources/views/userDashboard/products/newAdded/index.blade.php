@@ -1,6 +1,6 @@
 <div class="tab-pane fade" id="tab-three" role="tabpanel" aria-labelledby="tab-three">
     <div class="row product-grid-4" style="direction: rtl; text-align: center;">
-        @forelse($newProducts as $newProduct)
+        @foreach($newProducts as $newProduct)
             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 col-6">
                 <div class="product-cart-wrap mb-30">
                     <div class="product-img-action-wrap">
@@ -10,7 +10,7 @@
                             </a>
                         </div>
                         <div class="product-action-1">
-                            <a href="{{ $newProduct->getFirstMediaUrl('productFiles') }}" aria-label="عرض" class="action-btn hover-up" 
+                            <a href="{{ $newProduct->getFirstMediaUrl('productFiles') }}" aria-label="عرض" class="action-btn hover-up"
                                data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
                             <a aria-label="أضف إلي المفضلة" class="action-btn hover-up"
                                onclick="addToFavorites({{ $newProduct->id }})"><i class="fi-rs-heart"></i></a>
@@ -18,7 +18,7 @@
                     </div>
                     <div class="product-content-wrap">
                         <div class="product-category">
-                            <a href="{{route('products.show', encrypt($newProduct->id))}}">{{ $newProduct->name }}</a>
+                            <a href="{{route('products.show', encrypt($newProduct->id))}}">{{ Str::limit($newProduct->name, 25) }}</a>
                         </div>
                         <h2><a href="{{route('products.show', encrypt($newProduct->id))}}">{{ Str::limit($newProduct->description, 50) }}</a></h2>
                         <span>

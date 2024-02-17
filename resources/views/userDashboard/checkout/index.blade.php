@@ -48,15 +48,15 @@
                                 <tr>
                                     <th> الاسم</th>
                                     <td class="product-subtotal"
-                                        colspan="2">{{$detailsOrder->address->fname . $detailsOrder->address->lname }}</td>
+                                        colspan="2">{{ Str::limit($detailsOrder->address->fname . $detailsOrder->address->lname , 50) }}</td>
                                 </tr>
                                 <tr>
                                     <th> العنوان</th>
-                                    <td class="product-subtotal" colspan="2">{{$detailsOrder->address->address}}</td>
+                                    <td class="product-subtotal" colspan="2">{{ Str::limit($detailsOrder->address->address , 50) }}</td>
                                 </tr>
                                 <tr>
                                     <th> المدينة</th>
-                                    <td class="product-subtotal" colspan="2">{{$detailsOrder->address->city->name}}</td>
+                                    <td class="product-subtotal" colspan="2">{{ Str::limit($detailsOrder->address->city->name , 50) }}</td>
                                 </tr>
                                 <tr>
                                     <th> رقم الهاتف</th>
@@ -64,14 +64,14 @@
                                 </tr>
                                 <tr>
                                     <th> الاميل</th>
-                                    <td class="product-subtotal" colspan="2">{{$detailsOrder->address->email}}</td>
+                                    <td class="product-subtotal" colspan="2">{{ Str::limit($detailsOrder->address->email , 60) }}</td>
                                 </tr>
                                 <tr>
                                     <th> ملحوظة توصل</th>
-                                    <td class="product-subtotal" colspan="2">{{$detailsOrder->address->note}}</td>
+                                    <td class="product-subtotal" colspan="2">{{ Str::limit($detailsOrder->address->note , 50) }}</td>
                                 </tr>
                             </table>
-                            <a href="{{route('address.edit',$detailsOrder->address)}}"
+                            <a href="{{route('address.edit',encrypt($detailsOrder->id))}}"
                                class="btn btn-fill-out btn-block mt-30">تعديل العنوان</a>
                         </section>
                     </div>
@@ -96,7 +96,7 @@
                                             </td>
                                             <td>
                                                 <h5>
-                                                    <a href="{{route('products.show', $order->product->id)}}">{{$order->product->name}}</a>
+                                                    <a href="{{route('products.show', encrypt($order->product->id))}}">{{ Str::limit($order->product->name , 40) }}</a>
                                                 </h5>
                                                 <span class="product-qty">{{$order->quantity}}</span>
                                                 @if($order->size)

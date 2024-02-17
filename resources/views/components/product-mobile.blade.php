@@ -6,7 +6,7 @@
         <ul>
             @if (!$products->isEmpty())
                 @foreach($products as $product)
-                    <li><a href="{{route('products.show',encrypt($product->id))}}"><i class="surfsidemedia-font-dress"></i>{{$product->name}}</a></li>
+                    <li><a href="{{route('products.show',encrypt($product->id))}}"><i class="surfsidemedia-font-dress"></i>{{ Str::limit($product->name, 25) }}</a></li>
                 @endforeach
             @endif
         </ul>

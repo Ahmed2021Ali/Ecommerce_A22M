@@ -37,21 +37,21 @@
 
                                         <td class="product-des product-name">
                                             <h3 class="product-name"><a
-                                                    href="{{route('products.show', encrypt($cart->product->id))}}">{{$cart->product->name}}</a>
+                                                    href="{{route('products.show', encrypt($cart->product->id))}}">{{ Str::limit($cart->product->name , 25) }}</a>
                                             </h3>
                                             <div class="attr-detail attr-color mb-15">
                                                 @if($cart->color)
                                                     <strong class="mr-10">اللون &nbsp;&nbsp;</strong>
                                                     <ul class="list-filter color-filter">
-                                                            @foreach (explode(',', $cart->color) as $color)
-                                                                {{\App\Models\Color::where('value', $color)->first()->name ?? ''}}
-                                                            @endforeach
+                                                        @foreach (explode(',', $cart->color) as $color)
+                                                            {{\App\Models\Color::where('value', $color)->first()->name ?? ''}}
+                                                        @endforeach
                                                     </ul>
                                                 @endif
                                                 @if($cart->size)
                                                     <strong class="mr-10"> المقاس &nbsp;&nbsp;</strong>
                                                     <ul class="list-filter size-filter font-small">
-                                                        <li><a href="#">{{$cart->size}}</a></li>
+                                                        <li><a href="#">{{ Str::limit($cart->size , 25) }}</a></li>
                                                     </ul>
                                                 @endif
                                             </div>
@@ -91,7 +91,8 @@
 
                                 <tr>
                                     <td colspan="6" class="text-end">
-                                        <a href="{{route('cart.clear')}}" class="text-muted"> <i class="fi-rs-cross-small"></i> Clear Cart</a>
+                                        <a href="{{route('cart.clear')}}" class="text-muted"> <i
+                                                class="fi-rs-cross-small"></i> Clear Cart</a>
                                     </td>
                                 </tr>
                                 </tbody>

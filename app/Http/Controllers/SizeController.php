@@ -20,11 +20,11 @@ class SizeController extends Controller
     }
     public function store(Request $request)
     {
-        return $this->size->store($request->validate(['name' => 'required|max:255']));
+        return $this->size->store($request->validate(['name' => 'required|max:30']));
     }
     public function update(Request $request, Size $size)
     {
-        return $this->size->update($request->validate(['name' => 'nullable|max:255']),$size);
+        return $this->size->update($request->validate(['name' => 'nullable|max:30']),$size);
     }
     public function destroy(Size $size)
     {

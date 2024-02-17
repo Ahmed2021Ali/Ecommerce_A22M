@@ -2,10 +2,10 @@
     <ul class="mega-menu">
         @foreach ($categories as $category)
             <li class="sub-mega-menu sub-mega-menu-width-22">
-                <a class="menu-title" href="{{route('category.products', encrypt($category->id))}}">{{ $category->name }}</a>
+                <a class="menu-title" href="{{route('category.products', encrypt($category->id))}}">{{ Str::limit($category->name, 25) }}</a>
                 <ul>
                     @foreach ($category->products() as $product)
-                        <li><a href="{{route('products.show', encrypt($product->id))}}">{{ $product->name }}</a></li>
+                        <li><a href="{{route('products.show', encrypt($product->id))}}">{{ Str::limit($product->name, 25) }}</a></li>
                     @endforeach
                 </ul>
                 {{ $category->products()->links() }}

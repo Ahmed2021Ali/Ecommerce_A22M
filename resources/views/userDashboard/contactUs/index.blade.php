@@ -37,7 +37,7 @@
                             </div>
                             <div class="col-lg-6 col-md-6">
                                 <div class="input-style mb-20">
-                                    <input name="phone" placeholder="رقم الهاتف" type="tel" style="direction: rtl; " required>
+                                    <input name="phone" placeholder="رقم الهاتف" type="tel" pattern="^01[0-2]\d{8}$" style="direction: rtl; " required>
                                     @error('phone')
                                     <span class="text-danger">{{ $message }}</span>
                                     @enderror
