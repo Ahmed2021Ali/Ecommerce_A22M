@@ -1,6 +1,6 @@
 <div class="tab-pane fade" id="tab-three" role="tabpanel" aria-labelledby="tab-three">
     <div class="row product-grid-4" style="direction: rtl; text-align: center;">
-        @forelse($newAddedProducts as $newAddedProduct)
+        @forelse($newAddedProducts as $product)
             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 col-6">
                 <div class="product-cart-wrap mb-30">
                     <div class="product-img-action-wrap">
@@ -10,7 +10,7 @@
                             </a>
                         </div>
                         <div class="product-action-1">
-                            <a href="{{ $newAddedProduct->getFirstMediaUrl('productFiles') }}" aria-label="عرض" class="action-btn hover-up" 
+                            <a href="{{ $product->getFirstMediaUrl('productFiles') }}" aria-label="عرض" class="action-btn hover-up" 
                                data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
                             <a aria-label="أضف إلي المفضلة" class="action-btn hover-up"
                                onclick="addToFavorites({{ $newAddedProduct->id }})"><i class="fi-rs-heart"></i></a>
@@ -41,9 +41,7 @@
                     </div>
                 </div>
             </div>
-        @empty
-
-        @endforelse
+        @endforeach
     </div>
     <!--End product-grid-4-->
 </div>

@@ -37,7 +37,7 @@
                             </button>
                         </li>
                     @endif
-                    @if(!$newAddedProducts->isEmpty())
+                    @if(!$newProducts->isEmpty())
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="nav-tab-three" data-bs-toggle="tab" data-bs-target="#tab-three"
                                     type="button" role="tab" aria-controls="tab-three" aria-selected="false">المنتجات
@@ -62,7 +62,7 @@
                     @include('userDashboard.products.popular.index')
                 @endif
 
-                @if(!$newAddedProducts->isEmpty())
+                @if(!$newProducts->isEmpty())
                     @include('userDashboard.products.newAdded.index')
                 @endif
 
@@ -79,7 +79,9 @@
                                         <div class="card-1">
                                             <figure class="img-hover-scale overflow-hidden">
                                                 <a href="{{ route('category.products', encrypt($category->id)) }}">
-                                                    <img src="{{ $category->getFirstMediaUrl('categoryFiles') }}" alt="{{ $category->name }}" style="width: 100%; height: 150px; object-fit: cover;">
+                                                    <img src="{{ $category->getFirstMediaUrl('categoryFiles') }}"
+                                                         alt="{{ $category->name }}"
+                                                         style="width: 100%; height: 150px; object-fit: cover;">
                                                 </a>
                                             </figure>
                                             <h5>
@@ -100,6 +102,7 @@
         @include('userDashboard.banners.index')
     @endif
 
+<<<<<<< HEAD
     @if(!$newArrivalProducts->isEmpty())
         <section class="section-padding" style="direction: rtl; text-align: center;">
             <div class="container wow fadeIn animated">
@@ -149,7 +152,13 @@
                 </div>
             </div>
         </section>
+=======
+    @if(!$newProducts->isEmpty())
+        @include('userDashboard.products.newArrival.index')
+>>>>>>> 103582feba4a3e07e60400bce1d549b2b18ef98b
     @endif
+
+
 
     @if(!$brands->isEmpty())
         <section class="section-padding">
@@ -161,9 +170,10 @@
                          id="carausel-6-columns-3-arrows"></div>
                     <div class="carausel-6-columns text-center" id="carausel-6-columns-3">
                         @foreach($brands as $brand)
-                        <div class="brand-logo">
-                                <img src="{{ $brand->getFirstMediaUrl('brandFiles') }}" class="img-grey-hover" alt="الماركات" style="width: 175px; height: 150px;">
-                        </div>
+                            <div class="brand-logo">
+                                <img src="{{ $brand->getFirstMediaUrl('brandFiles') }}" class="img-grey-hover"
+                                     alt="الماركات" style="width: 175px; height: 150px;">
+                            </div>
                         @endforeach
                     </div>
                 </div>
