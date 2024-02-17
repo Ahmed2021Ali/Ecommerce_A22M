@@ -19,13 +19,10 @@
                                 <a href="{{ $newProduct->getFirstMediaUrl('productFiles') }}" aria-label="عرض"
                                    class="action-btn hover-up" data-bs-target="#quickViewModal"><i
                                         class="fi-rs-eye"></i></a>
-                                <a id="addToFavoritesBtn" aria-label="إضافة إلي المفضلة"
+                                <a  id="addToFavoritesBtn" aria-label="إضافة إلي المفضلة"
                                    onclick="addToFavorites({{ $newProduct->id }})"><i class="fi-rs-heart"></i></a>
                                 <a aria-label="تسوق الآن" class="action-btn hover-up"
                                    href="{{ route('products.show', encrypt($newProduct->id)) }}"><i
-                                        class="fi-rs-shopping-bag-add"></i></a>
-                                <a aria-label="تسوق الآن" class="action-btn hover-up"
-                                   href="{{route('products.show', encrypt($newProduct->id))}}"><i
                                         class="fi-rs-shopping-bag-add"></i></a>
                             </div>
                         </div>

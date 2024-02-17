@@ -194,17 +194,17 @@
                                                             <tr>
                                                                 <th>اسم صاحب الاردر</th>
                                                                 <td class="product-subtotal" colspan="2">
-                                                                    {{ Str::limit($address->fname . $address->lname, 25) }}</td>
+                                                                    {{ Str::limit($address->fname . $address->lname, 30) }}</td>
                                                             </tr>
                                                             <tr>
                                                                 <th> المدينة</th>
                                                                 <td class="product-subtotal" colspan="2">
-                                                                    {{ Str::limit($address->city->name, 25) }}</td>
+                                                                    {{ Str::limit($address->city->name, 30) }}</td>
                                                             </tr>
                                                             <tr>
                                                                 <th> العنوان التفصيلي</th>
                                                                 <td class="product-subtotal" colspan="2">
-                                                                    {{ Str::limit($address->address, 25) }}</td>
+                                                                    {{ Str::limit($address->address, 30) }}</td>
                                                             </tr>
                                                             <tr>
                                                                 <th> رقم هاتف</th>
@@ -214,13 +214,13 @@
                                                             <tr>
                                                                 <th> الاميل</th>
                                                                 <td class="product-subtotal" colspan="2">
-                                                                    {{ Str::limit($address->email, 28) }}
+                                                                    {{ Str::limit($address->email, 30) }}
                                                                 </td>
                                                             </tr>
                                                             <tr>
                                                                 <th> ملحوظة توصيل</th>
                                                                 <td class="product-subtotal" colspan="2">
-                                                                    {{ Str::limit($address->note, 28) }}
+                                                                    {{ Str::limit($address->note, 30) }}
                                                                 </td>
                                                             </tr>
                                                         </table>

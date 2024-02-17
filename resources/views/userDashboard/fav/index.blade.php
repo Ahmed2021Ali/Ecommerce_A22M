@@ -14,11 +14,11 @@
                     <div class="col-lg-9">
                         <div class="shop-product-fillter" style="direction: rtl; text-align: center;">
                             <div class="totall-product">
-                                <p> لديك <strong class="text-brand">{{ $count }}</strong> في الممفضلة </p>
+                                <p> لديك <strong class="text-brand">{{ Auth::user()->favs()->count() }}</strong> في الممفضلة </p>
                             </div>
                         </div>
                         <div class="row product-grid-4" style="direction: rtl; text-align: center;">
-                            @foreach ($favs as $fav)
+                            @foreach (Auth::user()->favs() as $fav)
                                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 col-6">
                                     <div class="product-cart-wrap mb-30">
                                         <div class="product-img-action-wrap">
@@ -63,7 +63,7 @@
                         </div>
                         <div class="pagination-area mt-15 mb-sm-5 mb-lg-0" style="direction: rtl;">
                             <nav aria-label="Page navigation example">
-                                {{ $favs->links() }}
+                                {{ Auth::user()->favs()->links() }}
                             </nav>
                         </div>
                     </div>
