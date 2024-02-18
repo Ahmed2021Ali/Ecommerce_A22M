@@ -1,6 +1,6 @@
 @extends('userDashboard.layouts.master')
 @section('title')
-    السلة المشتريات
+    سلة المشتريات
 @endsection
 @section('css')
 
