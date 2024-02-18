@@ -3,9 +3,9 @@
 namespace App\Repositories\AdminDashboard;
 
 use App\Models\Brand;
-use App\Models\Slider;
 use App\Repositories\Interfaces\AdminDashboard\BrandInterface;
 use Illuminate\Support\Arr;
+
 
 class BrandRepository implements BrandInterface
 {
