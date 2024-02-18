@@ -44,31 +44,41 @@
                             <td>{{ $product->quantity }}</td>
                             <td>{{ $product->category->name }}</td>
                             <td>
-                                <a href="{{ route('product.show', $product) }}" class="btn btn-info"> تقييمات المنتج</a>
-                                <a href="{{ route('product.edit', $product) }}" class="btn btn-warning">تعديل</a>
-
-                                {{--  delete  --}}
-                                <x-adminlte-modal id="delete_{{ $product->id }}" title="Delete" theme="purple"
-                                    icon="fas fa-bolt" size='lg' disable-animations>
-                                    @include('adminDashboard.products.delete', ['product' => $product])
-                                </x-adminlte-modal>
-                                <x-adminlte-button label="حذف" data-toggle="modal"
-                                    data-target="#delete_{{ $product->id }}" class="bg-danger" />
-                                {{-- End  delete  --}}
-
-                                {{--  images  --}}
+                                {{-- Show Product Reviews Button --}}
+                                @can('تقييمات المنتج')
+                                    <a href="{{ route('product.show', $product) }}" class="btn btn-info">تقييمات المنتج</a>
+                                @endcan
+                                
+                                {{-- Edit Product Button --}}
+                                @can('تعديل منتج')
+                                    <a href="{{ route('product.edit', $product) }}" class="btn btn-warning">تعديل</a>
+                                @endcan
+                            
+                                {{-- Delete Product Button --}}
+                                @can('حذف منتج')
+                                    <x-adminlte-modal id="delete_{{ $product->id }}" title="Delete" theme="purple"
+                                        icon="fas fa-bolt" size='lg' disable-animations>
+                                        @include('adminDashboard.products.delete', ['product' => $product])
+                                    </x-adminlte-modal>
+                                    <x-adminlte-button label="حذف" data-toggle="modal"
+                                        data-target="#delete_{{ $product->id }}" class="bg-danger" />
+                                @endcan
+                                
+                                @can('عرض صورة المنتج') {{-- Adjust this permission based on your actual permission --}}
+                                {{-- Show Product Images Button --}}
                                 <x-adminlte-modal id="images_{{ $product->id }}" title="الصور" theme="purple"
                                     icon="fas fa-bolt" size='lg' disable-animations>
                                     @include('adminDashboard.images.index', [
                                         'images' => $product,
-                                        'folder' => 'productsFiles',
+                                        'folder' => 'productFiles',
                                     ])
                                 </x-adminlte-modal>
-                                <x-adminlte-button label="عرض صور المنتج" data-toggle="modal"
-                                    data-target="#images_{{ $product->id }}" class="bg-secondary" />
+                                    <x-adminlte-button label="عرض صور المنتج" data-toggle="modal"
+                                        data-target="#images_{{ $product->id }}" class="bg-secondary" />
+                                @endcan
                                 {{-- End  images  --}}
-
                             </td>
+                            
                         </tr>
                     @endforeach
 

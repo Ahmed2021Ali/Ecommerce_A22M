@@ -20,4 +20,15 @@ class ColorStoreRequest extends FormRequest
             'value'=>['required','unique:colors'],
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            'name.required' => 'حقل الاسم مطلوب.',
+            'name.string' => 'يجب أن يكون الاسم نصًا.',
+            'name.max' => 'يجب ألا يتجاوز الاسم 30 حرفًا.',
+            'value.required' => 'حقل القيمة مطلوب.',
+            'value.unique' => 'القيمة مستخدمة بالفعل.',
+        ];
+    }
 }

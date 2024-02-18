@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', ' الارادرات العميل تم  الغاوها')
+@section('title', 'اوردارات ملغية')
 
 @section('content_header')
-    <h1>عرض كل الارادرات العميل تم  الغاوها </h1>
+    <h1 style="direction: rtl; text-align: right;">اورادرات  تم الغاوها </h1>
 @stop
 
 @section('content')
@@ -15,7 +15,7 @@
                 <tr>
                     <th>#</th>
                     <th>كود الطلب </th>
-                    <th>عدد المنتجات الاردر</th>
+                    <th>عدد المنتجات الأوردر</th>
                     <th>سعر المنتجات</th>
                     <th>سعر التوصيل</th>
                     <th>كوبون خصم </th>

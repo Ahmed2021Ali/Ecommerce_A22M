@@ -231,13 +231,14 @@ return [
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Layout-and-Styling-Configuration
     |
     */
-    'right_sidebar' => false,
+    'right_sidebar' => true,
     'right_sidebar_icon' => 'fas fa-cogs',
     'right_sidebar_theme' => 'dark',
-    'right_sidebar_slide' => false,
-    'right_sidebar_push' => false,
+    'right_sidebar_slide' => true,
+    'right_sidebar_push' => true,
     'right_sidebar_scrollbar_theme' => 'os-theme-light',
     'right_sidebar_scrollbar_auto_hide' => 'l',
+    'classes_sidebar' => 'sidebar-dark-primary elevation-4 float-right',
 
     /*
     |--------------------------------------------------------------------------
@@ -290,111 +291,117 @@ return [
 
     'menu' => [
         [
-            'text' => 'الصفحة الرائيسية',
-            'icon' => ' fas fa-sync-alt',
+            'text' => 'الصفحة الرئيسية',
+            'icon' => 'fas fa-home',
             'route' => 'admin.dashboard',
         ],
         [
-            'text' => ' الموقع الالكتروني',
-            'icon' => 'fas fa-walking',
+            'text' => 'الموقع الإلكتروني',
+            'icon' => 'fas fa-globe',
             'route' => 'home',
         ],
+        
         [
-            'text' => 'الاقسام',
-            'icon_color' => 'red',
+            'text' => 'الأقسام',
+            'icon' => 'fas fa-list',
             'route' => 'category.index',
         ],
         [
-            'text' => 'المنتجات ',
-            'icon_color' => 'cyan',
-            'submenu' =>
+            'text' => 'المنتجات',
+            'icon' => 'fas fa-shopping-bag',
+            'submenu' => [
                 [
-                    [
-                        'text' => 'عرض  المنتجات ',
-                        'route' => 'product.index',
-                    ], [
-                    'text' => 'تحزين منتج جديد ',
+                    'text' => 'عرض المنتجات',
+                    'icon' => 'fas fa-list-alt',
+                    'route' => 'product.index',
+                ],
+                [
+                    'text' => 'إضافة منتج جديد',
+                    'icon' => 'fas fa-plus-circle',
                     'route' => 'product.create',
-                ], [
-                    'text' => ' الوان المنتجات ',
-                    'icon_color' => 'yellow',
+                ],
+                
+                [
+                    'text' => 'الوان المنتجات',
+                    'icon' => 'fas fa-paint-brush',
                     'route' => 'color.index',
                 ],
-                    [
-                        'text' => ' مقاسات المنتجات ',
-                        'icon_color' => 'yellow',
-                        'route' => 'size.index',
-                    ],
+                [
+                    'text' => 'مقاسات المنتجات',
+                    'icon' => 'fas fa-ruler',
+                    'route' => 'size.index',
                 ],
+            ],
         ],
         [
-            'text' => 'الاسليدر',
-            'icon_color' => 'yellow',
+            'text' => 'الأسلايدر',
+            'icon' => 'fas fa-images',
             'route' => 'slider.index',
         ],
         [
             'text' => 'بانر',
-            'icon_color' => 'cyan',
+            'icon' => 'fas fa-flag',
             'route' => 'banner.index',
         ],
         [
-            'text' => 'نوع المستخدم',
-            'icon_color' => 'cyan',
+            'text' => 'صلاحيات المستخدم',
+            'icon' => 'fas fa-user',
             'route' => 'roles.index',
         ],
-
         [
             'text' => 'المستخدمين',
-            'icon_color' => 'yellow',
+            'icon' => 'fas fa-users',
             'route' => 'users.index',
         ],
-
-
         [
             'text' => 'الخدمات',
-            'icon_color' => 'cyan',
+            'icon' => 'fas fa-concierge-bell',
             'route' => 'service.index',
         ],
         [
             'text' => 'البرندات',
-            'icon_color' => 'yellow',
+            'icon' => 'fas fa-star',
             'route' => 'brand.index',
         ],
         [
             'text' => 'الكوبونات',
-            'icon_color' => 'yellow',
+            'icon' => 'fas fa-ticket-alt',
             'route' => 'coupon.index',
         ],
         [
-            'text' => 'الاتصال ينا ',
-            'icon_color' => 'yellow',
+            'text' => 'إستفسارات العملاء',
+            'icon' => 'fas fa-comments',
             'route' => 'contact.index',
         ],
         [
-            'text' => 'الاردرات ',
-            'icon_color' => 'yellow',
-            'submenu' =>
+            'text' => 'الأوردرات ',
+            'icon' => 'fas fa-shopping-cart',
+            'submenu' => [
                 [
-                    [
-                        'text' => 'الاردرات لم يتم توصيلها',
-                        'route' => 'order.index',
-                    ], [
-                    'text' => 'الاردرات تم توصيلها ',
+                    'text' => 'اوردرات لم يتم توصيلها',
+                    'icon' => 'fas fa-hourglass-half',
+                    'route' => 'order.index',
+                ],
+                [
+                    'text' => 'اوردرات تم توصيلها',
+                    'icon' => 'fas fa-check-circle',
                     'route' => 'order.done',
                 ],
-                    [
-                        'text' => 'الاردرات تم  الغاوها ',
-                        'route' => 'order.cancelled',
-                    ],
+                [
+                    'text' => 'اوردرات تم الغاؤها',
+                    'icon' => 'fas fa-times-circle',
+                    'route' => 'order.cancelled',
                 ],
+                
+            ],
         ],
-
         [
-            'text' => ' محافظات المتاحة توصيل ',
-            'icon_color' => 'yellow',
+            'text' => 'المحافظات المتاحة للتوصيل',
+            'icon' => 'fas fa-map-marker-alt',
             'route' => 'city.index',
         ],
     ],
+    
 
     /*
     |--------------------------------------------------------------------------

@@ -23,4 +23,14 @@ class CartRequest extends FormRequest
             'button'=>['required',Rule::in(['addCart', 'payNow'])],
         ];
     }
+    
+    public function messages(): array
+    {
+        return [
+            'quantity.required' => 'حقل الكمية مطلوب.',
+            'quantity.numeric' => 'يجب أن تكون الكمية رقمًا.',
+            'button.required' => 'حقل الزر مطلوب.',
+            'button.in' => 'يجب أن يكون الزر إما "إضافة إلى السلة" أو "الدفع الآن".',
+        ];
+    }
 }

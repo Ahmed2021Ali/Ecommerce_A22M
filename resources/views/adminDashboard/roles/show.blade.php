@@ -22,18 +22,19 @@
     <div class="row">
         <div class="col-xs-12 mb-3">
             <div class="form-group">
-                <strong>نوع المستخدم:</strong>
+                <strong>نوع المستخدم: </strong>
                 @if (!empty($role->name))
-                    <strong style="color: red">{{ $role->name }}</strong><br>
+                    <strong style="color: red"> {{ $role->name }} </strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 @else
                     <span style="color: red">لا يوجد نوع مستخدم</span>
                 @endif
             </div>
         </div>
 
+        
         <div class="col-xs-12 mb-3">
             <div class="form-group">
-                <strong>:الأذونات</strong>
+                <strong> الأذونات :</strong>
                 @if (!empty($rolePermissions))
                     <div class="row mt-2">
                         @foreach ($rolePermissions as $v)

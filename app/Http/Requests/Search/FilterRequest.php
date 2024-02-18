@@ -16,7 +16,18 @@ class FilterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            
+            'price' => ['reqiured', 'numeric', 'min:1'],
+            'color' => ['nullable'], // Assuming colors can be an array
+            'color.*' => ['nullable'], // Assuming each color value is a string
+        ];
+    }
+    
+    public function messages(): array
+    {
+        return [
+            'price.required' => 'حقل السعر مطلوب.',
+            'price.numeric' => 'يجب أن يكون السعر رقمًا.',
+            'price.min' => 'يجب أن يكون السعر على الأقل 1.',
         ];
     }
 }

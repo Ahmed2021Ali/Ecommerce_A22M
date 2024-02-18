@@ -13,6 +13,11 @@ class SliderController extends Controller
     protected $slider;
     public function __construct(SliderInterface $slider)
     {
+        $this->middleware('permission:اسلايدر', ['only' => ['index']]);
+        $this->middleware('permission:اضافة اسلايدر', ['only' => ['create', 'store']]);
+        $this->middleware('permission:تعديل اسلايدر', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:حذف اسلايدر', ['only' => ['destroy']]);
+
         $this->slider = $slider;
         $this->middleware('checkAdminRole');
     }

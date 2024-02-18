@@ -19,16 +19,7 @@
                 </div>
             </div>
         </div>
-        @if (count($errors) > 0)
-            <div class="alert alert-danger">
-                <strong>Whoops!</strong> There were some problems with your input.<br><br>
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
+
         <form action="{{ route('roles.update', $role->id) }}" method="POST">
             @csrf
             @method('PATCH')
@@ -38,7 +29,7 @@
                     <div class="form-group">
                         <strong>نوع المستخدم</strong>
                         <input type="text" value="{{ $role->name }}" name="name" class="form-control"
-                               placeholder="Name">
+                            placeholder="اسم نوع المستخدم">
                     </div>
                 </div>
                 <div class="col-xs-12 mb-3">
@@ -49,11 +40,11 @@
                                 <div class="col-md-3">
                                     <div class="form-check">
                                         <input type="checkbox" @if (in_array($value->id, $rolePermissions)) checked
-                                               @endif
-                                               name="permission[]" value="{{ $value->name }}" class="form-check-input"
-                                               id="permission_{{ $value->id }}">
+                                                @endif
+                                                name="permission[]" value="{{ $value->name }}" class="form-check-input"
+                                                id="permission_{{ $value->id }}"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         <label class="form-check-label"
-                                               for="permission_{{ $value->id }}">{{ $value->name }}</label>
+                                                for="permission_{{ $value->id }}">{{ $value->name }}</label>
                                     </div>
                                 </div>
                             @endforeach

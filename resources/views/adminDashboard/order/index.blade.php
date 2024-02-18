@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', ' عرض كل الارادرات العميل التي لم يتم توصيلها حتي الان')
+@section('title', 'اوردارات غير موصلة')
 
 @section('content_header')
-    <h1>عرض كل الارادرات العميل التي لم يتم توصيلها حتي الان</h1>
+    <h1 style="direction: rtl; text-align: right;">اوردارات لم يتم توصيلها حتي الان</h1>
 @stop
 
 @section('content')
@@ -15,7 +15,7 @@
                     <tr>
                         <th>#</th>
                         <th>كود الطلب </th>
-                        <th>عدد المنتجات الاردر</th>
+                        <th>عدد المنتجات الأوردر</th>
                         <th>سعر المنتجات</th>
                         <th>سعر التوصيل</th>
                         <th>كوبون خصم </th>
@@ -45,9 +45,11 @@
                             <td>{{ $order->address->address }}</td>
                             <td>{{ $order->address->phone }}</td>
                             <td>{{ $order->user->name }}</td>
-                            <td>
-                                <a href="{{route('order.deliveryStatus',$order)}}" class="btn btn-success">نعم تم التوصيل </td>
-                        </tr>
+                            @can('تأكيد توصيل الأوردر')
+                                <td>
+                                    <a href="{{route('order.deliveryStatus',$order)}}" class="btn btn-success">نعم تم التوصيل </td>
+                                </tr>
+                            @endcan
                     @endforeach
 
                     </tbody>

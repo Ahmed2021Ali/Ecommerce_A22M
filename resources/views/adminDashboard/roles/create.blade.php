@@ -9,62 +9,51 @@
 @section('content')
     <div style="direction: rtl; text-align: right;">
 
-    <div class="row">
-        <div class="col-lg-12 margin-tb mb-4">
-            <div class="pull-left">
-                <h2>
-                    <div class="float-end">
-                        <a class="btn btn-primary" href="{{ route('roles.index') }}"> رجوع</a>
-                    </div>
-                </h2>
-            </div>
-        </div>
-    </div>
-
-    @if (count($errors) > 0)
-        <div class="alert alert-danger">
-            <strong>عذرًا!</strong> هناك بعض المشاكل في الإدخال الخاص بك. <br><br>
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ 'حقل ' . $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-
-
-    <form action="{{ route('roles.store') }}" method="POST">
-        @csrf
         <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>الأسم</strong>
-                    <input type="text" name="name" class="form-control" placeholder="Name" required>
+            <div class="col-lg-12 margin-tb mb-4">
+                <div class="pull-left">
+                    <h2>
+                        <div class="float-end">
+                            <a class="btn btn-primary" href="{{ route('roles.index') }}"> رجوع</a>
+                        </div>
+                    </h2>
                 </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>الأذونات</strong>
-                    <div class="row mt-2">
-                        @foreach ($permission as $value)
-                            <div class="col-md-3">
-                                <div class="form-check">
-                                    <input type="checkbox" name="permission[]" value="{{ $value->name }}"
-                                           class="form-check-input" id="permission_{{ $value->name }}">
-                                    <label class="form-check-label"
-                                           for="permission_{{ $value->id }}">{{ $value->name }}</label>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-primary">تأكيد</button>
             </div>
         </div>
-    </form>
+
+
+        <form action="{{ route('roles.store') }}" method="POST">
+            @csrf
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <strong>الأسم</strong>
+                        <input type="text" name="name" class="form-control" placeholder="اسم نوع المستخدم" required>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <strong>الأذونات</strong>
+                        <div class="row mt-2">
+                            @foreach ($permission as $value)
+                                <div class="col-md-3">
+                                    <div class="form-check">
+                                        <input type="checkbox" name="permission[]" value="{{ $value->name }}"
+                                            class="form-check-input" id="permission_{{ $value->name }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <label class="form-check-label"
+                                            for="permission_{{ $value->id }}">{{ $value->name }}</label>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                    <button type="submit" class="btn btn-primary">تأكيد</button>
+                </div>
+            </div>
+        </form>
     </div>
 @stop

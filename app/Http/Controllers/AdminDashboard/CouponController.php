@@ -13,6 +13,11 @@ class CouponController extends Controller
     protected $coupon;
     public function __construct(CouponInterface $coupon)
     {
+        $this->middleware('permission:الكوبونات', ['only' => ['index']]);
+        $this->middleware('permission:اضافة كوبون', ['only' => ['create', 'store']]);
+        $this->middleware('permission:تعديل كوبون', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:حذف كوبون', ['only' => ['destroy']]);
+
         $this->coupon = $coupon;
         $this->middleware('checkAdminRole');
     }

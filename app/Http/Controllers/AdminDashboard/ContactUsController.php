@@ -11,6 +11,8 @@ class ContactUsController extends Controller
     protected $contact;
     public function __construct(ContactUsInterface $contact)
     {
+        $this->middleware('permission:الإستفسارات', ['only' => ['index']]);
+        $this->middleware('permission:حذف الإستفسارات', ['only' => ['destroy']]);
         $this->contact = $contact;
         $this->middleware('checkAdminRole');
     }

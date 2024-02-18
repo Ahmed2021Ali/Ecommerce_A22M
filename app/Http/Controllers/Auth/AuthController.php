@@ -30,13 +30,6 @@ class AuthController extends Controller
 
         $user = User::create($validatedData);
 
-        $defaultRoles = ['user', 'User'];
-        $defaultRole = Role::whereIn('name', $defaultRoles)->first();
-
-        if ($defaultRole) {
-            $user->assignRole($defaultRole);
-        }
-
         Auth::login($user);
 
         return to_route('home');

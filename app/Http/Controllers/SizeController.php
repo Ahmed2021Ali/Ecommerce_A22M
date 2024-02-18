@@ -11,6 +11,11 @@ class SizeController extends Controller
     protected $size;
     public function __construct(SizeInterface $size)
     {
+        $this->middleware('permission:المقاسات',  ['only' => ['index']]);
+        $this->middleware('permission:اضافة مقاسات', ['only' => ['cretae' , 'store']]);
+        $this->middleware('permission:تعديل مقاسات', ['only' => ['edit' , 'update']]);
+        $this->middleware('permission:حذف مقاسات', ['only' => ['destroy']]);
+
         $this->size = $size;
         $this->middleware('checkAdminRole');
     }

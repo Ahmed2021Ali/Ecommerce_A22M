@@ -22,4 +22,18 @@ class BannerStoreRequest extends FormRequest
             'product_id' => 'required|exists:products,id',
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            'small_title.string' => 'حقل العنوان الفرعي يجب أن يكون نصًا.',
+            'small_title.max' => 'يجب ألا يتجاوز العنوان الفرعي 100 حرفًا.',
+            'main_title.string' => 'حقل العنوان الرئيسي يجب أن يكون نصًا.',
+            'main_title.max' => 'يجب ألا يتجاوز العنوان الرئيسي 100 حرفًا.',
+            'status.integer' => 'حقل الحالة يجب أن يكون رقمًا صحيحًا.',
+            'status.between' => 'يجب أن تكون حالة العنصر بين 0 و 1.',
+            'product_id.required' => 'حقل معرف المنتج مطلوب.',
+            'product_id.exists' => 'قيمة معرف المنتج غير صالحة.',
+        ];
+    }
 }

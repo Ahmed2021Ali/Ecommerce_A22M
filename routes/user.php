@@ -31,8 +31,6 @@ Route::controller(FavController::class)->prefix('fav')->as('fav.')->group(functi
     Route::get('/index', 'index')->name('index');
     Route::get('/destroy/{fav}', 'destroy')->name('destroy');
     Route::post( '/store/{product}','store')->name('store');
-
-
 });
 
 

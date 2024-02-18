@@ -20,4 +20,14 @@ class SigninRequest extends FormRequest
             'password' => 'required|min:8',
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            'email.required' => 'حقل البريد الإلكتروني مطلوب.',
+            'email.email' => 'يجب أن يكون البريد الإلكتروني صالحًا.',
+            'password.required' => 'حقل كلمة المرور مطلوب.',
+            'password.min' => 'يجب أن تحتوي كلمة المرور على الأقل 8 أحرف.',
+        ];
+    }
 }

@@ -15246,7 +15246,7 @@ body.text-sm .control-sidebar {
   border-right: 0;
   border-bottom: 0.3em solid transparent;
   border-left: 0.3em solid;
-  float: right;
+  float: left;
   margin-left: .5rem;
   margin-top: .5rem;
 }

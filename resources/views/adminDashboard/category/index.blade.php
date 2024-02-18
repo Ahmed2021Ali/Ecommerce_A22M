@@ -31,32 +31,43 @@
                         <td>{{ $category->name }}</td>
                         <td>
                             {{--  images  --}}
-                            <x-adminlte-modal id="images_{{ $category->id }}" title="الصور" theme="purple"
-                                              icon="fas fa-bolt" size='lg' disable-animations>
-                                @include('adminDashboard.images.index',['images'=>$category,'folder'=>'categoryFiles'])
-                            </x-adminlte-modal>
-                            <x-adminlte-button label="عرض الصورة " data-toggle="modal"
-                                               data-target="#images_{{ $category->id }}" class="bg-secondary"/>
+                            @can('عرض صورة القسم')
+                                <x-adminlte-modal id="images_{{ $category->id }}" title="الصور" theme="purple"
+                                    icon="fas fa-bolt" size='lg' disable-animations>
+                                    @include('adminDashboard.images.index',['images'=>$category,'folder'=>'categoryFiles'])
+                                </x-adminlte-modal>
+                                <x-adminlte-button label="عرض الصورة " data-toggle="modal"
+                                    data-target="#images_{{ $category->id }}" class="bg-secondary"/>
+                            @endcan
                             {{-- End  images  --}}
+                        
                             {{--  edit  --}}
-                            <x-adminlte-modal id="edit_{{$category->id}}" title="تعديل القسم " theme="teal"
-                                              icon="fas fa-bolt" size='lg' disable-animations>
-                                @include('adminDashboard.category.edit',['category'=>$category])
-                            </x-adminlte-modal>
-                            <x-adminlte-button label="تعديل القسم" data-toggle="modal"
-                                               data-target="#edit_{{$category->id}}" class="bg-teal"/>
+                            @can('تعديل قسم')
+                                <x-adminlte-modal id="edit_{{$category->id}}" title="تعديل القسم " theme="teal"
+                                    icon="fas fa-bolt" size='lg' disable-animations>
+                                    @include('adminDashboard.category.edit',['category'=>$category])
+                                </x-adminlte-modal>
+                                <x-adminlte-button label="تعديل القسم" data-toggle="modal"
+                                    data-target="#edit_{{$category->id}}" class="bg-teal"/>
+                            @endcan
                             {{-- end  edit  --}}
-
+                        
                             {{--  delete  --}}
-                            <x-adminlte-modal id="delete_{{ $category->id }}" title="حذف" theme="purple"
-                                              icon="fas fa-bolt" size='lg' disable-animations>
-                                @include('adminDashboard.category.delete',['category'=>$category])
-                            </x-adminlte-modal>
-                            <x-adminlte-button label="حذف" data-toggle="modal"
-                                               data-target="#delete_{{ $category->id }}" class="bg-danger"/>
+                            @can('حذف قسم')
+                                <x-adminlte-modal id="delete_{{ $category->id }}" title="حذف" theme="purple"
+                                    icon="fas fa-bolt" size='lg' disable-animations>
+                                    @include('adminDashboard.category.delete',['category'=>$category])
+                                </x-adminlte-modal>
+                                <x-adminlte-button label="حذف" data-toggle="modal"
+                                    data-target="#delete_{{ $category->id }}" class="bg-danger"/>
+                            @endcan
                             {{-- End  delete  --}}
-                            <a href="{{ route('category.show', $category) }}" class="btn btn-info">عرض كل المنتجات هذا القسم</a>
+                        
+                            @can('عرض المنتجات الخاصة بالقسم')
+                                <a href="{{ route('category.show', $category) }}" class="btn btn-info">عرض كل المنتجات هذا القسم</a>
+                            @endcan
                         </td>
+                        
                     </tr>
                 @endforeach
 

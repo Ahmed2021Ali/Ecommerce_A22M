@@ -21,6 +21,7 @@
                     <th>الموضوع</th>
                     <th>الرسالة </th>
                     <th>المستخدم الذي ارسل الرسالة </th>
+                    <th>العمليات</th>
 
 
                 </tr>
@@ -37,16 +38,16 @@
                         <td>{{ $contact->user->name }}</td>
                         <td>
 
-
-                            {{--  delete  --}}
-                            <x-adminlte-modal id="delete_{{ $contact->id }}" title="حذف" theme="purple"
-                                              icon="fas fa-bolt" size='lg' disable-animations>
-                                @include('adminDashboard.contactus.delete',['contact'=>$contact])
-                            </x-adminlte-modal>
-                            <x-adminlte-button label="حذف" data-toggle="modal"
-                                               data-target="#delete_{{ $contact->id }}" class="bg-danger"/>
-                            {{-- End  delete  --}}
-
+                            @can('حذف الإستفسارات')
+                                {{--  delete  --}}
+                                <x-adminlte-modal id="delete_{{ $contact->id }}" title="حذف" theme="purple"
+                                            icon="fas fa-bolt" size='lg' disable-animations>
+                                    @include('adminDashboard.contactus.delete',['contact'=>$contact])
+                                </x-adminlte-modal>
+                                <x-adminlte-button label="حذف" data-toggle="modal"
+                                    data-target="#delete_{{ $contact->id }}" class="bg-danger"/>
+                                {{-- End  delete  --}}
+                            @endcan
 
                         </td>
                     </tr>

@@ -13,6 +13,11 @@ class ServiceController extends Controller
     protected $service;
     public function __construct(ServiceInterface $service)
     {
+        $this->middleware('permission:الخدمات', ['only' => ['index']]);
+        $this->middleware('permission:اضافة خدمة', ['only' => ['cretae', 'store']]);
+        $this->middleware('permission:تعديل خدمة', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:حذف خدمة', ['only' => ['destroy']]);
+
         $this->service = $service;
         $this->middleware('checkAdminRole');
     }

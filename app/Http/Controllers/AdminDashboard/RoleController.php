@@ -14,11 +14,12 @@ class RoleController extends Controller
     private $roleRepository;
 
     public function __construct(RoleInterface $roleRepository) {
-    // $this->middleware(['auth' , 'check.user.status'] );
-    // $this->middleware('permission:عرض صلاحية', ['only' => ['index']]);
-    // $this->middleware('permission:اضافة صلاحية', ['only' => ['create','store']]);
-    // $this->middleware('permission:تعديل صلاحية', ['only' => ['edit','update']]);
-    // $this->middleware('permission:حذف صلاحية', ['only' => ['destroy']]);
+    $this->middleware(['checkAdminRole'] );
+    $this->middleware('permission:نوع المستخدم', ['only' => ['index']]);
+    $this->middleware('permission:اضافة نوع مستخدم', ['only' => ['create','store']]);
+    $this->middleware('permission:تعديل نوع مستخدم', ['only' => ['edit','update']]);
+    $this->middleware('permission:حذف نوع مستخدم', ['only' => ['destroy']]);
+    $this->middleware('permission:عرض نوع مستخدم', ['only' => ['show']]);
 
     $this->roleRepository = $roleRepository;
 

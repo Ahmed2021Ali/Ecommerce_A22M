@@ -13,6 +13,11 @@ class BannerController extends Controller
     protected $banner;
     public function __construct(BannerInterface $banner)
     {
+        $this->middleware('permission:بانر', ['only' => ['index']]);
+        $this->middleware('permission:اضافة بانر', ['only' => ['create', 'store']]);
+        $this->middleware('permission:تعديل بانر', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:حذف بانر', ['only' => ['destroy']]);
+
         $this->banner = $banner;
         $this->middleware('checkAdminRole');
     }

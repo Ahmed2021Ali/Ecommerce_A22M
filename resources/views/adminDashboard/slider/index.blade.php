@@ -8,10 +8,12 @@
 
 @section('content')
 <div style="direction: rtl; text-align: right;">
-    <x-adminlte-modal id="create" title="اضافة  اسليدر " theme="purple" icon="fas fa-bolt" size='lg' disable-animations>
-        @include('adminDashboard.slider.create')
-    </x-adminlte-modal>
-    <x-adminlte-button label="اضافة  اسليدر " data-toggle="modal" data-target="#create" class="bg-purple"/>
+    @can('اضافة اسلايدر')
+        <x-adminlte-modal id="create" title="اضافة اسلايدر" theme="purple" icon="fas fa-bolt" size='lg' disable-animations>
+            @include('adminDashboard.slider.create')
+        </x-adminlte-modal>
+        <x-adminlte-button label="اضافة اسلايدر" data-toggle="modal" data-target="#create" class="bg-purple"/>
+    @endcan
     <div class="row">
         <div class="col-12">
             <br>
@@ -39,34 +41,35 @@
                         <td>{{ $slider->status === 1 ? "معروضة ":"غير معروضة" }}</td>
 
                         <td>
-                            {{--edit--}}
-                            <x-adminlte-modal id="edit_{{$slider->id}}" title="تعديل" theme="teal"
-                                              icon="fas fa-bolt" size='lg' disable-animations>
-                                @include('adminDashboard.slider.edit',['slider'=>$slider])
-
-                            </x-adminlte-modal>
-                            <x-adminlte-button label="تعديل" data-toggle="modal"
-                                               data-target="#edit_{{$slider->id}}" class="bg-teal"/>
-                            {{--end edit--}}
-
-                            {{--  delete  --}}
-                            <x-adminlte-modal id="delete_{{ $slider->id }}" title="حذف" theme="purple"
-                                              icon="fas fa-bolt" size='lg' disable-animations>
-                                @include('adminDashboard.slider.delete',['slider'=>$slider])
-                            </x-adminlte-modal>
-                            <x-adminlte-button label="حذف" data-toggle="modal"
-                                               data-target="#delete_{{ $slider->id }}" class="bg-danger"/>
-                            {{-- End  delete  --}}
-
-                            {{--  images  --}}
-                            <x-adminlte-modal id="images_{{ $slider->id }}" title="الصور" theme="purple"
-                                              icon="fas fa-bolt" size='lg' disable-animations>
-                                @include('adminDashboard.images.index',['images'=>$slider,'folder'=>'sliderFiles'])
-                            </x-adminlte-modal>
-                            <x-adminlte-button label="عرض الصور " data-toggle="modal"
-                                               data-target="#images_{{ $slider->id }}" class="bg-secondary"/>
-                            {{-- End  images  --}}
-
+                            {{-- Edit Button --}}
+                            @can('تعديل اسلايدر')
+                                <x-adminlte-modal id="edit_{{$slider->id}}" title="تعديل" theme="teal"
+                                    icon="fas fa-bolt" size='lg' disable-animations>
+                                    @include('adminDashboard.slider.edit',['slider'=>$slider])
+                                </x-adminlte-modal>
+                                <x-adminlte-button label="تعديل" data-toggle="modal"
+                                    data-target="#edit_{{$slider->id}}" class="bg-teal"/>
+                            @endcan
+                        
+                            {{-- Delete Button --}}
+                            @can('حذف اسلايدر')
+                                <x-adminlte-modal id="delete_{{ $slider->id }}" title="حذف" theme="purple"
+                                    icon="fas fa-bolt" size='lg' disable-animations>
+                                    @include('adminDashboard.slider.delete',['slider'=>$slider])
+                                </x-adminlte-modal>
+                                <x-adminlte-button label="حذف" data-toggle="modal"
+                                    data-target="#delete_{{ $slider->id }}" class="bg-danger"/>
+                            @endcan
+                        
+                            {{-- Images Button --}}
+                            @can('عرض صورة الاسلايدر')
+                                <x-adminlte-modal id="images_{{ $slider->id }}" title="الصور" theme="purple"
+                                    icon="fas fa-bolt" size='lg' disable-animations>
+                                    @include('adminDashboard.images.index',['images'=>$slider,'folder'=>'sliderFiles'])
+                                </x-adminlte-modal>
+                                <x-adminlte-button label="عرض الصور " data-toggle="modal"
+                                    data-target="#images_{{ $slider->id }}" class="bg-secondary"/>
+                            @endcan
                         </td>
                     </tr>
                 @endforeach

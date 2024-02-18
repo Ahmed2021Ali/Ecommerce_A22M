@@ -20,4 +20,12 @@ class ReviewStoreRequest extends FormRequest
             'star'=>['nullable'],
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            'comment.required' => 'حقل التعليق مطلوب.',
+            'star.nullable' => 'حقل التقييم يمكن أن يكون فارغًا.',
+        ];
+    }
 }

@@ -14,6 +14,13 @@ class CategoryController extends Controller
     protected $category;
     public function __construct(CategoryInterface $category)
     {
+        $this->middleware(['checkAdminRole'] );
+        $this->middleware('permission:الأقسام',  ['only' => ['index']]);
+        $this->middleware('permission:اضافة قسم', ['only' => ['cretae' , 'store']]);
+        $this->middleware('permission:تعديل قسم', ['only' => ['edit' , 'update']]);
+        $this->middleware('permission:حذف قسم', ['only' => ['destroy']]);
+        $this->middleware('permission:عرض المنتجات الخاصة بالقسم', ['only' => ['show']]);
+
         $this->category = $category;
         $this->middleware('checkAdminRole');
     }

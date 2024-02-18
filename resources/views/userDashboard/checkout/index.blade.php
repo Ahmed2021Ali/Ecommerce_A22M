@@ -1,12 +1,12 @@
 @extends('userDashboard.layouts.master')
 @section('title')
-    الاردر
+    الأوردارات
 @endsection
 @section('css')
 
 @endsection
 @section('pageHeader')
-    عرض الاردر
+    عرض الأوردارات
 @endsection
 @section('content')
     <main class="main" style="direction: rtl; text-align: right;">

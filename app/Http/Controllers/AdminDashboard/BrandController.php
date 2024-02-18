@@ -12,6 +12,11 @@ class BrandController extends Controller
     protected $brand;
     public function __construct(BrandInterface $brand)
     {
+        $this->middleware('permission:البراندات', ['only' => ['index']]);
+        $this->middleware('permission:اضافة براند', ['only' => ['cretae', 'store']]);
+        $this->middleware('permission:تعديل براند', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:حذف براند', ['only' => ['destroy']]);
+
         $this->brand = $brand;
         $this->middleware('checkAdminRole');
     }

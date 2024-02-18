@@ -16,6 +16,11 @@ class ColorController extends Controller
 
     public function __construct(ColorRepository $color)
     {
+        $this->middleware('permission:الألوان',  ['only' => ['index']]);
+        $this->middleware('permission:اضافة الوان', ['only' => ['cretae' , 'store']]);
+        $this->middleware('permission:تعديل الوان', ['only' => ['edit' , 'update']]);
+        $this->middleware('permission:حذف الوان', ['only' => ['destroy']]);
+
         $this->color = $color;
         $this->middleware('checkAdminRole');
     }

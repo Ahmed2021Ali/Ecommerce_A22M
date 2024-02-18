@@ -11,18 +11,24 @@ class OrderController extends Controller
     protected $order;
     public function __construct(OrderInterface $order)
     {
+        $this->middleware('permission:الأوردارات', ['only' => ['index']]);
+        $this->middleware('permission:اوردارات تم توصيلها', ['only' => ['ordersDone']]);
+        $this->middleware('permission:اوردارات لم يتم توصيلها', ['only' => ['index']]);
+        $this->middleware('permission:اوردارات تم إلغائها', ['only' => ['ordersCancelled']]);
+        $this->middleware('permission:تأكيد توصيل الأوردر', ['only' => ['deliveryStatus']]);
+        
         $this->order = $order;
         $this->middleware('checkAdminRole');
     }
 
-   public function index()
-   {
-       return $this->order->index();
-   }
-   public function deliveryStatus(OrderDetails $order)
-   {
-       return $this->order->deliveryStatus($order);
-   }
+    public function index()
+    {
+        return $this->order->index();
+    }
+    public function deliveryStatus(OrderDetails $order)
+    {
+        return $this->order->deliveryStatus($order);
+    }
     public function ordersDone()
     {
         return $this->order->ordersDone();

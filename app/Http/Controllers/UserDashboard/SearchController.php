@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\UserDashboard;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Search\FilterRequest;
 use App\Models\Category;
 use App\Models\Color;
 use App\Models\Product;
@@ -21,7 +22,7 @@ class SearchController extends Controller
     }
 
 
-    public function filter(Request $request)
+    public function filter(FilterRequest $request)
     {
         return $this->search->filter($request);
     }

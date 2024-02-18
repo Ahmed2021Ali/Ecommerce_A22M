@@ -4,16 +4,17 @@
 
 @section('content_header')
     <h1 style="text-align:center">لوحة تحكم المسؤلين</h1>
-    <p style="text-align:center">  احصائيات حول الموقع الكتروني </p>
-    <div style="text-align: left;">
-        <p style="font-size: 18px; color: #333; margin-bottom: 10px; display: inline;">مرحبًا بك مرة أخرى،</p>
+    <p style="text-align:center">  احصائيات حول الموقع الألكتروني </p>
+    <div style="text-align: right;">
         <h2 style="font-size: 24px; font-weight: bold; color: #007bff; display: inline; margin-right: 5px;">{{ auth()->user()->name }}</h2>
+        <p style="font-size: 18px; color: #333; margin-bottom: 10px; display: inline;">مرحبًا بك مرة أخرى يا</p>
+
     </div>
 @stop
 
 @section('content')
 
-<div class="row">
+<div class="row" style="text-align: right;">
 
     {{-- count of user --}}
     <div class="col-lg-3 col-6">
@@ -21,12 +22,12 @@
         <div class="small-box bg-info">
             <div class="inner">
                 <h3> {{ $countUsers ?? '0' }}  </h3>
-                <p> المستخدمين الموقع </p>
+                <p> مستخدمين الموقع </p>
             </div>
             <div class="icon">
                 <i class="ion ion-bag"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="#" class="small-box-footer">معلومات أكثر<i class="fas fa-arrow-circle-right"></i></a>
         </div>
     </div>
 
@@ -36,12 +37,12 @@
         <div class="small-box bg-secondary">
             <div class="inner">
                 <h3>{{$countCategories??'0'}}</h3>
-                <p> الاقسام المعروضة ع الموقع </p>
+                <p> الأقسام المعروضة ع الموقع </p>
             </div>
             <div class="icon">
                 <i class="ion ion-pie-graph"></i>
             </div>
-            <a href="{{route('category.index')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="{{route('category.index')}}" class="small-box-footer">معلومات أكثر <i class="fas fa-arrow-circle-right"></i></a>
         </div>
     </div>
 
@@ -56,7 +57,7 @@
             <div class="icon">
                 <i class="ion ion-person-add"></i>
             </div>
-            <a href="{{route('product.index')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="{{route('product.index')}}" class="small-box-footer">معلومات أكثر <i class="fas fa-arrow-circle-right"></i></a>
         </div>
     </div>
 
@@ -66,12 +67,12 @@
         <div class="small-box bg-light">
             <div class="inner">
                 <h3>{{$countCity??'0'}}</h3>
-                <p> عدد المحافضات المتاح فيها التوصيل الاردرات </p>
+                <p> عدد المحافظات المتاحة لتوصيل الأوردارات </p>
             </div>
             <div class="icon">
                 <i class="ion ion-person-add"></i>
             </div>
-            <a href="{{route('city.index')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="{{route('city.index')}}" class="small-box-footer">معلومات أكثر <i class="fas fa-arrow-circle-right"></i></a>
         </div>
     </div>
 
@@ -81,12 +82,12 @@
         <div class="small-box bg-danger">
             <div class="inner">
                 <h3>{{$countorderwiting??'0'}}</h3>
-                <p>الاردرات التي لم يتم توصيلها- في قائمة الانتظار </p>
+                <p>الأوردارات التي لم يتم توصيلها- في قائمة الانتظار </p>
             </div>
             <div class="icon">
                 <i class="ion ion-person-add"></i>
             </div>
-            <a href="{{route('product.index')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="{{route('product.index')}}" class="small-box-footer">معلومات أكثر <i class="fas fa-arrow-circle-right"></i></a>
         </div>
     </div>
 
@@ -96,12 +97,12 @@
         <div class="small-box bg-success">
             <div class="inner">
                 <h3>{{$countorderdone??'0'}}</h3>
-                <p>الاردرات تم توصيلها بنجاح </p>
+                <p>اوردارات تم توصيلها بنجاح </p>
             </div>
             <div class="icon">
                 <i class="ion ion-pie-graph"></i>
             </div>
-            <a href="{{route('category.index')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="{{route('category.index')}}" class="small-box-footer">معلومات أكثر <i class="fas fa-arrow-circle-right"></i></a>
         </div>
     </div>
 
@@ -116,7 +117,7 @@
             <div class="icon">
                 <i class="ion ion-pie-graph"></i>
             </div>
-            <a href="{{route('category.index')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="{{route('category.index')}}" class="small-box-footer">معلومات أكثر <i class="fas fa-arrow-circle-right"></i></a>
         </div>
     </div>
 

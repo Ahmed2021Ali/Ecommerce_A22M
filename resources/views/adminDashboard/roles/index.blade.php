@@ -8,17 +8,18 @@
 
 @section('content')
     <div style="direction: rtl; text-align: right;">
-        <div class="row">
-            <div class="col-lg-12 margin-tb mb-4">
-                <div class="pull-right">
-                    <div class="float-end">
-                        <a class="btn btn-success" href="{{ route('roles.create') }}"> إضافة نوع مستخدم </a>
-                    </div>
+        @can('اضافة نوع مستخدم')
+            <div class="row">
+                <div class="col-lg-12 margin-tb mb-4">
+                    <div class="pull-right">
+                        <div class="float-end">
+                            <a class="btn btn-success" href="{{ route('roles.create') }}"> إضافة نوع مستخدم </a>
+                        </div>
 
+                    </div>
                 </div>
             </div>
-        </div>
-
+        @endcan
         @if ($message = Session::get('success'))
             <div class="alert alert-success">
                 <p>{{ $message }}</p>
@@ -34,14 +35,18 @@
                 <tr>
                     <td>{{ $role->name }}</td>
                     <td>
-                        <a class="btn btn-info" href="{{ route('roles.show', $role->id) }}">عرض</a>
-                        @if($role->name !== 'المدير')
+                        @can('عرض نوع مستخدم')                            
+                            <a class="btn btn-info" href="{{ route('roles.show', $role->id) }}">عرض</a>
+                        @endcan
 
+                        @if($role->name !== 'المدير')
+                        @can('تعديل نوع مستخدم')                            
                             <a class="btn btn-primary" href="{{ route('roles.edit', $role->id) }}">تعديل</a>
+                        @endcan
 
                             <!-- Delete Button with Modal -->
                             <x-adminlte-modal id="deleteModal_{{ $role->id }}" title="تأكيد الحذف" theme="danger"
-                                              icon="fas fa-trash" size='sm' disable-animations>
+                                            icon="fas fa-trash" size='sm' disable-animations>
                                 <x-slot name="header">
                                     <h4 class="modal-title text-danger"></h4>
                                 </x-slot>
@@ -58,8 +63,11 @@
 
                                 </div>
                             </x-adminlte-modal>
+                        @can('حذف نوع مستخدم')                            
                             <x-adminlte-button label="حذف" data-toggle="modal"
-                                               data-target="#deleteModal_{{ $role->id }}" class="bg-danger"/>
+                                data-target="#deleteModal_{{ $role->id }}" class="bg-danger"/>
+                        @endcan
+
                         @endif
                     </td>
 

@@ -16,8 +16,19 @@ class CityStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'=>['required'],
-            'price'=>['nullable'],
+            'name'=>['required', 'string', 'max:25'],
+            'price'=>['nullable', 'numeric'],
+        ];
+    }
+
+        public function messages(): array
+    {
+        return [
+            'name.required' => 'حقل الاسم مطلوب.',
+            'name.string' => 'يجب أن يكون الاسم نصًا.',
+            'name.max' => 'يجب ألا يتجاوز الاسم 25 حرفًا.',
+            'price.nullable' => 'حقل السعر يمكن أن يكون فارغًا.',
+            'price.numeric' => 'يجب أن يكون السعر رقمًا.',
         ];
     }
 }

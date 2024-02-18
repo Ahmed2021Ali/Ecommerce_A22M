@@ -8,15 +8,17 @@
 
 @section('content')
 <div style="direction: rtl; text-align: right;">
-    <div class="row">
-        <div class="col-lg-12 margin-tb mb-4">
-            <div class="pull-right">
-                <div class="float-end">
-                    <a class="btn btn-success" href="{{ route('users.create') }}"> إضافة مستخدم جديد</a>
+    @can('اضافة مستخدم')                            
+        <div class="row">
+            <div class="col-lg-12 margin-tb mb-4">
+                <div class="pull-right">
+                    <div class="float-end">
+                        <a class="btn btn-success" href="{{ route('users.create') }}"> إضافة مستخدم جديد</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    @endcan
     @if ($message = Session::get('success'))
         <div class="alert alert-success my-2">
             <p>{{ $message }}</p>
@@ -43,7 +45,10 @@
                 </td>
                 <td>
                     @if($user->email !== 'owner@gmail.com')
+                    @can('تعديل مستخدم')                            
                         <a class="btn btn-primary" href="{{ route('users.edit',$user->id) }}">تعديل</a>
+                    @endcan
+
                         {{--  delete  --}}
                         <x-adminlte-modal id="delete_{{ $user->id }}" title="حذف" theme="purple"
                                           icon="fas fa-bolt" size='lg' disable-animations>
@@ -56,8 +61,11 @@
                             </form>
                             @include('adminDashboard.layouts.footerSlot')
                         </x-adminlte-modal>
-                        <x-adminlte-button label="حذف" data-toggle="modal"
-                                           data-target="#delete_{{ $user->id }}" class="bg-danger"/>
+                        @can('حذف مستخدم')
+                            <x-adminlte-button label="حذف" data-toggle="modal"
+                                data-target="#delete_{{ $user->id }}" class="bg-danger"/>
+                        @endcan
+
                         {{-- End  delete  --}}
                     @endif
                 </td>

@@ -13,7 +13,13 @@ class AvailableCityController extends Controller
     protected $city;
     public function __construct(CityInterface $city)
     {
+        $this->middleware('permission:المحافظات', ['only' => ['index']]);
+        $this->middleware('permission:اضافة محافظة', ['only' => ['create', 'store']]);
+        $this->middleware('permission:تعديل محافظة', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:حذف محافظة', ['only' => ['destroy']]);
+
         $this->city = $city;
+        $this->middleware('checkAdminRole');
     }
     public function index()
     {
