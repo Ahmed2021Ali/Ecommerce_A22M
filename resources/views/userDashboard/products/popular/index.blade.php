@@ -28,9 +28,9 @@
                             @endif
                         </span>
                         <div class="product-price">
-                            <span>${{ $bestsellerProduct->price_after_offer ?? $bestsellerProduct->price }}</span>
+                            <span> ج {{ $bestsellerProduct->price_after_offer ?? $bestsellerProduct->price }}</span>
                             @if($bestsellerProduct->offer)
-                                <span class="old-price">${{ $bestsellerProduct->price }}</span>
+                                <span class="old-price"> ج {{ $bestsellerProduct->price }}</span>
                             @endif
                         </div>
                         <div class="product-action-1 show">

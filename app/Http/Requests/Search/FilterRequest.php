@@ -16,7 +16,7 @@ class FilterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'price' => ['reqiured', 'numeric', 'min:1'],
+            'price' => ['required', 'min:1'],
             'color' => ['nullable'], // Assuming colors can be an array
             'color.*' => ['nullable'], // Assuming each color value is a string
         ];

@@ -4,9 +4,7 @@ namespace App\Http\Controllers\UserDashboard;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Search\FilterRequest;
-use App\Models\Category;
-use App\Models\Color;
-use App\Models\Product;
+
 use App\Repositories\Interfaces\UserDashboard\SearchInterface;
 use Illuminate\Http\Request;
 

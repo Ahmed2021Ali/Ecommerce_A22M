@@ -73,7 +73,7 @@
                             src="{{$newProduct->getFirstMediaUrl('productFiles')}}" alt="product image"></a></div>
                 <div class="content pt-10">
                     <h5><a href="{{route('products.show', encrypt($newProduct->id))}}">{{ Str::limit($newProduct->name, 20) }}</a></h5>
-                    <p class="price mb-0 mt-5">{{$newProduct->price}} ج</p>
+                    <p class="price mb-0 mt-5">{{$newProduct->price}} ج </p>
                     @include('userDashboard.products.review.ratingProduct',['rate'=>calcReview($newProduct)])
                 </div>
             </div>

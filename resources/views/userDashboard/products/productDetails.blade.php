@@ -273,8 +273,10 @@
                                                         @endif
 
                                                         <div class="product-price">
-                                                            <span>$238.85 </span>
-                                                            <span class="old-price">$245.8</span>
+                                                            <span> ج {{ $relatedProduct->price_after_offer ?? $relatedProduct->price }}</span>
+                                                            @if($relatedProduct->offer)
+                                                                <span class="old-price"> ج {{ $relatedProduct->price }}</span>
+                                                            @endif
                                                         </div>
                                                     </div>
                                                 </div>
