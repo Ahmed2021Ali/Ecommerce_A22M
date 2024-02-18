@@ -31,22 +31,27 @@
 {{-- Ajax for add product to fav --}}
 <script>
     function addToFavorites(productId) {
-        $.ajax({
-            type: 'POST',
-            url: '/fav/store/' + productId,
-            data: {
-                _token: '{{ csrf_token() }}',
-            },
-            success: function (data) {
-                if (data.success) {
-                    toastr.success(data.message);
-                } else {
-                    toastr.error(data.message);
+        @auth
+            $.ajax({
+                type: 'POST',
+                url: '/fav/store/' + productId,
+                data: {
+                    _token: '{{ csrf_token() }}',
+                },
+                success: function (data) {
+                    if (data.success) {
+                        toastr.success(data.message);
+                    } else {
+                        toastr.error(data.message);
+                    }
+                },
+                error: function (error) {
+                    console.log(error);
                 }
-            },
-            error: function (error) {
-                console.log(error);
-            }
-        });
+            });
+        @else
+            toastr.error('يجب تسجيل الدخول أولاً لتتمكن من إضافة المنتج إلى المفضلة');
+        @endauth
     }
 </script>
+
