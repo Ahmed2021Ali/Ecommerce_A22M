@@ -92,7 +92,7 @@
                                 <tr>
                                     <td colspan="6" class="text-end">
                                         <a href="{{route('cart.clear')}}" class="text-muted"> <i
-                                                class="fi-rs-cross-small"></i> Clear Cart</a>
+                                                class="fi-rs-trash"></i> حذف جميع الأوردارات </a>
                                     </td>
                                 </tr>
                                 </tbody>

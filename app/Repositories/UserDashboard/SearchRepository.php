@@ -67,7 +67,7 @@ class SearchRepository implements SearchInterface
             $categories = Category::all();
             return view('userDashboard.products.index', compact('products', 'categories', 'newProducts'));
         } else {
-            toastr()->error('لا توجد منتجات بذا الأسم');
+            toastr()->error('لا توجد منتجات بهذه المواصفات');
             return redirect()->back();
         }
     }
