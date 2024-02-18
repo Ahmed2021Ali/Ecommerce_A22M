@@ -23,8 +23,9 @@
                                     <div class="product-cart-wrap mb-30">
                                         <div class="product-img-action-wrap">
                                             <div class="product-img product-img-zoom">
-                                                <a href="{{ route('products.show', $fav->product->id) }}"><img  src="{{ $fav->product->getFirstMediaUrl('productFiles') }}" width="400" height="250" style="direction: rtl; text-align: right;"></a>
-                                            </div>
+                                                <a href="{{ route('products.show', encrypt($fav->product->id)) }}">
+                                                    <img src="{{ $fav->product->getFirstMediaUrl('productFiles') }}" width="400" height="250" style="direction: rtl; text-align: right;">
+                                                </a>                                                                                            </div>
                                             <div class="product-action-1">
                                                 <a href="{{ $fav->product->getFirstMediaUrl('productFiles') }}" aria-label="عرض" class="action-btn hover-up"
                                                     data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
@@ -36,14 +37,15 @@
                                                 <a href="">{{ $fav->product->name }}</a>
 
                                             </div>
-                                            <h2><a href="">{{ Str::limit($fav->product->description, 50) }}
+                                            <h2><a href="{{ route('products.show', encrypt($fav->product->id)) }}">{{ Str::limit($fav->product->description, 50) }}
 
                                             </a>
                                         </h2>
                                             <span>
                                                 @if($fav->product->offer)
                                                     <span>تخفيض %{{ $fav->product->offer }}</span>
-                                                @endif                                                                                        </span>
+                                                @endif                                                                                        
+                                            </span>
                                             <div class="product-price">
                                                 <span>${{ $fav->product->price_after_offer ?? $fav->product->price }}</span>
                                                 @if ($fav->product->offer)
@@ -51,7 +53,7 @@
                                                 @endif
                                             </div>
                                             <div class="product-action-1 show" style="text-align: left;">
-                                                <a aria-label="تسوق الآن" class="action-btn hover-up" href="{{ route('products.show', $fav->product->id) }}">
+                                                <a aria-label="تسوق الآن" class="action-btn hover-up" href="{{ route('products.show', encrypt($fav->product->id)) }}">
                                                     <i class="fi-rs-shopping-bag-add"></i>
                                                 </a>
                                             </div>

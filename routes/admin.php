@@ -12,7 +12,7 @@ use App\Http\Controllers\AdminDashboard\OrderController;
 use App\Http\Controllers\AdminDashboard\ProductController;
 use App\Http\Controllers\AdminDashboard\ServiceController;
 use App\Http\Controllers\AdminDashboard\SliderController;
-use App\Http\Controllers\SizeController;
+use App\Http\Controllers\AdminDashboard\SizeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminDashboard\RoleController;
 use App\Http\Controllers\AdminDashboard\UserController;

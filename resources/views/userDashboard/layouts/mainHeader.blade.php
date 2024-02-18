@@ -101,7 +101,7 @@
                                             </li>
                                             <li><a href="{{route('profile.index')}}"><i class="fas fa-cogs fa-lg"></i>&nbsp;
                                                     اعدادات الحساب</a></li>
-                                            <li><a href="#"><i class="fas fa-shopping-bag"></i>&nbsp; الطلبات</a></li>
+                                            <li><a href="{{route('cart.index')}}"><i class="fas fa-shopping-bag"></i>&nbsp; الطلبات</a></li>
                                             <li><a href="{{route('fav.index')}}"><i class="fas fa-heart fa-lg"></i>&nbsp;
                                                     المفضلة</a></li>
                                             <li class="nav-item">
@@ -116,6 +116,14 @@
                                         </ul>
                                     @endauth
                                 </li>
+                                @if(Auth::check() && Auth::user()->hasRole(['المدير', 'ادمن']))
+                                <!-- If the user is an admin or manager -->
+                                <li class="position-static">
+                                    <a href="{{ route('admin.dashboard') }}">
+                                        {{ __('الانتقال إلى لوحة التحكم') }}
+                                    </a>
+                                </li>
+                            @endif
                             </ul>
                         </nav>
                     </div>
