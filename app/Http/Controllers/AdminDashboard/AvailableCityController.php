@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\AdminDashboard;
 
 use App\Http\Requests\city\CityRequest;
-use App\Http\Requests\city\CityUpdateRequest;
 use App\Models\AvailableCity;
 use App\Repositories\Interfaces\AdminDashboard\CityInterface;
 use App\Http\Controllers\Controller;
@@ -19,12 +18,14 @@ class AvailableCityController extends Controller
         $this->middleware('permission:حذف محافظة', ['only' => ['destroy']]);
 
         $this->city = $city;
-        $this->middleware('checkAdminRole');
+        $this->middleware(['checkAdminRole','throttle:45,1']);
     }
+
     public function index()
     {
         return $this->city->index();
     }
+
     public function store(CityRequest $request)
     {
         return $this->city->store($request->validated());
@@ -34,6 +35,7 @@ class AvailableCityController extends Controller
     {
         return $this->city->update($request->validated(),$city);
     }
+    
     public function destroy(AvailableCity $city)
     {
         return $this->city->destroy($city);
