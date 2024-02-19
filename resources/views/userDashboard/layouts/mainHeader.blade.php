@@ -34,7 +34,7 @@
                     </div>
 
                     {{-- Fav and Cart Icons--}}
-                    @if (Auth::check())
+                    @auth
                     <div class="header-action-right">
                             <div class="header-action-2">
                                 <div class="header-action-icon-2">
@@ -54,7 +54,7 @@
                                 </div>
                             </div>
                     </div>
-                    @endif
+                    @endauth
 
                 </div>
             </div>

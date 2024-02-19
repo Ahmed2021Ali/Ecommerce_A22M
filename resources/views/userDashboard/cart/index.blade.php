@@ -57,12 +57,12 @@
                                             </div>
                                         </td>
 
-                                        <td class="price" data-title="Price">
+                                        <td class="price" data-title="السعر">
                                             <span>{{calcPriceProduct($cart->product->price,$cart->product->offer,$cart->product->price_after_offer,null)}} </span>
 
                                         </td>
 
-                                        <td class="text-center" data-title="Stock">
+                                        <td class="text-center" data-title="الكمية">
                                             <form action="{{route('cart.update',$cart)}}" method="post">
                                                 @method('put')
                                                 @csrf
@@ -73,12 +73,12 @@
                                             </form>
                                         </td>
 
-                                        <td class="text-right" data-title="Cart">
+                                        <td class="text-right" data-title="الإجمالي">
                                                 <?php $subTotal += ($cart->product->offer ? $cart->product->price_after_offer : $cart->product->price) * $cart->quantity; ?>
                                             <span>{{calcPriceProduct($cart->product->price,$cart->product->offer,$cart->product->price_after_offer,$cart->quantity)}}</span>
                                         </td>
 
-                                        <td class="action" data-title="Remove">
+                                        <td class="action" data-title="حذف">
                                             <form action="{{route('cart.destroy',$cart)}}" method="post">
                                                 @method('delete')
                                                 @csrf
