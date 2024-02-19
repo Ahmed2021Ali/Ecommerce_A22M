@@ -17,7 +17,7 @@ class BrandRequest extends FormRequest
     {
         return [
             'status'=>['required','integer','between:0,1'],
-            'files.*'=>['required','max:2000','mimes:png,jpg,jpeg'],
+            'files.*'=>['required','max:2000','image','mimes:png,jpg,jpeg,gif'],
         ];
     }
 
@@ -27,9 +27,11 @@ class BrandRequest extends FormRequest
             'status.required' => 'حقل الحالة مطلوب.',
             'status.integer' => 'حقل الحالة يجب أن يكون رقمًا صحيحًا.',
             'status.between' => 'يجب أن تكون حالة العنصر بين 0 و 1.',
+
             'files.*.required' => 'حقل الملفات مطلوب.',
+            'files.*.image' => 'يجب ان يكون صورة',
             'files.*.max' => 'يجب ألا يتجاوز حجم الملف 2000 كيلوبايت.',
-            'files.*.mimes' => 'يجب أن يكون النوع الملف ممتد إلى png، jpg، أو jpeg.',
+            'files.*.mimes' => ' يجب أن يكون النوع الملف ممتد إلى   .gif و  png، jpg، أو jpeg.',
         ];
     }
 }

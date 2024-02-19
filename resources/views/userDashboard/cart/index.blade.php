@@ -70,6 +70,7 @@
                                                        value="{{$cart->quantity}}" min="1"
                                                        style="display: inline-block; width: 70px; padding: 6px; text-align: center; border: 1px solid #ccc; border-radius: 3px;">
                                                 <button type="submit" class="btn btn-primary"> تحديث الكمية</button>
+                                                @error('quantity')<span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>@enderror
                                             </form>
                                         </td>
 
@@ -91,7 +92,8 @@
                                 @if(!Auth::user()->carts()->isEmpty())
                                     <tr>
                                         <td colspan="6" class="text-end">
-                                            <a href="{{route('cart.clear')}}" class="text-muted"> <i class="fi-rs-trash"></i> حذف جميع الأوردارات </a>
+                                            <a href="{{route('cart.clear')}}" class="text-muted"> <i
+                                                    class="fi-rs-trash"></i> حذف جميع الأوردارات </a>
                                         </td>
                                     </tr>
                                 @endif

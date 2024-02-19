@@ -30,7 +30,7 @@ class CartController extends Controller
 
     public function update(Request $request ,Cart $cart)
     {
-        return $this->cart->update($request->validate(['quantity' => 'required|numeric|max:99']),$cart);
+        return $this->cart->update($request->validate(['quantity' => 'required|numeric|min:1|max:99']),$cart);
     }
 
     public function destroy(Cart $cart)

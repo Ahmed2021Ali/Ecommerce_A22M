@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\AdminDashboard;
 
 use App\Http\Requests\brand\BrandRequest;
-use App\Http\Requests\brand\BrandUpdateRequest;
 use App\Models\Brand;
 use App\Repositories\Interfaces\AdminDashboard\BrandInterface;
 use App\Http\Controllers\Controller;

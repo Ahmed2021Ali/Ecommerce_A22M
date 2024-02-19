@@ -15,12 +15,9 @@
                         </div>
                         <div class="col-lg-7 col-md-6">
                             <div class="single-slider-img single-slider-img-1">
-                                @forelse($slider->getMedia('sliderFiles') as $media)
+                                @foreach($slider->getMedia('sliderFiles') as $media)
                                     <img class="mySlides" src="{{ $media->getFullUrl() }}" width="700" height="450">
-                                @empty
-                                    <!-- This will be displayed if there are no images in the slider -->
-                                    <p style="color: #F15412;">لا يوجد اي صور لهذا الأسلادير حاليا</p>
-                                @endforelse
+                                @endforeach
                             </div>
                         </div>
                     </div>

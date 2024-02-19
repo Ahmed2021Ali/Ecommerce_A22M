@@ -17,18 +17,24 @@ class CartRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'quantity'=>['required','numeric'],
+            'quantity'=>['required','string','min:1','max:99'],
             'color'=>['nullable'],
             'size'=>['nullable'],
             'button'=>['required',Rule::in(['addCart', 'payNow'])],
         ];
     }
-    
+
     public function messages(): array
     {
         return [
             'quantity.required' => 'حقل الكمية مطلوب.',
-            'quantity.numeric' => 'يجب أن تكون الكمية رقمًا.',
+            'quantity.string' => 'يجب أن تكون الكمية رقمًا.',
+            'quantity.min' => 'حقل الكمية لا يقل عن واحد .',
+            'quantity.max' => 'حقل الكمية لا يزيد 999 منتج في المرة الواحدة .',
+
+            'color.nullable' => 'حقل الكمية مطلوب.',
+            'size.nullable' => 'حقل الكمية مطلوب.',
+
             'button.required' => 'حقل الزر مطلوب.',
             'button.in' => 'يجب أن يكون الزر إما "إضافة إلى السلة" أو "الدفع الآن".',
         ];

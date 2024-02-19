@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\UserDashboard;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\contact\ContactStoreRequest;
+use App\Http\Requests\contact\ContactRequest;
 use App\Repositories\Interfaces\UserDashboard\ContactUsInterface;
 
 class ContactUsController extends Controller
@@ -22,7 +22,7 @@ class ContactUsController extends Controller
     }
 
 
-    public function store(ContactStoreRequest $request)
+    public function store(ContactRequest $request)
     {
         return $this->contact->store($request->validated());
     }
