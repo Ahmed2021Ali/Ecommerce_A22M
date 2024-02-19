@@ -22,7 +22,7 @@ class CategoryController extends Controller
         $this->middleware('permission:عرض المنتجات الخاصة بالقسم', ['only' => ['show']]);
 
         $this->category = $category;
-        $this->middleware(['checkAdminRole','throttle:45,1']);
+        $this->middleware(['checkAdminRole','throttle:60,1']);
 
     }
 

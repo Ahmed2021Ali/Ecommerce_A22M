@@ -14,7 +14,7 @@ class ContactUsController extends Controller
         $this->middleware('permission:الإستفسارات', ['only' => ['index']]);
         $this->middleware('permission:حذف الإستفسارات', ['only' => ['destroy']]);
         $this->contact = $contact;
-        $this->middleware(['checkAdminRole','throttle:45,1']);
+        $this->middleware(['checkAdminRole','throttle:60,1']);
     }
 
     public function index()

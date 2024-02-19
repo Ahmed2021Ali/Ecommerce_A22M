@@ -18,7 +18,7 @@ class AvailableCityController extends Controller
         $this->middleware('permission:حذف محافظة', ['only' => ['destroy']]);
 
         $this->city = $city;
-        $this->middleware(['checkAdminRole','throttle:45,1']);
+        $this->middleware(['checkAdminRole','throttle:60,1']);
     }
 
     public function index()

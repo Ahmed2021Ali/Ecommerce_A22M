@@ -15,7 +15,7 @@ class FavController extends Controller
     public function __construct(FavInterface $fav)
     {
         $this->fav = $fav;
-        $this->middleware(['auth', 'throttle:45,1']);
+        $this->middleware(['auth', 'throttle:60,1']);
     }
     public function index()
     {

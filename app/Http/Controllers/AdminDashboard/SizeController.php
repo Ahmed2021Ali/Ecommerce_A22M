@@ -18,7 +18,7 @@ class SizeController extends Controller
         $this->middleware('permission:حذف مقاسات', ['only' => ['destroy']]);
 
         $this->size = $size;
-        $this->middleware(['checkAdminRole','throttle:45,1']);
+        $this->middleware(['checkAdminRole','throttle:60,1']);
     }
     public function index()
     {

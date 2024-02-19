@@ -15,7 +15,7 @@ class ProductController extends Controller
     public function __construct(ProductInterface $product)
     {
         $this->product = $product;
-        $this->middleware('throttle:45,1');
+        $this->middleware('throttle:60,1');
     }
 
 
