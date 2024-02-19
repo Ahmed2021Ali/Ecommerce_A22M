@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\AdminDashboard;
 
-use App\Http\Requests\banner\BannerStoreRequest;
+use App\Http\Requests\banner\BannerRequest;
 use App\Http\Requests\banner\BannerUpdateRequest;
 use App\Models\Banner;
 use App\Repositories\Interfaces\AdminDashboard\BannerInterface;
@@ -25,12 +25,12 @@ class BannerController extends Controller
     {
         return $this->banner->index();
     }
-    public function store(BannerStoreRequest $request)
+    public function store(BannerRequest $request)
     {
         return $this->banner->store($request->validated());
     }
 
-    public function update(BannerUpdateRequest $request, Banner $banner)
+    public function update(BannerRequest $request, Banner $banner)
     {
         return $this->banner->update($request->validated(),$banner);
     }

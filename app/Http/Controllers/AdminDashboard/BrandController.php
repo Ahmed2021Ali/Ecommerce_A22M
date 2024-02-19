@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers\AdminDashboard;
 
-use App\Http\Requests\brand\BrandStoreRequest;
-use App\Http\Requests\brand\BrandUpdateRequest;
+use App\Http\Requests\brand\BrandRequest;
 use App\Models\Brand;
 use App\Repositories\Interfaces\AdminDashboard\BrandInterface;
 use App\Http\Controllers\Controller;
@@ -20,18 +19,18 @@ class BrandController extends Controller
         $this->brand = $brand;
         $this->middleware('checkAdminRole');
     }
-    
+
     public function index()
     {
         return $this->brand->index();
     }
 
-    public function store(BrandStoreRequest $request)
+    public function store(BrandRequest $request)
     {
         return $this->brand->store($request->validated());
     }
 
-    public function update(BrandUpdateRequest $request, brand $brand)
+    public function update(BrandRequest $request, brand $brand)
     {
         return $this->brand->update($request->validated(),$brand);
     }

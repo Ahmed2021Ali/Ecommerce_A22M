@@ -8,7 +8,7 @@
             @foreach($categories as $category)
                 <li>
                     <a href="{{ route('category.products', encrypt($category->id)) }}">
-                        {{ Str::limit($category->name, 42) }}
+                        {{ $category->name }}
                     </a>
                 </li>
             @endforeach

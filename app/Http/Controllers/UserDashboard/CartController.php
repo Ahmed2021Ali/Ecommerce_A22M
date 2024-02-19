@@ -7,6 +7,7 @@ use App\Http\Requests\cart\CartRequest;
 use App\Models\Cart;
 use App\Models\Product;
 use App\Repositories\Interfaces\UserDashboard\CartInterface;
+use Illuminate\Http\Request;
 
 
 class CartController extends Controller
@@ -27,9 +28,9 @@ class CartController extends Controller
         return $this->cart->store($request->validated(),$product);
     }
 
-    public function update(CartRequest $request,Cart $cart)
+    public function update(Request $request ,Cart $cart)
     {
-        return $this->cart->update($request->validated(),$cart);
+        return $this->cart->update($request->validate(['quantity' => 'required|numeric|min:1|max:99']),$cart);
     }
 
     public function destroy(Cart $cart)

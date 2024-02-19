@@ -22,9 +22,9 @@ class OrderController extends Controller
         return $this->order->show($order_number);
     }
 
-    public function destroy(OrderDetails $order)
+    public function destroy($order)
     {
-        return $this->order->destroy($order);
+        return $this->order->destroy(OrderDetails::withTrashed()->find($order));
     }
     public function search(Request $request)
     {

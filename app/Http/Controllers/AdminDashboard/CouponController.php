@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\AdminDashboard;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\coupon\CouponStoreRequest;
+use App\Http\Requests\coupon\CouponRequest;
 use App\Http\Requests\coupon\CouponUpdateRequest;
 use App\Models\Coupon;
 use App\Repositories\Interfaces\AdminDashboard\CouponInterface;
@@ -25,12 +25,12 @@ class CouponController extends Controller
     {
         return $this->coupon->index();
     }
-    public function store(CouponStoreRequest $request)
+    public function store(CouponRequest $request)
     {
         return $this->coupon->store($request->validated());
     }
 
-    public function update(CouponUpdateRequest $request, Coupon $coupon)
+    public function update(CouponRequest $request, Coupon $coupon)
     {
         return $this->coupon->update($request->validated(),$coupon);
     }

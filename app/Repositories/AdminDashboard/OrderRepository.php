@@ -31,4 +31,10 @@ class OrderRepository implements OrderInterface
     {
         return view('adminDashboard.order.orderCancelled', ['orders' => OrderDetails::onlyTrashed()->paginate(10)]);
     }
+    public function destroy($order)
+    {
+        Order::where('order_number',$order->order_number)->delete();
+        $order->forceDelete();
+        return redirect()->back()->with('success','تم حذف الاردر بنجاح');
+    }
 }

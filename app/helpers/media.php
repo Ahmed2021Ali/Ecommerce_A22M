@@ -1,9 +1,6 @@
 <?php
 
 
-use App\Models\Product;
-use App\Models\Review;
-use Illuminate\Support\Facades\Auth;
 
 function priceAfterOffer($price, $offer)
 {

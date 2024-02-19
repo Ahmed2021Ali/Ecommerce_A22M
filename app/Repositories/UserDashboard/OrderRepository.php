@@ -16,14 +16,21 @@ class OrderRepository implements OrderInterface
 
     public function show($order_number)
     {
-        return view('userDashboard.checkout.index', ['orders' => Order::where('order_number', $order_number)->get(),
-            'detailsOrder' => OrderDetails::where('order_number', $order_number)->withTrashed()->first()]);
+        $detailsOrder = OrderDetails::where('order_number', $order_number)->withTrashed()->first();
+        if (isset($detailsOrder)) {
+            return view('userDashboard.checkout.index', ['orders' => Order::where('order_number', $order_number)->get(),
+                'detailsOrder' => $detailsOrder]);
+        }
+        return to_route('page.NotFound');
     }
 
     public function destroy($order)
     {
+        if (isset($order->deleted_at)) {
+            $this->forceDelete($order);
+        }
         $order->delete();
-        return redirect()->back()->with('success', 'تم بنجاح حذف الطلب');
+        return redirect()->back()->with('success', 'تم حذف الاردر بنجاح');
     }
 
     public function search($order_number)
@@ -34,6 +41,12 @@ class OrderRepository implements OrderInterface
                 'detailsOrder' => $detailsOrder]);
         }
         return redirect()->back()->with('success', ' رقم الطلب خطأ');
+    }
+
+    private function forceDelete($order)
+    {
+        Order::where('order_number', $order->order_number)->delete();
+        $order->forceDelete();
     }
 
 }

@@ -32,7 +32,7 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>
-                                <a href="{{ route('order.show', $order->order_number) }}" class="btn btn-primary"> عرض
+                                <a href="{{ route('orders.show', $order->order_number) }}" class="btn btn-primary"> عرض
                                     الاردر</a>
                             </td>
                             <td>{{ $order->number_of_product }}</td>

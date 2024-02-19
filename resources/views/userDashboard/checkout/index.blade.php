@@ -14,7 +14,7 @@
             <section class="section-container profile my-5 py-5">
                 <div class="text-center mb-5">
                     <div class="success-gif m-auto">
-                        <img class="w-25" src="/assets/imgs/success.gif" width="200" height="300" alt=""/>
+                        <img class="w-25" src="{{URL::asset('/assets/imgs/success.gif')}}" width="200" height="300" alt=""/>
                     </div>
                     @if($detailsOrder->delivery_status === 0)
                         <h4 class="mb-4">جاري تجهيز طلبك الآن</h4>
@@ -56,7 +56,7 @@
                                 </tr>
                                 <tr>
                                     <th> المدينة</th>
-                                    <td class="product-subtotal" colspan="2">{{ Str::limit($detailsOrder->address->city->name , 65) }}</td>
+                                    <td class="product-subtotal" colspan="2">{{ $detailsOrder->address->city->name  }}</td>
                                 </tr>
                                 <tr>
                                     <th> رقم الهاتف</th>
@@ -64,7 +64,7 @@
                                 </tr>
                                 <tr>
                                     <th> الاميل</th>
-                                    <td class="product-subtotal" colspan="2">{{ Str::limit($detailsOrder->address->email , 65) }}</td>
+                                    <td class="product-subtotal" colspan="2">{{ $detailsOrder->address->email }}</td>
                                 </tr>
                                 <tr>
                                     <th> ملحوظة توصل</th>

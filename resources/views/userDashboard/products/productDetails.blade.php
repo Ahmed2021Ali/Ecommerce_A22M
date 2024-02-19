@@ -37,7 +37,7 @@
 
         }
 
-        input.star:checked~label.star:before {
+        input.star:checked ~ label.star:before {
 
             content: '\f005';
 
@@ -47,7 +47,7 @@
 
         }
 
-        input.star-5:checked~label.star:before {
+        input.star-5:checked ~ label.star:before {
 
             color: #FE7;
 
@@ -55,7 +55,7 @@
 
         }
 
-        input.star-1:checked~label.star:before {
+        input.star-1:checked ~ label.star:before {
             color: #F62;
         }
 
@@ -109,17 +109,18 @@
                                     </div>
                                     <!-- End Gallery -->
 
-                                        {{-- share with--}}
+                                    {{-- share with--}}
                                     <div class="social-icons single-share" style="text-align:center">
                                         <ul class="text-grey-5 d-inline-block">
                                             <li class="social-facebook"><a class="facebook" target="blank"><img
                                                         src="{{ URL::asset('assets/imgs/theme/icons/icon-facebook.svg') }}"
                                                         alt=""></a></li>
-                                            <li><a class="whatsapp" target="blank"><i class="fab fa-whatsapp"></i></a></li>
+                                            <li><a class="whatsapp" target="blank"><i class="fab fa-whatsapp"></i></a>
+                                            </li>
                                             <li class="social-twitter"><a class="twitter" target="blank"><img
                                                         src="{{ URL::asset('assets/imgs/theme/icons/icon-twitter.svg') }}"
                                                         alt=""></a></li>
-                                            <li><strong class="mr-10">شارك هذا المنتج علي  </strong></li>
+                                            <li><strong class="mr-10">شارك هذا المنتج علي </strong></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -156,7 +157,7 @@
                                         <div class="bt-1 border-color-1 mt-15 mb-15"></div>
                                         <!-- Additional Info -->
                                         <div class="product_sort_info font-xs mb-30"
-                                            style="direction: rtl; text-align: right;">
+                                             style="direction: rtl; text-align: right;">
                                             <ul>
                                                 <li class="mb-10"><i class="fi-rs-refresh mr-5"></i> سياسة الإرجاع لمدة
                                                     30 يومًا
@@ -170,20 +171,15 @@
                                             @if ($product->color !== null)
                                                 {{-- color --}}
                                                 <div class="attr-detail attr-color mb-15"
-                                                    style="display: flex; margin-top: 2px; direction: rtl; text-align: right;">
+                                                     style="display: flex; margin-top: 2px; direction: rtl; text-align: right;">
                                                     <strong class="mr-10">اللون &nbsp;&nbsp;</strong>
                                                     <ul class="list-filter color-filter">
                                                         <li><a href="#"><span class="product-color-teal"
-                                                                    style="width: 30px; height: 30px; border-radius: 50%; cursor: pointer; display: flex; margin-right: 6px;"></span></a>
+                                                                              style="width: 30px; height: 30px; border-radius: 50%; cursor: pointer; display: flex; margin-right: 6px;"></span></a>
                                                         </li>
                                                         <div class="colors">
                                                             @foreach (explode(',', $product->color) as $color)
-                                                                <span
-                                                                    style="width: 30px; height: 30px; border-radius: 50%; cursor: pointer; display: inline-block; margin-right: 6px; background-color:{{ $color }}">
-                                                                    <li style="display: inline-block;"><input
-                                                                            type="checkbox" name="color"
-                                                                            value="{{ $color }}"></li>
-                                                                </span>
+                                                                <span style="width: 30px; height: 30px; border-radius: 50%; cursor: pointer; display: inline-block; margin-right: 6px; background-color:{{ $color }}"><li style="display: inline-block;"><input type="checkbox" name="color" value="{{ $color }}"></li></span>
                                                             @endforeach
                                                         </div>
                                                     </ul>
@@ -196,28 +192,37 @@
                                                     <select name="size" id="size" class="form-control">
                                                         <option value="" style="display: none">اختار مقاسك</option>
                                                         @foreach (explode(',', $product->size) as $size)
-                                                            <option value="{{ strtoupper($size) }}">
-                                                                {{ strtoupper($size) }}</option>
+                                                            <option
+                                                                value="{{ strtoupper($size) }}">{{ strtoupper($size) }}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
                                             @endif
                                             <div class="bt-1 border-color-1 mt-30 mb-30"></div>
                                             <div class="detail-extralink">
+                                                <br>
                                                 <div class="product-extra-link2">
-                                                    <a aria-label="Add To Wishlist" class="action-btn hover-up" onclick="addToFavorites({{ $product->id }})"><i
-                                                            class="fi-rs-heart" ></i></a>
-                                                    <button type="submit" name="button" value="addCart"  class="button button-add-to-cart">أضف إلي
-                                                        السلة
+                                                    <a aria-label="Add To Wishlist" class="action-btn hover-up"
+                                                       onclick="addToFavorites({{ $product->id }})"><i
+                                                            class="fi-rs-heart"></i></a>
+                                                    <button type="submit" name="button" value="addCart"
+                                                            class="button button-add-to-cart">أضف إلي السلة
                                                     </button>
-                                                    <input type="number" name="quantity" id="quantity" value="1" min="1"  style="display: inline-block; width: 70px; padding: 6px; text-align: center; border: 1px solid #ccc; border-radius: 3px;">
+                                                    <input type="number" name="quantity" id="quantity" value="1" min="1"
+                                                           style="display: inline-block; width: 70px; padding: 6px; text-align: center; border: 1px solid #ccc; border-radius: 3px;">
                                                 </div>
                                             </div>
+                                            @error('quantity')
+                                            <div style="color: red">{{ $message }}</div>@enderror
                                             <br>
+
                                             <div class="d-grid gap-2">
-                                                <button type="submit" name="button" value="payNow"  class="btn btn-primary">اشتري الان </button>
+                                                <button type="submit" name="button" value="payNow"
+                                                        class="btn btn-primary">اشتري الان
+                                                </button>
                                             </div>
                                         </form>
+
 
                                     </div>
                                     <!-- End Product Info -->
@@ -245,14 +250,24 @@
                                                     <div class="product-img-action-wrap">
                                                         <div class="product-img product-img-zoom">
                                                             <a href="{{ route('products.show', encrypt($relatedProduct->id)) }}"
-                                                                tabindex="0">
-                                                                <img class="default-img" src="{{ $relatedProduct->getFirstMediaUrl('productFiles') }}" alt="{{ $relatedProduct->name }}" width="400px" height="250px">
+                                                               tabindex="0">
+                                                                <img class="default-img"
+                                                                     src="{{ $relatedProduct->getFirstMediaUrl('productFiles') }}"
+                                                                     alt="{{ $relatedProduct->name }}" width="400px"
+                                                                     height="250px">
                                                             </a>
                                                         </div>
                                                         <div class="product-action-1">
-                                                            <a href="{{ $relatedProduct->getFirstMediaUrl('productFiles') }}" aria-label="عرض" class="action-btn small hover-up" data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
-                                                            <a aria-label="أضف إلى المفضلة" class="action-btn small hover-up" onclick="addToFavorites({{ $relatedProduct->id }})" tabindex="0"><i class="fi-rs-heart"></i></a>
-                                                            <a aria-label="تسوق الآن" class="action-btn hover-up" href="{{ route('products.show', encrypt($relatedProduct->id)) }}"><i
+                                                            <a href="{{ $relatedProduct->getFirstMediaUrl('productFiles') }}"
+                                                               aria-label="عرض" class="action-btn small hover-up"
+                                                               data-bs-target="#quickViewModal"><i
+                                                                    class="fi-rs-eye"></i></a>
+                                                            <a aria-label="أضف إلى المفضلة"
+                                                               class="action-btn small hover-up"
+                                                               onclick="addToFavorites({{ $relatedProduct->id }})"
+                                                               tabindex="0"><i class="fi-rs-heart"></i></a>
+                                                            <a aria-label="تسوق الآن" class="action-btn hover-up"
+                                                               href="{{ route('products.show', encrypt($relatedProduct->id)) }}"><i
                                                                     class="fi-rs-shopping-bag-add"></i></a>
                                                         </div>
                                                     </div>
@@ -269,13 +284,14 @@
                                                         <span>
                                                             @include('userDashboard.products.review.ratingProduct',['rate'=>calcReview($relatedProduct)])
                                                             @if($relatedProduct->offer)
-                                                            <span>تخفيض %{{ $relatedProduct->offer }}</span>
-                                                        @endif
+                                                                <span>تخفيض %{{ $relatedProduct->offer }}</span>
+                                                            @endif
 
                                                         <div class="product-price">
                                                             <span> ج {{ $relatedProduct->price_after_offer ?? $relatedProduct->price }}</span>
                                                             @if($relatedProduct->offer)
-                                                                <span class="old-price"> ج {{ $relatedProduct->price }}</span>
+                                                                <span
+                                                                    class="old-price"> ج {{ $relatedProduct->price }}</span>
                                                             @endif
                                                         </div>
                                                     </div>
@@ -294,7 +310,7 @@
                     <!-- Sidebar -->
                     <div class="col-lg-3 primary-sidebar sticky-sidebar">
                         <!-- Categories -->
-                        <x-right-sidebar />
+                        <x-right-sidebar/>
                     </div>
                     <!-- End Sidebar -->
                 </div>
@@ -318,36 +334,36 @@
         whatsapp.href = `https://api.whatsapp.com/send?text=${msg}: ${link}`;
     </script>
 
-<script>
-    document.getElementById('commentForm').addEventListener('submit', function (event) {
-        event.preventDefault();
+    <script>
+        document.getElementById('commentForm').addEventListener('submit', function (event) {
+            event.preventDefault();
 
-        let form = event.target;
-        let formData = new FormData(form);
-        let product = form.getAttribute('data-product');
+            let form = event.target;
+            let formData = new FormData(form);
+            let product = form.getAttribute('data-product');
 
-        fetch('{{ route("review.store", ["product" => ":product"]) }}'.replace(':product', product), {
-            method: 'POST',
-            body: formData,
-            headers: {
-                'X-CSRF-TOKEN': '{{ csrf_token() }}',
-            },
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                // Handle success, e.g., show a success message
-                alert('شكرا لتقييمكم');
-                // You can also update the page dynamically if needed
-            } else {
-                // Handle errors, e.g., show an error message
-                alert('Error: ' + data.message);
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
+            fetch('{{ route("review.store", ["product" => ":product"]) }}'.replace(':product', product), {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                },
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Handle success, e.g., show a success message
+                        alert('شكرا لتقييمكم');
+                        // You can also update the page dynamically if needed
+                    } else {
+                        // Handle errors, e.g., show an error message
+                        alert('Error: ' + data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
         });
-    });
-</script>
+    </script>
 
 @endsection

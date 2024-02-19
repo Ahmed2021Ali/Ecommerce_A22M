@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\service;
+namespace App\Http\Requests\brand;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ServiceStoreRequest extends FormRequest
+class BrandRequest extends FormRequest
 {
 
     public function authorize() : bool
@@ -16,22 +16,22 @@ class ServiceStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'=>['nullable','string','max:50'],
-            'status'=>['nullable','integer','between:0,1'],
-            'files.*'=>['required','max:2000','mimes:png,jpg,jpeg'],
+            'status'=>['required','integer','between:0,1'],
+            'files.*'=>['required','max:2000','image','mimes:png,jpg,jpeg,gif'],
         ];
     }
 
     public function messages(): array
     {
         return [
-            'name.string' => 'حقل الاسم يجب أن يكون نصًا.',
-            'name.max' => 'يجب ألا يتجاوز الاسم 50 حرفًا.',
+            'status.required' => 'حقل الحالة مطلوب.',
             'status.integer' => 'حقل الحالة يجب أن يكون رقمًا صحيحًا.',
             'status.between' => 'يجب أن تكون حالة العنصر بين 0 و 1.',
+
             'files.*.required' => 'حقل الملفات مطلوب.',
+            'files.*.image' => 'يجب ان يكون صورة',
             'files.*.max' => 'يجب ألا يتجاوز حجم الملف 2000 كيلوبايت.',
-            'files.*.mimes' => 'يجب أن يكون النوع الملف ممتد إلى png، jpg، أو jpeg.',
+            'files.*.mimes' => ' يجب أن يكون النوع الملف ممتد إلى   .gif و  png، jpg، أو jpeg.',
         ];
     }
 }
