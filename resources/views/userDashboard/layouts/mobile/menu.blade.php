@@ -50,8 +50,6 @@
                             <x-category-mobile/>
                         </li>
                         <li class="menu-item-has-children"><span class="menu-expand"></span><a
-                            href="#about-us">تعرف علينا</a></li>
-                        <li class="menu-item-has-children"><span class="menu-expand"></span><a
                                 href="{{route('contact-us.index')}}"> تواصل معنا </a></li>
                     </ul>
                 </nav>
