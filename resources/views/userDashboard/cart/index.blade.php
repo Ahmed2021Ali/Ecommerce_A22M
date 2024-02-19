@@ -67,8 +67,8 @@
                                                 @method('put')
                                                 @csrf
                                                 <input type="number" name="quantity" id="quantity"
-                                                       value="{{$cart->quantity}}" min="1"
-                                                       style="display: inline-block; width: 70px; padding: 6px; text-align: center; border: 1px solid #ccc; border-radius: 3px;">
+                                                    value="{{$cart->quantity}}" min="1"
+                                                    style="display: inline-block; width: 70px; padding: 6px; text-align: center; border: 1px solid #ccc; border-radius: 3px;">
                                                 <button type="submit" class="btn btn-primary"> تحديث الكمية</button>
                                             </form>
                                         </td>

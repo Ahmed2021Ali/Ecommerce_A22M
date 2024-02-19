@@ -15,7 +15,6 @@ class ProductController extends Controller
     public function __construct(ProductInterface $product)
     {
         $this->product = $product;
-        $this->middleware('auth');
     }
 
 
@@ -26,12 +25,12 @@ class ProductController extends Controller
 
     public function show($id)
     {
-        return $this->product->show(Product::find(decrypt($id)));
+        return $this->product->show(Product::findOrFail(decrypt($id)));
     }
 
     public function productsOfCategory($categoryId)
     {
-        return $this->product->productsOfCategory(Category::find(decrypt($categoryId)));
+        return $this->product->productsOfCategory(Category::findOrFail(decrypt($categoryId)));
     }
 
 

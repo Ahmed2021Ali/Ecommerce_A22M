@@ -14,16 +14,16 @@
                         </div>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <div class="cart-item-details">
-                            <h4><a href="{{ route('products.show', $cart->product->id) }}">{{ Str::limit($cart->product->name, 15) }}</a></h4>
+                            <h4><a href="{{ route('products.show', $cart->product->id) }}">{{ Str::limit($cart->product->name, 13) }}</a></h4>
                             <?php
                             $itemPrice = $cart->product->offer ? $cart->product->price_after_offer : $cart->product->price;
                             $total_price += $itemPrice * $cart->quantity;
                             ?>
-                            <p>{{ $cart->quantity }} × {{ $itemPrice }} جنية</p>
+                            <p>{{ $cart->quantity }} × {{ $itemPrice }} جنيه </p>
 
                             <p>اللون {{ $cart->color }} </p>
                         </div>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;
                         <div class="cart-item-actions">
                             <form action="{{ route('cart.destroy', $cart) }}" method="post">
                                 @method('delete')
@@ -37,7 +37,7 @@
             </ul>
             <div class="shopping-cart-footer">
                 <div class="shopping-cart-total">
-                    <h4>&nbsp;{{$total_price}}&nbsp;&nbsp;جنية <span>الإجمالي = </span></h4>
+                    <h4>&nbsp;{{$total_price}}&nbsp;&nbsp; جنيه <span>الإجمالي = </span></h4>
                 </div>
                 <div class="shopping-cart-button">
                     <a href="{{route('cart.index')}}" class="outline">عرض الأوردر</a>

@@ -4,7 +4,6 @@ namespace App\Http\Controllers\UserDashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\OrderDetails;
-use App\Models\Product;
 use App\Repositories\Interfaces\UserDashboard\OrderInterface;
 use Illuminate\Http\Request;
 
