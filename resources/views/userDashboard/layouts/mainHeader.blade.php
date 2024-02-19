@@ -133,9 +133,12 @@
                     <p style="font-size: 16px; color: #333; margin-bottom: 10px;">
                         <i style="margin-right: 5px;" class="fi-rs-smartphone"></i>
                         <span>اتصل بنا: </span>
-                        <span style="font-weight: bold; color: #F15412">(+1) 0000-000-000</span>
+                        <span style="font-weight: bold; color: #F15412">
+                            <a href="tel:+10000000000">(+1) 0000-000-000</a>
+                        </span>
                     </p>
                 </div>
+                
 
                 {{-- Mobile  header --}}
                 @include('userDashboard.layouts.mobile.header')

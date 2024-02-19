@@ -30,7 +30,7 @@ class CartRequest extends FormRequest
             'quantity.required' => 'حقل الكمية مطلوب.',
             'quantity.string' => 'يجب أن تكون الكمية رقمًا.',
             'quantity.min' => 'حقل الكمية لا يقل عن واحد .',
-            'quantity.max' => 'حقل الكمية لا يزيد 999 منتج في المرة الواحدة .',
+            'quantity.max' => 'حقل الكمية لا يزيد 99 منتج في المرة الواحدة .',
 
             'color.nullable' => 'حقل الكمية مطلوب.',
             'size.nullable' => 'حقل الكمية مطلوب.',

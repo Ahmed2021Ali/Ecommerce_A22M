@@ -38,7 +38,7 @@
                         </p>
                         <p>
                             <i class="fas fa-phone float-right"></i>
-                            <strong>رقم الهاتف: </strong>+1 0000-000-000
+                            <strong>رقم الهاتف: </strong><a href="tel:+201017786080">+201017786080</a>
                         </p>
                         <p>
                             <i class="fas fa-envelope float-right"></i>
@@ -62,16 +62,16 @@
                         <li><a href="#"> <i class="fas fa-truck"></i> معلومات التوصيل</a></li>
                         <li><a href="#"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
                         <li><a href="#"> <i class="fas fa-file-contract"></i> الشروط والأحكام</a></li>
-                        <li><a href="#"> <i class="fas fa-phone"></i> اتصل بنا</a></li>
+                        <li><a href="tel:+10000000000"> <i class="fas fa-phone"></i> اتصل بنا</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2 col-md-3">
                     <h5 class="widget-title float-right"> <i class="fas fa-user"></i> حسابي</h5>
                     <ul class="footer-list text-right">
-                        <li><a href="my-account.html"> <i class="fas fa-user"></i> حسابي</a></li>
-                        <li><a href="#"> <i class="fas fa-shopping-cart"></i> عرض السلة</a></li>
-                        <li><a href="#"> <i class="fas fa-heart"></i> قائمة المفضلة</a></li>
-                        <li><a href="#"> <i class="fas fa-shopping-bag"></i> طلباتي</a></li>
+                        <li><a href="{{route('profile.index')}}"> <i class="fas fa-user"></i> حسابي</a></li>
+                        <li><a href="{{route('cart.index')}}"> <i class="fas fa-shopping-cart"></i> عرض السلة</a></li>
+                        <li><a href="{{ route('fav.index') }}"> <i class="fas fa-heart"></i> قائمة المفضلة</a></li>
+                        <li><a href="{{ route('cart.index') }}"> <i class="fas fa-shopping-bag"></i> طلباتي</a></li>
                     </ul>
                 </div>
             </div>
@@ -84,12 +84,12 @@
             </div>
             <div class="col-lg-6">
                 <p class="float-md-left font-sm text-muted mb-0">
-                    <a href="privacy-policy.html">Privacy Policy <i class="fas fa-lock"></i></a> | <a href="terms-conditions.html">Terms & Conditions <i class="fas fa-gavel"></i></a>
+                    <a href="privacy-policy.html"> سياسة الخصوصية  | <i class="fas fa-lock"></i></a>  <a href="terms-conditions.html">الشروط والأحكام<i class="fas fa-gavel"></i></a>
                 </p>
             </div>
             <div class="col-lg-6">
                 <p class="text-lg-end text-start font-sm text-muted mb-0">
-                    &copy; <strong class="text-brand"><a target="_blank" href="https://www.facebook.com/Eng.AhmedMaghraby"> Ahmed Maghraby </a> & <a target="_blank" href="https://www.facebook.com/ahmed.abdellatif.mohammed/" >Ahmed Abd Ellatif</a> </strong> كل الحقوق محفوظة لدي  <i class="fas fa-copyright"></i>
+                    <strong class="text-brand"><a target="_blank" href="https://www.facebook.com/Eng.AhmedMaghraby"> Ahmed Maghraby </a> & <a target="_blank" href="https://www.facebook.com/ahmed.abdellatif.mohammed/" >Ahmed Abd Ellatif</a> </strong> جميع الحقوق محفوظة لدي  <i class="fas fa-copyright"></i> <?php echo date("Y"); ?>
                 </p>
             </div>
         </div>

@@ -30,6 +30,7 @@
             <th>الأسم</th>
             <th>البريد الإلكتروني</th>
             <th>نوع المستخددم</th>
+            <th>أخر تسجيل دخول</th>
             <th width="280px">عمليات</th>
         </tr>
         @foreach ($users as $user)
@@ -37,13 +38,21 @@
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
                 <td>
-                    @if(!empty($user->getRoleNames()))
-                        @foreach($user->getRoleNames() as $v)
-                            <label class="badge badge-secondary text-dark">{{ $v }}</label>
-                        @endforeach
-                    @endif
+                    @forelse($user->getRoleNames() as $v)
+                        <label class="badge badge-secondary text-dark">{{ $v }}</label>
+                    @empty
+                        مستخدم عادي
+                    @endforelse
+
                 </td>
                 <td>
+                    @if($user->last_login_at)
+                    <div style="margin-bottom: 8px">التاريخ: {{ \Carbon\Carbon::parse($user->last_login_at)->setTimezone('Africa/Cairo')->format('Y/m/d') }}</div>
+                    <div>الساعة: {{ \Carbon\Carbon::parse($user->last_login_at)->setTimezone('Africa/Cairo')->format('h:i A') }}</div>                    @else
+                        المستخدم لم يسجل دخول حتي الآن
+                    @endif
+                </td>
+                                <td>
                     @if($user->email !== 'owner@gmail.com')
                     @can('تعديل مستخدم')                            
                         <a class="btn btn-primary" href="{{ route('users.edit',$user->id) }}">تعديل</a>
@@ -51,9 +60,9 @@
 
                         {{--  delete  --}}
                         <x-adminlte-modal id="delete_{{ $user->id }}" title="حذف" theme="purple"
-                                          icon="fas fa-bolt" size='lg' disable-animations>
+                                        icon="fas fa-bolt" size='lg' disable-animations>
                             <form action="{{ route('users.destroy', $user) }}" method="post"
-                                  class="d-inline">
+                                class="d-inline">
                                 @method('delete')
                                 @csrf
                                 <h3> هل تريد حذف المستخدم بالفعل ؟  </h3>

@@ -1,5 +1,23 @@
-@extends('errors::minimal')
+@extends('userDashboard.layouts.master')
 
-@section('title', __('Page Expired'))
-@section('code', '419')
-@section('message', __('Page Expired'))
+@section('title', '419 تم انتهاء الصفحة')
+
+@section('content')
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card text-center">
+                    <div class="card-header">
+                        <h1 class="display-1"><i class="fas fa-hourglass-end text-warning"></i></h1>
+                        {{ __('419 تم انتهاء الصفحة') }}
+                    </div>
+
+                    <div class="card-body">
+                        <p>{{ __('تم انتهاء صلاحية الصفحة التي كنت تتصفحها') }}</p>
+                        <a href="{{ route('home') }}" class="btn btn-primary">{{ __('الانتقال إلى الصفحة الرئيسية') }}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection

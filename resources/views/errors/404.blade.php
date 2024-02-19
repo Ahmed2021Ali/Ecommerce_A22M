@@ -1,5 +1,3 @@
-<!-- resources/views/errors/404.blade.php -->
-
 @extends('userDashboard.layouts.master')
 
 @section('title', '404 غير موجود')

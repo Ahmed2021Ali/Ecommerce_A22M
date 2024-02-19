@@ -12,6 +12,8 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('queue:work')->everyFourHours();
         $schedule->command('queue:restart')->everySixHours();
+        $schedule->command('delete:inactive-users')->monthly(); 
+
     }
 
     protected function commands(): void

@@ -32,13 +32,17 @@ class AuthController extends Controller
 
         Auth::login($user);
 
+        Auth::user()->update(['last_login_at' => now()]);
+
         return to_route('home');
     }
+
 
     public function viewSigninForm()
     {
         return view('auth.signin');
     }
+
 
     public function submitSignin(SigninRequest $request)
     {
@@ -46,7 +50,9 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
 
-            // Check if the user has either 'admin' or 'user' role
+            Auth::user()->update(['last_login_at' => now()]);
+            
+            // Check if the user has either 'manager' or 'admin' role
             if (Auth::user()->hasRole(['المدير', 'ادمن'])) {
                 toastr()->success('تم تسجيل الدخول');
                 return to_route('admin.dashboard');
@@ -56,7 +62,7 @@ class AuthController extends Controller
             }
         } else {
             toastr()->error('البيانات غير صحيحة');
-            return back()->withInput()->withErrors(['email' => 'Invalid credentials']);
+            return back()->withInput()->withErrors(['email' => 'البيانات غير صحيحة']);
         }
 
     }
