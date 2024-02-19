@@ -18,7 +18,7 @@ class ServiceRequest extends FormRequest
         return [
             'name'=>['required','string','max:50'],
             'status'=>['required','integer','between:0,1'],
-            'files.*'=>['required','max:2000','mimes:png,jpg,jpeg'],
+            'files.*'=>['nullable','max:2000','mimes:png,jpg,jpeg'],
         ];
     }
 

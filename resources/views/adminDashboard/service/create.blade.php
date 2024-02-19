@@ -37,7 +37,7 @@
         <label for="image"
                class="col-md-4 col-form-label text-md-end">{{ __('الصورة') }}</label>
         <div class="col-md-6">
-            <input type="file" name="files[]" id="files" class="form-control">
+            <input type="file" name="files[]" id="files" class="form-control" required>
             @error('files')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>

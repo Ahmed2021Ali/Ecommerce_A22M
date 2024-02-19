@@ -4,7 +4,7 @@ namespace App\Http\Requests\category;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreRequest extends FormRequest
+class CategoryRequest extends FormRequest
 {
 
     public function authorize(): bool
@@ -17,7 +17,7 @@ class StoreRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'max:25'],
-            'files.*'=>['required','max:2000','mimes:png,jpg,jpeg'],
+            'files.*'=>['nullable','max:2000','mimes:png,jpg,jpeg'],
         ];
     }
 

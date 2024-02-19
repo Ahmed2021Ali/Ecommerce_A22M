@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\AdminDashboard;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\slider\SliderStoreRequest;
+use App\Http\Requests\slider\SliderRequest;
 use App\Http\Requests\slider\SliderUpdateRequest;
 use App\Models\Slider;
 use App\Repositories\Interfaces\AdminDashboard\SliderInterface;
@@ -25,12 +25,12 @@ class SliderController extends Controller
     {
         return $this->slider->index();
     }
-    public function store(SliderStoreRequest $request)
+    public function store(SliderRequest $request)
     {
         return $this->slider->store($request->validated());
     }
 
-    public function update(SliderUpdateRequest $request, Slider $slider)
+    public function update(SliderRequest $request, Slider $slider)
     {
         return $this->slider->update($request->validated(),$slider);
     }

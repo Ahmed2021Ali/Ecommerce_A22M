@@ -37,7 +37,7 @@
         <div class="col-md-6">
             <input id="value" type="number"
                    class="form-control @error('value') is-invalid @enderror" name="value"
-                   value="{{ $coupon->value }}"required  autocomplete="value" autofocus>
+                   value="{{ $coupon->value }}" required  autocomplete="value" autofocus>
             @error('value')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>

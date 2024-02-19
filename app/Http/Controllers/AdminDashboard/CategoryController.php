@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\AdminDashboard;
 
-use App\Http\Requests\category\StoreRequest;
+use App\Http\Requests\category\CategoryRequest;
 use App\Http\Requests\category\UpdateCategoryRequest;
 use App\Models\Category;
 use App\Http\Controllers\Controller;
@@ -30,7 +30,7 @@ class CategoryController extends Controller
         return $this->category->index();
     }
 
-    public function store(StoreRequest $request)
+    public function store(CategoryRequest $request)
     {
         return $this->category->store($request->validated());
     }
@@ -40,7 +40,7 @@ class CategoryController extends Controller
         return $this->category->show($category);
     }
 
-    public function update(StoreRequest $request, Category $category)
+    public function update(CategoryRequest $request, Category $category)
     {
         return $this->category->update($request->validated(),$category);
     }
