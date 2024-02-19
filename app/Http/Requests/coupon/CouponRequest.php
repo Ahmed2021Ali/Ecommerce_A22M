@@ -16,8 +16,8 @@ class CouponRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'=>['required','string','max:150'],
-            'value'=>['required','numeric' ,'min:1','max:99'],
+            'name'=>['required','string','max:75'],
+            'value'=>['required','numeric' ,'min:1','max:25'],
             'status'=>['required','integer','between:0,1'],
         ];
     }
@@ -26,11 +26,11 @@ class CouponRequest extends FormRequest
         return [
             'name.required' => 'حقل الاسم مطلوب.',
             'name.string' => 'حقل الاسم يجب أن يكون نصًا.',
-            'name.max' => 'يجب ألا يتجاوز الاسم 150 حرفًا.',
+            'name.max' => 'يجب ألا يتجاوز الاسم 75 حرفًا.',
             'value.required' => 'حقل القيمة مطلوب.',
             'value.numeric' => 'حقل القيمة يجب أن يكون رقمًا.',
             'value.min' => 'يجب أن تكون القيمة على الأقل 1.',
-            'value.max' => 'يجب ألا تتجاوز القيمة 99.',
+            'value.max' => 'يجب ألا تتجاوز القيمة 25.',
             'status.integer' => 'حقل الحالة يجب أن يكون رقمًا صحيحًا.',
             'status.between' => 'يجب أن تكون حالة العنصر بين 0 و 1.',
         ];

@@ -16,7 +16,7 @@ class OrderController extends Controller
         $this->middleware('permission:اوردارات لم يتم توصيلها', ['only' => ['index']]);
         $this->middleware('permission:اوردارات تم إلغائها', ['only' => ['ordersCancelled']]);
         $this->middleware('permission:تأكيد توصيل الأوردر', ['only' => ['deliveryStatus']]);
-        
+
         $this->order = $order;
         $this->middleware('checkAdminRole');
     }
@@ -37,5 +37,9 @@ class OrderController extends Controller
     public function ordersCancelled()
     {
         return $this->order->ordersCancelled();
+    }
+    public function destroy($order)
+    {
+        return $this->order->destroy(OrderDetails::withTrashed()->find($order));
     }
 }

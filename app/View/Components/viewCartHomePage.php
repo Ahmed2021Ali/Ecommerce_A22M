@@ -20,7 +20,7 @@ class viewCartHomePage extends Component
     {
         if (Auth::check()) {
             return view('components.view-cart-home-page', [
-                'carts' => Cart::where('user_id', Auth::user()->id)->Paginate(2)]);
+                'carts' => Cart::where('user_id', Auth::user()->id)->latest()->take(2)->get()]);
         }
         return view('components.view-cart-home-page');
     }

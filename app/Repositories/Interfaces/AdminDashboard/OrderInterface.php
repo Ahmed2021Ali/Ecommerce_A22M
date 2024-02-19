@@ -12,5 +12,6 @@ interface OrderInterface {
 
     public function ordersCancelled();
 
+    public function destroy($order);
 
 }

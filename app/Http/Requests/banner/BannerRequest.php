@@ -16,10 +16,10 @@ class BannerRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'small_title'=> ['required','string','max:100'],
-            'main_title'=> ['required','string','max:100'],
+            'small_title'=> ['required','string','max:25'],
+            'main_title'=> ['required','string','max:25'],
             'status'=> ['required','integer','between:0,1'],
-            'product_id' => ['required|exists:products,id'],
+            'product_id' => ['required','exists:products,id'],
         ];
     }
 

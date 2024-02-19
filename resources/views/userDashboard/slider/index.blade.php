@@ -6,10 +6,10 @@
                     <div class="row align-items-center slider-animated-1">
                         <div class="col-lg-5 col-md-6">
                             <div class="hero-slider-content-2">
-                                <h4 class="animated">{{ Str::limit($slider->title_h4 , 37) }}</h4>
-                                <h2 class="animated fw-900">{{ Str::limit($slider->title_h2 , 18) }}</h2>
-                                <h1 class="animated fw-900 text-brand">{{ Str::limit($slider->title_h1 , 15) }}</h1>
-                                <p class="animated">{{ Str::limit($slider->title_p , 55) }}</p>
+                                <h4 class="animated">{{ $slider->title_h4  }}</h4>
+                                <h2 class="animated fw-900">{{ $slider->title_h2  }}</h2>
+                                <h1 class="animated fw-900 text-brand">{{ $slider->title_h1 }}</h1>
+                                <p class="animated">{{ $slider->title_p  }}</p>
                                 <a class="animated btn btn-brush btn-brush-3" href="{{ route('products.index') }}"> تسوق الأن </a>
                             </div>
                         </div>

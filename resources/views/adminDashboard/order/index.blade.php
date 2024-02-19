@@ -26,6 +26,8 @@
                         <th>رقم الهاتف</th>
                         <th>المستخدم </th>
                         <th>هل تم توصيل ؟</th>
+                        <th> حذف</th>
+
                     </tr>
                     </thead>
                     <tbody>
@@ -33,7 +35,7 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>
-                                <a href="{{ route('order.show', $order->order_number) }}" class="btn btn-primary"> عرض الاردر</a>
+                                <a href="{{ route('orders.show', $order->order_number) }}" class="btn btn-primary"> عرض الاردر</a>
                             </td>
                             <td>{{ $order->number_of_product }}</td>
                             <td>{{ $order->subtotal }}</td>
@@ -47,7 +49,19 @@
                             <td>{{ $order->user->name }}</td>
                             @can('تأكيد توصيل الأوردر')
                                 <td>
-                                    <a href="{{route('order.deliveryStatus',$order)}}" class="btn btn-success">نعم تم التوصيل </td>
+                                    <a href="{{route('order.deliveryStatus',$order)}}" class="btn btn-success">نعم تم التوصيل </a>
+                                </td>
+                                <td>
+                                    {{--
+                                    @can('حذف اوردر')
+--}}
+                                    <x-adminlte-modal id="delete_{{ $order->id }}" title="حذف" theme="purple"
+                                                      icon="fas fa-bolt" size='lg' disable-animations>
+                                        @include('adminDashboard.order.delete',['order'=>$order])
+                                    </x-adminlte-modal>
+                                    <x-adminlte-button label="حذف" data-toggle="modal"
+                                                       data-target="#delete_{{ $order->id }}" class="bg-danger"/>
+                                </td>
                                 </tr>
                             @endcan
                     @endforeach

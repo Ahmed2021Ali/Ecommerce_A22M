@@ -16,7 +16,7 @@ class CityRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'=>['required', 'string', 'max:25'],
+            'name'=>['required', 'string', 'max:50'],
             'price'=>['required', 'numeric'],
         ];
     }

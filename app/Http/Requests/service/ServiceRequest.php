@@ -16,7 +16,7 @@ class ServiceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'=>['required','string','max:50'],
+            'name'=>['required','string','max:25'],
             'status'=>['required','integer','between:0,1'],
             'files.*'=>['nullable','max:2000','mimes:png,jpg,jpeg'],
         ];
@@ -26,7 +26,7 @@ class ServiceRequest extends FormRequest
     {
         return [
             'name.string' => 'حقل الاسم يجب أن يكون نصًا.',
-            'name.max' => 'يجب ألا يتجاوز الاسم 50 حرفًا.',
+            'name.max' => 'يجب ألا يتجاوز الاسم 25 حرفًا.',
             'status.integer' => 'حقل الحالة يجب أن يكون رقمًا صحيحًا.',
             'status.between' => 'يجب أن تكون حالة العنصر بين 0 و 1.',
             'files.*.required' => 'حقل الملفات مطلوب.',

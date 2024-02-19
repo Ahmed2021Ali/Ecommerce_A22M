@@ -67,8 +67,8 @@
                                                 @method('put')
                                                 @csrf
                                                 <input type="number" name="quantity" id="quantity"
-                                                    value="{{$cart->quantity}}" min="1"
-                                                    style="display: inline-block; width: 70px; padding: 6px; text-align: center; border: 1px solid #ccc; border-radius: 3px;">
+                                                       value="{{$cart->quantity}}" min="1"
+                                                       style="display: inline-block; width: 70px; padding: 6px; text-align: center; border: 1px solid #ccc; border-radius: 3px;">
                                                 <button type="submit" class="btn btn-primary"> تحديث الكمية</button>
                                             </form>
                                         </td>
@@ -88,13 +88,13 @@
                                     </tr>
                                 @endforeach
                                 {{ Auth::user()->carts()->links() }}
-
-                                <tr>
-                                    <td colspan="6" class="text-end">
-                                        <a href="{{route('cart.clear')}}" class="text-muted"> <i
-                                                class="fi-rs-trash"></i> حذف جميع الأوردارات </a>
-                                    </td>
-                                </tr>
+                                @if(!Auth::user()->carts()->isEmpty())
+                                    <tr>
+                                        <td colspan="6" class="text-end">
+                                            <a href="{{route('cart.clear')}}" class="text-muted"> <i class="fi-rs-trash"></i> حذف جميع الأوردارات </a>
+                                        </td>
+                                    </tr>
+                                @endif
                                 </tbody>
                             </table>
                         </div>

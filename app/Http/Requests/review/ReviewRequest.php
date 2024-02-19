@@ -16,8 +16,8 @@ class ReviewRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'comment'=>['required'],
-            'star'=>['required'],
+            'comment'=>['required','max:150'],
+            'star'=>['nullable','numeric'],
         ];
     }
 
@@ -25,6 +25,7 @@ class ReviewRequest extends FormRequest
     {
         return [
             'comment.required' => 'حقل التعليق مطلوب.',
+            'comment.max' => 'الحقل لا يزيد عن 150 كلمة ',
             'star.nullable' => 'حقل التقييم يمكن أن يكون فارغًا.',
         ];
     }

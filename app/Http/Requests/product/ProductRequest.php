@@ -4,7 +4,7 @@ namespace App\Http\Requests\product;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreProductRequest extends FormRequest
+class ProductRequest extends FormRequest
 {
 
     public function authorize(): bool
@@ -16,7 +16,7 @@ class StoreProductRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'string', 'max:256', 'min:2'],
+            'name' => ['required', 'string', 'max:40', 'min:2'],
             'color.*' => ['nullable','string','max:75'],
             'size.*' => ['nullable','string','max:50'],
             'quantity' => ['required', 'integer', 'min:1'],
@@ -34,7 +34,7 @@ class StoreProductRequest extends FormRequest
     return [
         'name.required' => 'حقل الاسم مطلوب.',
         'name.string' => 'يجب أن يكون حقل الاسم نصًا.',
-        'name.max' => 'يجب ألا يتجاوز حقل الاسم 256 حرفًا.',
+        'name.max' => 'يجب ألا يتجاوز حقل الاسم 40 حرفًا.',
         'name.min' => 'يجب أن يكون حقل الاسم على الأقل 2 أحرف.',
         'color.*.string' => 'يجب أن تكون حقل اللون نصًا.',
         'color.*.max' => 'يجب ألا يتجاوز حقل اللون 75 حرفًا.',

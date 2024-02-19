@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('size')->nullable();
             $table->decimal('total_price',8,2);
             $table->foreignId('product_id')->references('id')->on('products')->cascadeOnUpdate()->cascadeOnDelete();
-            $table->SoftDeletes();
             $table->timestamps();
         });
     }
