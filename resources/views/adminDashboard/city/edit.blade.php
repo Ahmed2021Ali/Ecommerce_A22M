@@ -8,7 +8,7 @@
         <div class="col-md-6">
             <input id="main_title" type="text"
                    class="form-control @error('name') is-invalid @enderror" name="name"
-                   value="{{ $city->name }}"  autocomplete="name" autofocus>
+                   value="{{ $city->name }}" required autocomplete="name" autofocus>
             @error('name')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
@@ -24,7 +24,7 @@
         <div class="col-md-6">
             <input id="title_h2" type="number"
                    class="form-control @error('price') is-invalid @enderror" name="price"
-                   value="{{ $city->price }}"  autocomplete="price" autofocus>
+                   value="{{ $city->price }}" required autocomplete="price" autofocus>
             @error('price')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>

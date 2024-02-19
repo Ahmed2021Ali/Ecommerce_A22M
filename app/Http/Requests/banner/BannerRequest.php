@@ -4,7 +4,7 @@ namespace App\Http\Requests\banner;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class BannerStoreRequest extends FormRequest
+class BannerRequest extends FormRequest
 {
 
     public function authorize() : bool
@@ -16,10 +16,10 @@ class BannerStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'small_title'=>['nullable','string','max:100'],
-            'main_title'=>['nullable','string','max:100'],
-            'status'=>['nullable','integer','between:0,1'],
-            'product_id' => 'required|exists:products,id',
+            'small_title'=> ['required','string','max:100'],
+            'main_title'=> ['required','string','max:100'],
+            'status'=> ['required','integer','between:0,1'],
+            'product_id' => ['required|exists:products,id'],
         ];
     }
 

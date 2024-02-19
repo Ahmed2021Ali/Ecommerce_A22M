@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\service;
+namespace App\Http\Requests\brand;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ServiceStoreRequest extends FormRequest
+class BrandRequest extends FormRequest
 {
 
     public function authorize() : bool
@@ -16,8 +16,7 @@ class ServiceStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'=>['nullable','string','max:50'],
-            'status'=>['nullable','integer','between:0,1'],
+            'status'=>['required','integer','between:0,1'],
             'files.*'=>['required','max:2000','mimes:png,jpg,jpeg'],
         ];
     }
@@ -25,8 +24,7 @@ class ServiceStoreRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'name.string' => 'حقل الاسم يجب أن يكون نصًا.',
-            'name.max' => 'يجب ألا يتجاوز الاسم 50 حرفًا.',
+            'status.required' => 'حقل الحالة مطلوب.',
             'status.integer' => 'حقل الحالة يجب أن يكون رقمًا صحيحًا.',
             'status.between' => 'يجب أن تكون حالة العنصر بين 0 و 1.',
             'files.*.required' => 'حقل الملفات مطلوب.',

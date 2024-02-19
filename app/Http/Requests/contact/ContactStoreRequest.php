@@ -15,7 +15,7 @@ class ContactStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
+            'name' => 'required|string',
             'email' => 'required|email',
             'phone' => 'required|numeric|digits:11|regex:/^([0-9\s\-\+\(\)]*)$/',
             'subject' => 'required|string',

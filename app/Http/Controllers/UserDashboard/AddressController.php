@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\UserDashboard;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\address\StoreAddressRequest;
+use App\Http\Requests\address\AddressRequest;
 use App\Http\Requests\address\UpdateAddressRequest;
 use App\Models\Address;
 use App\Repositories\Interfaces\UserDashboard\AddressInterface;
@@ -21,7 +21,7 @@ class AddressController extends Controller
     {
         return $this->address->create();
     }
-    public function store(StoreAddressRequest $request)
+    public function store(AddressRequest $request)
     {
         return $this->address->store($request->validated());
     }
@@ -29,7 +29,7 @@ class AddressController extends Controller
     {
         return $this->address->edit(Address::find(decrypt($id)));
     }
-    public function update(UpdateAddressRequest $request, Address $address)
+    public function update(AddressRequest $request, Address $address)
     {
         return $this->address->update($request->validated(),$address);
     }

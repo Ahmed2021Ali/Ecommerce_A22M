@@ -4,7 +4,7 @@ namespace App\Http\Requests\color;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ColorStoreRequest extends FormRequest
+class ColorRequest extends FormRequest
 {
 
     public function authorize() : bool

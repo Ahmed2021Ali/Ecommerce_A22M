@@ -4,7 +4,7 @@ namespace App\Http\Requests\review;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ReviewStoreRequest extends FormRequest
+class ReviewRequest extends FormRequest
 {
 
     public function authorize() : bool
@@ -17,7 +17,7 @@ class ReviewStoreRequest extends FormRequest
     {
         return [
             'comment'=>['required'],
-            'star'=>['nullable'],
+            'star'=>['required'],
         ];
     }
 

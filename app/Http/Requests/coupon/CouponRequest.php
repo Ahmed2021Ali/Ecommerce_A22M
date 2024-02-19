@@ -4,7 +4,7 @@ namespace App\Http\Requests\coupon;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CouponStoreRequest extends FormRequest
+class CouponRequest extends FormRequest
 {
 
     public function authorize() : bool
@@ -18,8 +18,7 @@ class CouponStoreRequest extends FormRequest
         return [
             'name'=>['required','string','max:150'],
             'value'=>['required','numeric' ,'min:1','max:99'],
-            'status'=>['nullable','integer','between:0,1'],
-
+            'status'=>['required','integer','between:0,1'],
         ];
     }
     public function messages(): array

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\AdminDashboard;
 
-use App\Http\Requests\city\CityStoreRequest;
+use App\Http\Requests\city\CityRequest;
 use App\Http\Requests\city\CityUpdateRequest;
 use App\Models\AvailableCity;
 use App\Repositories\Interfaces\AdminDashboard\CityInterface;
@@ -25,12 +25,12 @@ class AvailableCityController extends Controller
     {
         return $this->city->index();
     }
-    public function store(CityStoreRequest $request)
+    public function store(CityRequest $request)
     {
         return $this->city->store($request->validated());
     }
 
-    public function update(CityUpdateRequest $request, AvailableCity $city)
+    public function update(CityRequest $request, AvailableCity $city)
     {
         return $this->city->update($request->validated(),$city);
     }

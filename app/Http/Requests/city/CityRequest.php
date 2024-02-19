@@ -4,7 +4,7 @@ namespace App\Http\Requests\city;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CityStoreRequest extends FormRequest
+class CityRequest extends FormRequest
 {
 
     public function authorize() : bool
@@ -17,7 +17,7 @@ class CityStoreRequest extends FormRequest
     {
         return [
             'name'=>['required', 'string', 'max:25'],
-            'price'=>['nullable', 'numeric'],
+            'price'=>['required', 'numeric'],
         ];
     }
 
