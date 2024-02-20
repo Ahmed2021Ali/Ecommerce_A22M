@@ -10,17 +10,13 @@
                         <div class="product-img-action-wrap">
                             <div class="product-img product-img-zoom" style="direction: rtl; text-align: right;">
                                 <a href="{{ route('products.show', encrypt($newProduct->id)) }}">
-                                    <img src="{{ $newProduct->getFirstMediaUrl('productFiles') }}" width="400"
-                                         height="250" style="direction: rtl; text-align: right;"
-                                         alt="{{$newProduct->name}}">
+                                    <img src="{{ $newProduct->getFirstMediaUrl('productFiles') }}" width="400" height="250" style="direction: rtl; text-align: right;" alt="{{$newProduct->name}}">
                                 </a>
                             </div>
                             <div class="product-action-1">
                                 <a href="{{ $newProduct->getFirstMediaUrl('productFiles') }}" aria-label="عرض"
-                                   class="action-btn hover-up" data-bs-target="#quickViewModal"><i
-                                        class="fi-rs-eye"></i></a>
-                                <a aria-label="أضف إلي المفضلة" class="action-btn hover-up"
-                                   onclick="addToFavorites({{ $newProduct->id }})"><i class="fi-rs-heart"></i></a>
+                                   class="action-btn hover-up" data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
+                                <a aria-label="أضف إلي المفضلة" class="action-btn hover-up" onclick="addToFavorites({{ $newProduct->id }})"><i class="fi-rs-heart"></i></a>
                             </div>
                         </div>
                         <div class="product-content-wrap">
@@ -29,7 +25,7 @@
                             </h2>
                             {{ Str::limit($newProduct->description, 35) }}
                             <span>
-                                    @include('userDashboard.products.review.ratingProduct',['rate'=>calcReview($newProduct)])
+                                    @include('userDashboard.products.review.ratingProduct2',['rate'=>calcReview($newProduct)])
                                 @if($newProduct->offer)
                                     <span>تخفيض %{{ $newProduct->offer }}</span>
                                 @endif

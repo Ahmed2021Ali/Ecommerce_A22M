@@ -18,7 +18,6 @@ class BannerController extends Controller
         $this->middleware('permission:حذف بانر', ['only' => ['destroy']]);
 
         $this->banner = $banner;
-        $this->middleware(['checkAdminRole','throttle:60,1']);
     }
     public function index()
     {

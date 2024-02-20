@@ -18,7 +18,6 @@ class SliderController extends Controller
         $this->middleware('permission:حذف اسلايدر', ['only' => ['destroy']]);
 
         $this->slider = $slider;
-        $this->middleware(['checkAdminRole','throttle:60,1']);
     }
     public function index()
     {

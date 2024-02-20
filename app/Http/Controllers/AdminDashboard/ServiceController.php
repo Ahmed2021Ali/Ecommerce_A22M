@@ -18,7 +18,6 @@ class ServiceController extends Controller
         $this->middleware('permission:حذف خدمة', ['only' => ['destroy']]);
 
         $this->service = $service;
-        $this->middleware(['checkAdminRole','throttle:60,1']);
     }
     public function index()
     {

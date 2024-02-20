@@ -18,7 +18,6 @@ class OrderController extends Controller
         $this->middleware('permission:تأكيد توصيل الأوردر', ['only' => ['deliveryStatus']]);
 
         $this->order = $order;
-        $this->middleware(['checkAdminRole','throttle:60,1']);
     }
 
     public function index()

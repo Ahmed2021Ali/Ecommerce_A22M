@@ -3,6 +3,7 @@
     اعدادات الحساب
 @endsection
 @section('css')
+
 @endsection
 @section('pageHeader')
     اعدادات الحساب
@@ -97,10 +98,10 @@
                                                                     {{ $order->number_of_product }}
                                                                     منتج
                                                                 </td>
-                                                                <td><a href="{{ route('order.show', $order->order_number) }}"
+                                                                <td><a href="{{ route('orders.show', $order->order_number) }}"
                                                                         class="btn-small d-block">عرض</a></td>
                                                                 <td>
-                                                                    <form action="{{ route('order.destroy', $order) }}"
+                                                                    <form action="{{ route('orders.destroy', $order) }}"
                                                                         method="post">
                                                                         @method('delete')
                                                                         @csrf
@@ -150,10 +151,10 @@
                                                                     {{ $order->number_of_product }}
                                                                     منتج
                                                                 </td>
-                                                                <td><a href="{{ route('order.show', $order->order_number) }}"
+                                                                <td><a href="{{ route('orders.show', $order->order_number) }}"
                                                                         class="btn-small d-block">عرض</a></td>
                                                                 <td>
-                                                                    <form action="{{ route('order.destroy', $order) }}"
+                                                                    <form action="{{ route('orders.destroy', $order) }}"
                                                                           method="post">
                                                                         @method('delete')
                                                                         @csrf
@@ -184,7 +185,7 @@
                                             <div class="row">
                                                 <div class="col-lg-8">
                                                     <form class="contact-form-style mt-30 mb-50"
-                                                        action="{{ route('order.search') }}" method="post">
+                                                        action="{{ route('orders.search') }}" method="post">
                                                         @csrf
                                                         <div class="input-style mb-20">
                                                             <label>معرف الطلب</label>

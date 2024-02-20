@@ -1,10 +1,10 @@
 <style>
-    .ratings {
-        margin-right: 70px;
+    .ratings2 {
+        margin-right: 10px;
     }
 </style>
 <div class="d-flex justify-content-between align-items-center">
-    <div class="ratings">
+    <div class="ratings2">
         @if($rate > 0 && $rate < 6 )
             @for ($i = 1; $i <= $rate ; $i++)
                 <i class="fa fa-star rating-color"></i>

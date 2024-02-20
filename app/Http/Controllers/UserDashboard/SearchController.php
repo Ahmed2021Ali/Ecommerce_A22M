@@ -16,7 +16,6 @@ class SearchController extends Controller
     public function __construct(SearchInterface $search)
     {
         $this->search = $search;
-        $this->middleware('throttle:60,1');
     }
 
 
@@ -30,7 +29,7 @@ class SearchController extends Controller
     {
         return $this->search->search($request);
     }
-    
-    
+
+
 
 }

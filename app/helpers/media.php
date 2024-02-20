@@ -1,7 +1,6 @@
 <?php
 
 
-
 function priceAfterOffer($price, $offer)
 {
     if (isset($offer)) {
@@ -32,22 +31,18 @@ function updateFiles($files, $model, $folder)
     }
 }
 
-function calcReview($product)
+function calcReview($product): int
 {
-    /*    $totalRating = $product->reviews()->where('star', '!=', null)->count();
-        $totalRating2 = $product->reviews()->where('star', '!=', null)->where('star', '>', 1)->count();
-        if ($totalRating2 > 0 && $totalRating > 0) {
-            return $totalRating2 / $totalRating;
-        }*/
-
-    /*
-     *
-     * ********************************************************
-     *  $totalRating = $product->reviews()->where('star', '!=', null)->count();
-     *  $totalRating2 = $product->reviews()->where('star', '!=', null)->where('star', '>', 1)->count();
-     *
-     * */
-    return 5;
+    $totalRating1 = $product->reviews()->where('star', 1)->count();
+    $totalRating2 = $product->reviews()->where('star', 2)->count();
+    $totalRating3 = $product->reviews()->where('star', 3)->count();
+    $totalRating4 = $product->reviews()->where('star', 4)->count();
+    $totalRating5 = $product->reviews()->where('star', 5)->count();
+    $totalRating = $product->reviews()->count();
+    if ($totalRating > 0) {
+        return ( $totalRating1 * 1 + $totalRating2 * 2 + $totalRating3 * 3 + $totalRating4 * 4 + $totalRating5 * 5 ) / $totalRating;
+    }
+    return 0;
 }
 
 function calcTotalPriceOrder($subTotal, $deliveryPrice, $discount)
@@ -57,6 +52,7 @@ function calcTotalPriceOrder($subTotal, $deliveryPrice, $discount)
     }
     return $subTotal + $deliveryPrice;
 }
+
 function calcPriceProduct($price, $offer, $price_after_offer, $quantity)
 {
     if ($offer) {

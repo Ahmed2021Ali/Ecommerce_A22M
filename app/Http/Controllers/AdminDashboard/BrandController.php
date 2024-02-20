@@ -17,7 +17,6 @@ class BrandController extends Controller
         $this->middleware('permission:حذف براند', ['only' => ['destroy']]);
 
         $this->brand = $brand;
-        $this->middleware(['checkAdminRole','throttle:60,1']);
     }
 
     public function index()

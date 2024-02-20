@@ -132,7 +132,7 @@
                                         <h2 class="title-detail">{{ Str::limit($product->name, 29) }}</h2>
                                         <div class="product-detail-rating">
                                             <div class="product-rate-cover text-end">
-                                                @include('userDashboard.products.review.ratingProduct', [
+                                                @include('userDashboard.products.review.ratingProduct2', [
                                                     'rate' => calcReview($product),
                                                 ])
                                                 <span class="font-small ml-5 text-muted">
@@ -281,7 +281,6 @@
 
                                                             </a>
                                                         </h2>
-                                                        <span>
                                                             @include('userDashboard.products.review.ratingProduct',['rate'=>calcReview($relatedProduct)])
                                                             @if($relatedProduct->offer)
                                                                 <span>تخفيض %{{ $relatedProduct->offer }}</span>
@@ -294,6 +293,7 @@
                                                                     class="old-price"> ج {{ $relatedProduct->price }}</span>
                                                             @endif
                                                         </div>
+
                                                     </div>
                                                 </div>
                                             </div>
