@@ -18,7 +18,7 @@ class CategoryRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'max:25',Rule::unique('categories','name')->ignore($this->category->id??null, 'id')],
-            'files.*'=>['nullable','max:2000','mimes:png,jpg,jpeg'],
+            'files.*'=>['nullable','max:5000','mimes:png,jpg,jpeg'],
         ];
     }
 
@@ -31,7 +31,7 @@ class CategoryRequest extends FormRequest
             'name.unique' => 'الاسم  مستخدم بالفعل  - يرجي ادخال اسم قسم اخر.',
 
             'files.*.required' => 'حقل الملفات مطلوب.',
-            'files.*.max' => 'يجب أن لا يتجاوز حجم الملف 2000 كيلوبايت.',
+            'files.*.max' => 'يجب أن لا يتجاوز حجم الملف 50000 كيلوبايت.',
             'files.*.mimes' => 'يجب أن يكون النوع الملف ممتد إلى png، jpg، أو jpeg.',
         ];
     }

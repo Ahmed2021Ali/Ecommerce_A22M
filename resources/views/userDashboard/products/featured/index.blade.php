@@ -7,8 +7,7 @@
                         <div class="product-img product-img-zoom">
                             <a href="{{route('products.show', encrypt($featuredProduct->id))}}">
                                 <img src="{{$featuredProduct->getFirstMediaUrl('productFiles')}}" width="400"
-                                     height="250" style="direction: rtl; text-align: right;"
-                                     alt="{{$featuredProduct->name}}">
+                                     height="250" alt="{{$featuredProduct->name}}">
                             </a>
                         </div>
                         <div class="product-action-1">

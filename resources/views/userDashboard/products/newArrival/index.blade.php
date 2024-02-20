@@ -25,11 +25,12 @@
                             </h2>
                             {{ Str::limit($newProduct->description, 35) }}
                             <span>
-                                    @include('userDashboard.products.review.ratingProduct2',['rate'=>calcReview($newProduct)])
                                 @if($newProduct->offer)
                                     <span>تخفيض %{{ $newProduct->offer }}</span>
                                 @endif
                                 </span>
+                            @include('userDashboard.products.review.ratingProduct2',['rate'=>calcReview($newProduct)])
+
                             <div class="product-price">
                                 <span> ج {{ $newProduct->price_after_offer ?? $newProduct->price }}</span>
                                 @if($newProduct->offer)
@@ -37,10 +38,7 @@
                                 @endif
                             </div>
                             <div class="product-action-1 show">
-                                <a aria-label="تسوق الآن" class="action-btn hover-up"
-                                   href="{{route('products.show', encrypt($newProduct->id))}}">
-                                    <i class="fi-rs-shopping-bag-add"></i>
-                                </a>
+                                <a aria-label="تسوق الآن" class="action-btn hover-up" href="{{route('products.show', encrypt($newProduct->id))}}"><i class="fi-rs-shopping-bag-add"></i></a>
                             </div>
                         </div>
                     </div>
