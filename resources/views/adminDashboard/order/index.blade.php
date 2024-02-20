@@ -35,7 +35,7 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>
-                                <a href="{{ route('orders.show', $order->order_number) }}" class="btn btn-primary"> عرض الاردر</a>
+                                <a href="{{ route('order.show', $order->order_number) }}" class="btn btn-primary"> عرض الاردر</a>
                             </td>
                             <td>{{ $order->number_of_product }}</td>
                             <td>{{ $order->subtotal }}</td>
@@ -49,18 +49,17 @@
                             <td>{{ $order->user->name }}</td>
                             @can('تأكيد توصيل الأوردر')
                                 <td>
-                                    <a href="{{route('order.deliveryStatus',$order)}}" class="btn btn-success">نعم تم التوصيل </a>
+                                    <x-adminlte-modal id="status_{{ $order->id }}" title="توصيل" theme="purple"
+                                                      icon="fas fa-bolt" size='lg' disable-animations>
+                                        @include('adminDashboard.order.status',['order'=>$order])
+                                    </x-adminlte-modal>
+                                    <x-adminlte-button label="حالة التوصيل" data-toggle="modal" data-target="#status_{{ $order->id }}" class="bg-success"/>
                                 </td>
                                 <td>
-                                    {{--
-                                    @can('حذف اوردر')
---}}
-                                    <x-adminlte-modal id="delete_{{ $order->id }}" title="حذف" theme="purple"
-                                                      icon="fas fa-bolt" size='lg' disable-animations>
+                                    <x-adminlte-modal id="delete_{{ $order->id }}" title="حذف" theme="purple" icon="fas fa-bolt" size='lg' disable-animations>
                                         @include('adminDashboard.order.delete',['order'=>$order])
                                     </x-adminlte-modal>
-                                    <x-adminlte-button label="حذف" data-toggle="modal"
-                                                       data-target="#delete_{{ $order->id }}" class="bg-danger"/>
+                                    <x-adminlte-button label="حذف" data-toggle="modal" data-target="#delete_{{ $order->id }}" class="bg-danger"/>
                                 </td>
                                 </tr>
                             @endcan
