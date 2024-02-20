@@ -17,7 +17,7 @@ class ReviewController extends Controller
     public function __construct(ReviewInterface $review)
     {
         $this->review = $review;
-        $this->middleware('auth');
+        $this->middleware(['auth', 'throttle:60,1']);
     }
     public function store(ReviewRequest $request, Product $product)
     {

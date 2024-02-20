@@ -14,7 +14,12 @@
 
                     <div class="card-body">
                         <p>{{ __('الصفحة التي تبحث عنها غير موجودة') }}</p>
-                        <a href="{{ route('home') }}" class="btn btn-primary">{{ __('الانتقال إلى الصفحة الرئيسية') }}</a>
+                            {{-- Check if the user is an admin or manager --}}
+                            @if(Auth::check() && Auth::user()->hasRole(['المدير', 'ادمن']))
+                            <a href="{{ route('admin.dashboard') }}" class="btn btn-primary">{{ __('الانتقال إلى لوحة التحكم') }}</a>
+                            @else
+                            <a href="{{ route('home') }}" class="btn btn-primary">{{ __('الانتقال إلى الصفحة الرئيسية') }}</a>
+                            @endif                    
                     </div>
                 </div>
             </div>

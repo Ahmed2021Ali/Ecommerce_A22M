@@ -23,7 +23,7 @@ class ProductController extends Controller
         $this->middleware('permission:تقييمات المنتج', ['only' => ['show']]);
 
         $this->product = $product;
-        $this->middleware('checkAdminRole');
+        $this->middleware(['checkAdminRole','throttle:60,1']);
     }
 
     public function index()

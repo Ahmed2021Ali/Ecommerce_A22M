@@ -14,7 +14,7 @@ class DeleteInactiveUsers extends Command
 
     public function handle()
     {
-        $threshold = Carbon::now()->subMonth();
+        $threshold = Carbon::now()->subMonth(1);
 
         User::where('last_login_at', '<=', $threshold)
         ->whereDoesntHave('roles', function ($query) {

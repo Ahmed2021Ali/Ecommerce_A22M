@@ -14,7 +14,12 @@
 
                     <div class="card-body">
                         <p>{{ __('يتعين عليك دفع رسوم معينة قبل الوصول إلى المورد المطلوب') }}</p>
+                        @if(Auth::check() && Auth::user()->hasRole(['المدير', 'ادمن']))
+                        <a href="{{ route('admin.dashboard') }}" class="btn btn-primary">{{ __('الانتقال إلى لوحة التحكم') }}</a>
+                        @else
                         <a href="{{ route('home') }}" class="btn btn-primary">{{ __('الانتقال إلى الصفحة الرئيسية') }}</a>
+                        @endif   
+                    
                     </div>
                 </div>
             </div>

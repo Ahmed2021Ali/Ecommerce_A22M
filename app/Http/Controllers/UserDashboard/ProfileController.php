@@ -15,7 +15,7 @@ class ProfileController extends Controller
     public function __construct(ProfileInterace $profile)
     {
         $this->profile = $profile;
-        $this->middleware('auth');
+        $this->middleware(['auth', 'throttle:60,1']);
     }
 
 

@@ -18,8 +18,8 @@ class UserRequest extends FormRequest
         return [
             'name' => 'required|max:25|string',
             'email' => 'required|email|unique:users,email,' .$id,
-            'password' => 'required|same:confirm-password|min:8',
-            'roles' => 'required',
+            'password' => 'required|same:confirm-password|min:8|max:50',
+            'roles' => 'required|max:50',
         ];
     }
 
@@ -27,16 +27,19 @@ class UserRequest extends FormRequest
     {
         return [
             'name.required' => 'حقل الاسم مطلوب.',
-            'name.max' => 'يجب ألا يتجاوز حقل الاسم 25 حرفًا.',
             'name.string' => 'يجب أن يكون حقل الاسم نصًا.',
+            'name.max' => 'الحد الأقصى لطول الاسم هو 25 حرفًا.',
             'email.required' => 'حقل البريد الإلكتروني مطلوب.',
             'email.email' => 'البريد الإلكتروني يجب أن يكون عنوان بريد إلكتروني صالحًا.',
-            'email.unique' => 'هذا البريد الإلكتروني مستخدم بالفعل، يرجى اختيار بريد آخر.',
+            'email.unique' => 'البريد الإلكتروني مستخدم بالفعل.',
             'password.required' => 'حقل كلمة المرور مطلوب.',
-            'password.same' => 'تأكيد كلمة المرور غير متطابق.',
-            'password.min' => 'يجب أن تتكون كلمة المرور على الأقل من 8 أحرف.',
-            'roles.required' => 'يجب اختيار دور واحد على الأقل.',
-            'roles.array' => 'حقل الأدوار يجب أن يكون مصفوفة.',
+            'password.string' => 'يجب أن تكون كلمة المرور نصًا.',
+            'password.same' => 'يجب أن تكون كلمة المرور متطابقة مع حقل تأكيد كلمة المرور.',
+            'password.min' => 'الحد الأدنى لطول كلمة المرور هو 8 أحرف.',
+            'password.max' => 'الحد الأقصى لطول كلمة المرور هو 50 حرفًا.',
+            'roles.required' => 'حقل الأدوار مطلوب.',
+            'roles.string' => 'يجب أن يكون حقل الأدوار نصًا.',
+            'roles.max' => 'الحد الأقصى لطول حقل الأدوار هو 50 حرفًا.',
         ];
     }
 }

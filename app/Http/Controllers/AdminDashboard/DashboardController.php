@@ -14,7 +14,7 @@ class DashboardController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('checkAdminRole');
+        $this->middleware(['checkAdminRole','throttle:60,1']);
     }
     
     public function index()

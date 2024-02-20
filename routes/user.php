@@ -44,7 +44,7 @@ Route::controller(CartController::class)->prefix('cart')->as('cart.')->group(fun
 });
 
 //(Ahmed Maghraby enhancement) -> ( enhancement has Done )
-Route::controller(OrderController::class)->prefix('orders')->as('orders.')->group(function () {
+Route::controller(OrderController::class)->prefix('order')->as('order.')->group(function () {
     Route::get('/show/{order_number}', 'show')->name('show');
     Route::post('/search', 'search')->name('search');
     Route::delete('/destroy/{order}', 'destroy')->name('destroy');
@@ -71,4 +71,3 @@ Route::controller(ReviewController::class)->prefix('review')->as('review.')->gro
     Route::put('/update/{review}', 'update')->name('update');
     Route::delete('/destroy/{review}', 'destroy')->name('destroy');
 });
-Route::view('/Page/NotFound','errors.404')->name('page.NotFound');

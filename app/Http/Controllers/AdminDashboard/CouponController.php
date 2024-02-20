@@ -18,7 +18,7 @@ class CouponController extends Controller
         $this->middleware('permission:حذف كوبون', ['only' => ['destroy']]);
 
         $this->coupon = $coupon;
-        $this->middleware('checkAdminRole');
+        $this->middleware(['checkAdminRole','throttle:60,1']);
     }
     public function index()
     {

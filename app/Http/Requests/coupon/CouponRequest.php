@@ -17,7 +17,7 @@ class CouponRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'=>['required','string','max:15',Rule::unique('coupons','name')->ignore($this->coupon->id??null, 'id')],
+            'name'=>['required','string','max:15','min:1',Rule::unique('coupons','name')->ignore($this->coupon->id??null, 'id')],
             'value'=>['required','string' ,'min:1','max:2'],
             'status'=>['required','integer','between:0,1'],
         ];
@@ -26,9 +26,10 @@ class CouponRequest extends FormRequest
     {
         return [
             'name.required' => 'حقل الاسم مطلوب.',
-            'name.string' => 'حقل الاسم يجب أن يكون نصًا.',
-            'name.max' => 'يجب ألا يتجاوز الاسم 15 حرفًا.',
-            'name.unique' => ' اسم الكوبون موحود بالفعل - برجاء ادخال اسم اخر.',
+            'name.string' => 'يجب أن يكون حقل الاسم نصًا.',
+            'name.min' => 'الحد الأدنى لطول الاسم هو حرف واحد.',
+            'name.max' => 'الحد الأقصى لطول الاسم هو 15 حرفًا.',
+            'name.unique' => 'الاسم مستخدم بالفعل. يجب أن يكون الاسم فريدًا.',
 
             'value.required' => 'حقل القيمة مطلوب.',
             'value.string' => 'حقل القيمة يجب أن يكون رقمًا.',

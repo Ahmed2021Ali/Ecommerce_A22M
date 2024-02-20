@@ -16,7 +16,7 @@ class SearchController extends Controller
     public function __construct(SearchInterface $search)
     {
         $this->search = $search;
-
+        $this->middleware('throttle:60,1');
     }
 
 

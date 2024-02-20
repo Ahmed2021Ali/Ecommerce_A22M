@@ -14,7 +14,7 @@ class UserController extends Controller
     private $user;
 
     public function __construct(UserInterface $user) {
-        $this->middleware(['checkAdminRole'] );
+        $this->middleware(['checkAdminRole','throttle:60,1']);
         $this->middleware('permission:المستخدمين',  ['only' => ['index']]);
         $this->middleware('permission:اضافة مستخدم', ['only' => ['cretae' , 'store']]);
         $this->middleware('permission:تعديل مستخدم', ['only' => ['edit' , 'update']]);

@@ -17,7 +17,7 @@ class CartController extends Controller
     public function __construct(CartInterface $cart)
     {
         $this->cart = $cart;
-        $this->middleware('auth');
+        $this->middleware(['auth', 'throttle:60,1']);
     }
     public function index()
     {
