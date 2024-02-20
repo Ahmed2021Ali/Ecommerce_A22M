@@ -9,13 +9,18 @@
         height:50vh;
     }
     .ratings{
-        margin-right:10px;
+        margin-right:80px;
+    }
+    @media (max-width: 767px) {
+        .ratings{
+            margin-right:10px;
+        }
     }
 
     .ratings i{
 
         color:#cecece;
-        font-size:20px;
+        font-size:16px;
     }
 
     .rating-color{

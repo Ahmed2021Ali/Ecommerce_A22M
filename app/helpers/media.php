@@ -47,7 +47,7 @@ function calcReview($product)
      *  $totalRating2 = $product->reviews()->where('star', '!=', null)->where('star', '>', 1)->count();
      *
      * */
-    return 4;
+    return 5;
 }
 
 function calcTotalPriceOrder($subTotal, $deliveryPrice, $discount)

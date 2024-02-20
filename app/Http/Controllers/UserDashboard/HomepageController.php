@@ -17,7 +17,6 @@ class HomepageController extends Controller
         $this->middleware('throttle:60,1');
     }
 
-
     public function index()
     {
         return view('home', ['products'=>Product::where('status',1)->paginate(9), 'banners'=>Banner::all(), 'sliders'=>Slider::all(),
