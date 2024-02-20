@@ -11,7 +11,7 @@ class CategoryRepository implements CategoryInterface
 
     public function index()
     {
-        return view('adminDashboard.category.index', ['categories' => Category::paginate(10)]);
+        return view('adminDashboard.category.index', ['categories' => Category::latest()->paginate(10)]);
     }
 
 
@@ -24,12 +24,10 @@ class CategoryRepository implements CategoryInterface
         return redirect()->back()->with(['success' => 'تم بنجاح اضافة القسم']);
     }
 
-
     public function show($category)
     {
-        return view('adminDashboard.products.index', ['products' => $category->products()]);
+        return view('adminDashboard.products.index', ['products' => $category->latest()->products()]);
     }
-
 
     public function update($request, $category)
     {

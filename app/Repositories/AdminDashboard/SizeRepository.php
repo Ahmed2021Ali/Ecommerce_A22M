@@ -10,7 +10,7 @@ class SizeRepository implements SizeInterface
 
     public function index()
     {
-        return view('adminDashboard.size.index', ['sizes' => Size::select('id', 'name')->paginate(8)]);
+        return view('adminDashboard.size.index', ['sizes' => Size::select('id', 'name')->latest()->paginate(8)]);
     }
 
     public function store($request)

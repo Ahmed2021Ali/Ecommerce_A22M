@@ -11,7 +11,7 @@ class SliderRepository implements SliderInterface
 
     public function index()
     {
-        return view('adminDashboard.slider.index', ['sliders' => Slider::paginate(10)]);
+        return view('adminDashboard.slider.index', ['sliders' => Slider::latest()->paginate(10)]);
     }
 
     public function store($request)

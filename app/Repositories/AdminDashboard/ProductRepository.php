@@ -16,7 +16,7 @@ class ProductRepository implements ProductInterface
     public function index()
     {
         return view('adminDashboard.products.index', [
-            'products' => Product::paginate(10)]);
+            'products' => Product::latest()->paginate(10)]);
     }
 
     public function create()

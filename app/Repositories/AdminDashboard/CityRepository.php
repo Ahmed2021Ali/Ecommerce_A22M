@@ -13,7 +13,7 @@ class CityRepository implements CityInterface
 
     public function index()
     {
-        return view('adminDashboard.city.index', ['cities'=>AvailableCity::paginate(10)]);
+        return view('adminDashboard.city.index', ['cities'=>AvailableCity::latest()->paginate(10)]);
     }
 
 

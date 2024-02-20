@@ -65,7 +65,7 @@
                 </div>
 
                 <div class="col-lg-6 col-md-12">
-                    <h4 class="mt-15 mb-30 text-center" style="color: red">توصيل الاردر من 3 الي 5 ايام
+                    <h4 class="mt-15 mb-30 text-center" style="color: red">توصيل اوردارات من 3 الي 5 ايام
                         <span class="font-xl text-brand fw-900"></span></h4>
                     <div class="mb-3">
                         <div class="cart-action text-end">

@@ -39,6 +39,14 @@ function calcReview($product)
         if ($totalRating2 > 0 && $totalRating > 0) {
             return $totalRating2 / $totalRating;
         }*/
+
+    /*
+     *
+     * ********************************************************
+     *  $totalRating = $product->reviews()->where('star', '!=', null)->count();
+     *  $totalRating2 = $product->reviews()->where('star', '!=', null)->where('star', '>', 1)->count();
+     *
+     * */
     return 4;
 }
 

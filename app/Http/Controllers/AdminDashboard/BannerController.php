@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\AdminDashboard;
 
 use App\Http\Requests\banner\BannerRequest;
-use App\Http\Requests\banner\BannerUpdateRequest;
 use App\Models\Banner;
 use App\Repositories\Interfaces\AdminDashboard\BannerInterface;
 use App\Http\Controllers\Controller;

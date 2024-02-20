@@ -4,7 +4,6 @@ namespace App\Http\Controllers\AdminDashboard;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\slider\SliderRequest;
-use App\Http\Requests\slider\SliderUpdateRequest;
 use App\Models\Slider;
 use App\Repositories\Interfaces\AdminDashboard\SliderInterface;
 

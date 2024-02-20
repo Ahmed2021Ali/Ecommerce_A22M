@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\AdminDashboard;
 
 use App\Http\Requests\city\CityRequest;
-use App\Http\Requests\city\CityUpdateRequest;
 use App\Models\AvailableCity;
 use App\Repositories\Interfaces\AdminDashboard\CityInterface;
 use App\Http\Controllers\Controller;

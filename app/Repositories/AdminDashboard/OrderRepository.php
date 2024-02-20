@@ -15,7 +15,7 @@ class OrderRepository implements OrderInterface
 
     public function index()
     {
-        return view('adminDashboard.order.index', ['orders' => OrderDetails::where('delivery_status',0)->paginate(10)]);
+        return view('adminDashboard.order.index', ['orders' => OrderDetails::where('delivery_status',0)->latest()->paginate(10)]);
     }
     public function deliveryStatus($order)
     {
@@ -25,11 +25,11 @@ class OrderRepository implements OrderInterface
     }
     public function ordersDone()
     {
-        return view('adminDashboard.order.order_done', ['orders' => OrderDetails::where('delivery_status',1)->paginate(10)]);
+        return view('adminDashboard.order.order_done', ['orders' => OrderDetails::where('delivery_status',1)->latest()->paginate(10)]);
     }
     public function ordersCancelled()
     {
-        return view('adminDashboard.order.orderCancelled', ['orders' => OrderDetails::onlyTrashed()->paginate(10)]);
+        return view('adminDashboard.order.orderCancelled', ['orders' => OrderDetails::onlyTrashed()->latest()->paginate(10)]);
     }
     public function destroy($order)
     {

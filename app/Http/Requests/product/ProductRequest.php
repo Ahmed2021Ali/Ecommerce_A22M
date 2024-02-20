@@ -16,16 +16,16 @@ class ProductRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'string', 'max:40', 'min:2'],
+            'name' => ['required', 'string', 'min:2', 'max:40'],
             'color.*' => ['nullable','string','min:2','max:25'],
             'size.*' => ['nullable','string','min:2','max:30'],
-            'quantity' => ['required', 'string', 'min:1','mix:10000'],
-            'price' => ['required', 'string', 'max:99999.99', 'min:1'],
-            'offer' => ['nullable', 'string', 'max:99', 'min:1'],
+            'quantity' => ['required', 'numeric', 'min:1','max:1000'],
+            'price' => ['required', 'numeric', 'min:1', 'max:9999.99'],
+            'offer' => ['nullable', 'numeric', 'max:99', 'min:1'],
             'status' => ['required', 'integer', 'between:0,1'],
             'description' => ['required', 'string','min:2','max:255'],
             'files.*'=>['nullable','max:4000','mimes:png,jpg,jpeg'],
-            'category_id' => ['required', 'string', 'exists:categories,id'],
+            'category_id' => ['required', 'numeric', 'exists:categories,id'],
         ];
     }
 

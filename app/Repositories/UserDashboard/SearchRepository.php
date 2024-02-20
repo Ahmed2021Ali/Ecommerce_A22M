@@ -13,20 +13,14 @@ class SearchRepository implements SearchInterface
         {
             $query = Product::query();
 
-            $categories = Category::all();
-            $newProducts = Product::latest()->take(3)->get();
-
             $this->applyPriceFilter($query, $request->input('price'));
             $this->applyColorFilter($query, $request->input('color'));
-
             $products = $query->paginate(9);
-
             if ($products->isEmpty()) {
                 toastr()->error('عفوا! لا يوجد منتجات بالمواصفات المحددة');
                 return back();
             }
-
-            return view('userDashboard.products.index', compact('products', 'categories', 'newProducts'));
+            return view('userDashboard.products.index', compact('products'));
     }
 
     protected function applyPriceFilter($query, $price)
@@ -54,24 +48,20 @@ class SearchRepository implements SearchInterface
     public function search($request)
     {
         $validator = $this->validateSearchRequest($request);
-    
+
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
-    
         $search = $request->search;
         $products = $this->executeSearch($search);
-    
         if ($products->isNotEmpty()) {
-            $newProducts = Product::latest()->take(3)->get();
-            $categories = Category::all();
-            return view('userDashboard.products.index', compact('products', 'categories', 'newProducts'));
+            return view('userDashboard.products.index', compact('products'));
         } else {
             toastr()->error('لا توجد منتجات بهذه المواصفات');
             return redirect()->back();
         }
     }
-    
+
     protected function validateSearchRequest(Request $request)
     {
         return Validator::make($request->all(), [
@@ -81,7 +71,7 @@ class SearchRepository implements SearchInterface
             'search.max' => 'البحث لا يجب أن يتجاوز :max حرفًا',
         ]);
     }
-    
+
     protected function executeSearch($search)
     {
         return Product::select('id', 'name', 'price', 'price_after_offer', 'description', 'offer')
@@ -89,12 +79,10 @@ class SearchRepository implements SearchInterface
                 $q->where('name', 'like', "%$search%")
                     ->orWhere('description', 'like', "%$search%");
             })
-            ->where('status', 1)
-            ->orWhereHas('category', function ($q) use ($search) {
+            ->where('status', 1)->orWhereHas('category', function ($q) use ($search) {
                 $q->where('name', 'like', "%$search%");
-            })
-            ->paginate(9);
+            })->paginate(9);
     }
-    
+
 
 }
