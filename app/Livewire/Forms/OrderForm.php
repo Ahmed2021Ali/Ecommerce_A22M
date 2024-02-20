@@ -3,7 +3,6 @@
 namespace App\Livewire\Forms;
 
 use App\Jobs\SendMail;
-use App\Models\Cart;
 use App\Models\Order;
 use App\Models\OrderDetails;
 use App\Models\Product;

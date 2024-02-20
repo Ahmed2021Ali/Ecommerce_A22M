@@ -21,7 +21,8 @@ class OrderRepository implements OrderInterface
     {
         $order->delivery_status =1;
         $order->save();
-        return redirect()->back()->with('success','تم توصيل الاردر بنجاح');
+        
+        return redirect()->back()->with('success','تم توصيل الاوردر بنجاح');
     }
     public function ordersDone()
     {
