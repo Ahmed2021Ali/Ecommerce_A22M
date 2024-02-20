@@ -13,7 +13,7 @@ class BannerRepository implements BannerInterface
     public function index()
     {
         $products = Product::select('id', 'name')->get();
-        return view('adminDashboard.banner.index', ['banners' => Banner::paginate(10), 'products' => $products]);
+        return view('adminDashboard.banner.index', ['banners' => Banner::latest()->paginate(10), 'products' => $products]);
     }
 
     public function store($request)

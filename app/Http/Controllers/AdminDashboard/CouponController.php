@@ -4,7 +4,6 @@ namespace App\Http\Controllers\AdminDashboard;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\coupon\CouponRequest;
-use App\Http\Requests\coupon\CouponUpdateRequest;
 use App\Models\Coupon;
 use App\Repositories\Interfaces\AdminDashboard\CouponInterface;
 

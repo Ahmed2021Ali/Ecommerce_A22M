@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\AdminDashboard;
 
 use App\Http\Requests\category\CategoryRequest;
-use App\Http\Requests\category\UpdateCategoryRequest;
 use App\Models\Category;
 use App\Http\Controllers\Controller;
 use App\Repositories\Interfaces\AdminDashboard\CategoryInterface;

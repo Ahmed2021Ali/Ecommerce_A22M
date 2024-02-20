@@ -300,7 +300,7 @@ return [
             'icon' => 'fas fa-globe',
             'route' => 'home',
         ],
-        
+
         [
             'text' => 'الأقسام',
             'icon' => 'fas fa-list',
@@ -320,7 +320,7 @@ return [
                     'icon' => 'fas fa-plus-circle',
                     'route' => 'product.create',
                 ],
-                
+
                 [
                     'text' => 'الوان المنتجات',
                     'icon' => 'fas fa-paint-brush',
@@ -392,7 +392,7 @@ return [
                     'icon' => 'fas fa-times-circle',
                     'route' => 'order.cancelled',
                 ],
-                
+
             ],
         ],
         [
@@ -401,7 +401,7 @@ return [
             'route' => 'city.index',
         ],
     ],
-    
+
 
     /*
     |--------------------------------------------------------------------------

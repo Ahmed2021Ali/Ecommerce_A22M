@@ -19,16 +19,24 @@
                                     <li class="nav-item">
                                         <a class="nav-link active" id="dashboard-tab" data-bs-toggle="tab" href="#dashboard" role="tab" aria-controls="dashboard" aria-selected="false"><i class="fi-rs-settings-sliders mr-10"></i> لوحة التحكم</a>
                                     </li>
-                                    <li class="nav-item"><a class="nav-link" id="orders-tab" data-bs-toggle="tab" href="#orders" role="tab" aria-controls="orders" aria-selected="false"><i class="fi-rs-shopping-bag mr-10"></i> الطلبات</a>
+                                    @if(!Auth::user()->orders()->isEmpty())
+                                    <li class="nav-item"><a class="nav-link" id="order-tab" data-bs-toggle="tab" href="#order" role="tab" aria-controls="order" aria-selected="false"><i class="fi-rs-shopping-bag mr-10"></i> الطلبات</a>
                                     </li>
-                                    <li class="nav-item"><a class="nav-link" id="ordersCancelled-tab" data-bs-toggle="tab" href="#ordersCancelled" role="tab" aria-controls="orders" aria-selected="false"><i class="fi-rs-shopping-bag mr-10"></i> الطلبات تم الغائها</a>
+                                    @endif
+
+                                    @if(!Auth::user()->ordersOnlyTrashed()->isEmpty())
+                                    <li class="nav-item"><a class="nav-link" id="orderCancelled-tab" data-bs-toggle="tab" href="#orderCancelled" role="tab" aria-controls="order" aria-selected="false"><i class="fi-rs-shopping-bag mr-10"></i> الطلبات تم الغائها</a>
                                     </li>
+                                    @endif
+
                                     <li class="nav-item">
-                                        <a class="nav-link" id="track-orders-tab" data-bs-toggle="tab" href="#track-orders" role="tab" aria-controls="track-orders" aria-selected="false"><i class="fi-rs-shopping-cart-check mr-10"></i> تتبع طلبك</a>
+                                        <a class="nav-link" id="track-order-tab" data-bs-toggle="tab" href="#track-order" role="tab" aria-controls="track-order" aria-selected="false"><i class="fi-rs-shopping-cart-check mr-10"></i> تتبع طلبك</a>
                                     </li>
+                                    @if (Auth::user()->addresses()->isEmpty())
                                     <li class="nav-item">
                                         <a class="nav-link" id="address-tab" data-bs-toggle="tab" href="#address" role="tab" aria-controls="address" aria-selected="true"><i class="fi-rs-marker mr-10"></i> عنواني</a>
                                     </li>
+                                    @endif
                                     <li class="nav-item">
                                         <a class="nav-link" id="account-detail-tab" data-bs-toggle="tab" href="#account-detail" role="tab" aria-controls="account-detail" aria-selected="true"><i class="fi-rs-user mr-10"></i> تفاصيل الحساب</a>
                                     </li>
@@ -58,7 +66,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tab-pane fade" id="orders" role="tabpanel" aria-labelledby="orders-tab">
+
+                                @if(!auth::user()->orders()->isEmpty())
+                                <div class="tab-pane fade" id="order" role="tabpanel" aria-labelledby="order-tab">
                                     <div class="card">
                                         <div class="card-header">
                                             <h5 class="mb-0">طلباتك</h5>
@@ -87,10 +97,10 @@
                                                                     {{ $order->number_of_product }}
                                                                     منتج
                                                                 </td>
-                                                                <td><a href="{{ route('orders.show', $order->order_number) }}"
+                                                                <td><a href="{{ route('order.show', $order->order_number) }}"
                                                                         class="btn-small d-block">عرض</a></td>
                                                                 <td>
-                                                                    <form action="{{ route('orders.destroy', $order) }}"
+                                                                    <form action="{{ route('order.destroy', $order) }}"
                                                                         method="post">
                                                                         @method('delete')
                                                                         @csrf
@@ -107,8 +117,11 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tab-pane fade" id="ordersCancelled" role="tabpanel"
-                                    aria-labelledby="ordersCancelled-tab">
+                                @endif
+
+                                @if(!auth::user()->ordersOnlyTrashed()->isEmpty())
+                                <div class="tab-pane fade" id="orderCancelled" role="tabpanel"
+                                    aria-labelledby="orderCancelled-tab">
                                     <div class="card">
                                         <div class="card-header">
                                             <h5 class="mb-0"> الطلبات تم الغائها</h5>
@@ -137,10 +150,10 @@
                                                                     {{ $order->number_of_product }}
                                                                     منتج
                                                                 </td>
-                                                                <td><a href="{{ route('orders.show', $order->order_number) }}"
+                                                                <td><a href="{{ route('order.show', $order->order_number) }}"
                                                                         class="btn-small d-block">عرض</a></td>
                                                                 <td>
-                                                                    <form action="{{ route('orders.destroy', $order) }}"
+                                                                    <form action="{{ route('order.destroy', $order) }}"
                                                                           method="post">
                                                                         @method('delete')
                                                                         @csrf
@@ -156,8 +169,10 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tab-pane fade" id="track-orders" role="tabpanel"
-                                    aria-labelledby="track-orders-tab">
+                                @endif
+
+                                <div class="tab-pane fade" id="track-order" role="tabpanel"
+                                    aria-labelledby="track-order-tab">
                                     <div class="card">
                                         <div class="card-header">
                                             <h5 class="mb-0">تتبع الطلبات</h5>
@@ -169,7 +184,7 @@
                                             <div class="row">
                                                 <div class="col-lg-8">
                                                     <form class="contact-form-style mt-30 mb-50"
-                                                        action="{{ route('orders.search') }}" method="post">
+                                                        action="{{ route('order.search') }}" method="post">
                                                         @csrf
                                                         <div class="input-style mb-20">
                                                             <label>معرف الطلب</label>
@@ -185,6 +200,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                @if (!Auth::user()->addresses()->isEmpty())
                                 <div class="tab-pane fade" id="address" role="tabpanel" aria-labelledby="address-tab">
                                     @if (Auth::user()->addresses()->isEmpty())
                                         <h3>ليس لديك اي عنوان توصيل , لاضافة عنوان برجاء اضغط هنا </h3>
@@ -243,6 +259,7 @@
                                     </div>
                                     {{ auth::user()->addresses()->links() }}
                                 </div>
+                                @endif
                                 <div class="tab-pane fade" id="account-detail" role="tabpanel"
                                     aria-labelledby="account-detail-tab">
                                     <div class="card">

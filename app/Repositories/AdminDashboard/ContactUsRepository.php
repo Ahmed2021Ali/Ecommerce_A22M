@@ -14,7 +14,7 @@ class ContactUsRepository implements ContactUsInterface
 
     public function index()
     {
-        return view('adminDashboard.contactus.index', ['contacts' => ContactUs::paginate(10)]);
+        return view('adminDashboard.contactus.index', ['contacts' => ContactUs::latest()->paginate(10)]);
     }
 
 

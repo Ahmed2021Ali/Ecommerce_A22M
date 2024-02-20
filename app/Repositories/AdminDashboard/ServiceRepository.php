@@ -11,7 +11,7 @@ class ServiceRepository implements ServiceInterface
 
     public function index()
     {
-        return view('adminDashboard.service.index', ['services' => Service::paginate(10)]);
+        return view('adminDashboard.service.index', ['services' => Service::latest()->paginate(10)]);
     }
 
     public function store($request)

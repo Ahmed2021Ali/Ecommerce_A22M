@@ -11,7 +11,9 @@ use App\Http\Controllers\UserDashboard\ProductController;
 use App\Http\Controllers\UserDashboard\OrderController;
 use App\Http\Controllers\UserDashboard\ProfileController;
 use Illuminate\Support\Facades\Route;
-
+/*Route::middleware('throttle:60,1')->group(function () {
+    // Your routes
+});*/
 //(Ahmed Maghraby enhancement)    no enhancement
 Route::get('/', [HomepageController::class, 'index'])->name('home');
 
