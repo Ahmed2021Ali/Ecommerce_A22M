@@ -24,24 +24,23 @@
                         <li class="nav-item" role="presentation">
                             <button class="nav-link active" id="nav-tab-one" data-bs-toggle="tab"
                                     data-bs-target="#tab-one"
-                                    type="button" role="tab" aria-controls="tab-one" aria-selected="true"> المنتجات
-                                المميزة
+                                    type="button" role="tab" aria-controls="tab-one" aria-selected="true"> خصومات خاصة
                             </button>
                         </li>
                     @endif
                     @if(!$bestsellersProduct->isEmpty())
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="nav-tab-two" data-bs-toggle="tab" data-bs-target="#tab-two"
-                                    type="button" role="tab" aria-controls="tab-two" aria-selected="false">المنتجات
-                                المشهورة
+                                    type="button" role="tab" aria-controls="tab-two" aria-selected="false">
+                                الأكثر مبيعا
                             </button>
                         </li>
                     @endif
                     @if(!$newProducts->isEmpty())
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="nav-tab-three" data-bs-toggle="tab" data-bs-target="#tab-three"
-                                    type="button" role="tab" aria-controls="tab-three" aria-selected="false">المنتجات
-                                الجديدة
+                                    type="button" role="tab" aria-controls="tab-three" aria-selected="false">
+                            جديد
                             </button>
                         </li>
                     @endif

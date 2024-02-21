@@ -2,9 +2,7 @@
 
 namespace App\Repositories\UserDashboard;
 
-use App\Models\Category;
 use App\Models\Fav;
-use App\Models\Product;
 use App\Repositories\Interfaces\UserDashboard\FavInterface;
 use Illuminate\Support\Facades\Auth;
 

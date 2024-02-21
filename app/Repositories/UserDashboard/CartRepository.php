@@ -17,8 +17,8 @@ class CartRepository implements CartInterface
 
     public function store($request, $product)
     {
-        if ($this->valCart($product, $request)) {
-            return $this->valCart($product, $request);
+        if ($this->valiationCart($product, $request)) {
+            return $this->valiationCart($product, $request);
         }
         $cart = Cart::where('user_id', Auth::user()->id)->where('product_id', $product->id)
             ->where('color', $request['color'] ?? null)->where('size', $request['size'] ?? null)->first();
@@ -34,7 +34,7 @@ class CartRepository implements CartInterface
             return redirect()->back()->with('error', 'الكمية غير متوفره');
         }
         $cart->update(['quantity' => $request['quantity']]);
-        return redirect()->back()->with('success', 'تم زيادة العدد المطلوب لهذا المنتج');
+        return redirect()->back()->with('success', 'تم تحديث العدد المطلوب لهذا المنتج');
     }
 
     public function destroy($cart)
@@ -52,7 +52,7 @@ class CartRepository implements CartInterface
     }
 
     //  Special for Store Function
-    private function valCart($product, $request)
+    private function valiationCart($product, $request)
     {
         if ($product->color) {
             if (!isset($request['color'])) {
@@ -74,9 +74,9 @@ class CartRepository implements CartInterface
         }
         $cart->save();
         if ($request['button'] === 'addCart') {
-            return redirect()->back()->with('success', 'تم زيادة العدد المطلوب لهذا المنتج');
+            return redirect()->back()->with('success', 'تم تحديث العدد المطلوب لهذا المنتج');
         }
-        return to_route('cart.index')->with('success', 'برجاء ادخال العنوان المراد التوصيل المنتج  الية ');
+        return to_route('cart.index')->with('success', 'برجاء ادخال العنوان المراد التوصيل المنتج  اليه ');
     }
 
     private function notSetCart($product, $request)

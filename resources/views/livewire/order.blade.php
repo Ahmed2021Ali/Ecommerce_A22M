@@ -1,7 +1,4 @@
-<div>
-    @if ($subTotal)
         <form wire:submit="store">
-
             <div class="row mb-50">
                 <div class="col-lg-6 col-md-12">
                     <div class="border p-md-4 p-30 border-radius cart-totals">
@@ -14,15 +11,15 @@
                                 <tr>
                                     <td class="cart_total_label">الاجمالي المنتجات</td>
                                     <td class="cart_total_amount"><span
-                                            class="font-lg fw-900 text-brand">{{$subTotal}} جينية</span></td>
+                                            class="font-lg fw-900 text-brand">{{$subTotal}} جنية</span></td>
                                 </tr>
                                 <tr>
                                     <td class="cart_total_label">سعر التوصيل</td>
                                     <td class="cart_total_amount"><i class="ti-gift mr-5"></i>
                                         <span class="font-lg fw-900 text-brand">
                                         @if($deliveryPrice)
-                                                {{$deliveryPrice}} جينية
-                                            @endif
+                                                {{$deliveryPrice}} جنية
+                                        @endif
                                     </span>
 
                                     </td>
@@ -47,7 +44,7 @@
                                         <div class="form-row row justify-content-center">
                                             <div class="form-group col-lg-6">
                                                 <input type="text" name="couponCode" class="font-medium"
-                                                       wire:model="form.coupon" wire:change="coupon"/>
+                                                    wire:model="form.coupon" wire:change="coupon"/>
                                             </div>
                                             <div class="form-group col-lg-6">
                                                 @if ($discount)
@@ -102,5 +99,3 @@
             </div>
 
         </form>
-    @endif
-</div>

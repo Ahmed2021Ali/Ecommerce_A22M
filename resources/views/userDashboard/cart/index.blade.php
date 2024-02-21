@@ -67,8 +67,8 @@
                                                 @method('put')
                                                 @csrf
                                                 <input type="number" name="quantity" id="quantity"
-                                                       value="{{$cart->quantity}}" min="1"
-                                                       style="display: inline-block; width: 70px; padding: 6px; text-align: center; border: 1px solid #ccc; border-radius: 3px;">
+                                                    value="{{$cart->quantity}}" min="1"
+                                                    style="display: inline-block; width: 70px; padding: 6px; text-align: center; border: 1px solid #ccc; border-radius: 3px;">
                                                 <button type="submit" class="btn btn-primary"> تحديث الكمية</button>
                                                 @error('quantity')<span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>@enderror
                                             </form>
@@ -101,7 +101,11 @@
                             </table>
                         </div>
                         <div class="divider center_icon mt-50 mb-50"><i class="fi-rs-fingerprint"></i></div>
-                        <livewire:order :subTotal="$subTotal"/>
+                        <div>
+                            @if ($subTotal)
+                                <livewire:order :subTotal="$subTotal"/>
+                            @endif
+                        </div>                        
                     </div>
                 </div>
             </div>

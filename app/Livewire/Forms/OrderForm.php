@@ -50,7 +50,7 @@ class OrderForm extends Form
         }
         // Send mail for admin -> dispatch
         SendMail::dispatch($order);
-        return to_route('orders.show', $order_number);
+        return to_route('order.show', $order_number);
     }
 
 }

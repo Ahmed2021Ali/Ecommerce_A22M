@@ -57,6 +57,8 @@ function calcTotalPriceOrder($subTotal, $deliveryPrice, $discount)
     }
     return $subTotal + $deliveryPrice;
 }
+
+
 function calcPriceProduct($price, $offer, $price_after_offer, $quantity)
 {
     if ($offer) {
