@@ -18,9 +18,9 @@ class AddressRequest extends FormRequest
         return [
             'fname' => ['required', 'string', 'max:25', 'min:2'],
             'lname' => ['required', 'string', 'max:25', 'min:2'],
-            'phone' => ['required', 'string', 'min:4','max:20',Rule::unique('addresses','phone')->ignore($this->address->id??null, 'id')],
+            'phone' => ['required', 'string', 'min:4','max:20'],
             'address' => ['required', 'string', 'max:150', 'min:10'],
-            'email' => ['required', 'email','min:10', 'max:40',Rule::unique('addresses','email')->ignore($this->address->id??null, 'id')],
+            'email' => ['required', 'email','min:10', 'max:40'],
             'note' => ['nullable', 'string', 'max:255'],
             'city_id'=>['required','string','exists:available_cities,id']
         ];
@@ -43,7 +43,6 @@ class AddressRequest extends FormRequest
             'phone.string' => 'حقل الهاتف لابد ان يكون ارقام',
             'phone.max' => 'يجب أن لا يتجاوز حقل الهاتف 20 رقما',
             'phone.min' => 'يجب أن يحتوي حقل الهاتف على الأقل 4 ارقام',
-            'phone.unique' => 'رفم التليفون مستخدم بالفعل  - يرجي ادخال رفم اخر.',
 
 
             'address.required' => 'حقل العنوان مطلوب',

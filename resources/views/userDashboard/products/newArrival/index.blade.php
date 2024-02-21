@@ -23,7 +23,6 @@
                             <h2>
                                 <a href="{{ route('products.show', encrypt($newProduct->id)) }}">{{ $newProduct->name }}</a>
                             </h2>
-                            {{ Str::limit($newProduct->description, 35) }}
                             <span>
                                 @if($newProduct->offer)
                                     <span>تخفيض %{{ $newProduct->offer }}</span>

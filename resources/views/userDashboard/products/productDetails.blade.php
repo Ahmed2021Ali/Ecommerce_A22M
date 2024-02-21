@@ -272,12 +272,8 @@
                                                         </div>
                                                     </div>
                                                     <div class="product-content-wrap">
-                                                        <div class="product-category">
-                                                            <a href="{{route('products.show', encrypt($product->id))}}">{{ $relatedProduct->name }}</a>
-
-                                                        </div>
                                                         <h2>
-                                                            <a href="{{route('products.show', encrypt($product->id))}}">{{ Str::limit($relatedProduct->description, 50) }}
+                                                            <a href="{{route('products.show', encrypt($product->id))}}">{{ $relatedProduct->name }}
 
                                                             </a>
                                                         </h2>

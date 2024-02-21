@@ -21,11 +21,13 @@ class EventServiceProvider extends ServiceProvider
     {
         Event::listen(BuildingMenu::class, function (BuildingMenu $event) {
             $event->menu->add('لوحة التحكم');
+
             $event->menu->add([
                 'text' => 'الصفحة الرئيسية',
                 'icon' => 'fas fa-home',
                 'route' => 'admin.dashboard',
             ]);
+
             $event->menu->add([
                 'text' => 'الموقع الإلكتروني',
                 'icon' => 'fas fa-globe',

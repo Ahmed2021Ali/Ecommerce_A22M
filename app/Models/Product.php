@@ -35,4 +35,8 @@ class Product extends Model implements HasMedia
     {
         $this->addMediaCollection('productsFiles');
     }
+/*    public function registerMediaConversions(Media $media = null): void
+    {
+        $this->addMediaConversion('preview')->width(100);
+    }*/
 }

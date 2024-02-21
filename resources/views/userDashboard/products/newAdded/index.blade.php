@@ -17,10 +17,7 @@
                         </div>
                     </div>
                     <div class="product-content-wrap">
-                        <div class="product-category">
-                            <a href="{{route('products.show', encrypt($newProduct->id))}}">{{ Str::limit($newProduct->name, 25) }}</a>
-                        </div>
-                        <h2><a href="{{route('products.show', encrypt($newProduct->id))}}">{{ Str::limit($newProduct->description, 50) }}</a></h2>
+                        <h2><a href="{{route('products.show', encrypt($newProduct->id))}}">{{  $newProduct->name }}</a></h2>
                         <span>
                             @include('userDashboard.products.review.ratingProduct',['rate'=>calcReview($newProduct)])
                             @if($newProduct->offer)

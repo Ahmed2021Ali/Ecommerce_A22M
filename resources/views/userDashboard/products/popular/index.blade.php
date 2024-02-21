@@ -5,9 +5,7 @@
                 <div class="product-cart-wrap mb-30">
                     <div class="product-img-action-wrap">
                         <div class="product-img product-img-zoom">
-                            <a href="{{route('products.show', encrypt($bestsellerProduct->id))}}"><img
-                                    src="{{$bestsellerProduct->getFirstMediaUrl('productFiles')}}" width="400" height="250"
-                                    style="direction: rtl; text-align: right;"></a>
+                            <a href="{{route('products.show', encrypt($bestsellerProduct->id))}}"><img src="{{$bestsellerProduct->getFirstMediaUrl('productFiles')}}" width="400" height="250" style="direction: rtl; text-align: right;"></a>
                         </div>
                         <div class="product-action-1">
                             <a aria-label="عرض" class="action-btn hover-up" data-bs-toggle="modal"
