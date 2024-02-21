@@ -34,7 +34,7 @@
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>
-                            <a href="{{ route('orders.show', $order->order_number) }}" class="btn btn-primary"> عرض الاردر</a>
+                            <a href="{{ route('orders.show', encrypt($order->id)) }}" class="btn btn-primary"> عرض الاردر</a>
                         </td>
                         <td>{{ $order->number_of_product }}</td>
                         <td>{{ $order->subtotal }}</td>

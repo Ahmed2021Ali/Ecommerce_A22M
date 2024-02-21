@@ -11,12 +11,16 @@ class Order extends Model
 
     protected $fillable = [
         'address_id', 'user_id', 'product_id', 'quantity',
-        'price','color','size', 'total_price', 'delivery_status_of_orders', 'order_number',
+        'price','color','size', 'total_price', 'delivery_status_of_orders', 'detailsOrder_id',
         'delivery_status',
     ];
 
     public function product()
     {
         return $this->belongsTo(Product::class);
+    }
+    public function deatailsOrder()
+    {
+        return $this->belongsTo(OrderDetails::class,'detailsOrder_id');
     }
 }

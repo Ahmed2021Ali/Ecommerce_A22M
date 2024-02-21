@@ -40,7 +40,7 @@ Route::middleware('throttle:45,1')->group(function () {
             Route::get('/clear', 'clear')->name('clear');
         });
         Route::controller(OrderController::class)->prefix('orders')->as('orders.')->group(function () {
-            Route::get('/show/{order_number}', 'show')->name('show');
+            Route::get('/show/{order}', 'show')->name('show');
             Route::post('/search', 'search')->name('search');
             Route::delete('/destroy/{order}', 'destroy')->name('destroy');
         });

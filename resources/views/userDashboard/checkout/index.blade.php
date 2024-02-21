@@ -73,7 +73,7 @@
                                     <td class="product-subtotal" colspan="2">{{ Str::limit($detailsOrder->address->note , 65) }}</td>
                                 </tr>
                             </table>
-                            <a href="{{route('address.edit',encrypt($detailsOrder->id))}}"
+                            <a href="{{route('address.edit',encrypt($detailsOrder->address_id))}}"
                                class="btn btn-fill-out btn-block mt-30">تعديل العنوان</a>
                         </section>
                     </div>
@@ -92,7 +92,7 @@
                                     </thead>
                                     <tbody>
                                     <tr>
-                                        @foreach($orders as $order)
+                                        @foreach($detailsOrder->orders as $order)
                                             <td class="image product-thumbnail"><img
                                                     src="{{$order->product->getFirstMediaUrl('productFiles')}}" alt="#">
                                             </td>

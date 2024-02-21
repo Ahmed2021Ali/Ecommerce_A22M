@@ -98,7 +98,7 @@
                                                                     {{ $order->number_of_product }}
                                                                     منتج
                                                                 </td>
-                                                                <td><a href="{{ route('orders.show', $order->order_number) }}"
+                                                                <td><a href="{{ route('orders.show', encrypt($order->id)) }}"
                                                                         class="btn-small d-block">عرض</a></td>
                                                                 <td>
                                                                     <form action="{{ route('orders.destroy', $order) }}"
@@ -151,7 +151,7 @@
                                                                     {{ $order->number_of_product }}
                                                                     منتج
                                                                 </td>
-                                                                <td><a href="{{ route('orders.show', $order->order_number) }}"
+                                                                <td><a href="{{ route('orders.show',encrypt($order->id)) }}"
                                                                         class="btn-small d-block">عرض</a></td>
                                                                 <td>
                                                                     <form action="{{ route('orders.destroy', $order) }}"
