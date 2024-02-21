@@ -18,16 +18,13 @@
                         </div>
                     </div>
                     <div class="product-content-wrap">
-<<<<<<< HEAD
                         <div class="product-category">
                             <a href="{{route('products.show', encrypt($featuredProduct->id))}}">{{ Str::limit($featuredProduct->name, 25) }}</a>
                         </div>
                         <h2><a href="{{route('products.show', encrypt($featuredProduct->id))}}">{{ Str::limit($featuredProduct->description, 20) }}</a></h2>
-=======
                         <h2>
                             <a href="{{route('products.show', encrypt($featuredProduct->id))}}">{{ $featuredProduct->name }}</a>
                         </h2>
->>>>>>> 761be6ac1ed0f64bb211d34c6eb0069003723ad5
                         <span>
                             @include('userDashboard.products.review.ratingProduct',['rate'=>calcReview($featuredProduct)])
                             @if($featuredProduct->offer)
