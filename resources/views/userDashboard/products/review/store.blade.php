@@ -3,7 +3,7 @@
         <h4 class="mb-15">اضافة تقييم </h4>
         <div class="row">
             <div class="col-lg-8 col-md-12">
-                <form class="form-contact comment_form" id="commentForm" data-product="{{ $product->id }}">
+                <form class="form-contact comment_form" action="{{route('review.store',$product)}}" method="post">
                     @csrf
                     <div class="col-md-12">
                         <div class="stars">

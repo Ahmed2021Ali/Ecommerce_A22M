@@ -24,7 +24,7 @@ class ProductRequest extends FormRequest
             'offer' => ['nullable', 'numeric', 'max:99', 'min:1'],
             'status' => ['required', 'integer', 'between:0,1'],
             'description' => ['required', 'string','min:2','max:255'],
-            'files.*'=>['nullable','max:4000','mimes:png,jpg,jpeg'],
+            'files.*'=>['nullable','max:10000','mimes:png,jpg,jpeg'],
             'category_id' => ['required', 'numeric', 'exists:categories,id'],
         ];
     }

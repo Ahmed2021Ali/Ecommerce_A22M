@@ -12,13 +12,9 @@ class ReviewRepository implements ReviewInterface
 
     public function store($request, $product)
     {
-        // Your validation and other logic here
-    
-        Review::create([...$request->all(), 'user_id' => Auth::user()->id, 'product_id' => $product]);
-    
-        return response()->json(['success' => true]);
+        Review::create([...$request, 'user_id' => Auth::user()->id, 'product_id' => $product->id]);
+        return  redirect()->back()->with('success', 'تم تقييمك للمنتج بنجاح');
     }
-    
 
     public function edit($review)
     {

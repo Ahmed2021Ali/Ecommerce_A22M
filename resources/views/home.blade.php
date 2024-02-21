@@ -53,6 +53,7 @@
             </div>
             <!--End nav-tabs-->
             <div class="tab-content wow fadeIn animated" id="myTabContent">
+
                 @if(!$featuredProducts->isEmpty())
                     @include('userDashboard.products.featured.index')
                 @endif

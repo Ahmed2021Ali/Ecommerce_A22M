@@ -21,7 +21,7 @@ class OrderRepository implements OrderInterface
             return view('userDashboard.checkout.index', ['orders' => Order::where('order_number', $order_number)->get(),
                 'detailsOrder' => $detailsOrder]);
         }
-        return to_route('page.NotFound');
+        return redirect()->back()->with('error', ' حدث خطأ في عرض الاردر ');
     }
 
     public function destroy($order)

@@ -7,7 +7,8 @@
                 <div class="header-info header-info-right">
                     @guest
                         <ul>
-                            <li><i class="fi-rs-key"></i><a href="{{ route('signin.view.form') }}">تسجيل دخول</a> / <a href="{{ route('signup.view.form') }}">إنشاء حساب</a></li>
+                            <li><i class="fi-rs-key"></i><a href="{{ route('signin.view.form') }}">تسجيل دخول</a> / <a
+                                    href="{{ route('signup.view.form') }}">إنشاء حساب</a></li>
                         </ul>
                     @endguest
                 </div>
@@ -20,22 +21,28 @@
             <div class="header-wrap">
                 <div class="header-right">
 
-                    <a href="{{route('home')}}"><img src="{{URL::asset('assets/imgs/logo/Picsart_24-02-16_18-01-27-786.png')}}" alt="A22M Logo" style="width: 88px"></a>
+                    <a href="{{route('home')}}"><img
+                            src="{{URL::asset('assets/imgs/logo/Picsart_24-02-16_18-01-27-786.png')}}" alt="A22M Logo"
+                            style="width: 88px"></a>
 
                     {{-- Search Icons--}}
                     <div class="search-style-1" style="direction: rtl; text-align: right;">
                         <form action="{{ route('search') }}" method="GET">
                             <div style="display: flex; align-items: center;">
-                                <button type="submit" style="background: none; border: none; padding: 0; margin: 0; cursor: pointer;"><i class="fas fa-search fa-lg" style="margin-right: 8px; padding: 13px 11px 11px 18px;"></i></button>
+                                <button type="submit"
+                                        style="background: none; border: none; padding: 0; margin: 0; cursor: pointer;">
+                                    <i class="fas fa-search fa-lg"
+                                       style="margin-right: 8px; padding: 13px 11px 11px 18px;"></i></button>
                                 <!-- Input with placeholder on the right -->
-                                <input required type="text" name="search" style="direction: rtl; text-align: right; flex: 1;" placeholder="بحث">
+                                <input required type="text" name="search"
+                                       style="direction: rtl; text-align: right; flex: 1;" placeholder="بحث">
                             </div>
                         </form>
                     </div>
 
                     {{-- Fav and Cart Icons--}}
                     @auth
-                    <div class="header-action-right">
+                        <div class="header-action-right">
                             <div class="header-action-2">
                                 <div class="header-action-icon-2">
                                     <a href="{{ route('fav.index') }}">
@@ -53,7 +60,7 @@
                                     <x-view-cart-home-page/>
                                 </div>
                             </div>
-                    </div>
+                        </div>
                     @endauth
 
                 </div>
@@ -99,9 +106,14 @@
                                             <li><i class="fas fa-user fa-lg" style="margin-right: 23px;"></i>&nbsp;
                                                 {{ Auth::user()->name }}
                                             </li>
+                                            @if(Auth::check() && Auth::user()->hasRole(['المدير', 'ادمن']))
+                                                <li ><a href="{{ route('admin.dashboard') }}"> <i class="fa fa-tags" aria-hidden="true"> </i>
+                                                                  الانتقال إلى لوحة التحكم</a> </li>
+                                            @endif
                                             <li><a href="{{route('profile.index')}}"><i class="fas fa-cogs fa-lg"></i>&nbsp;
                                                     اعدادات الحساب</a></li>
-                                            <li><a href="{{route('cart.index')}}"><i class="fas fa-shopping-bag"></i>&nbsp; الطلبات</a></li>
+                                            <li><a href="{{route('cart.index')}}"><i class="fas fa-shopping-bag"></i>&nbsp;
+                                                    الطلبات</a></li>
                                             <li><a href="{{route('fav.index')}}"><i class="fas fa-heart fa-lg"></i>&nbsp;
                                                     المفضلة</a></li>
                                             <li class="nav-item">
@@ -116,14 +128,7 @@
                                         </ul>
                                     @endauth
                                 </li>
-                                @if(Auth::check() && Auth::user()->hasRole(['المدير', 'ادمن']))
-                                <!-- If the user is an admin or manager -->
-                                <li class="position-static">
-                                    <a href="{{ route('admin.dashboard') }}">
-                                        {{ __('الانتقال إلى لوحة التحكم') }}
-                                    </a>
-                                </li>
-                            @endif
+
                             </ul>
                         </nav>
                     </div>
@@ -138,7 +143,7 @@
                         </span>
                     </p>
                 </div>
-                
+
 
                 {{-- Mobile  header --}}
                 @include('userDashboard.layouts.mobile.header')

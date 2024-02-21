@@ -18,7 +18,7 @@ class ServiceRequest extends FormRequest
         return [
             'name'=>['required','string','min:2','max:25'],
             'status'=>['required','integer','between:0,1'],
-            'files.*'=>['nullable','max:2000','mimes:png,jpg,jpeg'],
+            'files.*'=>['nullable','max:5000','mimes:png,jpg,jpeg'],
         ];
     }
 
@@ -34,7 +34,7 @@ class ServiceRequest extends FormRequest
             'status.between' => 'يجب أن تكون حالة العنصر بين 0 و 1.',
 
             'files.*.required' => 'حقل الملفات مطلوب.',
-            'files.*.max' => 'يجب ألا يتجاوز حجم الملف 2000 كيلوبايت.',
+            'files.*.max' => 'يجب ألا يتجاوز حجم الملف 5000 كيلوبايت.',
             'files.*.mimes' => 'يجب أن يكون النوع الملف ممتد إلى png، jpg، أو jpeg.',
         ];
     }

@@ -13,7 +13,6 @@ class ContactUsController extends Controller
     public function __construct(ContactUsInterface $contact)
     {
         $this->contact = $contact;
-        $this->middleware(['auth', 'throttle:60,1']);
     }
 
     public function index()

@@ -21,7 +21,6 @@ class ColorController extends Controller
         $this->middleware('permission:حذف الوان', ['only' => ['destroy']]);
 
         $this->color = $color;
-        $this->middleware(['checkAdminRole','throttle:60,1']);
     }
 
     public function index()

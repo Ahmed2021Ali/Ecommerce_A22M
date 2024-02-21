@@ -15,7 +15,6 @@ class AddressController extends Controller
     public function __construct(AddressInterface $address)
     {
         $this->address = $address;
-        $this->middleware(['auth', 'throttle:60,1']);
     }
     public function create()
     {

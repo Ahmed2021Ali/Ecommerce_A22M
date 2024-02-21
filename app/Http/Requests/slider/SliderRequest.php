@@ -21,7 +21,7 @@ class SliderRequest extends FormRequest
             'title_h4'=>['required','string','max:37','min:3'],
             'title_p'=>['required','string','max:55','min:3'],
             'status'=>['required','integer','between:0,1'],
-            'files.*'=>['nullable','max:2000','mimes:png,jpg,jpeg'],
+            'files.*'=>['nullable','max:5000','mimes:png,jpg,jpeg'],
         ];
     }
 
@@ -56,7 +56,7 @@ class SliderRequest extends FormRequest
             'status.between' => 'يجب أن تكون حالة التصميم بين 0 و 1.',
             'files.*.required' => 'حقل الملفات مطلوب.',
 
-            'files.*.max' => 'يجب ألا يتجاوز حجم الملف 2000 كيلوبايت.',
+            'files.*.max' => 'يجب ألا يتجاوز حجم الملف 5000 كيلوبايت.',
             'files.*.mimes' => 'يجب أن يكون النوع الملف ممتد إلى png، jpg، أو jpeg.',
         ];
     }

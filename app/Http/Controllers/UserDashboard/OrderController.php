@@ -13,7 +13,6 @@ class OrderController extends Controller
     public function __construct(OrderInterface $order)
     {
         $this->order = $order;
-        $this->middleware(['auth', 'throttle:60,1']);
 
     }
 

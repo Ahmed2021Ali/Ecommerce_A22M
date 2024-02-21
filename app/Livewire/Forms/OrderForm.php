@@ -20,7 +20,7 @@ class OrderForm extends Form
     #[Validate('nullable|min:5')]
     public $coupon;
 
-    public function save($deliveryPrice, $subTotal, $discount)
+    public function storeOrder($deliveryPrice, $subTotal, $discount)
     {
         $this->validate();
         $order_number = Str::random(16);

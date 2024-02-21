@@ -14,7 +14,6 @@ class RoleController extends Controller
     private $roleRepository;
 
     public function __construct(RoleInterface $roleRepository) {
-    $this->middleware(['checkAdminRole','throttle:60,1']);
     $this->middleware('permission:نوع المستخدم', ['only' => ['index']]);
     $this->middleware('permission:اضافة نوع مستخدم', ['only' => ['create','store']]);
     $this->middleware('permission:تعديل نوع مستخدم', ['only' => ['edit','update']]);
@@ -41,7 +40,7 @@ class RoleController extends Controller
     public function store(RoleRequest $request)
     {
         return $this->roleRepository->store($request);
-    }    
+    }
 
 
     public function show($id)
@@ -57,7 +56,7 @@ class RoleController extends Controller
 
 
     public function update(RoleRequest $request, $id)
-    {        
+    {
         return $this->roleRepository->update($request, $id);
     }
 

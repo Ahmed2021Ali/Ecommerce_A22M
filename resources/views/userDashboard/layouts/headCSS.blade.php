@@ -8,9 +8,7 @@
     .height-100{
         height:50vh;
     }
-    .ratings{
-        margin-right:80px;
-    }
+
     @media (max-width: 767px) {
         .ratings{
             margin-right:10px;

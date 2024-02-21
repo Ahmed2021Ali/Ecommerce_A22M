@@ -16,9 +16,7 @@ class AvailableCityController extends Controller
         $this->middleware('permission:اضافة محافظة', ['only' => ['create', 'store']]);
         $this->middleware('permission:تعديل محافظة', ['only' => ['edit', 'update']]);
         $this->middleware('permission:حذف محافظة', ['only' => ['destroy']]);
-
         $this->city = $city;
-        $this->middleware(['checkAdminRole','throttle:60,1']);
     }
 
     public function index()
@@ -35,7 +33,7 @@ class AvailableCityController extends Controller
     {
         return $this->city->update($request->validated(),$city);
     }
-    
+
     public function destroy(AvailableCity $city)
     {
         return $this->city->destroy($city);
