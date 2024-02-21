@@ -49,8 +49,8 @@ class OrderForm extends Form
             DB::rollback();
         }
         // Send mail for admin -> dispatch
-        SendMail::dispatch($order);
-        return to_route('order.show', $order_number);
+        //SendMail::dispatch($order);
+        return to_route('orders.show', $order_number);
     }
 
 }
