@@ -267,9 +267,7 @@
                                                                class="action-btn small hover-up"
                                                                onclick="addToFavorites({{ $relatedProduct->id }})"
                                                                tabindex="0"><i class="fi-rs-heart"></i></a>
-                                                            <a aria-label="تسوق الآن" class="action-btn hover-up"
-                                                               href="{{ route('products.show', encrypt($relatedProduct->id)) }}"><i
-                                                                    class="fi-rs-shopping-bag-add"></i></a>
+                                                            
                                                         </div>
                                                     </div>
                                                     <div class="product-content-wrap">

@@ -36,9 +36,6 @@
                                     <span class="old-price"> ج {{ $newProduct->price }}</span>
                                 @endif
                             </div>
-                            <div class="product-action-1 show">
-                                <a aria-label="تسوق الآن" class="action-btn hover-up" href="{{route('products.show', encrypt($newProduct->id))}}"><i class="fi-rs-shopping-bag-add"></i></a>
-                            </div>
                         </div>
                     </div>
                     <!-- End product-cart-wrap-2 -->
