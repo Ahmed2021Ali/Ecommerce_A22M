@@ -1,4 +1,5 @@
-<div class="tab-pane fade show active" id="tab-one" role="tabpanel" aria-labelledby="tab-one">
+<div class="d-block d-lg-none">
+<div  id="tab-one" role="tabpanel" aria-labelledby="tab-one">
     <div class="row product-grid-4" style="direction: rtl; text-align: center;">
         @foreach($featuredProducts as $featuredProduct)
             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 col-6">
@@ -18,16 +19,10 @@
                         </div>
                     </div>
                     <div class="product-content-wrap">
-<<<<<<< HEAD
                         <div class="product-category">
                             <a href="{{route('products.show', encrypt($featuredProduct->id))}}">{{ Str::limit($featuredProduct->name, 25) }}</a>
                         </div>
                         <h2><a href="{{route('products.show', encrypt($featuredProduct->id))}}">{{ Str::limit($featuredProduct->description, 20) }}</a></h2>
-=======
-                        <h2>
-                            <a href="{{route('products.show', encrypt($featuredProduct->id))}}">{{ $featuredProduct->name }}</a>
-                        </h2>
->>>>>>> 761be6ac1ed0f64bb211d34c6eb0069003723ad5
                         <span>
                             @include('userDashboard.products.review.ratingProduct',['rate'=>calcReview($featuredProduct)])
                             @if($featuredProduct->offer)
@@ -54,3 +49,4 @@
     </div>
 </div>
 
+</div>
