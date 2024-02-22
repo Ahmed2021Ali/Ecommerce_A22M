@@ -165,6 +165,7 @@
                                                 <li><i class="fi-rs-credit-card mr-5"></i> الدفع عند الاستلام متاح</li>
                                             </ul>
                                         </div>
+                                        @if($product->quantity !== '0')
                                         <form action="{{ route('cart.store', $product) }}" method="post">
                                             @csrf
 
@@ -174,8 +175,7 @@
                                                      style="display: flex; margin-top: 2px; direction: rtl; text-align: right;">
                                                     <strong class="mr-10">اللون &nbsp;&nbsp;</strong>
                                                     <ul class="list-filter color-filter">
-                                                        <li><a href="#"><span class="product-color-teal"
-                                                                              style="width: 30px; height: 30px; border-radius: 50%; cursor: pointer; display: flex; margin-right: 6px;"></span></a>
+                                                        <li><a href="#"><span class="product-color-teal" style="width: 30px; height: 30px; border-radius: 50%; cursor: pointer; display: flex; margin-right: 6px;"></span></a>
                                                         </li>
                                                         <div class="colors">
                                                             @foreach (explode(',', $product->color) as $color)
@@ -222,7 +222,9 @@
                                                 </button>
                                             </div>
                                         </form>
-
+                                        @else
+                                            <h4 style="color: red"> المنتج غير متوفر </h4>
+                                        @endif
 
                                     </div>
                                     <!-- End Product Info -->
@@ -259,8 +261,7 @@
                                                         </div>
                                                         <div class="product-action-1">
                                                             <a href="{{ $relatedProduct->getFirstMediaUrl('productFiles') }}"
-                                                               aria-label="عرض" class="action-btn small hover-up"
-                                                               data-bs-target="#quickViewModal"><i
+                                                               aria-label="عرض" class="action-btn small hover-up" data-bs-target="#quickViewModal"><i
                                                                     class="fi-rs-eye"></i></a>
                                                             <a aria-label="أضف إلى المفضلة"
                                                                class="action-btn small hover-up"

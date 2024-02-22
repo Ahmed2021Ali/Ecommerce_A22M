@@ -17,24 +17,23 @@ class OrderForm extends Form
     #[Validate('required')]
     public $address_id;
 
-    #[Validate('nullable|min:5')]
+    #[Validate('nullable')]
     public $coupon;
 
     public function storeOrder($deliveryPrice, $subTotal, $discount)
     {
         $this->validate();
-        $order_number = Str::random(16);
         DB::beginTransaction();
         try {
             $order = OrderDetails::create([
                 'user_id' => Auth::user()->id, 'address_id' => $this->address_id, 'subtotal' => $subTotal,
-                'delivery_price' => $deliveryPrice, 'order_number' => $order_number,
+                'delivery_price' => $deliveryPrice, 'order_number' => Str::random(16),
                 'number_of_product' => Auth::user()->carts()->count(),'coupon_value' => $discount->value ?? null,
                 'total' => calcTotalPriceOrder($subTotal, $deliveryPrice, $discount->value??null)
             ]);
             foreach (Auth::user()->carts() as $cart) {
                 Order::create([
-                    'order_number' => $order_number, 'product_id' => $cart->product_id,
+                    'detailsOrder_id' => $order->id, 'product_id' => $cart->product_id,
                     'quantity' => $cart->quantity,'color' => $cart->color,'size' => $cart->size,
                     'price' => calcPriceProduct($cart->product->price,$cart->product->offer,$cart->product->price_after_offer,null),
                     'total_price' => calcPriceProduct($cart->product->price,$cart->product->offer,$cart->product->price_after_offer,$cart->quantity),
@@ -49,8 +48,8 @@ class OrderForm extends Form
             DB::rollback();
         }
         // Send mail for admin -> dispatch
-        SendMail::dispatch($order);
-        return to_route('order.show', $order_number);
+        //SendMail::dispatch($order);
+        return to_route('orders.show',encrypt($order->id));
     }
 
 }

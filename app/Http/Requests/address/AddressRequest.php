@@ -18,15 +18,9 @@ class AddressRequest extends FormRequest
         return [
             'fname' => ['required', 'string', 'max:25', 'min:2'],
             'lname' => ['required', 'string', 'max:25', 'min:2'],
-<<<<<<< HEAD
-            'phone' => ['required', 'string', 'min:4','max:20',Rule::unique('addresses','phone')->ignore($this->address->id??null, 'id')],
+            'phone' => ['required', 'string', 'min:4','max:20',],
             'address' => ['required', 'string', 'max:150', 'min:5'],
-            'email' => ['required', 'email','min:10', 'max:40',Rule::unique('addresses','email')->ignore($this->address->id??null, 'id')],
-=======
-            'phone' => ['required', 'string', 'min:4','max:20'],
-            'address' => ['required', 'string', 'max:150', 'min:10'],
             'email' => ['required', 'email','min:10', 'max:40'],
->>>>>>> 761be6ac1ed0f64bb211d34c6eb0069003723ad5
             'note' => ['nullable', 'string', 'max:255'],
             'city_id'=>['required','string','exists:available_cities,id']
         ];

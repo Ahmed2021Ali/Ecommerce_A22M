@@ -16,14 +16,14 @@ class OrderController extends Controller
 
     }
 
-    public function show($order_number)
+    public function show($order)
     {
-        return $this->order->show($order_number);
+        return $this->order->show(OrderDetails::withTrashed()->findOrFail(decrypt($order)));
     }
 
     public function destroy($order)
     {
-        return $this->order->destroy(OrderDetails::withTrashed()->find($order));
+        return $this->order->destroy(OrderDetails::withTrashed()->findOrFail($order));
     }
     public function search(Request $request)
     {

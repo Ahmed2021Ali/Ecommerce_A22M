@@ -10,7 +10,7 @@
                                 @if($review->user->getFirstMediaUrl('userImages'))
                                     <img src="{{ $review->user->getFirstMediaUrl('userImages') }}" alt="user">
                                 @else
-                                    <img src="{{ URL::asset('assets/imgs/page/avatar-8.jpg')}}" alt="user">
+                                    <i class="fas fa-user fa-lg"></i>
                                 @endif
                                 <h6>{{ $review->user->name}}</h6>
                                 <p class="font-xxs">since {{ $review->user->created_at->toformatteddatestring()}}</p>

@@ -14,14 +14,9 @@ use Illuminate\Support\Str;
 class OrderRepository implements OrderInterface
 {
 
-    public function show($order_number)
+    public function show($order)
     {
-        $detailsOrder = OrderDetails::where('order_number', $order_number)->withTrashed()->first();
-        if (isset($detailsOrder)) {
-            return view('userDashboard.checkout.index', ['orders' => Order::where('order_number', $order_number)->get(),
-                'detailsOrder' => $detailsOrder]);
-        }
-        return redirect()->back()->with('error', ' حدث خطأ في عرض الاردر ');
+        return view('userDashboard.checkout.index', ['detailsOrder' => $order]);
     }
 
     public function destroy($order)
@@ -37,15 +32,13 @@ class OrderRepository implements OrderInterface
     {
         $detailsOrder = OrderDetails::where('order_number', $order_number)->withTrashed()->first();
         if ($detailsOrder) {
-            return view('userDashboard.checkout.index', ['orders' => Order::where('order_number', $order_number)->get(),
-                'detailsOrder' => $detailsOrder]);
+            return view('userDashboard.checkout.index', ['detailsOrder' => $detailsOrder]);
         }
         return redirect()->back()->with('success', ' رقم الطلب خطأ');
     }
 
     private function forceDelete($order)
     {
-        Order::where('order_number', $order->order_number)->delete();
         $order->forceDelete();
     }
 

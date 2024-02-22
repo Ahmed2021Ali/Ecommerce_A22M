@@ -42,7 +42,6 @@ class OrderRepository implements OrderInterface
 
     public function destroy($order)
     {
-        Order::where('order_number', $order->order_number)->delete();
         $order->forceDelete();
         return redirect()->back()->with('success', 'تم حذف الاردر بنجاح');
     }

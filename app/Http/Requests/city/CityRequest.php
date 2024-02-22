@@ -18,11 +18,7 @@ class CityRequest extends FormRequest
     {
         return [
             'name'=>['required', 'string', 'max:25','min:2',Rule::unique('available_cities','name')->ignore($this->city->id??null, 'id')],
-<<<<<<< HEAD
-            'price'=>['required', 'string','min:0','max:5000'],
-=======
             'price'=>['required', 'numeric','min:0','max:5000'],
->>>>>>> 68c284b08c374c6b603ad2c87b2e1039ca3ac2e9
         ];
     }
 
