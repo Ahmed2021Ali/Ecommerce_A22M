@@ -46,8 +46,7 @@
                     @endif
                 </ul>
                 @if(!$products->isEmpty())
-                    <a href="{{route('products.index')}}" class="view-more d-none d-md-flex">عرض الكل<i
-                            class="fi-rs-angle-double-small-left"></i></a>
+                    <a href="{{route('products.index')}}" class="view-more d-none d-md-flex">عرض الكل<i class="fi-rs-angle-double-small-left"></i></a>
                 @endif
 
             </div>
@@ -103,6 +102,10 @@
 
     @if(!$newProducts->isEmpty())
         @include('userDashboard.products.newArrival.index')
+    @endif
+
+    @if(!$categories->isEmpty())
+            @include('userDashboard.categoryProducts.index')
     @endif
 
     @if(!$brands->isEmpty())

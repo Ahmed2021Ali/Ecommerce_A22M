@@ -20,6 +20,10 @@ class Category extends Model implements HasMedia
     {
         return $this->hasMany(Product::class)->where('status',1)->paginate(8);
     }
+    public function products2()
+    {
+        return $this->hasMany(Product::class)->where('status',1);
+    }
     public function registerMediaConversions(Media $media = null): void
     {
         $this->addMediaCollection('categoryFiles');
