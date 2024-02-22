@@ -17,7 +17,7 @@ class OrderForm extends Form
     #[Validate('required')]
     public $address_id;
 
-    #[Validate('nullable|min:5')]
+    #[Validate('nullable')]
     public $coupon;
 
     public function storeOrder($deliveryPrice, $subTotal, $discount)

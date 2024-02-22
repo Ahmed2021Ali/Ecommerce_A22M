@@ -16,6 +16,8 @@ class OrderController extends Controller
         $this->middleware('permission:اوردارات لم يتم توصيلها', ['only' => ['index']]);
         $this->middleware('permission:اوردارات تم إلغائها', ['only' => ['ordersCancelled']]);
         $this->middleware('permission:تأكيد توصيل الأوردر', ['only' => ['deliveryStatus']]);
+        $this->middleware('permission: حذف الأوردر', ['only' => ['destroy']]);
+
 
         $this->order = $order;
     }

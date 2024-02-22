@@ -16,7 +16,7 @@ class ProductController extends Controller
     public function __construct(ProductInterface $product)
     {
         $this->middleware('permission:المنتجات',  ['only' => ['index']]);
-        $this->middleware('permission:اضافة منتج', ['only' => ['cretae' , 'store']]);
+        $this->middleware('permission:اضافة منتج', ['only' => ['create' , 'store']]);
         $this->middleware('permission:تعديل منتج', ['only' => ['edit' , 'update']]);
         $this->middleware('permission:حذف منتج', ['only' => ['destroy']]);
         $this->middleware('permission:تقييمات المنتج', ['only' => ['show']]);

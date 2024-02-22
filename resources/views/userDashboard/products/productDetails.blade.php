@@ -165,6 +165,7 @@
                                                 <li><i class="fi-rs-credit-card mr-5"></i> الدفع عند الاستلام متاح</li>
                                             </ul>
                                         </div>
+                                        @if($product->quantity !== '0')
                                         <form action="{{ route('cart.store', $product) }}" method="post">
                                             @csrf
 
@@ -221,7 +222,9 @@
                                                 </button>
                                             </div>
                                         </form>
-
+                                        @else
+                                            <h4 style="color: red"> المنتج غير متوفر </h4>
+                                        @endif
 
                                     </div>
                                     <!-- End Product Info -->
