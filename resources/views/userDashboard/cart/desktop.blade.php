@@ -21,8 +21,7 @@
                                 @foreach(Auth::user()->carts() as $cart)
                                     <tr>
                                         <td class="image product-thumbnail">
-                                            <a href="{{route('products.show', encrypt($cart->product->id))}}"><img
-                                                    src="{{$cart->product->getFirstMediaUrl('productFiles')}}"></a>
+                                            <a href="{{route('products.show', encrypt($cart->product->id))}}"><img src="{{$cart->product->getFirstMediaUrl('productFiles')}}"></a>
                                         </td>
 
                                         <td class="product-des product-name">
@@ -86,12 +85,18 @@
                                                     class="fi-rs-trash"></i> حذف جميع الأوردارات </a>
                                         </td>
                                     </tr>
+                                @else
+                                    <h3 style="color: red" class="text-center">  لا يوجد منتجات في سلة تسوفك </h3>
+                                    <br>
+
                                 @endif
                                 </tbody>
                             </table>
                         </div>
                         <div class="divider center_icon mt-50 mb-50"><i class="fi-rs-fingerprint"></i></div>
+                        @if(!Auth::user()->carts()->isEmpty())
                         <livewire:order :subTotal="$subTotal"/>
+                        @endif
                     </div>
                 </div>
             </div>
