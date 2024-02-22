@@ -104,9 +104,7 @@
         @include('userDashboard.products.newArrival.index')
     @endif
 
-    @if(!$categories->isEmpty())
-            @include('userDashboard.categoryProducts.index')
-    @endif
+
 
     @if(!$brands->isEmpty())
         <section class="section-padding">
