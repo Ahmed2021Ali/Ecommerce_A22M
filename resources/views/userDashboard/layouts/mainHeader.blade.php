@@ -139,7 +139,7 @@
                         <i style="margin-right: 5px;" class="fi-rs-smartphone"></i>
                         <span>اتصل بنا: </span>
                         <span style="font-weight: bold; color: #F15412">
-                            <a href="tel:+10000000000">(+1) 0000-000-000</a>
+                            <a href="tel:+201004297302">01004297302 (2+) </a>
                         </span>
                     </p>
                 </div>

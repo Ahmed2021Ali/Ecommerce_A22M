@@ -33,36 +33,34 @@
                         <h5 class="mt-20 mb-10 fw-600 text-grey-4"><i class="fas fa-comments"></i> تواصل معنا</h5>
                         <p>
                             <i class="fas fa-map-marker-alt float-right"></i>
-                            <strong>العنوان: شارونة</strong>
-                            
+                            <strong>العنوان: مركز مغاغة - المنيا </strong>
+
                         </p>
                         <p>
                             <i class="fas fa-phone float-right"></i>
-                            <strong>رقم الهاتف: </strong><a href="tel:+201017786080">+201017786080</a>
+                            <strong>رقم الهاتف: </strong><a href="tel:+201063462072">01063462072 2+</a>
                         </p>
                         <p>
                             <i class="fas fa-envelope float-right"></i>
-                            <strong> البريد الألكتروني: test@gmail.com</strong>
+                            <strong> البريد الألكتروني: a22mcompany@gmail.com</strong>
                         </p>
-                        
+
                         <h5 class="mb-10 mt-30 fw-600 text-grey-4"><i class="fas fa-share-alt"></i> تابعنا علي</h5>
                         <div class="mobile-social-icon">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-pinterest"></i></a>
-                            <a href="#"><i class="fab fa-youtube"></i></a>
+                            <a href="https://www.facebook.com/profile.php?id=100095016672467&mibextid=ZbWKwL"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/a22m3_8/"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.tiktok.com/@am801237?_t=8jxvsw05DkL&_r=1"><i class="fab fa-tiktok"></i></a>
                         </div>
                     </div>
-                </div>                    
+                </div>
                 <div class="col-lg-2 col-md-3">
                     <h5 class="widget-title float-right"><i class="fas fa-info-circle"></i> حول</h5>
                     <ul class="footer-list text-right">
                         <li><a href="#"><i class="fas fa-info-circle"></i> حولنا</a></li>
-                        <li><a href="#"> <i class="fas fa-truck"></i> معلومات التوصيل</a></li>
+                        <li><a href= "#"> <i class="fas fa-truck"></i> معلومات التوصيل</a></li>
                         <li><a href="#"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
                         <li><a href="#"> <i class="fas fa-file-contract"></i> الشروط والأحكام</a></li>
-                        <li><a href="tel:+10000000000"> <i class="fas fa-phone"></i> اتصل بنا</a></li>
+                        <li><a href="tel:+201004297302"> <i class="fas fa-phone"></i> اتصل بنا</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2 col-md-3">
@@ -94,5 +92,5 @@
             </div>
         </div>
     </div>
-    
-</footer> 
+
+</footer>
