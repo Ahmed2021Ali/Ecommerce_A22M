@@ -16,7 +16,7 @@ class ReviewRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'comment'=>['required','string','min:0','max:150'],
+            'comment'=>['required','string','max:200'],
             'star'=>['required','numeric','min:1','max:5'],
         ];
     }

@@ -16,19 +16,17 @@
                                 <p class="font-xxs">since {{ $review->user->created_at->toformatteddatestring()}}</p>
                             </div>
                             <div class="desc">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="ratings">
-                                        @if($review->star)
-                                            @for ($i = 1; $i <= $review->star ; $i++)
-                                                <i class="fa fa-star rating-color"></i>
-                                            @endfor
-                                        @endif
-                                        @if($review->star < 5 )
-                                            @for ($i = 1; $i <= (5-$review->star); $i++)
-                                                <i class="fa fa-star"></i>
-                                            @endfor
-                                        @endif
-                                    </div>
+                                <div class="ratings">
+                                    @if($review->star)
+                                        @for ($i = 1; $i <= $review->star ; $i++)
+                                            <i class="fa fa-star rating-color"></i>
+                                        @endfor
+                                    @endif
+                                    @if($review->star < 5 )
+                                        @for ($i = 1; $i <= (5-$review->star); $i++)
+                                            <i class="fa fa-star"></i>
+                                        @endfor
+                                    @endif
                                 </div>
                                 <p>{{$review->comment}}</p>
                                 <div class="d-flex justify-content-between">
@@ -36,7 +34,8 @@
                                         <p class="font-xs mr-30">{{$review->created_at->toDayDateTimeString()}}</p>
 
                                         @if(Auth::check() && $review->user_id === Auth::user()->id)
-                                            <a href="{{route('review.edit',encrypt($review->id))}}" class="text-brand btn-reply"><i class="fi-rs-arrow-right"></i> تعديل </a>
+                                            <a href="{{route('review.edit',encrypt($review->id))}}"
+                                               class="text-brand btn-reply"><i class="fi-rs-arrow-right"></i> تعديل </a>
                                             <form action="{{ route('review.destroy', $review) }}" method="post">
                                                 @method('delete')
                                                 @csrf
@@ -49,14 +48,13 @@
                         </div>
                     </div>
                 @endforeach
-                <!--single-comment -->
             </div>
             {{ $product->reviews()->links() }}
         </div>
         <div class="col-lg-4">
-            <span class="mb-30">تقيمات العملاء للمنتج </span>
+            <span class="mb-25">معدل تقيمات العملاء </span>
             @include('userDashboard.products.review.ratingProduct',['rate'=>calcReview($product)])
-
         </div>
     </div>
+</div>
 </div>

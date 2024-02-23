@@ -75,53 +75,39 @@
 @endsection
 @section('content')
     @if(Auth::check())
-        <div class="comment-form" style="direction: rtl; text-align: center;">
-            <h4 class="mb-15">تحديث التقييم </h4>
+        <div class="comment-form" >
+            <h2 class="text-center">تحديث التقييم </h2>
+            <br>
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 col-md-12">
-                        <form class="form-contact comment_form"
-                              action="{{route('review.update',$review)}}" method="post" id="commentForm">
+                    <div class="col-12 align-content-center" style="direction: rtl; text-align: center;">
+                        <form class="form-contact comment_form" action="{{route('review.update',$review)}}" method="post" id="commentForm">
                             @method('put')
                             @csrf
-                            <div class="col-md-12">
                                 <div class="stars">
-                                    <input class="star star-5" id="star-5" type="radio"
-                                           name="star" value="5"/>
+                                    <input class="star star-5" id="star-5" type="radio" name="star" value="5" {{$review->star === 5 ? 'checked' :null }} />
                                     <label class="star star-5" for="star-5"></label>
-                                    <input class="star star-4" id="star-4" type="radio"
-                                           name="star" value="4"/>
+                                    <input class="star star-4" id="star-4" type="radio" name="star" value="4" {{$review->star === 4 ? 'checked' :null }} />
                                     <label class="star star-4" for="star-4"></label>
-                                    <input class="star star-3" id="star-3" type="radio"
-                                           name="star" value="3"/>
+                                    <input class="star star-3" id="star-3" type="radio" name="star" value="3" {{$review->star === 3 ? 'checked' :null }}/>
                                     <label class="star star-3" for="star-3"></label>
-                                    <input class="star star-2" id="star-2" type="radio"
-                                           name="star" value="2"/>
+                                    <input class="star star-2" id="star-2" type="radio" name="star" value="2" {{$review->star === 2 ? 'checked' :null }}/>
                                     <label class="star star-2" for="star-2"></label>
-                                    <input class="star star-1" id="star-1" type="radio"
-                                           name="star" value="1"/>
+                                    <input class="star star-1" id="star-1" type="radio" name="star" value="1" {{$review->star === 1 ? 'checked':null }}/>
                                     <label class="star star-1" for="star-1"></label>
                                 </div>
-                            </div>
+                            @error('star')<div style="color: red">{{ $message }}</div>@enderror
 
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="form-group">
-                            <textarea class="form-control w-100" name="comment" id="comment" cols="30" rows="9"
-                                      placeholder="Write Comment" required>{{ $review->comment }}</textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
+                            <textarea class="form-control w-100" name="comment" id="comment" placeholder="Write Comment" required>{{ $review->comment }}</textarea>
+                            @error('comment')<div style="color: red">{{ $message }}</div>@enderror
+                            <br>
                                 <button type="submit" class="button button-contactForm">
                                     تأكيد التقييم
                                 </button>
-                            </div>
                         </form>
                     </div>
                 </div>
             </div>
-
         </div>
     @endif
 @endsection
