@@ -1,4 +1,4 @@
-<form method="POST" action="{{ route('brand.update',$brand) }}" enctype="multipart/form-data">
+<form method="POST" action="{{ route('brands.update',$brand) }}" enctype="multipart/form-data">
     @method('PUT')
     @csrf
     <div class="row mb-3">

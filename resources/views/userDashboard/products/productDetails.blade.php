@@ -258,7 +258,7 @@
                                     <br>
                                     <div class="row related-products">
                                         @foreach ($product->category->products() as $relatedProduct)
-                                            <div class="col-lg-3 col-md-4 col-12 col-sm-6">
+                                            <div class="col-lg-3 col-md-4 col-6 col-sm-6">
                                                 <div class="product-cart-wrap small hover-up">
                                                     <div class="product-img-action-wrap">
                                                         <div class="product-img product-img-zoom">
@@ -312,10 +312,13 @@
                                         <br>
 
                                     </div>
+                                    <br>
+
                                 </div>
                                 {{ $product->category->products() }}
+
                             </div>
-                            <!-- End Related Products -->
+                            <br>
                         </div>
                     </div>
                     <!-- Sidebar -->

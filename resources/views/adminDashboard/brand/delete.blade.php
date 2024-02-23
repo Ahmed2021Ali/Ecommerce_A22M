@@ -1,4 +1,4 @@
-<form action="{{ route('brand.destroy', $brand) }}" method="post"
+<form action="{{ route('brands.destroy', $brand) }}" method="post"
       class="d-inline">
     @method('delete')
     @csrf

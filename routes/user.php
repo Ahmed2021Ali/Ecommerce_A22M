@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\UserDashboard\ReviewController;
 use App\Http\Controllers\UserDashboard\SearchController;
 use App\Http\Controllers\UserDashboard\AddressController;
@@ -17,7 +18,7 @@ Route::middleware('throttle:45,1')->group(function () {
 
     Route::get('/', [HomepageController::class, 'index'])->name('home');
 
-    Route::view('/about',  'userDashboard.about.index')->name('about');
+    Route::get('/about',[AboutController::class,'index'])->name('about');
 
     Route::view('/privacy-policy',  'userDashboard.privacyPolicy.index')->name('privacyPolicy');
 

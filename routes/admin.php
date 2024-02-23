@@ -32,7 +32,7 @@ Route::middleware(['throttle:45,1','checkAdminRole'])->group(function () {
 
     Route::resource('service', ServiceController::class);
 
-    Route::resource('brand', BrandController::class);
+    Route::resource('brands', BrandController::class);
 
     Route::resource('product', ProductController::class);
 

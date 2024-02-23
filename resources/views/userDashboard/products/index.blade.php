@@ -25,7 +25,7 @@
                         <div class="row product-grid-3">
                             <div class="row product-grid-4" style="direction: rtl; text-align: center;">
                                 @foreach($products as $product)
-                                    <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 col-10">
+                                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 col-6">
                                         <div class="product-cart-wrap mb-30">
                                             <div class="product-img-action-wrap">
                                                 <div class="product-img product-img-zoom">

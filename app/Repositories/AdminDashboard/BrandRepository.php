@@ -12,7 +12,7 @@ class BrandRepository implements BrandInterface
 
     public function index()
     {
-        return view('adminDashboard.brand.index', ['brands' => Brand::latest()->paginate(10)]);
+        return view('adminDashboard.brands.index', ['brands' => Brand::latest()->paginate(10)]);
     }
 
     public function store($request)

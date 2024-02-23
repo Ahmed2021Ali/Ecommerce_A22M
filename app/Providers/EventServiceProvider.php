@@ -124,7 +124,7 @@ class EventServiceProvider extends ServiceProvider
                 $event->menu->add([
                     'text' => 'البرندات',
                     'icon' => 'fas fa-star',
-                    'route' => 'brand.index',
+                    'route' => 'brands.index',
                 ]);
             }
 
