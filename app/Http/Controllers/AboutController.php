@@ -15,4 +15,5 @@ class AboutController extends Controller
             'brands'=>Brand::where('status',1)->get(),
         ]);
     }
+
 }

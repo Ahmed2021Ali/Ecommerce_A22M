@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\SubScribeEmailConrtoller;
 use App\Http\Controllers\UserDashboard\ReviewController;
 use App\Http\Controllers\UserDashboard\SearchController;
 use App\Http\Controllers\UserDashboard\AddressController;
@@ -20,6 +21,8 @@ Route::middleware('throttle:45,1')->group(function () {
 
     Route::get('/about',[AboutController::class,'index'])->name('about');
 
+
+
     Route::view('/privacy-policy',  'userDashboard.privacyPolicy.index')->name('privacyPolicy');
 
     Route::resource('products', ProductController::class);
@@ -30,8 +33,8 @@ Route::middleware('throttle:45,1')->group(function () {
         Route::get('/filter', 'filter')->name('.filter');
         Route::get('/search', 'search');
     });
-
     Route::middleware('auth')->group(function () {
+        Route::post('/subscribe/email',[SubScribeEmailConrtoller::class,'SubscribeEmail'])->name('subscribe.email');
         Route::controller(ContactUsController::class)->prefix('contact-us')->as('contact-us.')->group(function () {
             Route::get('/index', 'index')->name('index');
             Route::post('/store', 'store')->name('store');
@@ -70,7 +73,6 @@ Route::middleware('throttle:45,1')->group(function () {
             Route::get('/delete-user-image', 'deleteUserImage')->name('delete.userImage');
             Route::get('/view-image/{id}', 'viewImage')->name('view.image');
         });
-
         Route::resource('address', AddressController::class);
     });
 });

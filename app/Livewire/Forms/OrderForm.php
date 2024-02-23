@@ -50,7 +50,7 @@ class OrderForm extends Form
             DB::rollback();
         }
         // Send mail for admin -> dispatch
-        //SendMail::dispatch($order);
+        SendMail::dispatch($order);
         return to_route('orders.show', encrypt($order->id));
     }
 

@@ -1,29 +1,32 @@
 <footer class="main">
-    {{-- <section class="newsletter p-30 text-white wow fadeIn animated">
+     <section class="newsletter p-30 text-white wow fadeIn animated" style="direction: rtl; text-align: right;">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-7 mb-md-3 mb-lg-0">
                     <div class="row align-items-center">
                         <div class="col flex-horizontal-center">
-                            <img class="icon-email" src="assets/imgs/theme/icons/icon-email.svg" alt="">
-                            <h4 class="font-size-20 mb-0 ml-3">Sign up to Newsletter</h4>
+                            <h4 class="font-size-20 mb-0 ml-3">اشترك في النشرة الإخبارية</h4>
+                            <img class="icon-email" src="{{URL::asset('assets/imgs/theme/icons/icon-email.sv')}}g" alt="">
+
                         </div>
                         <div class="col my-4 my-md-0 des">
-                            <h5 class="font-size-15 ml-4 mb-0">...and receive <strong>$25 coupon for first shopping.</strong></h5>
+                            <h5 class="font-size-15 ml-4 mb-0"> <strong>هيوصلك كل جديد علي اميلك</strong></h5>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-5">
                     <!-- Subscribe Form -->
-                    <form class="form-subcriber d-flex wow fadeIn animated">
-                        <input type="email" class="form-control bg-white font-small" placeholder="Enter your email">
-                        <button class="btn bg-dark text-white" type="submit">Subscribe</button>
+                    <form action="{{route('subscribe.email')}}" method="post" class="form-subcriber d-flex wow fadeIn animated">
+                        @csrf
+                        <input type="email" name="email" class="form-control bg-white font-small" placeholder="ادخل الاميل ">
+                        @error('email')<div style="color: red">{{ $message }}</div>@enderror
+                        <button class="btn bg-dark text-white" type="submit">الاشتراك</button>
                     </form>
                     <!-- End Subscribe Form -->
                 </div>
             </div>
         </div>
-    </section> --}}
+    </section>
     <section class="section-padding footer-mid" id="about-us" style="direction: rtl; text-align: right;">
         <div class="container pt-15 pb-20">
             <div class="row">
