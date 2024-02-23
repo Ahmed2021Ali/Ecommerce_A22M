@@ -1,6 +1,6 @@
 <div class="tab-pane fade" id="tab-two" role="tabpanel" aria-labelledby="tab-two">
     <div class="row product-grid-4" style="direction: rtl; text-align: center;">
-        @forelse($bestsellersProduct as $bestsellerProduct)
+        @foreach($bestsellersProduct as $bestsellerProduct)
             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 col-6">
                 <div class="product-cart-wrap mb-30">
                     <div class="product-img-action-wrap">
@@ -37,10 +37,7 @@
                     </div>
                 </div>
             </div>
-        @empty
-
-        @endforelse
+        @endforeach
     </div>
-    {{$bestsellersProduct->links()}}
     <!--End product-grid-4-->
 </div>

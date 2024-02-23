@@ -23,15 +23,13 @@
                     @if(!$featuredProducts->isEmpty())
                         <li class="nav-item" role="presentation">
                             <button class="nav-link active" id="nav-tab-one" data-bs-toggle="tab"
-                                    data-bs-target="#tab-one"
-                                    type="button" role="tab" aria-controls="tab-one" aria-selected="true"> خصومات خاصة
+                                    data-bs-target="#tab-one" type="button" role="tab" aria-controls="#tab-one" aria-selected="true"> خصومات خاصة
                             </button>
                         </li>
                     @endif
                     @if(!$bestsellersProduct->isEmpty())
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="nav-tab-two" data-bs-toggle="tab" data-bs-target="#tab-two"
-                                    type="button" role="tab" aria-controls="tab-two" aria-selected="false">
+                            <button class="nav-link" id="nav-tab-two" data-bs-toggle="tab" data-bs-target="#tab-two" type="button" role="tab" aria-controls="tab-two" aria-selected="false">
                                 الأكثر مبيعا
                             </button>
                         </li>
@@ -99,8 +97,8 @@
         @include('userDashboard.banners.index')
     @endif
 
-    @if(!$newProducts->isEmpty())
-        @include('userDashboard.products.newArrival.index')
+    @if($lastCategoryProducts)
+        @include('userDashboard.products.productsCategory.index')
     @endif
 
 

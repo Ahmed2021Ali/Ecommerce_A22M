@@ -12,7 +12,7 @@ class ProductRepository implements ProductInterface
 
     public function index()
     {
-        return view('userDashboard.products.index', ['products' => Product::where('status',1)->paginate(9)]);
+        return view('userDashboard.products.index', ['products' => Product::select('id','name','offer','price_after_offer')->where('status',1)->paginate(9)]);
     }
 
     public function show($product)

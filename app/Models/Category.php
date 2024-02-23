@@ -22,7 +22,7 @@ class Category extends Model implements HasMedia
     }
     public function products2()
     {
-        return $this->hasMany(Product::class)->where('status',1);
+        return $this->hasMany(Product::class)->select('id', 'name', 'offer', 'price_after_offer')->where('status',1);
     }
     public function registerMediaConversions(Media $media = null): void
     {

@@ -14,7 +14,7 @@
                 <div class="col-lg-9">
                     <div class="single-page pr-30 mb-lg-0 mb-sm-5">
                         <div class="single-header style-2">
-                            <h2> سياسة الخصوصية  </h2>
+                            <h2> سياسة و الخصوصية  </h2>
                         </div>
                         <div class="single-content">
                             <h4>المقدمة  </h4>
