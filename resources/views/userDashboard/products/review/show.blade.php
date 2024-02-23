@@ -16,6 +16,7 @@
                                 <p class="font-xxs">منذ {{ $review->user->created_at->toformatteddatestring()}}</p>
                             </div>
                             <div class="desc">
+
                                 <div class="ratings">
                                     @if($review->star)
                                         @for ($i = 1; $i <= $review->star ; $i++)
@@ -27,8 +28,9 @@
                                             <i class="fa fa-star"></i>
                                         @endfor
                                     @endif
+                                    <p>{{$review->comment}}</p>
+
                                 </div>
-                                <p>{{$review->comment}}</p>
                                 <div class="d-flex justify-content-between">
                                     <div class="d-flex align-items-center">
                                         <p class="font-xs mr-30">{{$review->created_at->toDayDateTimeString()}}</p>
@@ -57,4 +59,4 @@
         </div>
     </div>
 </div>
-</div>
+

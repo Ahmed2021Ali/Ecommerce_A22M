@@ -56,10 +56,9 @@
                 <div class="col-lg-2 col-md-3">
                     <h5 class="widget-title float-right"><i class="fas fa-info-circle"></i> حول</h5>
                     <ul class="footer-list text-right">
-                        <li><a href="#"><i class="fas fa-info-circle"></i> حولنا</a></li>
-                        <li><a href= "#"> <i class="fas fa-truck"></i> معلومات التوصيل</a></li>
-                        <li><a href="#"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
-                        <li><a href="#"> <i class="fas fa-file-contract"></i> الشروط والأحكام</a></li>
+                        <li><a href="{{route('privacyPolicy')}}"><i class="fas fa-info-circle"></i> حولنا</a></li>
+                        <li><a href="{{route('privacyPolicy')}}"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
+                        <li><a href="{{route('privacyPolicy')}}"> <i class="fas fa-file-contract"></i> الشروط والأحكام</a></li>
                         <li><a href="tel:+201004297302"> <i class="fas fa-phone"></i> اتصل بنا</a></li>
                     </ul>
                 </div>
@@ -82,7 +81,7 @@
             </div>
             <div class="col-lg-6">
                 <p class="float-md-left font-sm text-muted mb-0">
-                    <a href="privacy-policy.html"> سياسة الخصوصية  | <i class="fas fa-lock"></i></a>  <a href="terms-conditions.html">الشروط والأحكام<i class="fas fa-gavel"></i></a>
+                    <a href="{{route('privacyPolicy')}}"> سياسة الخصوصية  | <i class="fas fa-lock"></i></a>  <a href="{{route('privacyPolicy')}}">الشروط والأحكام<i class="fas fa-gavel"></i></a>
                 </p>
             </div>
             <div class="col-lg-6">

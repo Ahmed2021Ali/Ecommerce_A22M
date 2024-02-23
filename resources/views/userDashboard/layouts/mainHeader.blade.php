@@ -1,20 +1,21 @@
 <header class="header-area header-style-1 header-height-2">
 
-    <div class="header-top header-top-ptb-1 d-none d-lg-block">
-        <div class="container" style="direction: rtl; text-align: right;">
-            <div class="row align-items-center"></div>
-            <div class="col-xl-3 col-lg-4">
-                <div class="header-info header-info-right">
-                    @guest
+    @guest
+        <div class="header-top header-top-ptb-1 d-none d-lg-block">
+            <div class="container" style="direction: rtl; text-align: right;">
+                <div class="row align-items-center"></div>
+                <div class="col-xl-3 col-lg-4">
+                    <div class="header-info header-info-right">
+
                         <ul>
                             <li><i class="fi-rs-key"></i><a href="{{ route('signin.view.form') }}">تسجيل دخول</a> / <a
                                     href="{{ route('signup.view.form') }}">إنشاء حساب</a></li>
                         </ul>
-                    @endguest
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    @endguest
 
     <div class="header-middle header-middle-ptb-1 d-none d-lg-block">
         <div class="container">
@@ -80,10 +81,10 @@
                                 <li><a class="active" href="{{ route('home') }}"><i style="font-size: 25px"
                                                                                     class="fas fa-home fa-lg"></i>
                                         الصفحة الرئيسية</a></li>
-                                <li><a href="#about-us"><i class="fas fa-info-circle fa-lg"></i> تعرف علينا</a></li>
+                                <li><a href="{{route('about')}}"><i class="fas fa-info-circle fa-lg"></i> تعرف علينا</a></li>
                                 <li><a href="{{ route('products.index') }}"><i class="fas fa-shopping-cart fa-lg"></i>
                                         تصفح المنتجات</a></li>
-                                <li class="position-static"><a href="#"><i class="fas fa-cubes fa-lg"></i> منتجاتنا <i
+                                <li class="position-static"><a href=""><i class="fas fa-cubes fa-lg"></i> منتجاتنا <i
                                             class="fi-rs-angle-down"></i></a>
                                     <x-categories/>
                                 </li>
@@ -107,8 +108,9 @@
                                                 {{ Auth::user()->name }}
                                             </li>
                                             @if(Auth::check() && Auth::user()->hasRole(['المدير', 'ادمن']))
-                                                <li ><a href="{{ route('admin.dashboard') }}"> <i class="fa fa-tags" aria-hidden="true"> </i>
-                                                                  الانتقال إلى لوحة التحكم</a> </li>
+                                                <li><a href="{{ route('admin.dashboard') }}"> <i class="fa fa-tags"
+                                                                                                 aria-hidden="true"> </i>
+                                                        الانتقال إلى لوحة التحكم</a></li>
                                             @endif
                                             <li><a href="{{route('profile.index')}}"><i class="fas fa-cogs fa-lg"></i>&nbsp;
                                                     اعدادات الحساب</a></li>
@@ -128,7 +130,6 @@
                                         </ul>
                                     @endauth
                                 </li>
-
                             </ul>
                         </nav>
                     </div>

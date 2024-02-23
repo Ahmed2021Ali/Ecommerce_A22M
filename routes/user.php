@@ -17,6 +17,10 @@ Route::middleware('throttle:45,1')->group(function () {
 
     Route::get('/', [HomepageController::class, 'index'])->name('home');
 
+    Route::view('/about',  'userDashboard.about.index')->name('about');
+
+    Route::view('/privacy-policy',  'userDashboard.privacyPolicy.index')->name('privacyPolicy');
+
     Route::resource('products', ProductController::class);
 
     Route::get('/category/products/{category_id}', [ProductController::class, 'productsOfCategory'])->name('category.products');// Enhanced
@@ -58,14 +62,14 @@ Route::middleware('throttle:45,1')->group(function () {
             Route::put('/update/{review}', 'update')->name('update');
             Route::delete('/destroy/{review}', 'destroy')->name('destroy');
         });
-        
+
         Route::controller(ProfileController::class)->prefix('profile')->as('profile.')->group(function () {
             Route::get('/', 'index')->name('index');
             Route::post('/update', 'update')->name('update');
             Route::get('/delete-user-image', 'deleteUserImage')->name('delete.userImage');
             Route::get('/view-image/{id}', 'viewImage')->name('view.image');
         });
-        
+
         Route::resource('address', AddressController::class);
     });
 });

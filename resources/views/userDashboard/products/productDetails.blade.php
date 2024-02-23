@@ -137,7 +137,7 @@
                                                 ])
                                                 <span class="font-small ml-5 text-muted">
                                                     ({{ $product->reviews()->where('star', '!=', null)->count() }}
-                                                    التقييم)</span>
+                                                    عدد التقيمات  )</span>
                                             </div>
                                         </div>
                                         <!-- Product Price -->
@@ -251,9 +251,11 @@
                             <div class="row mt-60" style="direction: rtl; text-align: right;">
                                 <div class="col-12">
                                     <h3>منتجات مشابهة</h3>
+                                    <br>
                                 </div>
                                 <hr>
                                 <div class="col-12">
+                                    <br>
                                     <div class="row related-products">
                                         @foreach ($product->category->products() as $relatedProduct)
                                             <div class="col-lg-3 col-md-4 col-12 col-sm-6">
@@ -315,14 +317,13 @@
                             </div>
                             <!-- End Related Products -->
                         </div>
-                        <!-- Sidebar -->
-                        <div class="col-lg-3 primary-sidebar sticky-sidebar">
-                            <!-- Categories -->
-                            <x-right-sidebar />
-                        </div>
-                        <!-- End Sidebar -->
                     </div>
-
+                    <!-- Sidebar -->
+                    <div class="col-lg-3 primary-sidebar sticky-sidebar">
+                        <!-- Categories -->
+                        <x-right-sidebar />
+                    </div>
+                    <!-- End Sidebar -->
                 </div>
             </div>
         </section>
