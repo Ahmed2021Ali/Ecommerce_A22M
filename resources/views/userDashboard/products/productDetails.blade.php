@@ -315,13 +315,14 @@
                             </div>
                             <!-- End Related Products -->
                         </div>
+                        <!-- Sidebar -->
+                        <div class="col-lg-3 primary-sidebar sticky-sidebar">
+                            <!-- Categories -->
+                            <x-right-sidebar />
+                        </div>
+                        <!-- End Sidebar -->
                     </div>
-                    <!-- Sidebar -->
-                    <div class="col-lg-3 primary-sidebar sticky-sidebar">
-                        <!-- Categories -->
-                        <x-right-sidebar />
-                    </div>
-                    <!-- End Sidebar -->
+
                 </div>
             </div>
         </section>
@@ -343,5 +344,5 @@
         whatsapp.href = `https://api.whatsapp.com/send?text=${msg}: ${link}`;
     </script>
 
-    
+
 @endsection

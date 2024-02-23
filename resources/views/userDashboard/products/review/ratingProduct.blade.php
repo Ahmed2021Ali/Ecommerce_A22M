@@ -1,8 +1,4 @@
-<style>
-    .ratings {
-        margin-right: 70px;
-    }
-</style>
+
 <div class="d-flex justify-content-between align-items-center">
     <div class="ratings">
         @if($rate > 0 && $rate < 6 )

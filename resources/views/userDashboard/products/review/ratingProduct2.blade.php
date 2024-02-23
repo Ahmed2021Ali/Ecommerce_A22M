@@ -1,8 +1,4 @@
-<style>
-    .ratings2 {
-        margin-right: 10px;
-    }
-</style>
+
     <div class="ratings2">
         @if($rate > 0 && $rate < 6 )
             @for ($i = 1; $i <= $rate ; $i++)
