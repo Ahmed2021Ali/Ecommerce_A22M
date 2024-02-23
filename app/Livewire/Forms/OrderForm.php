@@ -35,7 +35,7 @@ class OrderForm extends Form
             foreach (Auth::user()->carts() as $cart) {
                 Order::create([
                     'detailsOrder_id' => $order->id, 'product_id' => $cart->product_id,
-                    'quantity' => $cart->quantity, 'color' => $cart->color ? Color::where('value', $cart->color)->first()->name : null,
+                    'quantity' => $cart->quantity, 'color' => isset($cart->color) ? Color::where('value', $cart->color)->first()->name : null,
                     'size' => $cart->size,
                     'price' => calcPriceProduct($cart->product->price, $cart->product->offer, $cart->product->price_after_offer, null),
                     'total_price' => calcPriceProduct($cart->product->price, $cart->product->offer, $cart->product->price_after_offer, $cart->quantity),
