@@ -48,7 +48,6 @@
                 @if(!$products->isEmpty())
                     <a href="{{route('products.index')}}" class="view-more d-none d-md-flex">عرض الكل<i class="fi-rs-angle-double-small-left"></i></a>
                 @endif
-
             </div>
             <!--End nav-tabs-->
             <div class="tab-content wow fadeIn animated" id="myTabContent">
@@ -104,9 +103,7 @@
         @include('userDashboard.products.newArrival.index')
     @endif
 
-    @if(!$categories->isEmpty())
-            @include('userDashboard.categoryProducts.index')
-    @endif
+
 
     @if(!$brands->isEmpty())
         <section class="section-padding">

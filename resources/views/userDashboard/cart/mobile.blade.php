@@ -31,7 +31,9 @@
                                 <td>
 
                                         <?php $subTotal += ($cart->product->offer ? $cart->product->price_after_offer : $cart->product->price) * $cart->quantity; ?>
-                                    <h3><span> {{calcPriceProduct($cart->product->price,$cart->product->offer,$cart->product->price_after_offer,$cart->quantity)}}</span></h3>
+                                    <h3>
+                                        <span> {{calcPriceProduct($cart->product->price,$cart->product->offer,$cart->product->price_after_offer,$cart->quantity)}}</span>
+                                    </h3>
                                     جينية
                                 </td>
                                 <td>
@@ -65,10 +67,14 @@
                                     حذف جميع الأوردارات </a>
                             </td>
                         </tr>
+                    @else
+                        <h4 style="color: red" class="text-center">  لا يوجد منتجات في سلة تسوفك </h4>
                     @endif
                 </div>
             </div>
         </div>
     </section>
-    <livewire:order :subTotal="$subTotal"/>
+    @if(!Auth::user()->carts()->isEmpty())
+        <livewire:order :subTotal="$subTotal"/>
+    @endif
 </div>
