@@ -13,7 +13,7 @@
                                     <i class="fas fa-user fa-lg"></i>
                                 @endif
                                 <h6>{{ $review->user->name}}</h6>
-                                <p class="font-xxs">since {{ $review->user->created_at->toformatteddatestring()}}</p>
+                                <p class="font-xxs">منذ {{ $review->user->created_at->toformatteddatestring()}}</p>
                             </div>
                             <div class="desc">
                                 <div class="d-flex justify-content-between align-items-center">

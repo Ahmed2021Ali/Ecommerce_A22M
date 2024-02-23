@@ -343,35 +343,5 @@
         whatsapp.href = `https://api.whatsapp.com/send?text=${msg}: ${link}`;
     </script>
 
-    <script>
-        document.getElementById('commentForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            let form = event.target;
-            let formData = new FormData(form);
-            let product = form.getAttribute('data-product');
-
-            fetch('{{ route('review.store', ['product' => ':product']) }}'.replace(':product', product), {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                    },
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        // Handle success, e.g., show a success message
-                        alert('شكرا لتقييمكم');
-                        // You can also update the page dynamically if needed
-                    } else {
-                        // Handle errors, e.g., show an error message
-                        alert('Error: ' + data.message);
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
-        });
-    </script>
+    
 @endsection
