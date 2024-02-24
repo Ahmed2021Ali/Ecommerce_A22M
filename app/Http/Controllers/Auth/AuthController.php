@@ -51,7 +51,7 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
 
             Auth::user()->update(['last_login_at' => now()]);
-            
+
             // Check if the user has either 'manager' or 'admin' role
             if (Auth::user()->hasRole(['المدير', 'ادمن'])) {
                 toastr()->success('تم تسجيل الدخول');
@@ -98,6 +98,6 @@ class AuthController extends Controller
         }
         Auth::login($user, true);
         toastr()->success('تم تسجيل الدخول');
-        return redirect('home');
+        return to_route('home');
     }
 }
