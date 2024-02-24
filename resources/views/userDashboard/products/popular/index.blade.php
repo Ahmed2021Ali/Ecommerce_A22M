@@ -8,10 +8,8 @@
                             <a href="{{route('products.show', encrypt($bestsellerProduct->id))}}"><img src="{{$bestsellerProduct->getFirstMediaUrl('productFiles')}}" width="400" height="250" style="direction: rtl; text-align: right;"></a>
                         </div>
                         <div class="product-action-1">
-                            <a aria-label="عرض" class="action-btn hover-up" data-bs-toggle="modal"
-                                data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
-                            <a aria-label="أضف إلي المفضلة" class="action-btn hover-up"
-                                onclick="addToFavorites({{ $bestsellerProduct->id }})"><i class="fi-rs-heart"></i></a>
+                            <a aria-label="عرض" class="action-btn hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
+                            <a aria-label="أضف إلي المفضلة" class="action-btn hover-up" onclick="addToFavorites({{ $bestsellerProduct->id }})"><i class="fi-rs-heart"></i></a>
                         </div>
                     </div>
                     <div class="product-content-wrap">
@@ -39,5 +37,4 @@
             </div>
         @endforeach
     </div>
-    <!--End product-grid-4-->
 </div>

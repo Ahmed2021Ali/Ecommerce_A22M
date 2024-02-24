@@ -65,7 +65,6 @@ return [
 
     'logo' => '<b>A&M </b> STORE',
     'logo_img' => 'AdminLte/logo/A&m.jpg',
-    'logo_img_class' => 'brands-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brands-image-xs',
     'logo_img_alt' => 'Admin Logo',

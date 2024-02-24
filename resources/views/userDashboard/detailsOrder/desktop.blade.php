@@ -9,13 +9,11 @@
                         <table class="table">
                             <tr>
                                 <th> رقم الاستعلام عن الاردر</th>
-                                <td class="product-subtotal"
-                                    colspan="2" style="color:red;">{{$detailsOrder->order_number }}</td>
+                                <td class="product-subtotal" colspan="2" style="color:red;">{{$detailsOrder->order_number }}</td>
                             </tr>
                             <tr>
                                 <th> الاسم</th>
-                                <td class="product-subtotal"
-                                    colspan="2">{{ Str::limit($detailsOrder->address->fname . $detailsOrder->address->lname , 65) }}</td>
+                                <td class="product-subtotal" colspan="2">{{ Str::limit($detailsOrder->address->fname . $detailsOrder->address->lname , 65) }}</td>
                             </tr>
                             <tr>
                                 <th> العنوان</th>
@@ -38,8 +36,7 @@
                                 <td class="product-subtotal" colspan="2">{{ Str::limit($detailsOrder->address->note , 65) }}</td>
                             </tr>
                         </table>
-                        <a href="{{route('address.edit',encrypt($detailsOrder->address_id))}}"
-                           class="btn btn-fill-out btn-block mt-30">تعديل العنوان</a>
+                        <a href="{{route('address.edit',encrypt($detailsOrder->address_id))}}" class="btn btn-fill-out btn-block mt-30">تعديل العنوان</a>
                     </section>
                 </div>
                 <div class="col-md-6">
@@ -58,8 +55,7 @@
                                 <tbody>
                                 <tr>
                                     @foreach($detailsOrder->orders as $order)
-                                        <td class="image product-thumbnail"><img
-                                                src="{{$order->product->getFirstMediaUrl('productFiles')}}"  alt="#">
+                                        <td class="image product-thumbnail"><img src="{{$order->product->getFirstMediaUrl('productFiles')}}"  alt="#">
                                         </td>
                                         <td>
                                             <h5>

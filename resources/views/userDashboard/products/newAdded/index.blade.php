@@ -40,5 +40,4 @@
             </div>
         @endforeach
     </div>
-    <!--End product-grid-4-->
 </div>

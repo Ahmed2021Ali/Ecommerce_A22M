@@ -37,15 +37,15 @@ class EventServiceProvider extends ServiceProvider
                 'route' => 'home',
             ]);
 
-            if ($user->can('الأقسام') || $user->can('اضافة قسم') || $user->can('تعديل قسم') || $user->can('حذف قسم') || $user->can('عرض صورة القسم') || $user->can('عرض المنتجات الخاصة بالقسم')) {
+            if ($user->can('الأقسام')) {
                 $event->menu->add([
                     'text' => 'الأقسام',
                     'icon' => 'fas fa-list',
                     'route' => 'category.index',
                 ]);
             }
-            
-            if ($user->can('المنتجات') || $user->can('تعديل منتج') || $user->can('حذف منتج') || $user->can('عرض صورة المنتج') || $user->can(' تقييمات المنتج')) {
+
+            if ($user->can('المنتجات')) {
                 $event->menu->add([
                     'text' => 'عرض المنتجات',
                     'icon' => 'fas fa-list-alt',
@@ -61,7 +61,7 @@ class EventServiceProvider extends ServiceProvider
                 ],);
             }
 
-            if ($user->can('الألوان') || $user->can('اضافة الألوان') || $user->can('تعديل الألوان') || $user->can('حذف الألوان')) {
+            if ($user->can('الألوان')) {
                 $event->menu->add([
                     'text' => 'الوان المنتجات',
                     'icon' => 'fas fa-paint-brush',
@@ -69,7 +69,7 @@ class EventServiceProvider extends ServiceProvider
                 ]);
             }
 
-            if ($user->can('المقاسات') || $user->can('اضافة مقاسات') || $user->can('تعديل مقاسات') || $user->can('حذف مقاسات')) {
+            if ($user->can('المقاسات')) {
                 $event->menu->add([
                     'text' => 'مقاسات المنتجات',
                     'icon' => 'fas fa-ruler',
@@ -77,7 +77,7 @@ class EventServiceProvider extends ServiceProvider
                 ]);
             }
 
-            if ($user->can('اسلايدر') || $user->can('اضافة اسلايدر') || $user->can('تعديل اسلايدر') || $user->can('حذف اسلايدر') || $user->can('عرض صورة اسلايدر')) {
+            if ($user->can('اسلايدر')) {
                 $event->menu->add([
                     'text' => 'الأسلايدر',
                     'icon' => 'fas fa-images',
@@ -85,7 +85,7 @@ class EventServiceProvider extends ServiceProvider
                 ]);
             }
 
-            if ($user->can('بانر') || $user->can('اضافة بانر') || $user->can('تعديل بانر') || $user->can('حذف بانر') || $user->can('عرض صورة بانر')) {
+            if ($user->can('بانر')) {
                 $event->menu->add([
                     'text' => 'بانر',
                     'icon' => 'fas fa-flag',
@@ -93,7 +93,7 @@ class EventServiceProvider extends ServiceProvider
                 ]);
             }
 
-            if ($user->can('نوع المستخدم') || $user->can('اضافة نوع مستخدم') || $user->can(' تعديل نوع مستخدم') || $user->can(' حذف نوع مستخد')) {
+            if ($user->can('نوع المستخدم') ) {
                 $event->menu->add([
                     'text' => 'صلاحيات المستخدم',
                     'icon' => 'fas fa-user',
@@ -101,7 +101,7 @@ class EventServiceProvider extends ServiceProvider
                 ]);
             }
 
-            if ($user->can('المستخدمين') || $user->can('اضافة مستخدم') || $user->can('تعديل مستخدم') || $user->can('حذف مستخدم')) {
+            if ($user->can('المستخدمين')) {
                 $event->menu->add([
                     'text' => 'المستخدمين',
                     'icon' => 'fas fa-users',
@@ -109,7 +109,7 @@ class EventServiceProvider extends ServiceProvider
                 ]);
             }
 
-            if ($user->can('الخدمات') || $user->can('اضافة خدمة') || $user->can('تعديل خدمة') || $user->can('حذف خدمة') || $user->can('عرض صورة الخدمة')) {
+            if ($user->can('الخدمات')) {
                 $event->menu->add([
                     'text' => 'الخدمات',
                     'icon' => 'fas fa-concierge-bell',
@@ -117,7 +117,7 @@ class EventServiceProvider extends ServiceProvider
                 ]);
             }
 
-            if ($user->can('البراندات') || $user->can('اضافة براند') || $user->can('تعديل براند') || $user->can('حذف براند') || $user->can('عرض صورة براند')) {
+            if ($user->can('البراندات')) {
                 $event->menu->add([
                     'text' => 'البرندات',
                     'icon' => 'fas fa-star',
@@ -125,7 +125,7 @@ class EventServiceProvider extends ServiceProvider
                 ]);
             }
 
-            if ($user->can('الكوبونات') || $user->can('اضافة كوبون') || $user->can('تعديل كوبون') || $user->can('حذف كوبون')) {
+            if ($user->can('الكوبونات')) {
                 $event->menu->add([
                     'text' => 'الكوبونات',
                     'icon' => 'fas fa-ticket-alt',
@@ -133,21 +133,21 @@ class EventServiceProvider extends ServiceProvider
                 ]);
             }
 
-            if ($user->can('الإستفسارات') || $user->can('حذف الإستفسارات')) {
+            if ($user->can('الإستفسارات')) {
                 $event->menu->add([
                     'text' => 'إستفسارات العملاء',
                     'icon' => 'fas fa-comments',
                     'route' => 'contact.index',
                 ]);
             }
-            if ($user->can('الأوردارات') || $user->can(' اوردارات تم توصيلها') || $user->can(' تأكيد توصيل الأوردر') || $user->can(' حذف الأوردر')) {
+            if ($user->can('الأوردارات')) {
                 $event->menu->add([
                     'text' => 'اوردرات لم يتم توصيلها',
                     'icon' => 'fas fa-hourglass-half',
                     'route' => 'order.index',
                 ]);
             }
-            if ($user->can('الأوردارات') || $user->can(' اوردارات تم إلغائها') || $user->can(' حذف الأوردر')) {
+            if ($user->can('الأوردارات')) {
                 $event->menu->add([
                     'text' => 'اوردرات تم توصيلها',
                     'icon' => 'fas fa-check-circle',
@@ -155,7 +155,7 @@ class EventServiceProvider extends ServiceProvider
                 ]);
             }
 
-            if ($user->can('الأوردارات') || $user->can('اوردارات لم يتم توصيلها') || $user->can(' حذف الأوردر')) {
+            if ($user->can('الأوردارات')) {
                 $event->menu->add([
                     'text' => 'اوردرات تم الغاؤها',
                     'icon' => 'fas fa-times-circle',
@@ -163,7 +163,7 @@ class EventServiceProvider extends ServiceProvider
                 ]);
             }
 
-            if ($user->can('المحافظات') || $user->can('اضافة محافظة') || $user->can('تعديل محافظة') || $user->can('حذف محافظة')) {
+            if ($user->can('المحافظات')) {
                 $event->menu->add([
                     'text' => 'المحافظات المتاحة للتوصيل',
                     'icon' => 'fas fa-map-marker-alt',

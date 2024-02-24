@@ -1,6 +1,6 @@
 <section class="home-slider position-relative pt-50">
     <div class="hero-slider-1 dot-style-1 dot-style-1-position-1">
-        @forelse($sliders as $slider)
+        @foreach($sliders as $slider)
             <div class="single-hero-slider single-animation-wrap">
                 <div class="container" style="direction: rtl; text-align: right;">
                     <div class="row align-items-center slider-animated-1">
@@ -23,9 +23,7 @@
                     </div>
                 </div>
             </div>
-        @empty
-
-        @endforelse
+        @endforeach
     </div>
     <div class="slider-arrow hero-slider-1-arrow"></div>
 </section>

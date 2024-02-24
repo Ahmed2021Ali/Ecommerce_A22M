@@ -39,7 +39,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- End product-cart-wrap-2 -->
                 @endforeach
             </div>
         </div>

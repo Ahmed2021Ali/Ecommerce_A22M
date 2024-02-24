@@ -6,16 +6,12 @@
                     <div class="product-img-action-wrap">
                         <div class="product-img product-img-zoom">
                             <a href="{{route('products.show', encrypt($featuredProduct->id))}}">
-                                <img src="{{$featuredProduct->getFirstMediaUrl('productFiles')}}" width="400"
-                                     height="250" alt="{{$featuredProduct->name}}">
+                                <img src="{{$featuredProduct->getFirstMediaUrl('productFiles')}}" width="400" height="250" alt="{{$featuredProduct->name}}">
                             </a>
                         </div>
                         <div class="product-action-1">
-                            <a href="{{ $featuredProduct->getFirstMediaUrl('productFiles') }}" aria-label="عرض"
-                               class="action-btn hover-up"
-                               data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
-                            <a aria-label="أضف إلي المفضلة" class="action-btn hover-up"
-                               onclick="addToFavorites({{ $featuredProduct->id }})"><i class="fi-rs-heart"></i></a>
+                            <a href="{{ $featuredProduct->getFirstMediaUrl('productFiles') }}" aria-label="عرض" class="action-btn hover-up" data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
+                            <a aria-label="أضف إلي المفضلة" class="action-btn hover-up" onclick="addToFavorites({{ $featuredProduct->id }})"><i class="fi-rs-heart"></i></a>
                         </div>
                     </div>
                     <div class="product-content-wrap">
