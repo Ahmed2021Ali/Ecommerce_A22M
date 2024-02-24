@@ -44,24 +44,21 @@ class EventServiceProvider extends ServiceProvider
                     'route' => 'category.index',
                 ]);
             }
-
-            if ($user->can('المنتجات') || $user->can('اضافة منتج') || $user->can('تعديل منتج') || $user->can('حذف منتج') || $user->can('عرض صورة المنتج') || $user->can(' تقييمات المنتج')) {
+            
+            if ($user->can('المنتجات') || $user->can('تعديل منتج') || $user->can('حذف منتج') || $user->can('عرض صورة المنتج') || $user->can(' تقييمات المنتج')) {
                 $event->menu->add([
-                    'text' => 'المنتجات',
-                    'icon' => 'fas fa-shopping-bag',
-                    'submenu' => [
-                        [
-                            'text' => 'عرض المنتجات',
-                            'icon' => 'fas fa-list-alt',
-                            'route' => 'product.index',
-                        ],
-                        [
-                            'text' => 'إضافة منتج جديد',
-                            'icon' => 'fas fa-plus-circle',
-                            'route' => 'product.create',
-                        ],
-                    ],
+                    'text' => 'عرض المنتجات',
+                    'icon' => 'fas fa-list-alt',
+                    'route' => 'product.index',
+
                 ]);
+            }
+            if ($user->can('اضافة منتج')) {
+                $event->menu->add([
+                    'text' => 'إضافة منتج جديد',
+                    'icon' => 'fas fa-plus-circle',
+                    'route' => 'product.create',
+                ],);
             }
 
             if ($user->can('الألوان') || $user->can('اضافة الألوان') || $user->can('تعديل الألوان') || $user->can('حذف الألوان')) {
@@ -143,31 +140,27 @@ class EventServiceProvider extends ServiceProvider
                     'route' => 'contact.index',
                 ]);
             }
-
-            if ($user->can('الأوردارات') || $user->can(' اوردارات تم توصيلها') || $user->can('اوردارات لم يتم توصيلها') || $user->can(' اوردارات تم إلغائها') || $user->can(' تأكيد توصيل الأوردر') || $user->can(' حذف الأوردر')) {
+            if ($user->can('الأوردارات') || $user->can(' اوردارات تم توصيلها') || $user->can(' تأكيد توصيل الأوردر') || $user->can(' حذف الأوردر')) {
                 $event->menu->add([
-                    'text' => 'الأوردرات ',
-                    'icon' => 'fas fa-shopping-cart',
-                    'submenu' => [
-                        [
-                            'text' => 'اوردرات لم يتم توصيلها',
-                            'icon' => 'fas fa-hourglass-half',
-                            'route' => 'order.index',
-                        ],
-                        [
-                            'text' => 'اوردرات تم توصيلها',
-                            'icon' => 'fas fa-check-circle',
-                            'route' => 'order.done',
-                        ],
-                        [
-                            'text' => 'اوردرات تم الغاؤها',
-                            'icon' => 'fas fa-times-circle',
-                            'route' => 'order.cancelled',
-                        ],
-
-                    ],
+                    'text' => 'اوردرات لم يتم توصيلها',
+                    'icon' => 'fas fa-hourglass-half',
+                    'route' => 'order.index',
                 ]);
+            }
+            if ($user->can('الأوردارات') || $user->can(' اوردارات تم إلغائها') || $user->can(' حذف الأوردر')) {
+                $event->menu->add([
+                    'text' => 'اوردرات تم توصيلها',
+                    'icon' => 'fas fa-check-circle',
+                    'route' => 'order.done',
+                ]);
+            }
 
+            if ($user->can('الأوردارات') || $user->can('اوردارات لم يتم توصيلها') || $user->can(' حذف الأوردر')) {
+                $event->menu->add([
+                    'text' => 'اوردرات تم الغاؤها',
+                    'icon' => 'fas fa-times-circle',
+                    'route' => 'order.cancelled',
+                ]);
             }
 
             if ($user->can('المحافظات') || $user->can('اضافة محافظة') || $user->can('تعديل محافظة') || $user->can('حذف محافظة')) {
