@@ -31,12 +31,12 @@ class Product extends Model implements HasMedia
     {
         return $this->hasMany(Review::class)->paginate(5);
     }
-/*    public function registerMediaConversions(Media $media = null): void
-    {
-        $this->addMediaCollection('productsFiles');
-    }*/
     public function registerMediaConversions(Media $media = null): void
     {
-        $this->addMediaConversion('preview')->width(100);
+        $this->addMediaCollection('productsFiles');
     }
+/*    public function registerMediaConversions(Media $media = null): void
+    {
+        $this->addMediaConversion('preview')->width(100);
+    }*/
 }

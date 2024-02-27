@@ -67,7 +67,7 @@
                 @if(Auth::check())
                     <div class="single-mobile-header-info" style="margin-right: -20px">
                         <a href="{{route('profile.index')}}" style="align-items: center; border: none; background-color: white; color: black; cursor: pointer; padding: 5px; font-size: 16px; margin-right: 10px;">
-                            <i class="fas fa-cogs fa-lg"></i> اعدادات الحساب 
+                            <i class="fas fa-cogs fa-lg"></i> اعدادات الحساب
                         &nbsp;</a>
                     </div>
                     <div class="single-mobile-header-info" style="margin-right: -20px">
@@ -81,23 +81,21 @@
                     </div>
                 @endif
                 <div class="single-mobile-header-info">
-                    <a href="tel:+0201017786080">رقم التواصل (+02)01017786080</a>
+                    <a href="tel:+0201017786080">  رقم التواصل   01004297302 ( 02+) </a>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">
                 <div class="widget-about font-md mb-md-5 mb-lg-0">
                         <a href="{{route('home')}}"><img src="{{URL::asset('assets/imgs/logo/Picsart_24-02-16_18-01-27-786.png')}}" alt="A22M Logo" style="width: 50px"></a>
-                    
+
                     <h5 class="mb-10 mt-30 fw-600 text-grey-4"><i class="fas fa-share-alt"></i> تابعنا علي</h5>
                     <div class="mobile-social-icon">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-pinterest"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=100095016672467&mibextid=ZbWKwL"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/a22m3_8/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@am801237?_t=8jxvsw05DkL&_r=1"><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
-            </div>       
+            </div>
         </div>
     </div>
 </div>

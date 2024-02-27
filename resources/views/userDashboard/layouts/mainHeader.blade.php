@@ -6,7 +6,6 @@
                 <div class="row align-items-center"></div>
                 <div class="col-xl-3 col-lg-4">
                     <div class="header-info header-info-right">
-
                         <ul>
                             <li><i class="fi-rs-key"></i><a href="{{ route('signin.view.form') }}">تسجيل دخول</a> / <a
                                     href="{{ route('signup.view.form') }}">إنشاء حساب</a></li>
@@ -22,9 +21,7 @@
             <div class="header-wrap">
                 <div class="header-right">
 
-                    <a href="{{route('home')}}"><img
-                            src="{{URL::asset('assets/imgs/logo/Picsart_24-02-16_18-01-27-786.png')}}" alt="A22M Logo"
-                            style="width: 88px"></a>
+                    <a href="{{route('home')}}"><img src="{{URL::asset('assets/imgs/logo/Picsart_24-02-16_18-01-27-786.png')}}" alt="A22M Logo" style="width: 88px"></a>
 
                     {{-- Search Icons--}}
                     <div class="search-style-1" style="direction: rtl; text-align: right;">
@@ -78,8 +75,7 @@
                     <div class="main-menu main-menu-padding-1 main-menu-lh-2 d-none d-lg-block">
                         <nav>
                             <ul class="menu-list">
-                                <li><a class="active" href="{{ route('home') }}"><i style="font-size: 25px"
-                                                                                    class="fas fa-home fa-lg"></i>
+                                <li><a class="active" href="{{ route('home') }}"><i style="font-size: 25px" class="fas fa-home fa-lg"></i>
                                         الصفحة الرئيسية</a></li>
                                 <li><a href="{{route('about')}}"><i class="fas fa-info-circle fa-lg"></i> تعرف علينا</a></li>
                                 <li><a href="{{ route('products.index') }}"><i class="fas fa-shopping-cart fa-lg"></i>

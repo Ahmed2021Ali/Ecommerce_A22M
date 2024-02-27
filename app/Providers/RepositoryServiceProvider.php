@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use App\Models\Size;
 use App\Repositories\AdminDashboard\BannerRepository;
 use App\Repositories\AdminDashboard\BrandRepository;
 use App\Repositories\AdminDashboard\CategoryRepository;

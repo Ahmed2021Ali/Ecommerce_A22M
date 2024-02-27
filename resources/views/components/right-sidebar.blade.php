@@ -1,6 +1,5 @@
 <div>
     {{--categories--}}
-
     <div class="widget-category mb-30" style="direction: rtl; text-align: right;">
         <h5>الأقسام</h5>
         <hr>
@@ -78,6 +77,5 @@
                 </div>
             </div>
         @endforeach
-
     </div>
 </div>

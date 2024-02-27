@@ -22,6 +22,6 @@ class SendMail implements ShouldQueue
 
     public function handle(): void
     {
-        Mail::to('a22mcompany@gmail.com')->send(new \App\Mail\OrderMail($this->order));
+        Mail::to('amstore763@gmail.com')->send(new \App\Mail\OrderMail($this->order));
     }
 }

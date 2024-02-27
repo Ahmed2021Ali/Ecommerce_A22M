@@ -68,7 +68,7 @@
                             </td>
                         </tr>
                     @else
-                        <h4 style="color: red" class="text-center">  لا يوجد منتجات في سلة تسوفك </h4>
+                        <h4 style="color: red" class="text-center">  لا يوجد منتجات في سلة تسوقك </h4>
                     @endif
                 </div>
             </div>

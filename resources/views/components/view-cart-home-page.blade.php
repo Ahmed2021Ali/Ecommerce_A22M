@@ -2,9 +2,10 @@
     @if( Auth::check())
         <div class="cart-dropdown-wrap cart-dropdown-hm2" style="direction: rtl; text-align: right;" >
             <h3 style="color: #F15412; text-align:center">طلباتك</h3>
+                <?php $total_price = 0; ?>
             <hr>
+            @if(isset($carts))
             <ul>
-                    <?php $total_price = 0; ?>
                     @foreach($carts as $cart)
                     <li class="cart-item">
                         <div class="shopping-cart-img" >
@@ -33,7 +34,7 @@
                         </div>
                     </li>
                 @endforeach
-                
+
             </ul>
             <div class="shopping-cart-footer">
                 <div class="shopping-cart-total">
@@ -44,6 +45,7 @@
                     <a href="{{route('cart.index')}}">الدفع</a>
                 </div>
             </div>
+            @endif
         </div>
     @endif
 </div>

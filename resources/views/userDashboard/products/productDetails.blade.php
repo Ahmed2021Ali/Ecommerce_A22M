@@ -137,7 +137,7 @@
                                         <div class="product_sort_info font-xs mb-30" style="direction: rtl; text-align: right;">
                                             <ul>
                                                 <li class="mb-10"><i class="fi-rs-refresh mr-5"></i> سياسة الإرجاع لمدة
-                                                    30 يومًا</li>
+                                                    14 يومًا</li>
                                                 <li><i class="fi-rs-credit-card mr-5"></i> الدفع عند الاستلام متاح</li>
                                             </ul>
                                         </div>
@@ -152,7 +152,7 @@
                                                             <li><a href="#"><span class="product-color-teal" style="width: 30px; height: 30px; border-radius: 50%; cursor: pointer; display: flex; margin-right: 6px;"></span></a></li>
                                                             <div class="colors">
                                                                 @foreach (explode(',', $product->color) as $color)
-                                                                    <span style="width: 30px; height: 30px; border-radius: 50%; cursor: pointer; display: inline-block; margin-right: 6px; background-color:{{ $color }}"><li style="display: inline-block;"><input type="checkbox" name="color" value="{{ $color }}"></li></span>
+                                                                    <span style="width: 30px; height: 30px; border-radius: 50%; cursor: pointer; display: inline-block; margin-right: 6px; background-color:{{ $color }}"><li style="display: inline-block;"><input type="checkbox" name="color" value="{{ $color }}" required></li></span>
                                                                 @endforeach
                                                             </div>
                                                         </ul>
@@ -162,7 +162,7 @@
                                                 @if ($product->size !== null)
                                                     {{-- size --}}
                                                     <div class="col-md-12">
-                                                        <select name="size" id="size" class="form-control">
+                                                        <select name="size" id="size" class="form-control" required>
                                                             <option value="" style="display: none">اختار مقاسك</option>
                                                             @foreach (explode(',', $product->size) as $size)
                                                                 <option value="{{ strtoupper($size) }}">{{ strtoupper($size) }}</option>
@@ -216,7 +216,12 @@
                                                 <div class="product-cart-wrap small hover-up">
                                                     <div class="product-img-action-wrap">
                                                         <div class="product-img product-img-zoom">
-                                                            <a href="{{ route('products.show', encrypt($relatedProduct->id)) }}" tabindex="0"><img class="default-img" src="{{ $relatedProduct->getFirstMediaUrl('productFiles') }}" alt="{{ $relatedProduct->name }}" width="400px" height="250px"></a>
+                                                            <div class="d-none d-lg-block">
+                                                            <a href="{{ route('products.show', encrypt($relatedProduct->id)) }}" tabindex="0"><img class="default-img" src="{{ $relatedProduct->getFirstMediaUrl('productFiles') }}" alt="{{ $relatedProduct->name }}" width="400px" height="300px"></a>
+                                                            </div>
+                                                            <div class="d-block d-lg-block">
+                                                                <a href="{{ route('products.show', encrypt($relatedProduct->id)) }}" tabindex="0"><img class="default-img" src="{{ $relatedProduct->getFirstMediaUrl('productFiles') }}" alt="{{ $relatedProduct->name }}" width="400px" height="170px"></a>
+                                                            </div>
                                                         </div>
                                                         <div class="product-action-1">
                                                             <a href="{{ $relatedProduct->getFirstMediaUrl('productFiles') }}" aria-label="عرض" class="action-btn small hover-up" data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
@@ -224,13 +229,13 @@
                                                         </div>
                                                     </div>
                                                     <div class="product-content-wrap">
-                                                        <h2><a href="{{ route('products.show', encrypt($product->id)) }}">{{ $relatedProduct->name }}</a></h2>
+                                                        <h2><a href="{{ route('products.show', encrypt($relatedProduct->id)) }}">{{ $relatedProduct->name }}</a></h2>
                                                         @include('userDashboard.products.review.ratingProduct',['rate' => calcReview($relatedProduct)])
                                                         @if ($relatedProduct->offer)
                                                             <span>تخفيض %{{ $relatedProduct->offer }}</span>
                                                         @endif
 
-                                                        <div class="product-price"><span> ج
+                                                        <div class="product-price"><span>
                                                                 {{ $relatedProduct->price_after_offer ?? $relatedProduct->price }}</span>
                                                             @if ($relatedProduct->offer)
                                                                 <span class="old-price"> ج{{ $relatedProduct->price }}</span>

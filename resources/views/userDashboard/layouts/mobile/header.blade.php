@@ -31,10 +31,7 @@
             <div class="user-profile" style="margin-right: 8px; text-align: left;">
                 <a href="{{ route('profile.index') }}">
                     @if (Auth::user()->hasMedia('userImages'))
-                        <img src="{{ Auth::user()->getFirstMediaUrl('userImages') }}"
-                            alt="User Image"
-                            style="width: 45px; height: 45px; border-radius: 50%;">
-                            
+                        <img src="{{ Auth::user()->getFirstMediaUrl('userImages') }}" alt="User Image" style="width: 45px; height: 45px; border-radius: 50%;">
                     @else
                         <div style="text-align: left;">
                             <i class="fas fa-user fa-lg" style="color: black;"></i>
@@ -45,8 +42,8 @@
                     @endif
                 </a>
             </div>
-            
-            
+
+
         @endauth
     </div>
 </div>

@@ -10,10 +10,17 @@
                     <div class="product-cart-wrap small hover-up">
                         <div class="product-img-action-wrap">
                             <div class="product-img product-img-zoom" style="direction: rtl; text-align: right;">
+                                <div class="d-none d-lg-block">
                                 <a href="{{ route('products.show', encrypt($lastCategoryProduct->id)) }}">
-                                    <img src="{{ $lastCategoryProduct->getFirstMediaUrl('productFiles') }}" width="400" height="250" style="direction: rtl; text-align: right;" alt="{{$lastCategoryProduct->name}}">
+                                    <img src="{{ $lastCategoryProduct->getFirstMediaUrl('productFiles') }}" width="400" height="300" style="direction: rtl; text-align: right;" alt="{{$lastCategoryProduct->name}}">
                                 </a>
-                            </div>
+                                </div>
+                                <div class="d-block d-lg-block">
+                                    <a href="{{ route('products.show', encrypt($lastCategoryProduct->id)) }}">
+                                        <img src="{{ $lastCategoryProduct->getFirstMediaUrl('productFiles') }}" width="400" height="170" style="direction: rtl; text-align: right;" alt="{{$lastCategoryProduct->name}}">
+                                    </a>
+                                </div>
+                                </div>
                             <div class="product-action-1">
                                 <a href="{{ $lastCategoryProduct->getFirstMediaUrl('productFiles') }}" aria-label="عرض"
                                    class="action-btn hover-up" data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>

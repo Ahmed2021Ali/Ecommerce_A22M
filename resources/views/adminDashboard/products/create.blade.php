@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    <div class="col-12">
+    <div class="col-12" style="direction: rtl; text-align: right;">
         <form action="{{ route('product.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="form-row">

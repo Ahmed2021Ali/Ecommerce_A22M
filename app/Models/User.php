@@ -15,7 +15,7 @@ class User extends Authenticatable implements HasMedia
 {
     use HasApiTokens, HasFactory, Notifiable, InteractsWithMedia, HasRoles;
 
-    protected $fillable = ['name', 'email', 'password','last_login_at','subscribeEmail'];
+    protected $fillable = ['name', 'email', 'password','last_login_at','subscribeEmail','provider_id','provider'];
 
     protected $hidden = ['password', 'remember_token',];
 

@@ -41,17 +41,22 @@
                         </p>
                         <p>
                             <i class="fas fa-phone float-right"></i>
-                            <strong>رقم الهاتف: </strong><a href="tel:+201063462072">01063462072 2+</a>
+                            <strong>رقم الهاتف: </strong><a href="tel:+201063462072">01004297302 2+</a>
+                            <br>
+                            <i class="fab fa-whatsapp-square"></i>
+                            <strong>رقم الواتساب : </strong><a href="tel:+201063462072">01063462072 2+</a>
                         </p>
                         <p>
                             <i class="fas fa-envelope float-right"></i>
-                            <strong> البريد الألكتروني: a22mcompany@gmail.com</strong>
+                            <strong> البريد الألكتروني: amstore763@gmail.com</strong>
                         </p>
 
                         <h5 class="mb-10 mt-30 fw-600 text-grey-4"><i class="fas fa-share-alt"></i> تابعنا علي</h5>
                         <div class="mobile-social-icon">
                             <a href="https://www.facebook.com/profile.php?id=100095016672467&mibextid=ZbWKwL"><i class="fab fa-facebook-f"></i></a>
+                            <span> - </span>
                             <a href="https://www.instagram.com/a22m3_8/"><i class="fab fa-instagram"></i></a>
+                            <span> - </span>
                             <a href="https://www.tiktok.com/@am801237?_t=8jxvsw05DkL&_r=1"><i class="fab fa-tiktok"></i></a>
                         </div>
                     </div>
@@ -59,9 +64,8 @@
                 <div class="col-lg-2 col-md-3">
                     <h5 class="widget-title float-right"><i class="fas fa-info-circle"></i> حول</h5>
                     <ul class="footer-list text-right">
-                        <li><a href="{{route('privacyPolicy')}}"><i class="fas fa-info-circle"></i> حولنا</a></li>
+                        <li><a href="{{route('about')}}"><i class="fas fa-info-circle"></i> حولنا</a></li>
                         <li><a href="{{route('privacyPolicy')}}"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
-                        <li><a href="{{route('privacyPolicy')}}"> <i class="fas fa-file-contract"></i> الشروط والأحكام</a></li>
                         <li><a href="tel:+201004297302"> <i class="fas fa-phone"></i> اتصل بنا</a></li>
                     </ul>
                 </div>
@@ -88,9 +92,9 @@
                 </p>
             </div>
             <div class="col-lg-6">
-                <p class="text-lg-end text-start font-sm text-muted mb-0">
+{{--                <p class="text-lg-end text-start font-sm text-muted mb-0">
                     <strong class="text-brand"><a target="_blank" href="https://www.facebook.com/Eng.AhmedMaghraby"> Ahmed Maghraby </a> & <a target="_blank" href="https://www.facebook.com/ahmed.abdellatif.mohammed/" >Ahmed Abd Ellatif</a> </strong> جميع الحقوق محفوظة لدي  <i class="fas fa-copyright"></i> <?php echo date("Y"); ?>
-                </p>
+                </p>--}}
             </div>
         </div>
     </div>

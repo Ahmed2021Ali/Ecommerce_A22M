@@ -12,16 +12,16 @@ use App\Http\Controllers\UserDashboard\HomepageController;
 use App\Http\Controllers\UserDashboard\ProductController;
 use App\Http\Controllers\UserDashboard\OrderController;
 use App\Http\Controllers\UserDashboard\ProfileController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 
-Route::middleware('throttle:45,1')->group(function () {
+
+Route::middleware('throttle:60,1')->group(function () {
 
     Route::get('/', [HomepageController::class, 'index'])->name('home');
 
     Route::get('/about',[AboutController::class,'index'])->name('about');
-
-
 
     Route::view('/privacy-policy',  'userDashboard.privacyPolicy.index')->name('privacyPolicy');
 

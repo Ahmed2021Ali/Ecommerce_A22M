@@ -14,7 +14,7 @@
 
     @media (max-width: 767px) {
         .ratings{
-            margin-right:10px;
+            margin-right:6px;
         }
     }
 

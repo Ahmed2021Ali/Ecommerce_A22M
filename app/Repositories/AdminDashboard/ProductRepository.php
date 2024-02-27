@@ -5,7 +5,7 @@ namespace App\Repositories\AdminDashboard;
 use App\Models\Category;
 use App\Models\Color;
 use App\Models\Product;
-use App\Models\size;
+use App\Models\Size;
 use App\Repositories\Interfaces\AdminDashboard\ProductInterface;
 use Illuminate\Support\Arr;
 

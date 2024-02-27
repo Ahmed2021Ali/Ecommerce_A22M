@@ -64,8 +64,7 @@
                                     @enderror
                                 </div>
                                 <div class="mb-3">
-                                    <label for="email">البريد الإلكتروني (اختياري)<span
-                                            class="required">*</span></label>
+                                    <label for="email">البريد الإلكتروني <span class="required">*</span></label>
                                     <input class="form__input" type="email" id="email" name="email" required/>
 
                                     @error('email')
@@ -74,7 +73,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <h2>معلومات اضافية</h2>
-                                    <label for="note">ملاحظات الطلب (اختياري)<span class="required">*</span></label>
+                                    <label for="note">ملاحظات الطلب <span class="required">*</span></label>
                                     <input class="form__input"
                                               placeholder="ملاحظات حول الطلب, مثال: ملحوظة خاصة بتسليم الطلب."
                                               type="text"

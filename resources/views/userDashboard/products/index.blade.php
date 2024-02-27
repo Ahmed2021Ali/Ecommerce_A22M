@@ -29,9 +29,12 @@
                                         <div class="product-cart-wrap mb-30">
                                             <div class="product-img-action-wrap">
                                                 <div class="product-img product-img-zoom">
-                                                    <a href="{{route('products.show', encrypt($product->id))}}"><img
-                                                            src="{{$product->getFirstMediaUrl('productFiles')}}"
-                                                            width="600" height="300"></a>
+                                                    <div class="d-none d-lg-block">
+                                                    <a href="{{route('products.show', encrypt($product->id))}}"><img src="{{$product->getFirstMediaUrl('productFiles')}}" width="450" height="300"></a>
+                                                    </div>
+                                                    <div class="d-block d-lg-block">
+                                                        <a href="{{route('products.show', encrypt($product->id))}}"><img src="{{$product->getFirstMediaUrl('productFiles')}}" width="450" height="170"></a>
+                                                    </div>
                                                 </div>
                                                 <div class="product-action-1">
                                                     <a href="{{ $product->getFirstMediaUrl('productFiles') }}"
@@ -53,7 +56,7 @@
                                                     @endif
                                                 </span>
                                                 <div class="product-price">
-                                                    <span> ج {{ $product->price_after_offer ?? $product->price }}</span>
+                                                    <span>  {{ $product->price_after_offer ?? $product->price }}</span>
                                                     @if($product->offer)
                                                         <span class="old-price"> ج {{ $product->price }}</span>
                                                     @endif

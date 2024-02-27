@@ -119,9 +119,9 @@ class DatabaseSeeder extends Seeder
 
         // Create owner User and assign the role to him.
         $user = User::create([
-            'name' => 'المدير',
-            'email' => 'owner@gmail.com',
-            'password' => Hash::make('123456789')
+            'name' => 'Ali Rabee hamdi',
+            'email' => 'AAAA@gmail.com',
+            'password' => Hash::make('Ali01141710012@@')
         ]);
 
         $role = Role::create(['name' => 'المدير']);

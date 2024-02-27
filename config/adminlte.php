@@ -64,7 +64,6 @@ return [
     */
 
     'logo' => '<b>A&M </b> STORE',
-    'logo_img' => 'AdminLte/logo/A&m.jpg',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brands-image-xs',
     'logo_img_alt' => 'Admin Logo',
@@ -85,7 +84,7 @@ return [
     'auth_logo' => [
         'enabled' => false,
         'img' => [
-            'path' => 'AdminLte/logo/A&m.jpg',
+            'path' => '/AdminLte/logo/A&m.jpg',
             'alt' => 'Auth Logo',
             'class' => '',
             'width' => 50,
@@ -106,9 +105,9 @@ return [
     */
 
     'preloader' => [
-        'enabled' => true,
+        'enabled' => false,
         'img' => [
-            'path' => 'AdminLte/logo/A&m.jpg',
+            'path' => '/AdminLte/logo/A&m.jpg',
             'alt' => 'A&M',
             'effect' => 'animation__shake',
             'width' => 300,
