@@ -7,7 +7,7 @@ Welcome to our Laravel-based E-commerce application! This versatile platform is 
 
 ## Project Link
 
-The project is live and can be accessed at: [Inventory Management System](https://a22m.alsafwa1.com/)
+The project is live and can be accessed at: [ Ecommerce ](https://a22m.alsafwa1.com/)
 
 ## Screenshots
 
