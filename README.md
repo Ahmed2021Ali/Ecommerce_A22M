@@ -5,6 +5,18 @@
 
 Welcome to our Laravel-based E-commerce application! This versatile platform is designed to empower you to create a fully functional online store with a suite of powerful features to enhance the shopping experience for both customers and administrators.
 
+## Project Link
+
+The project is live and can be accessed at: [Inventory Management System](https://a22m.alsafwa1.com/)
+
+## Screenshots
+
+### Desktop View
+![Desktop View](./assets/desktop.png)
+
+### Mobile View
+<img src="./assets/photo.jpg" alt="phone View" style="height: 500px;" />
+
 ## Features
 
 - **Multi-Authentication:** Implement robust multi-authentication for both administrators and customers, ensuring secure access control.
