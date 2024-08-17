@@ -27,7 +27,7 @@ To run this project locally, follow these steps:
 
 1. **Navigate to the backend project directory**:
    ```bash
-   cd Ecommerce_A22M/backend
+   cd Ecommerce_A22M
    ```
 2. **Install dependencies**:
    ```bash
