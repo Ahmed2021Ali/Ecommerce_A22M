@@ -7,8 +7,6 @@ Welcome to our Laravel-based E-commerce application! This versatile platform is 
 
 ## Features
 
-- **PayPal Payment Integration:** Seamlessly integrate secure and convenient payment processing for your customers through PayPal.
-
 - **Multi-Authentication:** Implement robust multi-authentication for both administrators and customers, ensuring secure access control.
 
 - **Admin Panel:** Effortlessly manage your online store with a dedicated admin panel. Add, edit, or remove products, review orders, and more.
@@ -39,7 +37,7 @@ Welcome to our Laravel-based E-commerce application! This versatile platform is 
 
 Our E-commerce application is built using the following technologies:
 
-- **Laravel 10** 
+- **Laravel 11** 
 - **PHP**
 - **Ajax**
 - **MYSQL**
@@ -51,5 +49,3 @@ Our E-commerce application is built using the following technologies:
 
 1. **Clone the Repository:
 
-   ```bash
-   git clone https://github.com/AhmedAbdEllatif7/E-Commerce.git
