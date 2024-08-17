@@ -2,6 +2,7 @@
 
 namespace App\Repositories\AdminDashboard;
 
+use App\Models\Product;
 use App\Models\Size;
 use App\Repositories\Interfaces\AdminDashboard\SizeInterface;
 
@@ -27,6 +28,12 @@ class SizeRepository implements SizeInterface
 
     public function destroy($size)
     {
+        $products = Product::all();
+        foreach ($products as $product) {
+            if ($product->size === $size->name) {
+                $product->delete();
+            }
+        }
         $size->delete();
         return redirect()->back()->with(['success' => ' تم بنجاح حذف المفاس']);
     }

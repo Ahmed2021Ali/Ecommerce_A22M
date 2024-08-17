@@ -2,8 +2,6 @@
 @section('title')
     تعديل عنوان
 @endsection
-@section('css')
-@endsection
 @section('pageHeader')
     تعديل عنوان
 @endsection

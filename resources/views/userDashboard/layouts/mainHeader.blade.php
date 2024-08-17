@@ -7,8 +7,7 @@
                 <div class="col-xl-3 col-lg-4">
                     <div class="header-info header-info-right">
                         <ul>
-                            <li><i class="fi-rs-key"></i><a href="{{ route('signin.view.form') }}">تسجيل دخول</a> / <a
-                                    href="{{ route('signup.view.form') }}">إنشاء حساب</a></li>
+                            <li><i class="fi-rs-key"></i><a href="{{ route('signin.view.form') }}">تسجيل دخول</a> / <a href="{{ route('signup.view.form') }}">إنشاء حساب</a></li>
                         </ul>
                     </div>
                 </div>
@@ -103,7 +102,7 @@
                                             <li><i class="fas fa-user fa-lg" style="margin-right: 23px;"></i>&nbsp;
                                                 {{ Auth::user()->name }}
                                             </li>
-                                            @if(Auth::check() && Auth::user()->hasRole(['المدير', 'ادمن']))
+                                            @if(Auth::check() && !Auth::user()->hasRole(['user', 'User']))
                                                 <li><a href="{{ route('admin.dashboard') }}"> <i class="fa fa-tags"
                                                                                                  aria-hidden="true"> </i>
                                                         الانتقال إلى لوحة التحكم</a></li>
@@ -136,7 +135,7 @@
                         <i style="margin-right: 5px;" class="fi-rs-smartphone"></i>
                         <span>اتصل بنا: </span>
                         <span style="font-weight: bold; color: #F15412">
-                            <a href="tel:+201004297302">01004297302 (2+) </a>
+                            <a href="tel:01004297302">01004297302 (20+) </a>
                         </span>
                     </p>
                 </div>

@@ -4,28 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Spatie\MediaLibrary\HasMedia;
-use Spatie\MediaLibrary\InteractsWithMedia;
-use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class Category extends Model implements HasMedia
+class Category extends Model
 {
-    use HasFactory,InteractsWithMedia;
+    use HasFactory;
 
     protected $fillable = ['name'];
 
-
-
-    public function products()
+    public function subCategories()
     {
-        return $this->hasMany(Product::class)->where('status',1)->paginate(8);
-    }
-    public function products2()
-    {
-        return $this->hasMany(Product::class)->select('id', 'name', 'offer', 'price_after_offer')->where('status',1);
-    }
-    public function registerMediaConversions(Media $media = null): void
-    {
-        $this->addMediaCollection('categoryFiles');
+        return $this->hasMany(SubCategory::class)->paginate(8);
     }
 }

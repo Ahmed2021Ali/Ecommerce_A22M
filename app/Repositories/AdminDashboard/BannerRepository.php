@@ -4,8 +4,6 @@ namespace App\Repositories\AdminDashboard;
 
 use App\Models\Banner;
 use App\Repositories\Interfaces\AdminDashboard\BannerInterface;
-use App\Repositories\Interfaces\AdminDashboard\SliderInterface;
-use Illuminate\Support\Arr;
 use App\Models\Product;
 class BannerRepository implements BannerInterface
 {
@@ -18,7 +16,7 @@ class BannerRepository implements BannerInterface
 
     public function store($request)
     {
-        $banner = Banner::create([...$request]);
+         Banner::create([...$request]);
         return redirect()->back()->with(['success' => 'تم بنجاح اضافة بانر']);
     }
 

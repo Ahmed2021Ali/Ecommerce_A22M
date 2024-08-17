@@ -54,7 +54,7 @@
         <div class="col-md-6">
             <select id="product_id" class="form-control @error('product_id') is-invalid @enderror" name="product_id"
                     required>
-                <option value="" disabled selected>أختر المنتج</option>
+                <option style="display: none">أختر المنتج</option>
                 @foreach($products as $product)
                     <option
                         {{ $banner->product_id === $product->id ? 'selected' : '' }} value="{{ $product->id }}">{{ $product->name }}</option>

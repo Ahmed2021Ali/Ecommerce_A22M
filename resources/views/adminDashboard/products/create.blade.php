@@ -69,6 +69,7 @@
                 <div class="col-3">
                     <label for="status">حالة المنتج </label>
                     <select name="status" id="status" class="form-control" required>
+                        <option style="display: none">اختار حالة المنتج</option>
                         <option {{ old('status') === 1 ? 'selected' : '' }} value="1">متاح</option>
                         <option {{ old('status') === 0 ? 'selected' : '' }} value="0">غير متاح</option>
                     </select>
@@ -78,13 +79,13 @@
                 </div>
                 <div class="col-3">
                     <label for="category_id"> القسم التابع لهذا المنتج</label>
-                    <select name="category_id" id="category_id" class="form-control" required>
+                    <select name="sub_category_id" id="sub_category_id" class="form-control" required>
                         <option style="display: none">اختار القسم</option>
-                        @foreach ($categories as $category)
-                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @foreach ($subCategories as $subCategory)
+                            <option value="{{ $subCategory->id }}">{{ $subCategory->name }}</option>
                         @endforeach
                     </select>
-                    @error('category_id')
+                    @error('sub_category_id')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>

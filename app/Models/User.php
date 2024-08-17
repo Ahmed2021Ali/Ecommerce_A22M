@@ -46,6 +46,10 @@ class User extends Authenticatable implements HasMedia
     {
         return $this->hasMany(Cart::class)->paginate(6);
     }
+    public function BuyProducts()
+    {
+        return $this->hasMany(Cart::class);
+    }
     public function reviews()
     {
         return $this->hasMany(Review::class);

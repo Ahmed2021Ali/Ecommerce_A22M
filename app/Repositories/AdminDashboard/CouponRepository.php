@@ -10,7 +10,7 @@ class CouponRepository implements CouponInterface
 
     public function index()
     {
-        return view('adminDashboard.coupon.index', ['coupons' => Coupon::latest()->paginate(10)]);
+        return view('adminDashboard.coupon.index', ['coupons' => Coupon::select('id','name','value','status')->latest()->paginate(10)]);
     }
 
     public function store($request)

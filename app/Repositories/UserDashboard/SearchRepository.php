@@ -42,9 +42,6 @@ class SearchRepository implements SearchInterface
         }
     }
 
-
-
-
     public function search($request)
     {
         $validator = $this->validateSearchRequest($request);
@@ -55,7 +52,7 @@ class SearchRepository implements SearchInterface
         $search = $request->search;
         $products = $this->executeSearch($search);
         if ($products->isNotEmpty()) {
-            return view('userDashboard.products.index', compact('products'));
+            return view('userDashboard.products.index', ['products'=>$products]);
         } else {
             toastr()->error('لا توجد منتجات بهذه المواصفات');
             return redirect()->back();
@@ -78,9 +75,6 @@ class SearchRepository implements SearchInterface
             ->where(function ($q) use ($search) {
                 $q->where('name', 'like', "%$search%")
                     ->orWhere('description', 'like', "%$search%");
-            })
-            ->where('status', 1)->orWhereHas('category', function ($q) use ($search) {
-                $q->where('name', 'like', "%$search%");
             })->paginate(9);
     }
 

@@ -1,7 +1,7 @@
 @extends('userDashboard.layouts.master')
 @section('title')
-    @if(isset($category))
-        {{ $category->name }} - المنتجات
+    @if(isset($subCategory))
+        المنتجات   - {{ $subCategory->name }}
     @else
         المنتجات
     @endif
@@ -10,8 +10,8 @@
 
 @endsection
 @section('pageHeader')
-    @if(isset($category))
-        {{ $category->name }} <span></span> المنتجات
+    @if(isset($subCategory))
+        المنتجات  <span></span>  {{ $subCategory->name }}
     @else
         المنتجات
     @endif
@@ -25,16 +25,13 @@
                         <div class="row product-grid-3">
                             <div class="row product-grid-4" style="direction: rtl; text-align: center;">
                                 @foreach($products as $product)
-                                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 col-6">
+                                    <div class="col-lg-4 col-md-4 col-6 col-sm-6">
                                         <div class="product-cart-wrap mb-30">
                                             <div class="product-img-action-wrap">
                                                 <div class="product-img product-img-zoom">
-                                                    <div class="d-none d-lg-block">
-                                                    <a href="{{route('products.show', encrypt($product->id))}}"><img src="{{$product->getFirstMediaUrl('productFiles')}}" width="450" height="300"></a>
-                                                    </div>
-                                                    <div class="d-block d-lg-block">
-                                                        <a href="{{route('products.show', encrypt($product->id))}}"><img src="{{$product->getFirstMediaUrl('productFiles')}}" width="450" height="170"></a>
-                                                    </div>
+                                                    <a href="{{route('products.show', encrypt($product->id))}}"><img
+                                                            class="default-img"
+                                                            src="{{$product->getFirstMediaUrl('productFiles')}}"></a>
                                                 </div>
                                                 <div class="product-action-1">
                                                     <a href="{{ $product->getFirstMediaUrl('productFiles') }}"
@@ -56,12 +53,13 @@
                                                     @endif
                                                 </span>
                                                 <div class="product-price">
-                                                    <span>  {{ $product->price_after_offer ?? $product->price }}</span>
-                                                    @if($product->offer)
-                                                        <span class="old-price"> ج {{ $product->price }}</span>
+                                                    <span>  {{ $product->price_after_offer ?? $product->price }} جينية</span>
+                                                    <br>
+                                                @if($product->offer)
+                                                        <span class="old-price">  {{ $product->price }} جينية</span>
                                                     @endif
                                                 </div>
-                                                <div class="product-action-1 show">
+                                                <div class="product-action-1 show d-none d-lg-block">
                                                     <a aria-label="تسوق الآن" class="action-btn hover-up"
                                                        href="{{route('products.show', encrypt($product->id))}}"><i
                                                             class="fi-rs-shopping-bag-add"></i></a>
@@ -70,10 +68,8 @@
                                         </div>
                                     </div>
                                 @endforeach
-                                <!--End product-grid-4-->
                             </div>
                         </div>
-                        <!--pagination-->
                         <div class="pagination-area mt-15 mb-sm-5 mb-lg-0" style="direction: rtl;">
                             <nav aria-label="Page navigation example">
                                 {{ $products->links() }}

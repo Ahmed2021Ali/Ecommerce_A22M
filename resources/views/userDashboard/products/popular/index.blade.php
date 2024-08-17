@@ -6,16 +6,9 @@
                     <div class="product-img-action-wrap">
 
                         <div class="product-img product-img-zoom">
-                            <div class="d-none d-lg-block">
                                 <a href="{{route('products.show', encrypt($bestsellerProduct->id))}}"><img
-                                        src="{{$bestsellerProduct->getFirstMediaUrl('productFiles')}}" width="400"
-                                        height="300" style="direction: rtl; text-align: right;"></a>
-                            </div>
-                            <div class="d-block d-lg-block">
-                                <a href="{{route('products.show', encrypt($bestsellerProduct->id))}}"><img
-                                        src="{{$bestsellerProduct->getFirstMediaUrl('productFiles')}}" width="400"
-                                        height="170" style="direction: rtl; text-align: right;"></a>
-                            </div>
+                                        src="{{$bestsellerProduct->getFirstMediaUrl('productFiles')}}" ></a>
+
                         </div>
                         <div class="product-action-1">
                             <a aria-label="عرض" class="action-btn hover-up" data-bs-toggle="modal"
@@ -35,15 +28,15 @@
                             @endif
                         </span>
                         <div class="product-price">
-                            <span>  {{ $bestsellerProduct->price_after_offer ?? $bestsellerProduct->price }}</span>
-                            @if($bestsellerProduct->offer)
-                                <span class="old-price"> ج {{ $bestsellerProduct->price }}</span>
+                            <span>  {{ $bestsellerProduct->price_after_offer ?? $bestsellerProduct->price }} جينية </span>
+                            <br>
+
+                        @if($bestsellerProduct->offer)
+                                <span class="old-price">  {{ $bestsellerProduct->price }} جينية</span>
                             @endif
                         </div>
-                        <div class="product-action-1 show">
-                            <a aria-label="تسوق الآن" class="action-btn hover-up"
-                               href="{{route('products.show', encrypt($bestsellerProduct->id))}}"><i
-                                    class="fi-rs-shopping-bag-add"></i></a>
+                        <div class="product-action-1 show d-none d-lg-block">
+                            <a aria-label="تسوق الآن" class="action-btn hover-up" href="{{route('products.show', encrypt($bestsellerProduct->id))}}"><i class="fi-rs-shopping-bag-add"></i></a>
                         </div>
                     </div>
                 </div>

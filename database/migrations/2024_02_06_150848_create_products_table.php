@@ -21,7 +21,7 @@ return new class extends Migration
             $table->decimal('price_after_offer',8,2)->nullable();
             $table->boolean('status')->default(1);
             $table->integer('stock')->nullable();
-            $table->foreignId('category_id')->references('id')->on('categories')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignId('sub_category_id')->references('id')->on('sub_categories')->cascadeOnUpdate()->cascadeOnDelete();
 
             $table->timestamps();
         });

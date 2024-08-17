@@ -3,7 +3,7 @@
 @section('title', 'عرض كل المنتجات')
 
 @section('content_header')
-    <h1 style="text-align:center">عرض كل المنتجات</h1>
+    <h2 style="text-align:center">@if(isset($subCategory)) عرض  المنتجات   بالقسم {{$subCategory->name}}    @else عرض كل المنتجات @endif</h2>
 @stop
 @section('cs')
 @endsection
@@ -40,20 +40,20 @@
                             <td>{{ calcPriceProduct($product->price, $product->offer, $product->price_after_offer, null) }}
                             </td>
 
-                            <td>{{ $product->status == '1' ? 'معروض ' : 'غير معروض ' }}</td>
+                            <td>{{ $product->status === '1' ? 'معروض ' : 'غير معروض ' }}</td>
                             <td>{{ $product->quantity }}</td>
-                            <td>{{ $product->category->name }}</td>
+                            <td>{{ $product->subCategory->name }}</td>
                             <td>
                                 {{-- Show Product Reviews Button --}}
                                 @can('تقييمات المنتج')
                                     <a href="{{ route('product.show', $product) }}" class="btn btn-info">تقييمات المنتج</a>
                                 @endcan
-                                
+
                                 {{-- Edit Product Button --}}
                                 @can('تعديل منتج')
                                     <a href="{{ route('product.edit', $product) }}" class="btn btn-warning">تعديل</a>
                                 @endcan
-                            
+
                                 {{-- Delete Product Button --}}
                                 @can('حذف منتج')
                                     <x-adminlte-modal id="delete_{{ $product->id }}" title="Delete" theme="purple"
@@ -63,7 +63,7 @@
                                     <x-adminlte-button label="حذف" data-toggle="modal"
                                         data-target="#delete_{{ $product->id }}" class="bg-danger" />
                                 @endcan
-                                
+
                                 @can('عرض صورة المنتج') {{-- Adjust this permission based on your actual permission --}}
                                 {{-- Show Product Images Button --}}
                                 <x-adminlte-modal id="images_{{ $product->id }}" title="الصور" theme="purple"
@@ -78,7 +78,7 @@
                                 @endcan
                                 {{-- End  images  --}}
                             </td>
-                            
+
                         </tr>
                     @endforeach
 
@@ -89,30 +89,4 @@
         {{ $products->links() }}
     </div>
 
-@stop
-
-@section('js')
-    <!-- DataTables  & Plugins -->
-    <script src="{{ url('plugins/datatables/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ url('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
-    <script src="{{ url('plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
-    <script src="{{ url('plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
-    <script src="{{ url('plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
-    <script src="{{ url('plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
-    <script src="{{ url('plugins/jszip/jszip.min.js') }}"></script>
-    <script src="{{ url('plugins/pdfmake/pdfmake.min.js') }}"></script>
-    <script src="{{ url('plugins/pdfmake/vfs_fonts.js') }}"></script>
-    <script src="{{ url('plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
-    <script src="{{ url('plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
-    <script src="{{ url('plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
-    <script>
-        $(function() {
-            $("#example1").DataTable({
-                "responsive": false,
-                "lengthChange": false,
-                "autoWidth": true,
-                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-        });
-    </script>
 @stop

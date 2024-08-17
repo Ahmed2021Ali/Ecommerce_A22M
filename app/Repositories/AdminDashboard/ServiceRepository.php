@@ -4,19 +4,17 @@ namespace App\Repositories\AdminDashboard;
 
 use App\Models\Service;
 use App\Repositories\Interfaces\AdminDashboard\ServiceInterface;
-use Illuminate\Support\Arr;
-
 class ServiceRepository implements ServiceInterface
 {
 
     public function index()
     {
-        return view('adminDashboard.service.index', ['services' => Service::latest()->paginate(10)]);
+        return view('adminDashboard.service.index', ['services' => Service::select('id','name','status')->latest()->paginate(10)]);
     }
 
     public function store($request)
     {
-        $service = Service::create([...Arr::except($request, 'files')]);
+        $service = Service::create(['name'=>$request['name'],'status'=>$request['status']]);
         uploadFiles($request['files'], $service, 'serviceFiles');
         return redirect()->back()->with(['success' => 'تم بنجاح اضافة الخدمة']);
     }
@@ -24,7 +22,7 @@ class ServiceRepository implements ServiceInterface
 
     public function update($request, $service)
     {
-        $service->update([...Arr::except($request, 'files')]);
+        $service->update(['name'=>$request['name'],'status'=>$request['status']]);
         if (isset($request['files'])) {
             updateFiles($request['files'], $service, 'serviceFiles');
         }

@@ -24,8 +24,8 @@ class ProductRequest extends FormRequest
             'offer' => ['nullable', 'numeric', 'max:99', 'min:1'],
             'status' => ['required', 'integer', 'between:0,1'],
             'description' => ['required', 'string','min:2','max:255'],
-            'files.*'=>['nullable','max:10000'],
-            'category_id' => ['required', 'numeric', 'exists:categories,id'],
+            'files.*'=>['required','max:10000'],
+            'sub_category_id' => ['required', 'numeric'],
         ];
     }
 
@@ -78,9 +78,9 @@ class ProductRequest extends FormRequest
         'files.*.max' => 'يجب ألا يتجاوز حجم الملف 4000 كيلوبايت.',
         'files.*.mimes' => ' يجب أن يكون النوع الملف ممتد إلى   .gif و  png، jpg، أو jpeg.',
 
-        'category_id.required' => 'حقل فئة المنتج مطلوب.',
-        'category_id.integer' => 'يجب أن تكون فئة المنتج عددًا صحيحًا.',
-        'category_id.exists' => 'الفئة المحددة غير موجودة.',
+        'sub_category_id.required' => 'حقل فئة المنتج مطلوب.',
+        'sub_category_id.integer' => 'يجب أن تكون فئة المنتج عددًا صحيحًا.',
+        'sub_category_id.exists' => 'الفئة المحددة غير موجودة.',
     ];
 }
 }

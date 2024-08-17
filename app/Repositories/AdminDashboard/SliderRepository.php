@@ -11,7 +11,7 @@ class SliderRepository implements SliderInterface
 
     public function index()
     {
-        return view('adminDashboard.slider.index', ['sliders' => Slider::latest()->paginate(10)]);
+        return view('adminDashboard.slider.index', ['sliders' => Slider::select('id','title_h1','title_h2','title_h4','title_p','status')->latest()->paginate(10)]);
     }
 
     public function store($request)
@@ -20,7 +20,6 @@ class SliderRepository implements SliderInterface
         uploadFiles($request['files'], $slider, 'sliderFiles');
         return redirect()->back()->with(['success' => 'تم بنجاح اضافة الاسليدر']);
     }
-
 
     public function update($request, $slider)
     {

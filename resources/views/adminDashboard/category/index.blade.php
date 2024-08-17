@@ -30,17 +30,7 @@
                         <td>{{$loop->iteration}}</td>
                         <td>{{ $category->name }}</td>
                         <td>
-                            {{--  images  --}}
-                            @can('عرض صورة القسم')
-                                <x-adminlte-modal id="images_{{ $category->id }}" title="الصور" theme="purple"
-                                    icon="fas fa-bolt" size='lg' disable-animations>
-                                    @include('adminDashboard.images.index',['images'=>$category,'folder'=>'categoryFiles'])
-                                </x-adminlte-modal>
-                                <x-adminlte-button label="عرض الصورة " data-toggle="modal"
-                                    data-target="#images_{{ $category->id }}" class="bg-secondary"/>
-                            @endcan
-                            {{-- End  images  --}}
-                        
+
                             {{--  edit  --}}
                             @can('تعديل قسم')
                                 <x-adminlte-modal id="edit_{{$category->id}}" title="تعديل القسم " theme="teal"
@@ -51,7 +41,7 @@
                                     data-target="#edit_{{$category->id}}" class="bg-teal"/>
                             @endcan
                             {{-- end  edit  --}}
-                        
+
                             {{--  delete  --}}
                             @can('حذف قسم')
                                 <x-adminlte-modal id="delete_{{ $category->id }}" title="حذف" theme="purple"
@@ -62,12 +52,12 @@
                                     data-target="#delete_{{ $category->id }}" class="bg-danger"/>
                             @endcan
                             {{-- End  delete  --}}
-                        
+
                             @can('عرض المنتجات الخاصة بالقسم')
-                                <a href="{{ route('category.show', $category) }}" class="btn btn-info">عرض كل المنتجات هذا القسم</a>
+                                <a href="{{ route('category.show', $category) }}" class="btn btn-info">عرض الاقسام الفرعية الخاصة بهذا القسم</a>
                             @endcan
                         </td>
-                        
+
                     </tr>
                 @endforeach
 

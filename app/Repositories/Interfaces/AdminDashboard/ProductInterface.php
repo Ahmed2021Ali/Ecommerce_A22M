@@ -11,7 +11,6 @@ interface ProductInterface {
     public function store($request);
     public function show($product);
 
-
     public function edit($product);
 
     public function update($request ,$product);

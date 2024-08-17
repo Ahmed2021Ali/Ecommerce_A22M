@@ -5,7 +5,7 @@
 @section('content_header')
     <a href="{{ route('product.index') }}" class="btn btn-info" style="direction: rtl; text-align: right;">عرض كل
         المنتجات</a>
-    <h1>تحديث المنتج</h1>
+    <h1 class="text-center" style="color:red;">تحديث المنتج</h1>
 @stop
 
 @section('content')
@@ -84,14 +84,14 @@
                 </div>
                 <div class="col-3">
                     <label for="category_id"> اسم القسم التابع لة هذا المنتج</label>
-                    <select name="category_id" id="category_id" class="form-control" required>
-                        @foreach ($categories as $category)
-                            <option {{ $category->id == $product->category_id ? 'selected' : '' }}
-                                    value="{{ $category->id }}">{{ $category->name }}
+                    <select name="sub_category_id" id="sub_category_id" class="form-control" required>
+                        @foreach ($subCategories as $subCategory)
+                            <option {{ $subCategory->id === $product->sub_category_id ? 'selected' : '' }}
+                                    value="{{ $subCategory->id }}">{{ $subCategory->name }}
                             </option>
                         @endforeach
                     </select>
-                    @error('category_id')
+                    @error('sub_category_id')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>

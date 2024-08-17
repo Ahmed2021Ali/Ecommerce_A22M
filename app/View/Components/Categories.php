@@ -16,6 +16,6 @@ class Categories extends Component
     }
     public function render(): View|Closure|string
     {
-        return view('components.categories',['categories'=>Category::paginate(8),]);
+        return view('components.categories',['categories'=>Category::paginate(8)]);
     }
 }

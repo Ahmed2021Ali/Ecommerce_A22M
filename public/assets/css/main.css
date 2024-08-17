@@ -6199,7 +6199,7 @@ h6.post-title {
   text-align: center;
   font-size: 12px;
   display: block;
-  width: 30px;
+  width: 45px;
   height: 30px;
   line-height: 35px;
   color: #1a1a1a;
@@ -8456,7 +8456,7 @@ span.fi-rs-apps {
 }
 
 /***************************
-    Page section margin 
+    Page section margin
 ****************************/
 .mtb-0 {
   margin: 0;
@@ -9905,7 +9905,7 @@ span.fi-rs-apps {
 }
 
 .search-style-1 form {
-	width: 75%;	
+	width: 75%;
 }
 .header-info-right a{
     padding-left:20px;
@@ -9942,6 +9942,6 @@ span.fi-rs-apps {
 {
 	.mob-app{
 		padding-left:3%;
-	}  
+	}
 }
 

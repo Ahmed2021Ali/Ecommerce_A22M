@@ -16,7 +16,7 @@
                         <div class="col-lg-7 col-md-6">
                             <div class="single-slider-img single-slider-img-1">
                                 @foreach($slider->getMedia('sliderFiles') as $media)
-                                    <img class="mySlides" src="{{ $media->getFullUrl() }}" width="700" height="450">
+                                    <img class="mySlides" src="{{ $media->getFullUrl() }}" width="550" height="350">
                                 @endforeach
                             </div>
                         </div>

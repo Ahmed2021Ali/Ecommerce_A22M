@@ -5,6 +5,7 @@ namespace App\Http\Controllers\UserDashboard;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\SubCategory;
 use App\Repositories\Interfaces\UserDashboard\ProductInterface;
 
 class ProductController extends Controller
@@ -17,7 +18,6 @@ class ProductController extends Controller
         $this->product = $product;
     }
 
-
     public function index()
     {
         return $this->product->index();
@@ -28,9 +28,13 @@ class ProductController extends Controller
         return $this->product->show(Product::findOrFail(decrypt($id)));
     }
 
-    public function productsOfCategory($categoryId)
+    public function productsOfSubCategory($subCategory_id)
     {
-        return $this->product->productsOfCategory(Category::findOrFail(decrypt($categoryId)));
+        return $this->product->productsOfSubCategory(SubCategory::findOrFail(decrypt($subCategory_id)));
+    }
+    public function productsOfCategory($category_id)
+    {
+        return $this->product->productsOfCategory(Category::findOrFail(decrypt($category_id)));
     }
 
 

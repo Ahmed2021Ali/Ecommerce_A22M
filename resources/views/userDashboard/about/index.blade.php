@@ -1,27 +1,26 @@
 @extends('userDashboard.layouts.master')
+
 @section('title')
     تعرف علينا
 @endsection
-@section('css')
-@endsection
+
 @section('pageHeader')
     تعرف علينا
 @endsection
+
 @section('content')
     <main class="main single-page" style="direction: rtl; text-align: right;">
+
         <section class="section-padding">
             <div class="container pt-25">
                 <div class="row">
                     <div class="col-lg-6 align-self-center mb-lg-0 mb-4">
                         <h6 class="mt-0 mb-15 text-uppercase font-sm text-brand wow fadeIn animated">حول شركتنا </h6>
-                        <h1 class="font-heading mb-40">
-                            كل ما تحبه في مكان واحد !
-                        </h1>
+                        <h1 class="font-heading mb-40">كل ما تحبه في مكان واحد !</h1>
                         <p>نقدم مجموعة متنوعة من المنتجات لتلبية جميع احتياجاتك،من الملابس والساعات والإكسسوارات.</p>
                         <p> أسعارًا تنافسية على جميع منتجاتنا، ونضمن لك أفضل قيمة مقابل أموالك. </p>
                         <p> نلتزم بتقديم منتجات عالية الجودة تلبي جميع معايير السلامة والجودة. </p>
                         <p> خدمة عملاء ممتازة قبل وبعد البيع، ونحن دائمًا على استعداد لمساعدتك في أي وقت. </p>
-
                     </div>
                     <div class="col-lg-6">
                         <img src="{{URL::asset('assets/about.png')}}" alt="">
@@ -34,10 +33,8 @@
             <div class="container pt-25">
                 <div class="row mb-50">
                     <div class="col-lg-12 col-md-12 text-center">
-                        <h4 class="mt-0 mb-10 text-uppercase  text-brand font-sm wow fadeIn animated"> بعض الحقائق حول
-                            موقعنا </h4>
-                        <h3 class="mb-15 text-grey-1 wow fadeIn animated">انظر ماذا <br> يقول عملاءنا حولنا منتجاتنا
-                        </h3>
+                        <h4 class="mt-0 mb-10 text-uppercase  text-brand font-sm wow fadeIn animated"> بعض الحقائق حول موقعنا </h4>
+                        <h3 class="mb-15 text-grey-1 wow fadeIn animated">انظر ماذا <br> يقول عملاءنا حولنا منتجاتنا</h3>
                     </div>
                 </div>
                 <div class="row align-items-center">
@@ -78,9 +75,9 @@
             </div>
         </section>
 
-
         @if(!$brands->isEmpty())
             @include('userDashboard.brands.index')
-        @endif</main>
+        @endif
 
+    </main>
 @endsection

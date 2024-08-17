@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Color;
 use App\Models\Product;
 use App\Models\Size;
+use App\Models\SubCategory;
 use App\Repositories\Interfaces\AdminDashboard\ProductInterface;
 use Illuminate\Support\Arr;
 
@@ -16,12 +17,12 @@ class ProductRepository implements ProductInterface
     public function index()
     {
         return view('adminDashboard.products.index', [
-            'products' => Product::latest()->paginate(10)]);
+            'products' => Product::select('id','name','color','size','price','status','quantity','sub_category_id')->latest()->paginate(10)]);
     }
 
     public function create()
     {
-        return view('adminDashboard.products.create', ['categories' => Category::all(),
+        return view('adminDashboard.products.create', ['subCategories' => SubCategory::select('id','name')->get(),
             'colors' => Color::select('name', 'value')->get(),'sizes' =>Size::select('name')->get()]);
     }
 
@@ -38,7 +39,7 @@ class ProductRepository implements ProductInterface
 
     public function edit($product)
     {
-        return view('adminDashboard.products.edit', ['categories' => Category::select('id','name')->get(), 'product' => $product,
+        return view('adminDashboard.products.edit', ['subCategories' => SubCategory::select('id','name')->get(), 'product' => $product,
             'colors' => Color::select('name', 'value')->get(),'sizes' =>Size::select('name')->get()]);
     }
 

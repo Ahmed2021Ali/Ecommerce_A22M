@@ -16,7 +16,6 @@ class SizeController extends Controller
         $this->middleware('permission:اضافة مقاسات', ['only' => ['cretae' , 'store']]);
         $this->middleware('permission:تعديل مقاسات', ['only' => ['edit' , 'update']]);
         $this->middleware('permission:حذف مقاسات', ['only' => ['destroy']]);
-
         $this->size = $size;
     }
     public function index()

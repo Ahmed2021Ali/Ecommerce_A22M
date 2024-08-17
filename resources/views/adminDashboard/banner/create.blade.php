@@ -52,7 +52,7 @@
         <label for="product_name" class="col-md-4 col-form-label text-md-end">{{ __('اختر المنتج') }}</label>
         <div class="col-md-6">
             <select id="product_id" class="form-control @error('product_id') is-invalid @enderror" name="product_id" required>
-                <option value="" disabled selected>أختر المنتج</option>
+                <option style="display: none">أختر المنتج</option>
                 @foreach($products as $product)
                     <option value="{{ $product->id }}">{{ $product->name }}</option>
                 @endforeach
@@ -64,7 +64,6 @@
             @enderror
         </div>
     </div>
-
 
     <div class="row mb-0">
         <div class="col-md-12 offset-md-4" style="text-align:center">

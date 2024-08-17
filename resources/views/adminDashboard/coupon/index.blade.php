@@ -44,7 +44,7 @@
                                 <x-adminlte-button label="تعديل" data-toggle="modal"
                                     data-target="#edit_{{$coupon->id}}" class="bg-teal"/>
                             @endcan
-                        
+
                             {{-- Delete Button --}}
                             @can('حذف كوبون')
                                 <x-adminlte-modal id="delete_{{ $coupon->id }}" title="حذف" theme="purple"

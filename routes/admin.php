@@ -10,19 +10,24 @@ use App\Http\Controllers\AdminDashboard\CouponController;
 use App\Http\Controllers\AdminDashboard\DashboardController;
 use App\Http\Controllers\AdminDashboard\OrderController;
 use App\Http\Controllers\AdminDashboard\ProductController;
-use App\Http\Controllers\AdminDashboard\ServiceController;
-use App\Http\Controllers\AdminDashboard\SliderController;
-use App\Http\Controllers\AdminDashboard\SizeController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminDashboard\RoleController;
+use App\Http\Controllers\AdminDashboard\ServiceController;
+use App\Http\Controllers\AdminDashboard\SizeController;
+use App\Http\Controllers\AdminDashboard\SliderController;
+use App\Http\Controllers\AdminDashboard\SubCategoryController;
 use App\Http\Controllers\AdminDashboard\UserController;
+use Illuminate\Support\Facades\Route;
 
+/*Route::get('/clear-cache', function() {
+     Artisan::call('db:seed');
+    // dd("done") ;
+});*/
 
 Route::middleware(['throttle:45,1','checkAdminRole'])->group(function () {
-
     Route::get('admin-dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
-
     Route::resource('category', CategoryController::class);
+
+    Route::resource('sub-category', SubCategoryController::class);
 
     Route::resource('size', SizeController::class);
 

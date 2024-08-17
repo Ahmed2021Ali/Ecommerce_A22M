@@ -4,7 +4,6 @@ namespace App\Repositories\AdminDashboard;
 
 use App\Models\Brand;
 use App\Repositories\Interfaces\AdminDashboard\BrandInterface;
-use Illuminate\Support\Arr;
 
 
 class BrandRepository implements BrandInterface
@@ -17,7 +16,7 @@ class BrandRepository implements BrandInterface
 
     public function store($request)
     {
-        $brand = Brand::create([...Arr::except($request, 'files')]);
+        $brand = Brand::create(['status'=>$request['status']]);
         uploadFiles($request['files'], $brand, 'brandFiles');
         return redirect()->back()->with(['success' => 'تم بنجاح اضافة البرند']);
     }
@@ -25,7 +24,7 @@ class BrandRepository implements BrandInterface
 
     public function update($request, $brand)
     {
-        $brand->update([...Arr::except($request, 'files')]);
+        $brand->update(['status'=>$request['status']]);
         if (isset($request['files'])) {
             updateFiles($request['files'], $brand, 'brandFiles');
         }

@@ -4,10 +4,10 @@
         <h5>الأقسام</h5>
         <hr>
         <ul class="categories">
-            @foreach($categories as $category)
+            @foreach($subCategories as $subCategory)
                 <li>
-                    <a href="{{ route('category.products', encrypt($category->id)) }}">
-                        {{ $category->name }}
+                    <a href="{{ route('subCategory.products', encrypt($subCategory->id)) }}">
+                        {{ $subCategory->name }}
                     </a>
                 </li>
             @endforeach
@@ -72,7 +72,7 @@
                             src="{{$newProduct->getFirstMediaUrl('productFiles')}}" alt="product image"></a></div>
                 <div class="content pt-10">
                     <h5><a href="{{route('products.show', encrypt($newProduct->id))}}">{{ Str::limit($newProduct->name, 20) }}</a></h5>
-                    <p class="price mb-0 mt-5">{{$newProduct->price}} ج </p>
+                    <p class="price mb-0 mt-5"> {{ $newProduct->price_after_offer ?? $newProduct->price }} جينية </p>
                     @include('userDashboard.products.review.ratingProduct2',['rate'=>calcReview($newProduct)])
                 </div>
             </div>

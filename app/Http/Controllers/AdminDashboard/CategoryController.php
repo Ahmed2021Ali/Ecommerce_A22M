@@ -13,12 +13,11 @@ class CategoryController extends Controller
     protected $category;
     public function __construct(CategoryInterface $category)
     {
-        $this->middleware(['checkAdminRole'] );
         $this->middleware('permission:الأقسام',  ['only' => ['index']]);
-        $this->middleware('permission:اضافة قسم', ['only' => ['cretae' , 'store']]);
+        $this->middleware('permission:اضافة قسم', ['only' => ['create' , 'store']]);
         $this->middleware('permission:تعديل قسم', ['only' => ['edit' , 'update']]);
         $this->middleware('permission:حذف قسم', ['only' => ['destroy']]);
-        $this->middleware('permission:عرض المنتجات الخاصة بالقسم', ['only' => ['show']]);
+        $this->middleware('permission:عرض الاقسام الفرعية الخاصة بهذا القسم', ['only' => ['show']]);
 
         $this->category = $category;
     }

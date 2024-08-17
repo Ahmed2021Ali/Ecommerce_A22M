@@ -11,6 +11,7 @@ use App\Repositories\AdminDashboard\CouponRepository;
 use App\Repositories\AdminDashboard\ServiceRepository;
 use App\Repositories\AdminDashboard\SizeRepository;
 use App\Repositories\AdminDashboard\SliderRepository;
+use App\Repositories\AdminDashboard\SubCategoryRepository;
 use App\Repositories\Interfaces\AdminDashboard\BannerInterface;
 use App\Repositories\Interfaces\AdminDashboard\BrandInterface;
 use App\Repositories\Interfaces\AdminDashboard\CategoryInterface;
@@ -25,6 +26,7 @@ use App\Repositories\Interfaces\AdminDashboard\RoleInterface;
 use App\Repositories\Interfaces\AdminDashboard\ServiceInterface;
 use App\Repositories\Interfaces\AdminDashboard\SizeInterface;
 use App\Repositories\Interfaces\AdminDashboard\SliderInterface;
+use App\Repositories\Interfaces\AdminDashboard\SubCategoryInterface;
 use App\Repositories\Interfaces\AdminDashboard\UserInterface;
 use App\Repositories\Interfaces\UserDashboard\CartInterface;
 use App\Repositories\Interfaces\UserDashboard\FavInterface;
@@ -144,6 +146,10 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(
             SizeInterface::class,
             SizeRepository::class,
+        );
+        $this->app->bind(
+            SubCategoryInterface::class,
+            SubCategoryRepository::class,
         );
     }
 

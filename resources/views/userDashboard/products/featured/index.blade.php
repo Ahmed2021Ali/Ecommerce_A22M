@@ -5,17 +5,9 @@
                 <div class="product-cart-wrap mb-30">
                     <div class="product-img-action-wrap">
                         <div class="product-img product-img-zoom">
-                            <div class="d-none d-lg-block">
                                 <a href="{{route('products.show', encrypt($featuredProduct->id))}}">
-                                    <img src="{{$featuredProduct->getFirstMediaUrl('productFiles')}}" width="400" height="300" alt="{{$featuredProduct->name}}">
+                                    <img src="{{$featuredProduct->getFirstMediaUrl('productFiles')}}"  alt="{{$featuredProduct->name}}">
                                 </a>
-                            </div>
-                            <div class="d-block d-lg-none">
-                                <a href="{{route('products.show', encrypt($featuredProduct->id))}}">
-                                    <img src="{{$featuredProduct->getFirstMediaUrl('productFiles')}}" width="400" height="170" alt="{{$featuredProduct->name}}">
-                                </a>
-                            </div>
-
                         </div>
                         <div class="product-action-1">
                             <a href="{{ $featuredProduct->getFirstMediaUrl('productFiles') }}" aria-label="عرض"
@@ -36,17 +28,17 @@
                             @endif
                         </span>
                         <div class="product-price" style="text-align: center;">
-                            <span>  {{ $featuredProduct->price_after_offer ?? $featuredProduct->price }}</span>
+                            <span>  {{ $featuredProduct->price_after_offer ?? $featuredProduct->price }} جينية  </span>
+                            <br>
                             @if($featuredProduct->offer)
-                                <span class="old-price"> ج {{ $featuredProduct->price }}</span>
+                                <span class="old-price"> {{ $featuredProduct->price }} جينية</span>
                             @endif
                         </div>
                         <br>
-                        <div class="product-action-1 show">
-                            <a aria-label="تسوق الآن" class="action-btn hover-up"
-                               href="{{route('products.show', encrypt($featuredProduct->id))}}">
-                                <i class="fi-rs-shopping-bag-add"></i>
-                            </a>
+                        <div class="d-none d-lg-block">
+                            <div class="product-action-1 show">
+                                <a aria-label="تسوق الآن" class="action-btn hover-up" href="{{route('products.show', encrypt($featuredProduct->id))}}"><i class="fi-rs-shopping-bag-add"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>

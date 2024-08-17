@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
         'تعديل قسم',
         'حذف قسم',
         'عرض صورة القسم',
-        'عرض المنتجات الخاصة بالقسم',
+        'عرض الاقسام الفرعية الخاصة بهذا القسم',
 
 
         'المنتجات',
@@ -108,6 +108,12 @@ class DatabaseSeeder extends Seeder
         'تعديل محافظة',
         'حذف محافظة',
 
+        'الأقسام الفرعية',
+        'اضافة قسم فرعي',
+        'تعديل قسم فرعي',
+        'حذف قسم فرعي',
+        'عرض المنتجات الخاصة بالقسم'
+
     ];
 
 
@@ -119,9 +125,9 @@ class DatabaseSeeder extends Seeder
 
         // Create owner User and assign the role to him.
         $user = User::create([
-            'name' => 'Ali Rabee hamdi',
-            'email' => 'AAAA@gmail.com',
-            'password' => Hash::make('Ali01141710012@@')
+            'name' => 'Ali Rabee',
+            'email' => 'aa1458045@gmail.com',
+            'password' => Hash::make('Aali01141710012')
         ]);
 
         $role = Role::create(['name' => 'المدير']);

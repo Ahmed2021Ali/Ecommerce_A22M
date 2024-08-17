@@ -41,10 +41,10 @@
                         </p>
                         <p>
                             <i class="fas fa-phone float-right"></i>
-                            <strong>رقم الهاتف: </strong><a href="tel:+201063462072">01004297302 2+</a>
+                            <strong>رقم الهاتف: </strong><a href="tel:201063462072">01004297302 20+</a>
                             <br>
                             <i class="fab fa-whatsapp-square"></i>
-                            <strong>رقم الواتساب : </strong><a href="tel:+201063462072">01063462072 2+</a>
+                            <strong>رقم الواتساب : </strong><a href="https://wa.me/201063462072">01063462072 20+</a>
                         </p>
                         <p>
                             <i class="fas fa-envelope float-right"></i>
@@ -66,7 +66,7 @@
                     <ul class="footer-list text-right">
                         <li><a href="{{route('about')}}"><i class="fas fa-info-circle"></i> حولنا</a></li>
                         <li><a href="{{route('privacyPolicy')}}"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
-                        <li><a href="tel:+201004297302"> <i class="fas fa-phone"></i> اتصل بنا</a></li>
+                        <li><a href="tel:01004297302"> <i class="fas fa-phone"></i> اتصل بنا</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2 col-md-3">
@@ -92,11 +92,10 @@
                 </p>
             </div>
             <div class="col-lg-6">
-{{--                <p class="text-lg-end text-start font-sm text-muted mb-0">
-                    <strong class="text-brand"><a target="_blank" href="https://www.facebook.com/Eng.AhmedMaghraby"> Ahmed Maghraby </a> & <a target="_blank" href="https://www.facebook.com/ahmed.abdellatif.mohammed/" >Ahmed Abd Ellatif</a> </strong> جميع الحقوق محفوظة لدي  <i class="fas fa-copyright"></i> <?php echo date("Y"); ?>
-                </p>--}}
+                <p class="text-lg-end text-start font-sm text-muted mb-0">
+                    <strong class="text-brand"><a target="_blank" href="https://www.facebook.com/Eng.AhmedMaghraby"> Ahmed Maghraby </a> & <a target="_blank" href="https://www.facebook.com/ahmed.abdellatif.mohammed/" >Ahmed Abd Ellatif</a> </strong> جميع الحقوق محفوظة لدي  <i class="fas fa-copyright"></i>  2024
+                </p>
             </div>
         </div>
     </div>
-
 </footer>

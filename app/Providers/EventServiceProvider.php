@@ -44,6 +44,13 @@ class EventServiceProvider extends ServiceProvider
                     'route' => 'category.index',
                 ]);
             }
+            if ($user->can('الأقسام الفرعية')) {
+                $event->menu->add([
+                    'text' => 'الأقسام الفرعية',
+                    'icon' => 'fas fa-list',
+                    'route' => 'sub-category.index',
+                ]);
+            }
 
             if ($user->can('المنتجات')) {
                 $event->menu->add([

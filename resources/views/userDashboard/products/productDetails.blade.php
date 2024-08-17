@@ -89,7 +89,7 @@
                                         <div class="product-image-slider">
                                             @foreach ($product->getMedia('productFiles') as $media)
                                                 <figure class="border-radius-10">
-                                                    <img src="{{ $media->getFullUrl() }}" alt="product image">
+                                                    <img src="{{ $media->getFullUrl() }}" width="500px" alt="product image">
                                                 </figure>
                                             @endforeach
                                         </div>
@@ -126,8 +126,8 @@
                                         </div>
                                         <div class="clearfix product-price-cover">
                                             <div class="product-price primary-color float-left">
-                                                <ins><span class="text-brand">{{ $product->price_after_offer }}</span></ins>
-                                                <ins><span class="old-price font-md ml-15">{{ $product->price }}</span></ins>
+                                                <ins><span class="text-brand">{{ $product->price_after_offer }} جينية </span></ins>
+                                                <ins><span class="old-price font-md ml-15">{{ $product->price }} جينية </span></ins>
                                                 @if ($product->offer)
                                                     <span class="save-price  font-md color3 ml-15">تخفيض%{{ $product->offer }}</span>
                                                 @endif
@@ -152,7 +152,7 @@
                                                             <li><a href="#"><span class="product-color-teal" style="width: 30px; height: 30px; border-radius: 50%; cursor: pointer; display: flex; margin-right: 6px;"></span></a></li>
                                                             <div class="colors">
                                                                 @foreach (explode(',', $product->color) as $color)
-                                                                    <span style="width: 30px; height: 30px; border-radius: 50%; cursor: pointer; display: inline-block; margin-right: 6px; background-color:{{ $color }}"><li style="display: inline-block;"><input type="checkbox" name="color" value="{{ $color }}" required></li></span>
+                                                                    <span style="width: 30px; height: 30px; border-radius: 50%; cursor: pointer; display: inline-block; margin-right: 6px; background-color:{{ $color }}"><li style="display: inline-block;"><input type="checkbox" name="color" value="{{ $color }}"></li></span>
                                                                 @endforeach
                                                             </div>
                                                         </ul>
@@ -211,17 +211,12 @@
                                 <div class="col-12">
                                     <br>
                                     <div class="row related-products">
-                                        @foreach ($product->category->products() as $relatedProduct)
-                                            <div class="col-lg-3 col-md-4 col-6 col-sm-6">
+                                        @foreach ($product->subCategory->products() as $relatedProduct)
+                                            <div class="col-lg-3 col-md-4 col-12 col-sm-6">
                                                 <div class="product-cart-wrap small hover-up">
                                                     <div class="product-img-action-wrap">
                                                         <div class="product-img product-img-zoom">
-                                                            <div class="d-none d-lg-block">
-                                                            <a href="{{ route('products.show', encrypt($relatedProduct->id)) }}" tabindex="0"><img class="default-img" src="{{ $relatedProduct->getFirstMediaUrl('productFiles') }}" alt="{{ $relatedProduct->name }}" width="400px" height="300px"></a>
-                                                            </div>
-                                                            <div class="d-block d-lg-block">
-                                                                <a href="{{ route('products.show', encrypt($relatedProduct->id)) }}" tabindex="0"><img class="default-img" src="{{ $relatedProduct->getFirstMediaUrl('productFiles') }}" alt="{{ $relatedProduct->name }}" width="400px" height="170px"></a>
-                                                            </div>
+                                                            <a href="{{ route('products.show', encrypt($relatedProduct->id)) }}" tabindex="0"><img class="default-img" src="{{ $relatedProduct->getFirstMediaUrl('productFiles') }}" height="250" width="440" alt="{{ $relatedProduct->name }}"></a>
                                                         </div>
                                                         <div class="product-action-1">
                                                             <a href="{{ $relatedProduct->getFirstMediaUrl('productFiles') }}" aria-label="عرض" class="action-btn small hover-up" data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
@@ -236,9 +231,9 @@
                                                         @endif
 
                                                         <div class="product-price"><span>
-                                                                {{ $relatedProduct->price_after_offer ?? $relatedProduct->price }}</span>
+                                                                {{ $relatedProduct->price_after_offer ?? $relatedProduct->price }} جينية</span>
                                                             @if ($relatedProduct->offer)
-                                                                <span class="old-price"> ج{{ $relatedProduct->price }}</span>
+                                                                <span class="old-price"> {{ $relatedProduct->price }} جينية </span>
                                                             @endif
                                                         </div>
                                                     </div>
@@ -249,7 +244,7 @@
                                     </div>
                                     <br>
                                 </div>
-                                {{ $product->category->products() }}
+                                {{ $product->subCategory->products() }}
                             </div>
                             <br>
                         </div>

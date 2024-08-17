@@ -4,7 +4,7 @@
             @foreach ($banners as $banner)
                 <div class="col-lg-4 col-md-6">
                     <div class="banner-img wow fadeIn animated" style="direction: rtl; text-align: center;">
-                        <img src="{{$banner->product->getFirstMediaUrl('productFiles')}}" width="400" height="260" alt="{{ $banner['main_title'] }}">
+                        <img src="{{$banner->product->getFirstMediaUrl('productFiles')}}"  alt="{{ $banner['main_title'] }}">
                         <div class="banner-text" style="text-align: center; padding: 10px; border-radius: 8px; color: #fff; margin-top: 18px; ">
                             <div class="banner-titles" style="background-color: #F15412; padding: 2px; border-radius: 6px; margin-bottom: 6px;">
                                 <span class="main-title" style="font-size: 16px; color: #fff; font-weight: bold;">{{ $banner->main_title }}</span>

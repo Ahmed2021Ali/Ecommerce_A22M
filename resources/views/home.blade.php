@@ -64,7 +64,7 @@
     </section>
 
     {{-- Categories --}}
-    @if(!$categories->isEmpty())
+    @if(!$subCategories->isEmpty())
         <section class="popular-categories section-padding mt-15 mb-25" style="text-align: right;">
             <div class="container wow fadeIn animated">
                 <h3 class="section-title mb-20" style="text-align:center;"><span>الأقسام</span></h3>
@@ -72,15 +72,15 @@
                     <div class="slider-arrow slider-arrow-2 carausel-6-columns-arrow"
                          id="carausel-6-columns-arrows"></div>
                     <div class="carausel-6-columns" id="carausel-6-columns">
-                        @foreach($categories as $category)
+                        @foreach($subCategories as $subCategory)
                             <div class="card-1">
                                 <figure class="img-hover-scale overflow-hidden">
-                                    <a href="{{ route('category.products', encrypt($category->id)) }}">
-                                        <img src="{{ $category->getFirstMediaUrl('categoryFiles') }}" alt="{{ $category->name }}" style="width: 100%; height: 150px; object-fit: cover;">
+                                    <a href="{{ route('subCategory.products', encrypt($subCategory->id)) }}">
+                                        <img src="{{ $subCategory->getFirstMediaUrl('subCategoryFiles') }}" alt="{{ $subCategory->name }}" style="width: 100%; height: 150px; object-fit: cover;">
                                     </a>
                                 </figure>
                                 <h5>
-                                    <a href="{{ route('category.products', encrypt($category->id)) }}">{{ Str::limit($category->name, 25) }}</a>
+                                    <a href="{{ route('products.show', encrypt($subCategory->id)) }}">{{ $subCategory->name }}</a>
                                 </h5>
                             </div>
                         @endforeach
@@ -104,9 +104,6 @@
     @if(!$brands->isEmpty())
         @include('userDashboard.brands.index')
     @endif
-
 @endsection
 
-@section('js')
 
-@endsection

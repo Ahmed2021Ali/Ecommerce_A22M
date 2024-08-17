@@ -9,9 +9,9 @@ class CheckAdminRole
 {
     public function handle($request, Closure $next)
     {
-        
+
         if (Auth::check()) {
-            if (Auth::user()->hasRole(['المدير', 'ادمن'])) {
+            if (!Auth::user()->hasRole(['User', 'user'])) {
                 return $next($request);
             }
         }

@@ -5,20 +5,11 @@
                 <div class="product-cart-wrap mb-30">
                     <div class="product-img-action-wrap">
                         <div class="product-img product-img-zoom">
-                            <div class="d-none d-lg-block">
                                 <a href="{{route('products.show', encrypt($newProduct->id))}}">
-                                    <img src="{{$newProduct->getFirstMediaUrl('productFiles')}}" width="400"
-                                         height="300" style="direction: rtl; text-align: right;"
+                                    <img src="{{$newProduct->getFirstMediaUrl('productFiles')}}"
                                          alt="{{$newProduct->name}}">
                                 </a>
-                            </div>
-                            <div class="d-block d-lg-block">
-                                <a href="{{route('products.show', encrypt($newProduct->id))}}">
-                                    <img src="{{$newProduct->getFirstMediaUrl('productFiles')}}" width="400"
-                                         height="170" style="direction: rtl; text-align: right;"
-                                         alt="{{$newProduct->name}}">
-                                </a>
-                            </div>
+
                         </div>
                         <div class="product-action-1">
                             <a href="{{ $newProduct->getFirstMediaUrl('productFiles') }}" aria-label="عرض"
@@ -38,12 +29,14 @@
                             @endif
                         </span>
                         <div class="product-price">
-                            <span>  {{ $newProduct->price_after_offer ?? $newProduct->price }}</span>
-                            @if($newProduct->offer)
-                                <span class="old-price"> ج {{ $newProduct->price }}</span>
+                            <span>  {{ $newProduct->price_after_offer ?? $newProduct->price }} جينية</span>
+                            <br>
+
+                        @if($newProduct->offer)
+                                <span class="old-price">  {{ $newProduct->price }} جينية </span>
                             @endif
                         </div>
-                        <div class="product-action-1 show">
+                        <div class="product-action-1 show d-none d-lg-block">
                             <a aria-label="تسوق الآن" class="action-btn hover-up"
                                href="{{route('products.show', encrypt($newProduct->id))}}">
                                 <i class="fi-rs-shopping-bag-add"></i>

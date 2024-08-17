@@ -32,7 +32,7 @@ class OrderForm extends Form
                 'number_of_product' => Auth::user()->carts()->count(), 'coupon_value' => $discount->value ?? null,
                 'total' => calcTotalPriceOrder($subTotal, $deliveryPrice, $discount->value ?? null)
             ]);
-            foreach (Auth::user()->carts() as $cart) {
+            foreach (Auth::user()->BuyProducts as $cart) {
                 Order::create([
                     'detailsOrder_id' => $order->id, 'product_id' => $cart->product_id,
                     'quantity' => $cart->quantity, 'color' => isset($cart->color) ? Color::where('value', $cart->color)->first()->name : null,

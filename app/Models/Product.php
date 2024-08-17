@@ -13,7 +13,7 @@ class Product extends Model implements HasMedia
     use HasFactory, InteractsWithMedia;
 
     protected $fillable = [
-        'category_id', 'id', 'price', 'name',
+        'sub_category_id', 'id', 'price', 'name',
         'description', 'offer', 'status', 'quantity',
         'price_after_offer', 'stock', 'color', 'size'
     ];
@@ -22,9 +22,9 @@ class Product extends Model implements HasMedia
         'size' => 'array',
     ];
 
-    public function category()
+    public function subCategory()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(SubCategory::class);
     }
 
     public function reviews()
@@ -35,8 +35,4 @@ class Product extends Model implements HasMedia
     {
         $this->addMediaCollection('productsFiles');
     }
-/*    public function registerMediaConversions(Media $media = null): void
-    {
-        $this->addMediaConversion('preview')->width(100);
-    }*/
 }

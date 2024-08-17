@@ -20,21 +20,21 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('throttle:60,1')->group(function () {
 
     Route::get('/', [HomepageController::class, 'index'])->name('home');
+    Route::get('/about', [AboutController::class, 'index'])->name('about');
+    Route::view('/privacy-policy', 'userDashboard.privacyPolicy.index')->name('privacyPolicy');
 
-    Route::get('/about',[AboutController::class,'index'])->name('about');
-
-    Route::view('/privacy-policy',  'userDashboard.privacyPolicy.index')->name('privacyPolicy');
-
+    /*  Route Product */
     Route::resource('products', ProductController::class);
-
-    Route::get('/category/products/{category_id}', [ProductController::class, 'productsOfCategory'])->name('category.products');// Enhanced
+    Route::get('/subCategory/products/{subCategory_id}', [ProductController::class, 'productsOfSubCategory'])->name('subCategory.products');
+    Route::get('/category/products/{category_id}', [ProductController::class, 'productsOfCategory'])->name('category.products');
 
     Route::controller(SearchController::class)->as('search')->group(function () {
         Route::get('/filter', 'filter')->name('.filter');
         Route::get('/search', 'search');
     });
+
     Route::middleware('auth')->group(function () {
-        Route::post('/subscribe/email',[SubScribeEmailConrtoller::class,'SubscribeEmail'])->name('subscribe.email');
+        Route::post('/subscribe/email', [SubScribeEmailConrtoller::class, 'SubscribeEmail'])->name('subscribe.email');
         Route::controller(ContactUsController::class)->prefix('contact-us')->as('contact-us.')->group(function () {
             Route::get('/index', 'index')->name('index');
             Route::post('/store', 'store')->name('store');

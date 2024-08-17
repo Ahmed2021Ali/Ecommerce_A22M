@@ -19,7 +19,7 @@ class Order extends Component
 
     public function store()
     {
-        $this->validate(['deliveryPrice' => 'required|numeric', 'subTotal' => 'required|numeric', 'discount' => 'nullable|numeric']);
+        $this->validate(['deliveryPrice' => 'required', 'subTotal' => 'required', 'discount' => 'nullable']);
         $this->form->storeOrder($this->deliveryPrice, $this->subTotal, $this->discount);
     }
 

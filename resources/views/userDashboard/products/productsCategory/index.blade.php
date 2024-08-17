@@ -39,9 +39,11 @@
                             @include('userDashboard.products.review.ratingProduct2',['rate'=>calcReview($lastCategoryProduct)])
 
                             <div class="product-price">
-                                <span> ج {{ $lastCategoryProduct->price_after_offer ?? $lastCategoryProduct->price }}</span>
-                                @if($lastCategoryProduct->offer)
-                                    <span class="old-price"> ج {{ $lastCategoryProduct->price }}</span>
+                                <span> ج {{ $lastCategoryProduct->price_after_offer ?? $lastCategoryProduct->price }} جينية </span>
+                                <br>
+
+                            @if($lastCategoryProduct->offer)
+                                    <span class="old-price">  {{ $lastCategoryProduct->price }} جينية</span>
                                 @endif
                             </div>
                         </div>

@@ -13,7 +13,6 @@ use App\Models\User;
 class DashboardController extends Controller
 {
 
-
     public function index()
     {
         return view('adminDashboard.dashboard',[

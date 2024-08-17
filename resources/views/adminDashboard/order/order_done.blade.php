@@ -78,7 +78,3 @@
     </div>
 @stop
 
-@section('js')
-    @include('adminDashboard.DataTables.index')
-
-@stop
