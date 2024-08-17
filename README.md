@@ -21,6 +21,32 @@ The project is live and can be accessed at: [ Ecommerce ](https://a22m.alsafwa1.
 
 - **Multi-Authentication:** Implement robust multi-authentication for both administrators and customers, ensuring secure access control.
 
+- ## Installation
+
+To run this project locally, follow these steps:
+
+1. **Navigate to the backend project directory**:
+   ```bash
+   cd Ecommerce_A22M/backend
+   ```
+2. **Install dependencies**:
+   ```bash
+   composer install
+3. **Set up environment variables**:
+   ```Copy the .env.example file to .env and configure your database and other settings.```
+4. **Generate application key:**:
+   ```bash
+   php artisan key:generate
+5. **Run database migrations**:
+   ```bash
+   php artisan migrate
+5. **Start the Laravel server:**:
+   ```bash
+   php artisan serve
+   ```
+
+The backend will be available at http://localhost:8000.
+
 - **Admin Panel:** Effortlessly manage your online store with a dedicated admin panel. Add, edit, or remove products, review orders, and more.
 
 - **Customer Panel:** Provide a personalized experience for customers with access to their order history, and wishlist functionality.
