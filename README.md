@@ -45,7 +45,5 @@ Our E-commerce application is built using the following technologies:
 - **HTML**
 - **CSS**
 - **JS** 
-## Getting Started
 
-1. **Clone the Repository:
 
